@@ -1,0 +1,654 @@
+{
+  "fixture_id": "rkg-fixture-vue-router",
+  "oracle_source": "tests/evaluation/fixtures/rkg-fixture-vue-router/README.md",
+  "notes": [
+    "UI routes are Endpoint kind=navigation framework_kind=vue-router",
+    "handled_by links a route to the page setup Callable",
+    "calls RKG.vue_router.navigate.v1 links a navigator Callable to that handler",
+    "match_policy.allow_unlisted_actual=false so every scored fact is listed"
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": false
+  },
+  "allowlist": [],
+  "entities": [
+    {
+      "type": "Callable",
+      "qualified_name": "src.navigation.Ambiguous.openAmbiguous",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/navigation/Ambiguous.vue",
+          "start_line": 5
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.navigation.openOrders.openOrders",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/navigation/openOrders.ts",
+          "start_line": 4
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.navigation.openOrders.openUsers",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/navigation/openOrders.ts",
+          "start_line": 9
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.router.legacy.openLegacy",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/router/legacy.ts",
+          "start_line": 13
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.views.AdminLayout.setup",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/AdminLayout.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.views.Home.setup",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/Home.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.views.Legacy.setup",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/Legacy.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.views.OrderDetail.setup",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/OrderDetail.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.views.Orders.setup",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/Orders.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.views.Users.setup",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/Users.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/admin/users",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 27
+        }
+      ],
+      "framework_kind": "vue-router",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/admin/users",
+        "route_path": "/admin/users"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/admin",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 22
+        }
+      ],
+      "framework_kind": "vue-router",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/admin",
+        "route_path": "/admin"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/legacy",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/router/legacy.ts",
+          "start_line": 4
+        }
+      ],
+      "framework_kind": "vue-router",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/legacy",
+        "route_path": "/legacy"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/orders/:orderId",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 15
+        }
+      ],
+      "framework_kind": "vue-router",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/orders/:orderId",
+        "route_path": "/orders/:orderId"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/orders",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 10
+        }
+      ],
+      "framework_kind": "vue-router",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/orders",
+        "route_path": "/orders"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 5
+        }
+      ],
+      "framework_kind": "vue-router",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/",
+        "route_path": "/"
+      }
+    },
+    {
+      "type": "ExternalDependency",
+      "qualified_name": "vue-router",
+      "rule_id": null,
+      "evidence": [],
+      "required_attributes": {
+        "kind": "npm_package"
+      }
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.navigation.Ambiguous",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/navigation/Ambiguous.vue",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.navigation.openOrders",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/navigation/openOrders.ts",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.router.index",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.router.legacy",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/router/legacy.ts",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.router.paths",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/router/paths.ts",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.views.AdminLayout",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/AdminLayout.vue",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.views.Home",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/Home.vue",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.views.Legacy",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/Legacy.vue",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.views.OrderDetail",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/OrderDetail.vue",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.views.Orders",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/Orders.vue",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.views.Users",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "src/views/Users.vue",
+          "start_line": null
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "type": "calls",
+      "source": "src.navigation.openOrders.openOrders",
+      "target": "src.views.Orders.setup",
+      "rule_id": "RKG.vue_router.navigate.v1",
+      "evidence": [
+        {
+          "file_path": "src/navigation/openOrders.ts",
+          "start_line": 6
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "src.navigation.openOrders.openUsers",
+      "target": "src.views.Users.setup",
+      "rule_id": "RKG.vue_router.navigate.v1",
+      "evidence": [
+        {
+          "file_path": "src/navigation/openOrders.ts",
+          "start_line": 11
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "src.router.legacy.openLegacy",
+      "target": "src.views.Legacy.setup",
+      "rule_id": "RKG.vue_router.navigate.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/legacy.ts",
+          "start_line": 14
+        }
+      ]
+    },
+    {
+      "type": "contains",
+      "source": "src.navigation.Ambiguous",
+      "target": "src.navigation.Ambiguous.openAmbiguous",
+      "rule_id": "RKG.vue.structure.v1",
+      "evidence": [
+        {
+          "file_path": "src/navigation/Ambiguous.vue",
+          "start_line": 5
+        }
+      ]
+    },
+    {
+      "type": "contains",
+      "source": "src.navigation.openOrders",
+      "target": "src.navigation.openOrders.openOrders",
+      "rule_id": "RKG.typescript.structure.v1",
+      "evidence": [
+        {
+          "file_path": "src/navigation/openOrders.ts",
+          "start_line": 4
+        }
+      ]
+    },
+    {
+      "type": "contains",
+      "source": "src.navigation.openOrders",
+      "target": "src.navigation.openOrders.openUsers",
+      "rule_id": "RKG.typescript.structure.v1",
+      "evidence": [
+        {
+          "file_path": "src/navigation/openOrders.ts",
+          "start_line": 9
+        }
+      ]
+    },
+    {
+      "type": "contains",
+      "source": "src.router.legacy",
+      "target": "src.router.legacy.openLegacy",
+      "rule_id": "RKG.typescript.structure.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/legacy.ts",
+          "start_line": 13
+        }
+      ]
+    },
+    {
+      "type": "contains",
+      "source": "src.views.AdminLayout",
+      "target": "src.views.AdminLayout.setup",
+      "rule_id": "RKG.vue.structure.v1",
+      "evidence": [
+        {
+          "file_path": "src/views/AdminLayout.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "contains",
+      "source": "src.views.Home",
+      "target": "src.views.Home.setup",
+      "rule_id": "RKG.vue.structure.v1",
+      "evidence": [
+        {
+          "file_path": "src/views/Home.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "contains",
+      "source": "src.views.Legacy",
+      "target": "src.views.Legacy.setup",
+      "rule_id": "RKG.vue.structure.v1",
+      "evidence": [
+        {
+          "file_path": "src/views/Legacy.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "contains",
+      "source": "src.views.OrderDetail",
+      "target": "src.views.OrderDetail.setup",
+      "rule_id": "RKG.vue.structure.v1",
+      "evidence": [
+        {
+          "file_path": "src/views/OrderDetail.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "contains",
+      "source": "src.views.Orders",
+      "target": "src.views.Orders.setup",
+      "rule_id": "RKG.vue.structure.v1",
+      "evidence": [
+        {
+          "file_path": "src/views/Orders.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "contains",
+      "source": "src.views.Users",
+      "target": "src.views.Users.setup",
+      "rule_id": "RKG.vue.structure.v1",
+      "evidence": [
+        {
+          "file_path": "src/views/Users.vue",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/admin/users",
+      "target": "src.views.Users.setup",
+      "rule_id": "RKG.vue_router.handler.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 27
+        }
+      ]
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/admin",
+      "target": "src.views.AdminLayout.setup",
+      "rule_id": "RKG.vue_router.handler.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 22
+        }
+      ]
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/legacy",
+      "target": "src.views.Legacy.setup",
+      "rule_id": "RKG.vue_router.handler.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/legacy.ts",
+          "start_line": 4
+        }
+      ]
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/orders/:orderId",
+      "target": "src.views.OrderDetail.setup",
+      "rule_id": "RKG.vue_router.handler.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 15
+        }
+      ]
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/orders",
+      "target": "src.views.Orders.setup",
+      "rule_id": "RKG.vue_router.handler.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 10
+        }
+      ]
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/",
+      "target": "src.views.Home.setup",
+      "rule_id": "RKG.vue_router.handler.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 5
+        }
+      ]
+    },
+    {
+      "type": "imports",
+      "source": "src.navigation.openOrders",
+      "target": "src.router.paths",
+      "rule_id": "RKG.typescript.import.v1",
+      "evidence": [
+        {
+          "file_path": "src/navigation/openOrders.ts",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "imports",
+      "source": "src.navigation.openOrders",
+      "target": "vue-router",
+      "rule_id": "RKG.typescript.import.v1",
+      "evidence": [
+        {
+          "file_path": "src/navigation/openOrders.ts",
+          "start_line": 1
+        }
+      ]
+    },
+    {
+      "type": "imports",
+      "source": "src.router.index",
+      "target": "src.router.paths",
+      "rule_id": "RKG.typescript.import.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 2
+        }
+      ]
+    },
+    {
+      "type": "imports",
+      "source": "src.router.index",
+      "target": "vue-router",
+      "rule_id": "RKG.typescript.import.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/index.ts",
+          "start_line": 1
+        }
+      ]
+    },
+    {
+      "type": "imports",
+      "source": "src.router.legacy",
+      "target": "vue-router",
+      "rule_id": "RKG.typescript.import.v1",
+      "evidence": [
+        {
+          "file_path": "src/router/legacy.ts",
+          "start_line": 1
+        }
+      ]
+    }
+  ],
+  "prohibited": [
+    {
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST",
+      "reason": "sentinel must not be persisted"
+    }
+  ]
+}

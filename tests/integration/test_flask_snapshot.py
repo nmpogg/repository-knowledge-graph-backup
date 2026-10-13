@@ -85,3 +85,67 @@ def test_two_flask_entrypoints_do_not_publish_until_one_is_chosen(tmp_path) -> N
         assert selected.status in {"succeeded", "succeeded_with_warnings"}
         assert selected.report["selected_application"] == "two:app"
         assert selected.report["entities_by_type"]["Endpoint"] == 1
+
+
+def test_blueprint_prefix_is_published_and_dynamic_prefix_is_not(tmp_path) -> None:
+    source = tmp_path / "source"
+    source.mkdir()
+    (source / "routes.py").write_text(
+        "from flask import Blueprint\n"
+        "bp = Blueprint('bp', __name__, url_prefix='/v1')\n"
+        "@bp.route('/items', methods=['POST'])\n"
+        "def create_item():\n"
+        "    pass\n",
+        encoding="utf-8",
+    )
+    (source / "web.py").write_text(
+        "from flask import Flask\n"
+        "from routes import bp\n"
+        "app = Flask(__name__)\n"
+        "app.register_blueprint(bp)\n",
+        encoding="utf-8",
+    )
+    with Storage(tmp_path / "graph") as storage:
+        repo = storage.create_repository(
+            display_name="fixture", source_type="local", source_locator=str(source)
+        )
+        coordinator = IndexCoordinator(storage, LocalSourcePolicy((tmp_path,)))
+        indexed = coordinator.run(repo.id)
+        assert indexed.status in {"succeeded", "succeeded_with_warnings"}
+        flask = next(
+            item
+            for item in indexed.report["technologies"]
+            if item["technology"] == "flask"
+        )
+        assert flask["support_state"] == "detected_only"
+        assert indexed.report["entities_by_type"]["Endpoint"] == 1
+        names = entity_qualified_names(storage, indexed.report["snapshot_id"])
+        assert any("POST" in name and "/v1/items" in name for name in names)
+
+    bare = tmp_path / "bare"
+    bare.mkdir()
+    (bare / "web.py").write_text(
+        "from flask import Flask, Blueprint\n"
+        "app = Flask(__name__)\n"
+        "bp = Blueprint('bp', __name__, url_prefix='/v' + '1')\n"
+        "app.register_blueprint(bp)\n"
+        "@bp.route('/items', methods=['GET'])\n"
+        "def create_item():\n"
+        "    pass\n",
+        encoding="utf-8",
+    )
+    with Storage(tmp_path / "graph-bare") as storage:
+        repo = storage.create_repository(
+            display_name="fixture", source_type="local", source_locator=str(bare)
+        )
+        coordinator = IndexCoordinator(storage, LocalSourcePolicy((tmp_path,)))
+        indexed = coordinator.run(repo.id)
+        assert indexed.status in {"succeeded", "succeeded_with_warnings"}
+        assert indexed.report["entities_by_type"].get("Endpoint", 0) == 0
+        assert "flask_blueprint_unresolved" in indexed.report["diagnostics_by_code"]
+        flask = next(
+            item
+            for item in indexed.report["technologies"]
+            if item["technology"] == "flask"
+        )
+        assert flask["support_state"] == "detected_only"

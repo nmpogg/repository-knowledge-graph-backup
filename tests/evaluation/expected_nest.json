@@ -1,0 +1,377 @@
+{
+  "fixture_id": "rkg-fixture-nest",
+  "notes": [
+    "Controller prefix, RouterModule path, and setGlobalPrefix compose only when each is a unique literal.",
+    "MessagePattern and EventPattern are MessageChannel entities with consumes edges, not HTTP Endpoints.",
+    "MessagePattern channel_kind is pattern; EventPattern channel_kind is event.",
+    "A non-literal controller prefix or route emits a diagnostic and no Endpoint."
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": false
+  },
+  "allowlist": [],
+  "prohibited": [
+    {
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST",
+      "reason": "secret sentinel persisted"
+    },
+    {
+      "entity": {
+        "type": "Endpoint",
+        "attributes": {
+          "path": "order.created"
+        }
+      },
+      "reason": "message pattern is not an HTTP endpoint"
+    },
+    {
+      "entity": {
+        "type": "Endpoint",
+        "attributes": {
+          "path": "order.shipped"
+        }
+      },
+      "reason": "event pattern is not an HTTP endpoint"
+    },
+    {
+      "entity": {
+        "type": "Endpoint",
+        "qualified_name_contains": "DynamicController"
+      },
+      "reason": "dynamic controller prefix"
+    },
+    {
+      "entity": {
+        "type": "MessageChannel",
+        "qualified_name": "audit/dyn"
+      },
+      "reason": "dynamic message pattern"
+    }
+  ],
+  "entities": [
+    {
+      "type": "Callable",
+      "qualified_name": "src.main.bootstrap"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.negative.controller.AuditController.health"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.negative.controller.AuditController.onRuntime"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.negative.controller.AuditController.search"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.negative.controller.DynamicController.list"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.orders.controller.OrdersController.create"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.orders.controller.OrdersController.findOne"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.orders.controller.OrdersController.onCreated"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.orders.controller.OrdersController.onShipped"
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "src.negative.controller.AuditController.health GET /api/audit/health",
+      "required_attributes": {
+        "path": "/api/audit/health",
+        "method": "GET"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "src.orders.controller.OrdersController.create POST /api/shop/orders",
+      "required_attributes": {
+        "path": "/api/shop/orders",
+        "method": "POST"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "src.orders.controller.OrdersController.findOne GET /api/shop/orders/:id",
+      "required_attributes": {
+        "path": "/api/shop/orders/:id",
+        "method": "GET"
+      }
+    },
+    {
+      "type": "ExternalDependency",
+      "qualified_name": "@nestjs/common",
+      "required_attributes": {
+        "kind": "npm_package"
+      }
+    },
+    {
+      "type": "ExternalDependency",
+      "qualified_name": "@nestjs/core",
+      "required_attributes": {
+        "kind": "npm_package"
+      }
+    },
+    {
+      "type": "MessageChannel",
+      "qualified_name": "order.created",
+      "required_attributes": {
+        "channel_kind": "pattern",
+        "name": "order.created",
+        "namespace": ""
+      }
+    },
+    {
+      "type": "MessageChannel",
+      "qualified_name": "order.shipped",
+      "required_attributes": {
+        "channel_kind": "event",
+        "name": "order.shipped",
+        "namespace": ""
+      }
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.app.module"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.constants"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.main"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.negative.controller"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.orders.controller"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.orders.module"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "src.app.module.AppModule"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "src.negative.controller.AuditController"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "src.negative.controller.DynamicController"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "src.orders.controller.OrdersController"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "src.orders.module.OrdersModule"
+    }
+  ],
+  "edges": [
+    {
+      "type": "consumes",
+      "source": "src.orders.controller.OrdersController.onCreated",
+      "target": "order.created",
+      "rule_id": "RKG.nest.consume.v1"
+    },
+    {
+      "type": "consumes",
+      "source": "src.orders.controller.OrdersController.onShipped",
+      "target": "order.shipped",
+      "rule_id": "RKG.nest.consume.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.app.module",
+      "target": "src.app.module.AppModule",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.main",
+      "target": "src.main.bootstrap",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative.controller.AuditController",
+      "target": "src.negative.controller.AuditController.health",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative.controller.AuditController",
+      "target": "src.negative.controller.AuditController.onRuntime",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative.controller.AuditController",
+      "target": "src.negative.controller.AuditController.search",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative.controller.DynamicController",
+      "target": "src.negative.controller.DynamicController.list",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative.controller",
+      "target": "src.negative.controller.AuditController",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative.controller",
+      "target": "src.negative.controller.DynamicController",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.orders.controller.OrdersController",
+      "target": "src.orders.controller.OrdersController.create",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.orders.controller.OrdersController",
+      "target": "src.orders.controller.OrdersController.findOne",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.orders.controller.OrdersController",
+      "target": "src.orders.controller.OrdersController.onCreated",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.orders.controller.OrdersController",
+      "target": "src.orders.controller.OrdersController.onShipped",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.orders.controller",
+      "target": "src.orders.controller.OrdersController",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.orders.module",
+      "target": "src.orders.module.OrdersModule",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "src.negative.controller.AuditController.health GET /api/audit/health",
+      "target": "src.negative.controller.AuditController.health",
+      "rule_id": "RKG.nest.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "src.orders.controller.OrdersController.create POST /api/shop/orders",
+      "target": "src.orders.controller.OrdersController.create",
+      "rule_id": "RKG.nest.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "src.orders.controller.OrdersController.findOne GET /api/shop/orders/:id",
+      "target": "src.orders.controller.OrdersController.findOne",
+      "rule_id": "RKG.nest.handler.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.app.module",
+      "target": "@nestjs/common",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.app.module",
+      "target": "@nestjs/core",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.app.module",
+      "target": "src.constants",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.app.module",
+      "target": "src.orders.module.OrdersModule",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.main",
+      "target": "@nestjs/core",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.main",
+      "target": "src.app.module.AppModule",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.main",
+      "target": "src.constants",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.negative.controller",
+      "target": "@nestjs/common",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.orders.controller",
+      "target": "@nestjs/common",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.orders.controller",
+      "target": "src.constants",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.orders.module",
+      "target": "@nestjs/common",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.orders.module",
+      "target": "src.orders.controller.OrdersController",
+      "rule_id": "RKG.typescript.import.v1"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+type: context-snapshot
+key: CTX-TASK-RKG-055
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-055
+revision: 1
+implementation_date: '2026-10-12'
+change_set: CHG-RKG-2026-022
+provenance: lifecycle-backfill-current-tree
+captured_against:
+  code_commit: c8e2eda04df2b8234ebe54c94b0d9f2b3aac5134
+  artifacts:
+  - key: TASK-RKG-055
+    path: lifecycle/tasks/TASK-RKG-055.md
+    revision: 2
+  - key: STORY-RKG-043
+    path: lifecycle/stories/STORY-RKG-043.md
+    revision: 2
+  - key: CMP-RKG-ANALYZER
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+    revision: 15
+  - key: REG-ADAPTER-001
+    path: registry/REG-ADAPTER-001.md
+    revision: 18
+  - key: CHG-RKG-2026-022
+    path: lifecycle/change-sets/CHG-RKG-2026-022/change-set.yaml
+notes:
+  - Static HTTP Callable to Endpoint. Adapter or pass already on the tree (link_static_http_depends_on).
+  - Plan and diary already existed. This context package is the missing CTX.
+  - Deep support withheld. Task stays in_progress.
+  - Pytest for this lat is not_run. See TEST-TASK-RKG-055-001.
+  - Gate of CHG-RKG-2026-022 stays pending.
+  - OQ-RKG-008 is open and blocks closing TASK-RKG-055. AC-RKG-005 then-clause is unchanged.

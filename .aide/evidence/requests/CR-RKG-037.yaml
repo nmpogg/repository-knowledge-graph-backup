@@ -1,0 +1,21 @@
+key: CR-RKG-037
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-09'
+task: TASK-RKG-055
+story: STORY-RKG-043
+change_set: CHG-RKG-2026-022
+source: lifecycle_backfill
+request_summary: >-
+  Static HTTP link already implemented by link_static_http_depends_on in src/rkg/jobs/http_depends.py. A Callable depends_on exactly one Endpoint when http_requests already contains one static method and one static path and exactly one non-navigation Endpoint has that pair. Ambiguous and dynamic pairs emit a diagnostic and no edge. Analyzed source is not executed. This is not an adapter. builtin_adapters() is unchanged. Deep support is withheld.
+authorization_boundary: >-
+  Record the static HTTP link behavior already on the tree. Do not execute
+  analyzed source. Do not promote deep-supported. Do not sign gates. A
+  repo-test copy is not the census oracle.
+record_boundary: >-
+  Backfill after the implementation files were already present. No
+  conversation transcript. This request does not create a new product behavior.
+classification: internal
+ai_assisted: true

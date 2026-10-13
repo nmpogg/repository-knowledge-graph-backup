@@ -1,0 +1,217 @@
+{
+  "fixture_id": "rkg-fixture-express",
+  "notes": [
+    "TypeScript language adapter parses .ts only; Express routes live in .ts files.",
+    "HTTP verb plus a unique path literal or imported string constant is an Endpoint.",
+    "app.use is middleware evidence only and is not an Endpoint or edge.",
+    "Inline handlers emit an Endpoint without handled_by.",
+    "Dynamic path concatenation is a diagnostic and is not an Endpoint."
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": false
+  },
+  "allowlist": [],
+  "prohibited": [
+    {
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST",
+      "reason": "secret sentinel persisted"
+    },
+    {
+      "entity": {
+        "type": "Endpoint",
+        "qualified_name_contains": "dynamicPath"
+      },
+      "reason": "dynamic express path"
+    },
+    {
+      "edge": {
+        "type": "handled_by",
+        "source_qualified_name_contains": "PUT"
+      },
+      "reason": "inline handler must not be handled_by"
+    }
+  ],
+  "entities": [
+    {
+      "type": "Callable",
+      "qualified_name": "src.app.healthCheck"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.app.requestLogger"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.handlers.createOrder"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.handlers.listOrders"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.handlers.removeOrder"
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "src.app.DELETE /orders/:id",
+      "required_attributes": {
+        "path": "/orders/:id",
+        "method": "DELETE"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "src.app.GET /health",
+      "required_attributes": {
+        "path": "/health",
+        "method": "GET"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "src.app.GET /orders",
+      "required_attributes": {
+        "path": "/orders",
+        "method": "GET"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "src.app.POST /orders",
+      "required_attributes": {
+        "path": "/orders",
+        "method": "POST"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "src.app.PUT /orders/:id",
+      "required_attributes": {
+        "path": "/orders/:id",
+        "method": "PUT"
+      }
+    },
+    {
+      "type": "ExternalDependency",
+      "qualified_name": "express",
+      "required_attributes": {
+        "kind": "npm_package"
+      }
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.app"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.constants"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.handlers"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.negative"
+    }
+  ],
+  "edges": [
+    {
+      "type": "contains",
+      "source": "src.app",
+      "target": "src.app.healthCheck",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.app",
+      "target": "src.app.requestLogger",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.handlers",
+      "target": "src.handlers.createOrder",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.handlers",
+      "target": "src.handlers.listOrders",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.handlers",
+      "target": "src.handlers.removeOrder",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "src.app.DELETE /orders/:id",
+      "target": "src.handlers.removeOrder",
+      "rule_id": "RKG.express.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "src.app.GET /health",
+      "target": "src.app.healthCheck",
+      "rule_id": "RKG.express.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "src.app.GET /orders",
+      "target": "src.handlers.listOrders",
+      "rule_id": "RKG.express.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "src.app.POST /orders",
+      "target": "src.handlers.createOrder",
+      "rule_id": "RKG.express.handler.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.app",
+      "target": "express",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.app",
+      "target": "src.constants",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.app",
+      "target": "src.handlers.createOrder",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.app",
+      "target": "src.handlers.listOrders",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.app",
+      "target": "src.handlers.removeOrder",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.negative",
+      "target": "express",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.negative",
+      "target": "src.handlers.listOrders",
+      "rule_id": "RKG.typescript.import.v1"
+    }
+  ]
+}

@@ -5,8 +5,8 @@ type: epic
 group: normative
 scope: lifecycle
 system: SYS-RKG
-status: draft
-revision: 7
+status: done
+revision: 8
 change_set: CHG-RKG-2026-001
 implements: [FR-RKG-001, FR-RKG-003, FR-RKG-004]
 affected_components: [CMP-RKG-ANALYZER, CMP-RKG-GRAPH, CMP-RKG-CONVERSATION]
@@ -44,5 +44,5 @@ con người phê duyệt.
 `TEST-RKG-FIXTURE-CENSUS-SUMMARY-001` ghi KPI-RKG-001 coverage 1.00 và precision
 1.00, chưa có oracle review receipt. `TEST-RKG-PILOT-REVIEW-SUMMARY-002` và
 `TEST-RKG-PERF-SUMMARY-002` ghi precision pilot và lần benchmark số ngày
-2026-10-08. Các biên bản này không tự hoàn thành epic: benchmark nằm dưới trần
-500 file / 50.000 SLOC.
+2026-10-08. Status epic khớp `TASK-RKG-022` và `TASK-RKG-023` đã `done`. Các
+biên bản đo không ký gate. Benchmark nằm dưới trần 500 file / 50.000 SLOC.

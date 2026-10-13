@@ -1,0 +1,47 @@
+key: CHG-RKG-2026-022
+label: Static HTTP Callable to Endpoint link
+type: change-set
+group: normative
+scope: lifecycle
+system: SYS-RKG
+status: draft
+revision: 2
+phase: code_present_lifecycle_backfill
+change_request: CR-RKG-037
+tier: T2
+tier_status: proposed
+tier_basis: Recorded request backfills lifecycle for behavior already on the tree. One team. No new bounded context and no ADR replacement are stated. No signer decided this proposal.
+flow: change
+objective:
+  description: Liên kết HTTP tĩnh sau merge: Callable `depends_on` đúng một Endpoint không phải navigation khi method và path tĩnh khớp một lần. Không thực thi source. Deep support withheld. Không phải adapter id.
+  satisfies:
+  - AC-RKG-006
+affected_systems:
+- SYS-RKG
+affected_teams:
+- TEAM-RKG
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+coordination:
+  mode: independent
+  integration_gate_required: false
+stories:
+- STORY-RKG-043
+tasks:
+- TASK-RKG-055
+gates:
+  scope: pending
+  architecture: pending
+  ui_ux: pending
+  contract: pending
+  component_merge: pending
+open_questions:
+- OQ-RKG-008
+baseline: not_recorded
+task_review: not_recorded
+deep_support: withheld
+release_slice: separate
+release_slice_reason: This backfill is not attached to adapter_scope of CHG-RKG-2026-001. No shared adapter release is recorded.
+classification: internal
+ai_assisted: true

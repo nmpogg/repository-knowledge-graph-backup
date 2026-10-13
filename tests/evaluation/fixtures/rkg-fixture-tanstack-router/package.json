@@ -1,0 +1,7 @@
+{
+  "name": "rkg-fixture-tanstack-router",
+  "private": true,
+  "dependencies": {
+    "@tanstack/react-router": "1.114.0"
+  }
+}

@@ -1,8 +1,9 @@
 """Static Flask route extraction over parsed Python AST.
 
 The adapter never imports or executes analyzed modules. A route is recorded only
-when the registration, method, path and handler are static. Anything else is a
-fixed diagnostic with a relative path and line.
+when the blueprint mount, method, path and handler each resolve once from a
+literal or a module constant. Anything else is a fixed diagnostic with a
+relative path and line.
 """
 
 from __future__ import annotations
@@ -75,7 +76,7 @@ class _Location:
 class _Node:
     name: str
     kind: str
-    prefix: str
+    prefix: str | None
     location: _Location
 
 
@@ -84,6 +85,7 @@ class _Include:
     owner: str
     blueprint: str
     prefix: str
+    overrides: bool
     location: _Location
 
 
@@ -115,20 +117,240 @@ def _path(prefix: str, route: str) -> str:
     return prefix.rstrip("/") + (route if route.startswith("/") else "/" + route)
 
 
-def _methods(node: ast.expr | None) -> tuple[str, ...] | None:
-    if not isinstance(node, (ast.List, ast.Tuple, ast.Set)):
-        return None
-    values = [_literal(item) for item in node.elts]
-    if not values or any(value is None or not value.isalpha() for value in values):
-        return None
-    return tuple(sorted({value.upper() for value in values if value}))
+def _simple_binding(statement: ast.stmt) -> tuple[str, ast.expr] | None:
+    if isinstance(statement, ast.Assign) and len(statement.targets) == 1:
+        target = statement.targets[0]
+        if isinstance(target, ast.Name):
+            return target.id, statement.value
+    if (
+        isinstance(statement, ast.AnnAssign)
+        and isinstance(statement.target, ast.Name)
+        and statement.value is not None
+    ):
+        return statement.target.id, statement.value
+    return None
 
 
-def _static_path(node: ast.expr | None) -> str | None:
-    value = _literal(node)
+class _StoreCounts(ast.NodeVisitor):
+    """Count module-level stores without entering nested scopes."""
+
+    def __init__(self) -> None:
+        self.counts: dict[str, int] = defaultdict(int)
+
+    def visit_FunctionDef(self, node: ast.FunctionDef) -> None:
+        self.counts[node.name] += 1
+
+    visit_AsyncFunctionDef = visit_FunctionDef
+    visit_ClassDef = visit_FunctionDef
+
+    def visit_Lambda(self, node: ast.Lambda) -> None:
+        del node
+
+    def visit_Name(self, node: ast.Name) -> None:
+        if isinstance(node.ctx, (ast.Store, ast.Del)):
+            self.counts[node.id] += 1
+
+
+def _imported_names(tree: ast.Module) -> set[str]:
+    names: set[str] = set()
+    for statement in tree.body:
+        if isinstance(statement, ast.Import):
+            for alias in statement.names:
+                names.add(alias.asname or alias.name.split(".")[0])
+        elif isinstance(statement, ast.ImportFrom):
+            for alias in statement.names:
+                if alias.name != "*":
+                    names.add(alias.asname or alias.name)
+    return names
+
+
+def _star_import(tree: ast.Module) -> bool:
+    return any(
+        isinstance(statement, ast.ImportFrom)
+        and any(alias.name == "*" for alias in statement.names)
+        for statement in tree.body
+    )
+
+
+_WAIT = object()
+
+
+@dataclass(frozen=True, slots=True)
+class _Constants:
+    values: dict[str, str | tuple[str, ...]]
+    imported: dict[str, frozenset[str]]
+    starred: frozenset[str]
+
+    def key(
+        self,
+        expression: ast.expr,
+        frame: dict[str, str | None],
+        module_name: str,
+    ) -> str | None:
+        if isinstance(expression, ast.Name):
+            bound = frame[expression.id] if expression.id in frame else None
+            if bound:
+                return bound
+            if module_name in self.starred or expression.id in self.imported.get(
+                module_name, ()
+            ):
+                return None
+            return f"{module_name}.{expression.id}"
+        if isinstance(expression, ast.Attribute):
+            parent = _qualified(expression.value, [frame])
+            if parent:
+                return f"{parent}.{expression.attr}"
+        return None
+
+
+def _resolve_binding(
+    expr: ast.expr,
+    frame: dict[str, str | None],
+    module_name: str,
+    env: _Constants,
+    known: dict[str, str | tuple[str, ...]],
+    pending: set[str],
+) -> str | tuple[str, ...] | None | object:
+    if isinstance(expr, ast.Constant) and isinstance(expr.value, str):
+        return expr.value
+    if isinstance(expr, (ast.List, ast.Tuple, ast.Set)):
+        if any(isinstance(item, ast.Starred) for item in expr.elts):
+            return None
+        values: list[str] = []
+        waiting = False
+        for item in expr.elts:
+            resolved = _resolve_binding(
+                item, frame, module_name, env, known, pending
+            )
+            if resolved is _WAIT:
+                waiting = True
+                continue
+            if not isinstance(resolved, str):
+                return None
+            values.append(resolved)
+        if waiting:
+            return _WAIT
+        return tuple(values) if values else None
+    if isinstance(expr, (ast.Name, ast.Attribute)):
+        key = env.key(expr, frame, module_name)
+        if key is None:
+            return None
+        if key in known:
+            return known[key]
+        if key in pending:
+            return _WAIT
+        return None
+    return None
+
+
+def _constants(parsed: ParseResult) -> _Constants:
+    raw: dict[str, tuple[ast.expr, dict[str, str | None], str]] = {}
+    imported: dict[str, frozenset[str]] = {}
+    starred: set[str] = set()
+    for unit in parsed.units:
+        tree = unit.representation
+        if not isinstance(tree, ast.Module):
+            continue
+        module = _Module(unit.relative_path, _module_name(unit.relative_path), tree)
+        imported[module.name] = frozenset(_imported_names(tree))
+        if _star_import(tree):
+            starred.add(module.name)
+        counts = _StoreCounts()
+        counts.visit(tree)
+        bindings: dict[str, ast.expr] = {}
+        seen: dict[str, int] = defaultdict(int)
+        for statement in tree.body:
+            assigned = _simple_binding(statement)
+            if assigned is None:
+                continue
+            seen[assigned[0]] += 1
+            bindings[assigned[0]] = assigned[1]
+        frame = _bindings(module, tree.body, module.name)
+        for name, expr in bindings.items():
+            if seen[name] == 1 and counts.counts[name] == 1:
+                raw[f"{module.name}.{name}"] = (expr, frame, module.name)
+    env = _Constants({}, imported, frozenset(starred))
+    known: dict[str, str | tuple[str, ...]] = {}
+    pending = set(raw)
+    changed = True
+    while changed and pending:
+        changed = False
+        for key in sorted(pending):
+            expr, frame, module_name = raw[key]
+            resolved = _resolve_binding(
+                expr, frame, module_name, env, known, pending
+            )
+            if resolved is _WAIT:
+                continue
+            pending.remove(key)
+            changed = True
+            if isinstance(resolved, str) or (
+                isinstance(resolved, tuple)
+                and resolved
+                and all(isinstance(item, str) for item in resolved)
+            ):
+                known[key] = resolved
+    return _Constants(known, imported, frozenset(starred))
+
+
+def _bound_string(
+    expr: ast.expr | None,
+    frame: dict[str, str | None],
+    module_name: str,
+    env: _Constants,
+) -> str | None:
+    if expr is None:
+        return None
+    literal = _literal(expr)
+    if literal is not None:
+        return literal
+    if isinstance(expr, (ast.Name, ast.Attribute)):
+        key = env.key(expr, frame, module_name)
+        value = env.values.get(key) if key else None
+        if isinstance(value, str):
+            return value
+    return None
+
+
+def _static_path(
+    node: ast.expr | None,
+    frame: dict[str, str | None],
+    module_name: str,
+    env: _Constants,
+) -> str | None:
+    value = _bound_string(node, frame, module_name, env)
     if value is None or not value.startswith("/"):
         return None
     return value
+
+
+def _resolve_methods(
+    expr: ast.expr | None,
+    frame: dict[str, str | None],
+    module_name: str,
+    env: _Constants,
+) -> tuple[str, ...] | None:
+    if expr is None:
+        return None
+    items: tuple[str, ...] | None
+    if isinstance(expr, (ast.Name, ast.Attribute)):
+        key = env.key(expr, frame, module_name)
+        value = env.values.get(key) if key else None
+        items = value if isinstance(value, tuple) else None
+    elif isinstance(expr, (ast.List, ast.Tuple, ast.Set)):
+        if any(isinstance(item, ast.Starred) for item in expr.elts):
+            return None
+        resolved = [
+            _bound_string(item, frame, module_name, env) for item in expr.elts
+        ]
+        if not resolved or any(item is None for item in resolved):
+            return None
+        items = tuple(item for item in resolved if item is not None)
+    else:
+        return None
+    if items is None or any(not item.isalpha() for item in items):
+        return None
+    return tuple(sorted({item.upper() for item in items}))
 
 
 class _Facts:
@@ -279,14 +501,37 @@ class FlaskFrameworkAdapter:
 
 
 def _route_spec(
-    call: ast.Call, facts: _Facts, location: _Location
+    call: ast.Call,
+    facts: _Facts,
+    location: _Location,
+    frame: dict[str, str | None],
+    module_name: str,
+    env: _Constants,
 ) -> tuple[str, tuple[str, ...]] | None:
     attr = call.func.attr if isinstance(call.func, ast.Attribute) else ""
-    path_expr = call.args[0] if call.args else _keyword(call, "rule")
-    route_path = _static_path(path_expr)
+    if any(isinstance(arg, ast.Starred) for arg in call.args) or any(
+        item.arg is None for item in call.keywords
+    ):
+        facts.issue("flask_route_dynamic", location.path, location.line)
+        return None
+    positional = call.args[0] if call.args else None
+    named = _keyword(call, "rule")
+    if (attr != "add_url_rule" and len(call.args) > 1) or (
+        positional is not None and named is not None
+    ):
+        facts.issue("flask_route_dynamic", location.path, location.line)
+        return None
+    route_path = _static_path(
+        positional if positional is not None else named,
+        frame,
+        module_name,
+        env,
+    )
     methods_expr = _keyword(call, "methods")
     if methods_expr is not None:
-        methods: tuple[str, ...] | None = _methods(methods_expr)
+        methods: tuple[str, ...] | None = _resolve_methods(
+            methods_expr, frame, module_name, env
+        )
     elif attr in _SHORTCUTS:
         methods = _SHORTCUTS[attr]
     elif attr in {"route", "add_url_rule"}:
@@ -323,6 +568,7 @@ def _extract(
                 local_roots.add(pure.parts[-2])
     if "flask" in local_roots:
         return
+    env = _constants(parsed)
     nodes: dict[str, _Node] = {}
     includes: dict[str, list[_Include]] = defaultdict(list)
     routes: dict[str, list[_Route]] = defaultdict(list)
@@ -356,18 +602,22 @@ def _extract(
             elif constructor == "flask.Blueprint":
                 kind = "blueprint"
                 prefix_expr = _keyword(value, "url_prefix")
-                prefix = (
-                    _static_path(prefix_expr) if prefix_expr is not None else ""
-                )
-                if prefix_expr is not None and prefix is None:
-                    facts.issue("flask_blueprint_unresolved", path, statement.lineno)
-                    continue
+                if prefix_expr is None:
+                    prefix = ""
+                else:
+                    prefix = _static_path(
+                        prefix_expr, import_frame, module.name, env
+                    )
+                    if prefix is None:
+                        facts.issue(
+                            "flask_blueprint_unresolved", path, statement.lineno
+                        )
             else:
                 continue
             nodes[f"{module.name}.{target}"] = _Node(
                 f"{module.name}.{target}",
                 kind,
-                prefix or "",
+                prefix,
                 _Location(path, statement.lineno),
             )
         frame = dict(import_frame)
@@ -408,7 +658,9 @@ def _extract(
                 if not owner:
                     facts.issue("flask_route_dynamic", path, decorator.lineno)
                     continue
-                spec = _route_spec(decorator, facts, location)
+                spec = _route_spec(
+                    decorator, facts, location, frame, module.name, env
+                )
                 if spec is None:
                     continue
                 route_path, methods = spec
@@ -422,6 +674,7 @@ def _extract(
                         location,
                     )
                 )
+        handled: set[int] = set()
         for statement in tree.body:
             if not isinstance(statement, ast.Expr) or not isinstance(
                 statement.value, ast.Call
@@ -433,17 +686,35 @@ def _extract(
             owner = _qualified(call.func.value, [frame])
             location = _Location(path, statement.lineno)
             if call.func.attr == "register_blueprint":
-                target_expr = (
-                    call.args[0] if call.args else _keyword(call, "blueprint")
-                )
-                blueprint = _qualified(target_expr, [frame]) if target_expr else None
+                handled.add(id(call))
+                positional = call.args[0] if call.args else None
+                named = _keyword(call, "blueprint")
                 prefix_expr = _keyword(call, "url_prefix")
-                prefix = _static_path(prefix_expr) if prefix_expr is not None else ""
-                if not owner or not blueprint or prefix is None:
+                if (
+                    any(isinstance(arg, ast.Starred) for arg in call.args)
+                    or any(item.arg is None for item in call.keywords)
+                    or len(call.args) > 1
+                    or (positional is not None and named is not None)
+                ):
+                    facts.issue("flask_blueprint_unresolved", path, statement.lineno)
+                    continue
+                target_expr = positional if positional is not None else named
+                blueprint = _qualified(target_expr, [frame]) if target_expr else None
+                if prefix_expr is None:
+                    overrides = False
+                    prefix = ""
+                else:
+                    overrides = True
+                    prefix = _static_path(prefix_expr, frame, module.name, env)
+                if (
+                    not owner
+                    or not blueprint
+                    or (prefix_expr is not None and prefix is None)
+                ):
                     facts.issue("flask_blueprint_unresolved", path, statement.lineno)
                     continue
                 includes[owner].append(
-                    _Include(owner, blueprint, prefix, location)
+                    _Include(owner, blueprint, prefix or "", overrides, location)
                 )
             elif call.func.attr == "add_url_rule":
                 handler_expr = (
@@ -453,13 +724,21 @@ def _extract(
                 if not owner or not handler:
                     facts.issue("flask_route_dynamic", path, statement.lineno)
                     continue
-                spec = _route_spec(call, facts, location)
+                spec = _route_spec(call, facts, location, frame, module.name, env)
                 if spec is None:
                     continue
                 route_path, methods = spec
                 routes[owner].append(
                     _Route(owner, handler, route_path, methods, (), location)
                 )
+        for node in ast.walk(tree):
+            if (
+                isinstance(node, ast.Call)
+                and isinstance(node.func, ast.Attribute)
+                and node.func.attr == "register_blueprint"
+                and id(node) not in handled
+            ):
+                facts.issue("flask_blueprint_unresolved", path, node.lineno)
 
     for owner, owner_routes in routes.items():
         if owner not in nodes:
@@ -508,6 +787,33 @@ def _extract(
     else:
         return
 
+    found: list[_Include] = []
+
+    def collect(owner: str, stack: frozenset[str], seen: set[str]) -> None:
+        if owner in stack or owner in seen or owner not in nodes:
+            return
+        seen.add(owner)
+        for include in includes.get(owner, ()):
+            found.append(include)
+            if (
+                include.blueprint in nodes
+                and nodes[include.blueprint].kind == "blueprint"
+            ):
+                collect(include.blueprint, stack | {owner}, seen)
+
+    collect(app, frozenset(), set())
+    mounted_counts: dict[str, int] = defaultdict(int)
+    for include in found:
+        mounted_counts[include.blueprint] += 1
+    ambiguous = {name for name, count in mounted_counts.items() if count > 1}
+    for include in found:
+        if include.blueprint in ambiguous:
+            facts.issue(
+                "flask_blueprint_unresolved",
+                include.location.path,
+                include.location.line,
+            )
+
     def publish(
         owner: str,
         prefix: str,
@@ -523,9 +829,9 @@ def _extract(
                 )
             return
         node = nodes.get(owner)
-        if node is None:
+        if node is None or owner in ambiguous:
             return
-        current_prefix = _path(prefix, node.prefix) if node.prefix else prefix
+        current_prefix = prefix
         for route in sorted(
             routes.get(owner, ()),
             key=lambda item: (item.location.path, item.location.line, item.handler),
@@ -594,10 +900,18 @@ def _extract(
             includes.get(owner, ()),
             key=lambda item: (item.location.path, item.location.line, item.blueprint),
         ):
-            if (
-                include.blueprint not in nodes
-                or nodes[include.blueprint].kind != "blueprint"
-            ):
+            if include.blueprint in ambiguous:
+                continue
+            child = nodes.get(include.blueprint)
+            if child is None or child.kind != "blueprint":
+                facts.issue(
+                    "flask_blueprint_unresolved",
+                    include.location.path,
+                    include.location.line,
+                )
+                continue
+            mounted = include.prefix if include.overrides else child.prefix
+            if mounted is None:
                 facts.issue(
                     "flask_blueprint_unresolved",
                     include.location.path,
@@ -607,11 +921,7 @@ def _extract(
             new_chain = chain + (
                 f"blueprint:{include.location.path}:{include.location.line}:{include.blueprint}",
             )
-            next_prefix = (
-                _path(current_prefix, include.prefix)
-                if include.prefix
-                else current_prefix
-            )
+            next_prefix = _path(current_prefix, mounted) if mounted else current_prefix
             publish(
                 include.blueprint,
                 next_prefix,

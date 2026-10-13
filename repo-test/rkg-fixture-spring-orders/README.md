@@ -114,6 +114,17 @@ Expected keys (names only) are:
 
 No configuration value, connection string, bootstrap address, username, password, or raw exception containing configuration is expected in a graph or report.
 
+### Servlet filters and MVC interceptors
+
+Static registration is evidence on rule `RKG.spring.registration.v1`. Order is an integer `order` attribute on the existing type only when every order expression is the same literal or the same uniquely assigned integer constant.
+
+| Type | Registration | Order | Endpoint evidence |
+| --- | --- | --- | --- |
+| `config.RequestAuditFilter` | `@Component` `OncePerRequestFilter` | `1` from unique `RequestAuditFilter.ORDER` | none; no path pattern |
+| `config.OrderAuditInterceptor` | `WebMvcConfig.addInterceptors` calls `new OrderAuditInterceptor()` | `2` from literal `.order(2)` | registration evidence attached to the existing `handled_by` edge of `GET /api/orders/{orderId}` only |
+
+`config.WebMvcConfig` is the `@Configuration` `WebMvcConfigurer` that performs that interceptor registration.
+
 ## Intentional negative cases
 
 | Fixture | Prohibited inference |
@@ -126,6 +137,8 @@ No configuration value, connection string, bootstrap address, username, password
 | `AuditOrderEntity` | never merge `audit.orders` with `commerce.orders`; no runtime access edge |
 | `dynamic-native-query.java.fixture` | no inferred table/read edge from runtime SQL or non-literal table name |
 | `syntax-error.java.fixture` | no normal source entity; syntax diagnostic only |
+| `UnregisteredRequestFilter` | extends `OncePerRequestFilter` but is not a bean and is not constructed in a static registration; no order |
+| `DynamicInterceptorConfig` | `addInterceptor` argument is a local variable; no guessed interceptor type, order, or endpoint attachment |
 
 To build a dedicated syntax-error corpus, copy the content of `src/test/resources/analysis/syntax-error.java.fixture` to a `.java` file only on a separate fixture branch. Its inert extension intentionally keeps normal Maven builds valid.
 

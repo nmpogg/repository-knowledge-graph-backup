@@ -57,13 +57,31 @@ from rkg.ingestion import SourceManifest
 
 ROUTE_RULE = "RKG.react_router.route.v1"
 HANDLER_RULE = "RKG.react_router.handler.v1"
+NAVIGATE_RULE = "RKG.react_router.navigate.v1"
 DETECT_RULE = "RKG.react_router.detect.v1"
 _MESSAGES = {
     "react_router_route_dynamic": "Route path is not a unique static literal.",
     "react_router_unresolved": "React Router registration could not be resolved.",
+    "react_router_navigate_dynamic": (
+        "Navigation target is not a unique static literal."
+    ),
+    "react_router_navigate_ambiguous": (
+        "Navigation target matches more than one route."
+    ),
+    "react_router_navigate_shadowed": (
+        "Navigation API is shadowed and was not resolved."
+    ),
+    "react_router_navigate_unresolved": (
+        "Navigation target does not match exactly one route."
+    ),
 }
 _ROUTER_FACTORIES = frozenset(
     {"createBrowserRouter", "createHashRouter", "createMemoryRouter"}
+)
+_ROUTER_SPECIFIERS = frozenset({"react-router-dom", "react-router"})
+_NAV_COMPONENTS = frozenset({"Link", "NavLink", "Navigate"})
+_HISTORY_FACTORIES = frozenset(
+    {"useHistory", "createBrowserHistory", "createHashHistory", "createMemoryHistory"}
 )
 
 
@@ -409,6 +427,584 @@ def _bound_array(module: TsModule, name: str) -> Node | None:
     return matches[0] if len(matches) == 1 else None
 
 
+@dataclass(frozen=True, slots=True)
+class _Binding:
+    name: str
+    kind: str
+    start: int
+    end: int
+    value: Node | None = None
+    symbol: str | None = None
+    specifier: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class _Dest:
+    status: str
+    value: str | None = None
+
+
+def _unwrap_expr(node: Node | None) -> Node | None:
+    current = node
+    while current is not None and current.type in {
+        "as_expression",
+        "type_assertion",
+        "parenthesized_expression",
+        "non_null_expression",
+        "satisfies_expression",
+    }:
+        inner = child_named(current, "expression") or next(
+            (child for child in named_children(current) if child.is_named), None
+        )
+        if inner is None or inner == current:
+            break
+        current = inner
+    return current
+
+
+def _scope_bounds(node: Node, root: Node) -> tuple[int, int]:
+    current = node.parent
+    while current is not None:
+        if current.type in {
+            "statement_block",
+            "function_declaration",
+            "generator_function_declaration",
+            "arrow_function",
+            "function_expression",
+            "method_definition",
+        }:
+            return current.start_byte, current.end_byte
+        current = current.parent
+    return root.start_byte, root.end_byte
+
+
+def _router_imports(module: TsModule) -> dict[str, tuple[str, str]]:
+    """Local name → (exported symbol, module specifier) for React Router."""
+    found: dict[str, tuple[str, str]] = {}
+    for node in named_children(module.tree.root_node):
+        if node.type != "import_statement":
+            continue
+        source_node = next(
+            (child for child in named_children(node) if child.type == "string"), None
+        )
+        specifier = string_literal(module.source, source_node)
+        if specifier not in _ROUTER_SPECIFIERS:
+            continue
+        clause = next(
+            (child for child in named_children(node) if child.type == "import_clause"),
+            None,
+        )
+        if clause is None:
+            continue
+        for child in named_children(clause):
+            if child.type != "named_imports":
+                continue
+            for spec in named_children(child):
+                if spec.type != "import_specifier":
+                    continue
+                names = [
+                    text_of(module.source, part)
+                    for part in named_children(spec)
+                    if part.type == "identifier"
+                ]
+                if not names:
+                    continue
+                found[names[-1]] = (names[0], specifier)
+    return found
+
+
+def _collect_bindings(module: TsModule) -> list[_Binding]:
+    root = module.tree.root_node
+    bindings: list[_Binding] = []
+    for local, (symbol, specifier) in _router_imports(module).items():
+        bindings.append(
+            _Binding(
+                local,
+                "import",
+                root.start_byte,
+                root.end_byte,
+                symbol=symbol,
+                specifier=specifier,
+            )
+        )
+    for node in walk_named(root):
+        if node.type == "variable_declarator":
+            name = identifier_name(module.source, child_named(node, "name"))
+            value = child_named(node, "value")
+            if not name:
+                continue
+            start, end = _scope_bounds(node, root)
+            bindings.append(_Binding(name, "value", start, end, value))
+        elif node.type in {
+            "function_declaration",
+            "generator_function_declaration",
+        }:
+            name = identifier_name(module.source, child_named(node, "name"))
+            if not name:
+                continue
+            start, end = _scope_bounds(node, root)
+            bindings.append(_Binding(name, "function", start, end))
+    return bindings
+
+
+def _innermost(
+    bindings: list[_Binding], name: str, pos: int
+) -> _Binding | None | str:
+    hits = [
+        item
+        for item in bindings
+        if item.name == name and item.start <= pos < item.end
+    ]
+    if not hits:
+        return None
+    rank = {"function": 0, "value": 1, "import": 2}
+    hits.sort(key=lambda item: (item.end - item.start, rank.get(item.kind, 9)))
+    best = hits[0]
+    span = best.end - best.start
+    best_rank = rank.get(best.kind, 9)
+    tied = [
+        item
+        for item in hits
+        if item.end - item.start == span and rank.get(item.kind, 9) == best_rank
+    ]
+    if len(tied) > 1:
+        return "ambiguous"
+    return best
+
+
+def _imported_symbol(binding: _Binding | None | str, symbol: str) -> bool:
+    return (
+        isinstance(binding, _Binding)
+        and binding.kind == "import"
+        and binding.symbol == symbol
+    )
+
+
+def _is_use_navigate_value(module: TsModule, binding: _Binding | None | str) -> bool:
+    if not isinstance(binding, _Binding) or binding.kind != "value":
+        return False
+    value = _unwrap_expr(binding.value)
+    if value is None or value.type != "call_expression":
+        return False
+    callee = identifier_name(module.source, child_named(value, "function"))
+    if callee is None:
+        return False
+    imported = _innermost(_collect_bindings(module), callee, value.start_byte)
+    return _imported_symbol(imported, "useNavigate") or (
+        callee == "useNavigate" and _imported_symbol(imported, "useNavigate")
+    )
+
+
+def _is_history_value(
+    module: TsModule, binding: _Binding | None | str, bindings: list[_Binding]
+) -> bool:
+    if not isinstance(binding, _Binding):
+        return False
+    if binding.kind == "import" and binding.symbol == "history":
+        return binding.specifier in _ROUTER_SPECIFIERS or binding.specifier == "history"
+    if binding.kind != "value":
+        return False
+    value = _unwrap_expr(binding.value)
+    if value is None or value.type != "call_expression":
+        return False
+    callee = identifier_name(module.source, child_named(value, "function"))
+    if callee is None:
+        return False
+    imported = _innermost(bindings, callee, value.start_byte)
+    return isinstance(imported, _Binding) and imported.symbol in _HISTORY_FACTORIES
+
+
+def _call_arg(node: Node) -> Node | None:
+    args = child_named(node, "arguments")
+    if args is None:
+        return None
+    named = named_children(args)
+    return named[0] if named else None
+
+
+def _jsx_name(source: bytes, node: Node) -> str | None:
+    name_node = child_named(node, "name") or next(
+        (
+            child
+            for child in named_children(node)
+            if child.type in {"identifier", "member_expression"}
+        ),
+        None,
+    )
+    if name_node is None or name_node.type != "identifier":
+        return None
+    return text_of(source, name_node)
+
+
+def _jsx_to_expr(source: bytes, node: Node) -> Node | None:
+    for attr in named_children(node):
+        if attr.type != "jsx_attribute":
+            continue
+        key_node = child_named(attr, "name") or next(
+            (
+                child
+                for child in named_children(attr)
+                if child.type == "property_identifier"
+            ),
+            None,
+        )
+        key = identifier_name(source, key_node)
+        if key != "to":
+            # property_identifier is not always a field
+            names = [
+                text_of(source, child)
+                for child in named_children(attr)
+                if child.type == "property_identifier"
+            ]
+            if "to" not in names:
+                continue
+        value = next(
+            (
+                child
+                for child in named_children(attr)
+                if child.type != "property_identifier"
+            ),
+            None,
+        )
+        if value is None:
+            return None
+        if value.type == "jsx_expression":
+            inner = next((child for child in named_children(value)), None)
+            return inner
+        return value
+    return None
+
+
+def _static_path(
+    module: TsModule,
+    node: Node | None,
+    modules: dict[str, TsModule],
+    bindings: list[_Binding],
+    seen: set[str],
+) -> _Dest:
+    current = _unwrap_expr(node)
+    if current is None:
+        return _Dest("dynamic")
+    if current.type == "template_string" and any(
+        child.type == "template_substitution" for child in current.children
+    ):
+        return _Dest("dynamic")
+    literal = string_literal(module.source, current)
+    if literal is not None:
+        path = literal.split("?", 1)[0].split("#", 1)[0].strip()
+        if not path or any(char.isspace() for char in path):
+            return _Dest("dynamic")
+        return _Dest("ok", path)
+    if current.type == "identifier":
+        name = text_of(module.source, current)
+        if name in seen:
+            return _Dest("ambiguous")
+        found = _innermost(bindings, name, current.start_byte)
+        if found == "ambiguous" or found is None:
+            return _Dest("ambiguous" if found == "ambiguous" else "dynamic")
+        if found.kind == "import":
+            resolved = _const_string(module, name, modules)
+            if resolved is None:
+                return _Dest("dynamic")
+            path = resolved.split("?", 1)[0].split("#", 1)[0].strip()
+            return _Dest("ok", path) if path else _Dest("dynamic")
+        if found.kind != "value" or found.value is None:
+            return _Dest("dynamic")
+        return _static_path(
+            module, found.value, modules, bindings, seen | {name}
+        )
+    if current.type == "object":
+        props = _object_props(module.source, current)
+        chosen: list[Node] = []
+        for key in ("pathname", "path"):
+            if key in props:
+                chosen.append(props[key])
+        if not chosen:
+            return _Dest("dynamic")
+        resolved = [
+            _static_path(module, item, modules, bindings, seen) for item in chosen
+        ]
+        if any(item.status != "ok" for item in resolved):
+            return next(item for item in resolved if item.status != "ok")
+        values = {item.value for item in resolved}
+        if len(values) != 1:
+            return _Dest("ambiguous")
+        return resolved[0]
+    return _Dest("dynamic")
+
+
+def _file_uses_router_navigation(bindings: list[_Binding]) -> bool:
+    return any(
+        item.kind == "import"
+        and item.symbol
+        in _NAV_COMPONENTS
+        | {"useNavigate", "redirect", "useHistory", "history"}
+        | _HISTORY_FACTORIES
+        for item in bindings
+    )
+
+
+def _navigation_site(
+    module: TsModule, node: Node, bindings: list[_Binding]
+) -> tuple[str, Node | None] | None:
+    """Return ('nav', dest) or ('shadow', None) for a navigation site."""
+    if node.type == "call_expression":
+        callee = _unwrap_expr(child_named(node, "function"))
+        if callee is None:
+            return None
+        if callee.type == "identifier":
+            name = text_of(module.source, callee)
+            found = _innermost(bindings, name, callee.start_byte)
+            if found == "ambiguous":
+                return ("shadow", None)
+            if _is_use_navigate_value(module, found):
+                return ("nav", _call_arg(node))
+            if _imported_symbol(found, "redirect"):
+                return ("nav", _call_arg(node))
+            if (
+                name in {"navigate", "redirect"}
+                and isinstance(found, _Binding)
+                and found.kind in {"function", "value"}
+                and _file_uses_router_navigation(bindings)
+            ):
+                return ("shadow", None)
+            return None
+        if callee.type == "member_expression":
+            prop = identifier_name(
+                module.source, child_named(callee, "property")
+            ) or next(
+                (
+                    text_of(module.source, child)
+                    for child in named_children(callee)
+                    if child.type == "property_identifier"
+                ),
+                None,
+            )
+            if prop not in {"push", "replace"}:
+                return None
+            obj = next(
+                (
+                    child
+                    for child in named_children(callee)
+                    if child.type == "identifier"
+                ),
+                None,
+            )
+            if obj is None:
+                return None
+            obj_name = text_of(module.source, obj)
+            found = _innermost(bindings, obj_name, obj.start_byte)
+            if _is_history_value(module, found, bindings):
+                return ("nav", _call_arg(node))
+            if (
+                obj_name == "history"
+                and isinstance(found, _Binding)
+                and _file_uses_router_navigation(bindings)
+            ):
+                return ("shadow", None)
+            return None
+        return None
+    if node.type not in {"jsx_self_closing_element", "jsx_opening_element"}:
+        return None
+    name = _jsx_name(module.source, node)
+    if name is None:
+        return None
+    found = _innermost(bindings, name, node.start_byte)
+    symbol = found.symbol if isinstance(found, _Binding) else None
+    if symbol not in _NAV_COMPONENTS and name not in _NAV_COMPONENTS:
+        return None
+    if found == "ambiguous":
+        return ("shadow", None)
+    if (
+        isinstance(found, _Binding)
+        and found.kind == "import"
+        and symbol in _NAV_COMPONENTS
+    ):
+        return ("nav", _jsx_to_expr(module.source, node))
+    if isinstance(found, _Binding) and found.kind in {"function", "value"}:
+        return ("shadow", None)
+    if name in _NAV_COMPONENTS and any(
+        item.symbol in _NAV_COMPONENTS for item in bindings if item.kind == "import"
+    ):
+        return ("shadow", None)
+    return None
+
+
+def _owner_callable(
+    entities: dict[str, Entity], path: str, line: int
+) -> Entity | None:
+    owners = [
+        item
+        for item in entities.values()
+        if item.type == EntityType.CALLABLE
+        and item.file_path
+        and item.file_path.replace("\\", "/") == path
+        and item.start_line
+        and item.end_line
+        and item.start_line <= line <= item.end_line
+    ]
+    if not owners:
+        return None
+    owners.sort(
+        key=lambda item: (
+            (item.end_line or 0) - (item.start_line or 0),
+            item.qualified_name,
+        )
+    )
+    if len(owners) > 1:
+        span0 = (owners[0].end_line or 0) - (owners[0].start_line or 0)
+        span1 = (owners[1].end_line or 0) - (owners[1].start_line or 0)
+        if span0 == span1:
+            return None
+    return owners[0]
+
+
+def _caller_routes(
+    entities: dict[str, Entity], edges: dict[str, Edge], caller_id: str
+) -> list[str]:
+    found: list[str] = []
+    for edge in edges.values():
+        if edge.type != EdgeType.HANDLED_BY or edge.target_id != caller_id:
+            continue
+        endpoint = entities.get(edge.source_id)
+        if endpoint is None or endpoint.framework_kind != "react-router":
+            continue
+        attrs = dict(endpoint.attributes)
+        if attrs.get("kind") != "navigation":
+            continue
+        path = attrs.get("route_path") or attrs.get("path")
+        if isinstance(path, str) and path not in found:
+            found.append(path)
+    return found
+
+
+def _join_relative(base: str, relative: str) -> str | None:
+    if relative.startswith("/") or relative == "*":
+        return relative
+    if base == "*" or any(char in relative for char in "?#"):
+        return None
+    parts = [part for part in base.split("/") if part]
+    for segment in relative.split("/"):
+        if segment in {"", "."}:
+            continue
+        if segment == "..":
+            if not parts:
+                return None
+            parts.pop()
+            continue
+        parts.append(segment)
+    return "/" + "/".join(parts) if parts else "/"
+
+
+def _handlers_for_path(
+    entities: dict[str, Entity], edges: dict[str, Edge], path: str
+) -> tuple[str, list[Entity]]:
+    endpoints = []
+    for item in entities.values():
+        attrs = dict(item.attributes)
+        route = attrs.get("route_path") or attrs.get("path")
+        if (
+            item.type == EntityType.ENDPOINT
+            and item.framework_kind == "react-router"
+            and attrs.get("kind") == "navigation"
+            and route == path
+        ):
+            endpoints.append(item)
+    if len(endpoints) != 1:
+        return ("ambiguous" if len(endpoints) > 1 else "unresolved"), []
+    handlers: list[Entity] = []
+    seen: set[str] = set()
+    for edge in edges.values():
+        if edge.type != EdgeType.HANDLED_BY or edge.source_id != endpoints[0].id:
+            continue
+        target = entities.get(edge.target_id)
+        if target is None or target.type != EntityType.CALLABLE or target.id in seen:
+            continue
+        seen.add(target.id)
+        handlers.append(target)
+    if len(handlers) != 1:
+        return ("ambiguous" if len(handlers) > 1 else "unresolved"), []
+    return "ok", handlers
+
+
+def _index_navigation_calls(
+    modules: dict[str, TsModule],
+    entities: dict[str, Entity],
+    edges: dict[str, Edge],
+    issues: list[AdapterDiagnostic],
+    emit_edge,
+) -> None:
+    for module in modules.values():
+        bindings = _collect_bindings(module)
+        for node in walk_named(module.tree.root_node):
+            site = _navigation_site(module, node, bindings)
+            if site is None:
+                continue
+            status, dest_node = site
+            line = node.start_point[0] + 1
+            if status == "shadow":
+                issues.append(
+                    AdapterDiagnostic(
+                        "react_router_navigate_shadowed", module.path, line
+                    )
+                )
+                continue
+            dest = _static_path(module, dest_node, modules, bindings, set())
+            if dest.status != "ok" or not dest.value:
+                issues.append(
+                    AdapterDiagnostic(
+                        "react_router_navigate_ambiguous"
+                        if dest.status == "ambiguous"
+                        else "react_router_navigate_dynamic",
+                        module.path,
+                        line,
+                    )
+                )
+                continue
+            owner = _owner_callable(entities, module.path, line)
+            if owner is None:
+                issues.append(
+                    AdapterDiagnostic(
+                        "react_router_navigate_unresolved", module.path, line
+                    )
+                )
+                continue
+            target_path = dest.value
+            if not target_path.startswith("/") and target_path != "*":
+                bases = _caller_routes(entities, edges, owner.id)
+                if len(bases) != 1:
+                    issues.append(
+                        AdapterDiagnostic(
+                            "react_router_navigate_unresolved", module.path, line
+                        )
+                    )
+                    continue
+                joined = _join_relative(bases[0], target_path)
+                if joined is None:
+                    issues.append(
+                        AdapterDiagnostic(
+                            "react_router_navigate_unresolved", module.path, line
+                        )
+                    )
+                    continue
+                target_path = joined
+            match, handlers = _handlers_for_path(entities, edges, target_path)
+            if match != "ok":
+                issues.append(
+                    AdapterDiagnostic(
+                        f"react_router_navigate_{match}", module.path, line
+                    )
+                )
+                continue
+            emit_edge(
+                EdgeType.CALLS,
+                owner.id,
+                handlers[0].id,
+                _Location(module.path, line),
+                NAVIGATE_RULE,
+            )
+
+
 class ReactRouterFrameworkAdapter:
     """Extract static React Router navigation paths from TypeScript base facts."""
 
@@ -624,6 +1220,8 @@ class ReactRouterFrameworkAdapter:
                         route_location,
                         HANDLER_RULE,
                     )
+
+        _index_navigation_calls(modules, entities, edges, issues, emit_edge)
 
         for ordinal, item in enumerate(
             sorted(

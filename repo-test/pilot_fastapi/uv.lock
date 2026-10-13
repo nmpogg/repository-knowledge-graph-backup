@@ -1,0 +1,11 @@
+[[package]]
+name = "aiokafka"
+version = "0.14.0"
+
+[[package]]
+name = "fastapi"
+version = "0.141.1"
+
+[[package]]
+name = "sqlalchemy"
+version = "2.1.1"

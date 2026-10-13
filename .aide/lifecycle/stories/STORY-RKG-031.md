@@ -3,7 +3,7 @@ key: STORY-RKG-031
 group: normative
 scope: lifecycle
 system: SYS-RKG
-revision: 2
+revision: 3
 authorization: CR-RKG-019
 verification_evidence: TEST-TASK-RKG-037-003
 review_record: REV-TASK-RKG-037-002
@@ -12,7 +12,7 @@ classification: internal
 ai_assisted: true
 type: story
 epic: EPIC-006-TEAM-RKG
-status: in_progress
+status: done
 satisfies:
 - AC-RKG-074
 - AC-RKG-080

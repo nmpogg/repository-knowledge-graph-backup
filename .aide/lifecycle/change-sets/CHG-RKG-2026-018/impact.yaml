@@ -1,0 +1,49 @@
+change_request: CR-RKG-033
+analysis_mode: manual-from-working-tree-backfill
+graph_queried: false
+touches:
+- STORY-RKG-039
+- TASK-RKG-051
+- FR-RKG-002
+- AC-RKG-006
+- AC-RKG-015
+stale_artifacts:
+- REG-ADAPTER-001
+affected_teams:
+- TEAM-RKG
+external_consumers: []
+risk_signals:
+  pii: false
+  financial: false
+path_signals:
+- src/rkg/adapters/nest_framework.py
+- src/rkg/adapters/builtins.py
+- tests/conformance/test_nest_framework.py
+- tests/evaluation/test_nest_census.py
+- tests/evaluation/fixtures/rkg-fixture-nest
+- tests/evaluation/expected_nest.json
+tier: T2
+tier_status: proposed
+flow: change
+skipped_with_reason:
+- area: deep-supported
+  reason: Authorization boundary withholds deep-supported promotion.
+- area: gate-signature
+  reason: Authorization boundary says do not sign gates. New gates stay pending.
+- area: new-fr-ac
+  reason: Step 4 is not run. No new FR or AC is created. Stories satisfy only AC ids the current suite already asserts.
+- area: chg-001-adapter-scope
+  reason: This change set is not added to adapter_scope of CHG-RKG-2026-001.
+- area: repo-test-oracle
+  reason: A repo-test copy is not the census oracle. Census oracle, when present, is tests/evaluation/fixtures plus tests/evaluation/expected_*.json.
+- area: steps-5-through-10
+  reason: Domain, L1, L2, UX, contract and UI specification steps are not executed in this backfill.
+- area: pytest-this-pass
+  reason: This documentation pass does not record a pytest result. Plan check command stays not_run until a later evidence file records a run.
+confidence:
+  graph_coverage: 0.0
+limitations:
+- touches_are_the_new_story_task_and_asserted_acs
+- no_graph_query
+- no_baseline_file_exists_for_this_change_set
+- code_was_already_present_before_this_record

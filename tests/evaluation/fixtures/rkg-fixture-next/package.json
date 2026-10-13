@@ -1,0 +1,7 @@
+{
+  "name": "rkg-fixture-next",
+  "private": true,
+  "dependencies": {
+    "next": "14.2.5"
+  }
+}

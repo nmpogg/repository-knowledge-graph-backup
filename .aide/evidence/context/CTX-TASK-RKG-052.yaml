@@ -1,0 +1,33 @@
+type: context-snapshot
+key: CTX-TASK-RKG-052
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-052
+revision: 1
+implementation_date: '2026-10-12'
+change_set: CHG-RKG-2026-019
+provenance: lifecycle-backfill-current-tree
+captured_against:
+  code_commit: c8e2eda04df2b8234ebe54c94b0d9f2b3aac5134
+  artifacts:
+  - key: TASK-RKG-052
+    path: lifecycle/tasks/TASK-RKG-052.md
+    revision: 2
+  - key: STORY-RKG-040
+    path: lifecycle/stories/STORY-RKG-040.md
+    revision: 1
+  - key: CMP-RKG-ANALYZER
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+    revision: 15
+  - key: REG-ADAPTER-001
+    path: registry/REG-ADAPTER-001.md
+    revision: 18
+  - key: CHG-RKG-2026-019
+    path: lifecycle/change-sets/CHG-RKG-2026-019/change-set.yaml
+notes:
+  - Go HTTP static routes. Adapter or pass already on the tree (rkg.go-http).
+  - Plan and diary already existed. This context package is the missing CTX.
+  - Deep support withheld. Task stays in_progress.
+  - Pytest for this lat is not_run. See TEST-TASK-RKG-052-001.
+  - Gate of CHG-RKG-2026-019 stays pending.

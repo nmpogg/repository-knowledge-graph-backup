@@ -1,0 +1,21 @@
+key: CR-RKG-030
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-09'
+task: TASK-RKG-048
+story: STORY-RKG-036
+change_set: CHG-RKG-2026-015
+source: lifecycle_backfill
+request_summary: >-
+  Static Django route extraction already implemented by rkg.django. A route path is emitted only when it resolves from a literal or a unique constant. handled_by is emitted only when the handler resolves once. Analyzed source is not executed. reviewed_deep_support is false. Emitted capabilities are DETECTED_ONLY. Deep support is withheld.
+authorization_boundary: >-
+  Record the static route behavior already on the tree. Do not execute
+  analyzed source. Do not promote deep-supported. Do not sign gates. A
+  repo-test copy is not the census oracle.
+record_boundary: >-
+  Backfill after the implementation files were already present. No
+  conversation transcript. This request does not create a new product behavior.
+classification: internal
+ai_assisted: true

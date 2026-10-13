@@ -15,7 +15,7 @@ from dataclasses import dataclass
 from pathlib import PurePosixPath
 from urllib.parse import urlsplit
 
-from tree_sitter import Node
+from tree_sitter import Node, Parser
 
 from rkg.adapters.contracts import (
     CONTRACT_VERSION,
@@ -34,6 +34,7 @@ from rkg.adapters.contracts import (
 )
 from rkg.adapters.route_flow import route_flow_attrs
 from rkg.adapters.typescript_parse import (
+    TS_LANGUAGE,
     TsModule,
     child_named,
     identifier_name,
@@ -63,6 +64,7 @@ from rkg.ingestion import SourceManifest
 
 DETECT_RULE = "RKG.nuxt.detect.v1"
 NAV_RULE = "RKG.nuxt.navigation.v1"
+NAVIGATE_RULE = "RKG.nuxt.navigate.v1"
 ROUTE_RULE = "RKG.nuxt.route.v1"
 HANDLER_RULE = "RKG.nuxt.handler.v1"
 PAGE_HANDLER_RULE = "RKG.nuxt.page_handler.v1"
@@ -80,6 +82,12 @@ _MESSAGES = {
     "nuxt_handler_unresolved": "Nitro handler could not be resolved uniquely.",
     "nuxt_auto_import_ambiguous": "Auto-import simple name is ambiguous.",
     "nuxt_config_unresolved": "runtimeConfig key could not be resolved statically.",
+    "nuxt_navigate_dynamic": "Navigation target is not a unique static literal.",
+    "nuxt_navigate_ambiguous": "Navigation target matches more than one route.",
+    "nuxt_navigate_shadowed": "Navigation API is shadowed and was not resolved.",
+    "nuxt_navigate_unresolved": (
+        "Navigation target does not match exactly one route."
+    ),
 }
 
 _METHOD_SUFFIX = re.compile(
@@ -200,6 +208,23 @@ def page_file_to_route(path: str) -> str | None:
             continue
         segments.append(token)
     return "/" + "/".join(segments) if segments else "/"
+
+
+def _nuxt_route_name(route: str) -> str:
+    """Stable file-route name: `/orders/:orderId` → `orders-orderId`."""
+    if route in {"", "/"}:
+        return "index"
+    parts: list[str] = []
+    for part in route.strip("/").split("/"):
+        if not part:
+            continue
+        if part.startswith(":"):
+            parts.append(part[1:])
+        elif part == "*":
+            parts.append("all")
+        else:
+            parts.append(part)
+    return "-".join(parts) if parts else "index"
 
 
 def api_file_to_endpoint(path: str) -> tuple[str, str] | None:
@@ -758,6 +783,761 @@ def _ensure_page_handler(
     return handler
 
 
+_EXPR_PARSER = Parser(TS_LANGUAGE)
+
+
+def _nuxt_owner(
+    entities: dict[str, Entity], path: str, line: int
+) -> Entity | None:
+    """Innermost callable covering the line, else the page setup callable."""
+    owners = _owners_for_line(entities, path, line)
+    if len(owners) == 1:
+        return owners[0]
+    if len(owners) > 1:
+        span0 = (owners[0].end_line or 0) - (owners[0].start_line or 0)
+        span1 = (owners[1].end_line or 0) - (owners[1].start_line or 0)
+        if span0 != span1:
+            return owners[0]
+        return None
+    setups = [
+        item
+        for item in entities.values()
+        if item.type == EntityType.CALLABLE
+        and item.file_path
+        and item.file_path.replace("\\", "/") == path
+        and item.name == "setup"
+        and dict(item.attributes).get("kind") == "page_setup"
+    ]
+    return setups[0] if len(setups) == 1 else None
+
+
+def _nuxt_caller_routes(
+    entities: dict[str, Entity], edges: dict[str, Edge], caller_id: str
+) -> list[str]:
+    found: list[str] = []
+    for edge in edges.values():
+        if edge.type != EdgeType.HANDLED_BY or edge.target_id != caller_id:
+            continue
+        endpoint = entities.get(edge.source_id)
+        if endpoint is None or endpoint.framework_kind != "nuxt":
+            continue
+        attrs = dict(endpoint.attributes)
+        if attrs.get("kind") != "navigation":
+            continue
+        route = attrs.get("route_path") or attrs.get("path")
+        if isinstance(route, str) and route not in found:
+            found.append(route)
+    return found
+
+
+def _nuxt_join_relative(base: str, relative: str) -> str | None:
+    if relative.startswith("/") or relative == "*":
+        return relative
+    if base == "*" or any(char in relative for char in "?#"):
+        return None
+    parts = [part for part in base.split("/") if part]
+    for segment in relative.split("/"):
+        if segment in {"", "."}:
+            continue
+        if segment == "..":
+            if not parts:
+                return None
+            parts.pop()
+            continue
+        parts.append(segment)
+    return "/" + "/".join(parts) if parts else "/"
+
+
+def _navigation_endpoints(entities: dict[str, Entity]) -> list[Entity]:
+    return [
+        item
+        for item in entities.values()
+        if item.type == EntityType.ENDPOINT
+        and item.framework_kind == "nuxt"
+        and dict(item.attributes).get("kind") == "navigation"
+    ]
+
+
+def _handlers_of(
+    entities: dict[str, Entity], edges: dict[str, Edge], endpoint: Entity
+) -> list[Entity]:
+    found: list[Entity] = []
+    seen: set[str] = set()
+    for edge in edges.values():
+        if edge.type != EdgeType.HANDLED_BY or edge.source_id != endpoint.id:
+            continue
+        target = entities.get(edge.target_id)
+        if target is None or target.type != EntityType.CALLABLE or target.id in seen:
+            continue
+        seen.add(target.id)
+        found.append(target)
+    return found
+
+
+def _unique_handler(
+    entities: dict[str, Entity],
+    edges: dict[str, Edge],
+    endpoints: list[Entity],
+) -> tuple[str, Entity | None]:
+    if len(endpoints) != 1:
+        return ("ambiguous" if len(endpoints) > 1 else "unresolved"), None
+    handlers = _handlers_of(entities, edges, endpoints[0])
+    if len(handlers) != 1:
+        return ("ambiguous" if len(handlers) > 1 else "unresolved"), None
+    return "ok", handlers[0]
+
+
+def _match_nuxt_target(
+    entities: dict[str, Entity],
+    edges: dict[str, Edge],
+    *,
+    mode: str,
+    value: str,
+    caller: Entity | None,
+) -> tuple[str, Entity | None]:
+    endpoints = _navigation_endpoints(entities)
+
+    def by_path(route: str) -> list[Entity]:
+        return [
+            item
+            for item in endpoints
+            if (
+                dict(item.attributes).get("route_path")
+                or dict(item.attributes).get("path")
+            )
+            == route
+        ]
+
+    def by_name(name: str) -> list[Entity]:
+        return [
+            item
+            for item in endpoints
+            if dict(item.attributes).get("route_name") == name
+        ]
+
+    if mode == "name":
+        return _unique_handler(entities, edges, by_name(value))
+    if value.startswith("/") or value == "*":
+        return _unique_handler(entities, edges, by_path(value))
+    # A bare token is both a route name and a path relative to the caller.
+    # Every reading that matches at least one route must agree on one handler.
+    readings: list[tuple[str, Entity | None]] = []
+    named = by_name(value)
+    if named:
+        readings.append(_unique_handler(entities, edges, named))
+    if caller is not None:
+        bases = _nuxt_caller_routes(entities, edges, caller.id)
+        if len(bases) == 1:
+            joined = _nuxt_join_relative(bases[0], value)
+            if joined is not None:
+                matched = by_path(joined)
+                if matched:
+                    readings.append(_unique_handler(entities, edges, matched))
+    if not readings:
+        return "unresolved", None
+    if any(status == "ambiguous" for status, _handler in readings):
+        return "ambiguous", None
+    handlers: list[Entity] = []
+    for status, handler in readings:
+        if status != "ok" or handler is None:
+            return "unresolved", None
+        handlers.append(handler)
+    if len({item.id for item in handlers}) != 1:
+        return "ambiguous", None
+    return "ok", handlers[0]
+
+
+def _script_module_strings(source: bytes, root: Node) -> dict[str, str]:
+    """Unique script-root string constants visible to the template."""
+    grouped: dict[str, list[str]] = {}
+    for node in named_children(root):
+        stmt = node
+        if node.type == "export_statement":
+            decl = child_named(node, "declaration")
+            if decl is None:
+                continue
+            stmt = decl
+        if stmt.type not in {"lexical_declaration", "variable_declaration"}:
+            continue
+        for declarator in named_children(stmt):
+            if declarator.type != "variable_declarator":
+                continue
+            name = identifier_name(source, child_named(declarator, "name"))
+            value = _unwrap_expr(child_named(declarator, "value"))
+            if not name or value is None:
+                continue
+            literal = string_literal(source, value)
+            if literal is None:
+                continue
+            grouped.setdefault(name, []).append(literal)
+    return {
+        name: values[0]
+        for name, values in grouped.items()
+        if len(set(values)) == 1
+    }
+
+
+def _parse_expression(expr: str) -> tuple[bytes, Node] | None:
+    source = f"const __nav = ({expr});\n".encode()
+    tree = _EXPR_PARSER.parse(source)
+    if tree.root_node.has_error:
+        return None
+    declarator = next(
+        (
+            node
+            for node in walk_named(tree.root_node)
+            if node.type == "variable_declarator"
+        ),
+        None,
+    )
+    if declarator is None:
+        return None
+    value = child_named(declarator, "value")
+    if value is None:
+        return None
+    return source, value
+
+
+def _dest_from_node(
+    source: bytes,
+    node: Node | None,
+    module_strings: dict[str, str],
+) -> tuple[str, str, str]:
+    """Return (status, mode, value). mode is path, name, or mixed."""
+    current = _unwrap_expr(node)
+    if current is None:
+        return "dynamic", "", ""
+    if current.type == "template_string" and any(
+        child.type == "template_substitution" for child in current.children
+    ):
+        return "dynamic", "", ""
+    literal = string_literal(source, current)
+    if literal is not None:
+        route = literal.split("?", 1)[0].split("#", 1)[0].strip()
+        if not route or any(char.isspace() for char in route):
+            return "dynamic", "", ""
+        return "ok", "path", route
+    if current.type == "identifier":
+        name = text_of(source, current)
+        resolved = module_strings.get(name)
+        if resolved is None:
+            return "dynamic", "", ""
+        route = resolved.split("?", 1)[0].split("#", 1)[0].strip()
+        if not route:
+            return "dynamic", "", ""
+        return "ok", "path", route
+    if current.type == "object":
+        props = _object_props(source, current)
+        path_node = props.get("path") or props.get("pathname")
+        name_node = props.get("name")
+        path_dest = (
+            _dest_from_node(source, path_node, module_strings)
+            if path_node is not None
+            else None
+        )
+        name_dest = (
+            _dest_from_node(source, name_node, module_strings)
+            if name_node is not None
+            else None
+        )
+        if path_dest is None and name_dest is None:
+            return "dynamic", "", ""
+        if path_dest is not None and path_dest[0] == "ok" and (
+            name_dest is None or name_dest[0] != "ok"
+        ):
+            return path_dest
+        if name_dest is not None and name_dest[0] == "ok" and (
+            path_dest is None or path_dest[0] != "ok"
+        ):
+            return "ok", "name", name_dest[2]
+        if (
+            path_dest is not None
+            and name_dest is not None
+            and path_dest[0] == "ok"
+            and name_dest[0] == "ok"
+        ):
+            return "ok", "mixed", f"{path_dest[2]}|{name_dest[2]}"
+        failed = next(
+            item
+            for item in (path_dest, name_dest)
+            if item is not None and item[0] != "ok"
+        )
+        return failed
+    return "dynamic", "", ""
+
+
+def _resolve_in_script(
+    source: bytes, root: Node, node: Node | None, module_strings: dict[str, str]
+) -> tuple[str, str, str]:
+    """Resolve a destination, following the innermost in-scope string const."""
+    current = _unwrap_expr(node)
+    if current is not None and current.type == "identifier":
+        name = text_of(source, current)
+        pos = current.start_byte
+        found: list[tuple[int, Node]] = []
+        for declarator in walk_named(root):
+            if declarator.type != "variable_declarator":
+                continue
+            bound = identifier_name(source, child_named(declarator, "name"))
+            value = child_named(declarator, "value")
+            if bound != name or value is None:
+                continue
+            scope = declarator.parent
+            span = (root.start_byte, root.end_byte)
+            while scope is not None:
+                if scope.type in {
+                    "statement_block",
+                    "function_declaration",
+                    "arrow_function",
+                    "function_expression",
+                    "method_definition",
+                }:
+                    span = (scope.start_byte, scope.end_byte)
+                    break
+                scope = scope.parent
+            if span[0] <= pos < span[1]:
+                found.append((span[1] - span[0], value))
+        if len(found) > 1 and found[0][0] == sorted(found)[0][0]:
+            smallest = min(item[0] for item in found)
+            if sum(1 for item in found if item[0] == smallest) > 1:
+                return "ambiguous", "", ""
+        if found:
+            found.sort()
+            return _dest_from_node(source, found[0][1], module_strings)
+    return _dest_from_node(source, node, module_strings)
+
+
+def _router_member(source: bytes, callee: Node | None) -> Node | None:
+    node = _unwrap_expr(callee)
+    if node is None or node.type != "member_expression":
+        return None
+    prop = next(
+        (
+            text_of(source, child)
+            for child in named_children(node)
+            if child.type == "property_identifier"
+        ),
+        None,
+    )
+    if prop not in {"push", "replace"}:
+        return None
+    return next((child for child in named_children(node) if child.is_named), None)
+
+
+def _object_is_router(source: bytes, obj: Node | None) -> str:
+    """Return ok, shadow, or miss."""
+    current = _unwrap_expr(obj)
+    if current is None:
+        return "miss"
+    if current.type == "call_expression":
+        name = _callee_identifier(source, child_named(current, "function"))
+        if name == "useRouter" and not _is_locally_bound(source, current, "useRouter"):
+            return "ok"
+        return "miss"
+    if current.type != "identifier" or text_of(source, current) != "router":
+        return "miss"
+    root = current
+    while root.parent is not None:
+        root = root.parent
+    pos = current.start_byte
+    candidates: list[tuple[int, Node]] = []
+    for declarator in walk_named(root):
+        if declarator.type != "variable_declarator" or declarator.start_byte >= pos:
+            continue
+        if identifier_name(source, child_named(declarator, "name")) != "router":
+            continue
+        scope = declarator.parent
+        span = (root.start_byte, root.end_byte)
+        while scope is not None:
+            if scope.type in {
+                "statement_block",
+                "function_declaration",
+                "arrow_function",
+                "function_expression",
+                "method_definition",
+            }:
+                span = (scope.start_byte, scope.end_byte)
+                break
+            scope = scope.parent
+        if span[0] <= pos < span[1]:
+            candidates.append((span[1] - span[0], declarator))
+    if not candidates:
+        return "shadow" if _is_locally_bound(source, current, "router") else "miss"
+    candidates.sort()
+    value = _unwrap_expr(child_named(candidates[0][1], "value"))
+    if (
+        value is not None
+        and value.type == "call_expression"
+        and _callee_identifier(source, child_named(value, "function")) == "useRouter"
+        and not _is_locally_bound(source, value, "useRouter")
+    ):
+        return "ok"
+    return "shadow"
+
+
+def _iter_nuxt_links(
+    template_text: str, content_start_line: int
+) -> list[tuple[int, str | None, str | None]]:
+    """Return (line, static to, bound expression) for NuxtLink tags."""
+    found: list[tuple[int, str | None, str | None]] = []
+    index = 0
+    while index < len(template_text):
+        start = template_text.find("<NuxtLink", index)
+        if start < 0:
+            break
+        after = start + len("<NuxtLink")
+        if start > 0 and (
+            template_text[start - 1].isalnum() or template_text[start - 1] in {"_", "-"}
+        ):
+            index = after
+            continue
+        if after < len(template_text) and (
+            template_text[after].isalnum() or template_text[after] in {"_", "-"}
+        ):
+            index = after
+            continue
+        cursor = after
+        quote: str | None = None
+        end = None
+        while cursor < len(template_text):
+            char = template_text[cursor]
+            if quote is not None:
+                if char == quote:
+                    quote = None
+                cursor += 1
+                continue
+            if char in {'"', "'"}:
+                quote = char
+                cursor += 1
+                continue
+            if char == ">":
+                end = cursor
+                break
+            cursor += 1
+        if end is None:
+            break
+        line = content_start_line + template_text.count("\n", 0, start)
+        static_to, bound = _nuxt_link_to(template_text[after:end])
+        found.append((line, static_to, bound))
+        index = end + 1
+    return found
+
+
+def _nuxt_link_to(tag_inside: str) -> tuple[str | None, str | None]:
+    static_to: str | None = None
+    bound: str | None = None
+    length = len(tag_inside)
+    index = 0
+    while index < length:
+        while index < length and tag_inside[index].isspace():
+            index += 1
+        if index >= length:
+            break
+        name_start = index
+        while index < length and tag_inside[index] not in {
+            "=",
+            " ",
+            "\t",
+            "\n",
+            "\r",
+            "/",
+        }:
+            index += 1
+        name = tag_inside[name_start:index]
+        while index < length and tag_inside[index].isspace():
+            index += 1
+        if index >= length or tag_inside[index] != "=":
+            continue
+        index += 1
+        while index < length and tag_inside[index].isspace():
+            index += 1
+        if index >= length:
+            break
+        quote = tag_inside[index]
+        if quote in {'"', "'"}:
+            index += 1
+            value_start = index
+            while index < length and tag_inside[index] != quote:
+                index += 1
+            value = tag_inside[value_start:index]
+            index += 1
+        else:
+            value_start = index
+            while index < length and not tag_inside[index].isspace():
+                index += 1
+            value = tag_inside[value_start:index]
+        if name == "to":
+            static_to = value
+        elif name in {":to", "v-bind:to"}:
+            bound = value
+    return static_to, bound
+
+
+def _record_nuxt_navigation(
+    *,
+    path: str,
+    line: int,
+    status: str,
+    mode: str,
+    value: str,
+    entities: dict[str, Entity],
+    edges: dict[str, Edge],
+    issues: list[AdapterDiagnostic],
+    emit_edge,
+) -> None:
+    if status == "shadow":
+        issues.append(AdapterDiagnostic("nuxt_navigate_shadowed", path, line))
+        return
+    if status != "ok" or not value:
+        issues.append(
+            AdapterDiagnostic(
+                "nuxt_navigate_ambiguous"
+                if status == "ambiguous"
+                else "nuxt_navigate_dynamic",
+                path,
+                line,
+            )
+        )
+        return
+    owner = _nuxt_owner(entities, path, line)
+    if mode == "mixed":
+        path_value, _, name_value = value.partition("|")
+        path_status, path_handler = _match_nuxt_target(
+            entities, edges, mode="path", value=path_value, caller=owner
+        )
+        name_status, name_handler = _match_nuxt_target(
+            entities, edges, mode="name", value=name_value, caller=owner
+        )
+        if (
+            path_status == "ok"
+            and name_status == "ok"
+            and path_handler is not None
+            and name_handler is not None
+            and path_handler.id == name_handler.id
+        ):
+            match, handler = "ok", path_handler
+        else:
+            match, handler = "ambiguous", None
+    else:
+        match, handler = _match_nuxt_target(
+            entities, edges, mode=mode, value=value, caller=owner
+        )
+    if match != "ok" or handler is None or owner is None:
+        issues.append(
+            AdapterDiagnostic(
+                "nuxt_navigate_ambiguous"
+                if match == "ambiguous"
+                else "nuxt_navigate_unresolved",
+                path,
+                line,
+            )
+        )
+        return
+    emit_edge(
+        EdgeType.CALLS,
+        owner.id,
+        handler.id,
+        _Location(path, line),
+        NAVIGATE_RULE,
+    )
+
+
+def _helper_shadowed(source: bytes, root: Node, node: Node, name: str) -> bool:
+    """True when a local function or const hides the Nuxt auto-import."""
+    if _is_locally_bound(source, node, name):
+        return True
+    pos = node.start_byte
+    for item in walk_named(root):
+        if item.type in {
+            "function_declaration",
+            "generator_function_declaration",
+        }:
+            bound = identifier_name(source, child_named(item, "name"))
+            scope_from = item.parent
+        elif item.type == "variable_declarator":
+            bound = identifier_name(source, child_named(item, "name"))
+            scope_from = item
+        else:
+            continue
+        if bound != name or scope_from is None:
+            continue
+        span = (root.start_byte, root.end_byte)
+        scope = scope_from.parent if item.type == "variable_declarator" else scope_from
+        while scope is not None:
+            if scope.type in {
+                "statement_block",
+                "function_declaration",
+                "generator_function_declaration",
+                "arrow_function",
+                "function_expression",
+                "method_definition",
+            }:
+                span = (scope.start_byte, scope.end_byte)
+                break
+            scope = scope.parent
+        if span[0] <= pos < span[1]:
+            return True
+    return False
+
+
+def _index_nuxt_script_navigation(
+    *,
+    path: str,
+    source: bytes,
+    root: Node,
+    entities: dict[str, Entity],
+    edges: dict[str, Edge],
+    issues: list[AdapterDiagnostic],
+    emit_edge,
+) -> None:
+    module_strings = _script_module_strings(source, root)
+    for node in walk_named(root):
+        if node.type != "call_expression":
+            continue
+        callee = child_named(node, "function")
+        name = _callee_identifier(source, callee)
+        line = node.start_point[0] + 1
+        if name == "navigateTo":
+            if _helper_shadowed(source, root, node, "navigateTo"):
+                _record_nuxt_navigation(
+                    path=path,
+                    line=line,
+                    status="shadow",
+                    mode="",
+                    value="",
+                    entities=entities,
+                    edges=edges,
+                    issues=issues,
+                    emit_edge=emit_edge,
+                )
+                continue
+            args = _call_args(node)
+            status, mode, value = _resolve_in_script(
+                source, root, args[0] if args else None, module_strings
+            )
+            _record_nuxt_navigation(
+                path=path,
+                line=line,
+                status=status,
+                mode=mode,
+                value=value,
+                entities=entities,
+                edges=edges,
+                issues=issues,
+                emit_edge=emit_edge,
+            )
+            continue
+        obj = _router_member(source, callee)
+        if obj is None:
+            continue
+        router_state = _object_is_router(source, obj)
+        if router_state == "miss":
+            continue
+        if router_state == "shadow":
+            _record_nuxt_navigation(
+                path=path,
+                line=line,
+                status="shadow",
+                mode="",
+                value="",
+                entities=entities,
+                edges=edges,
+                issues=issues,
+                emit_edge=emit_edge,
+            )
+            continue
+        args = _call_args(node)
+        status, mode, value = _resolve_in_script(
+            source, root, args[0] if args else None, module_strings
+        )
+        _record_nuxt_navigation(
+            path=path,
+            line=line,
+            status=status,
+            mode=mode,
+            value=value,
+            entities=entities,
+            edges=edges,
+            issues=issues,
+            emit_edge=emit_edge,
+        )
+
+
+def _index_nuxt_navigation(
+    *,
+    vue_modules: dict[str, VueSfc],
+    ts_modules: dict[str, TsModule],
+    entities: dict[str, Entity],
+    edges: dict[str, Edge],
+    issues: list[AdapterDiagnostic],
+    emit_edge,
+) -> None:
+    for path, module in sorted(ts_modules.items()):
+        if path.startswith("analysis-cases/"):
+            continue
+        _index_nuxt_script_navigation(
+            path=path,
+            source=module.source,
+            root=module.tree.root_node,
+            entities=entities,
+            edges=edges,
+            issues=issues,
+            emit_edge=emit_edge,
+        )
+    for path, sfc in sorted(vue_modules.items()):
+        module_strings: dict[str, str] = {}
+        if sfc.script_tree is not None:
+            module_strings = _script_module_strings(
+                sfc.script_source, sfc.script_tree.root_node
+            )
+            _index_nuxt_script_navigation(
+                path=path,
+                source=sfc.script_source,
+                root=sfc.script_tree.root_node,
+                entities=entities,
+                edges=edges,
+                issues=issues,
+                emit_edge=emit_edge,
+            )
+        if sfc.template is None:
+            continue
+        text = sfc.template.content.decode("utf-8", errors="replace")
+        for line, static_to, bound in _iter_nuxt_links(
+            text, sfc.template.content_start_line
+        ):
+            if static_to is not None and bound is not None:
+                status, mode, value = "ambiguous", "", ""
+            elif static_to is not None:
+                route = static_to.split("?", 1)[0].split("#", 1)[0].strip()
+                status, mode, value = (
+                    ("ok", "path", route)
+                    if route and not any(char.isspace() for char in route)
+                    else ("dynamic", "", "")
+                )
+            elif bound is not None:
+                parsed = _parse_expression(bound)
+                if parsed is None:
+                    status, mode, value = "dynamic", "", ""
+                else:
+                    expr_source, expr_node = parsed
+                    status, mode, value = _dest_from_node(
+                        expr_source, expr_node, module_strings
+                    )
+            else:
+                status, mode, value = "dynamic", "", ""
+            _record_nuxt_navigation(
+                path=path,
+                line=line,
+                status=status,
+                mode=mode,
+                value=value,
+                entities=entities,
+                edges=edges,
+                issues=issues,
+                emit_edge=emit_edge,
+            )
+
+
 class NuxtFrameworkAdapter:
     """Extract Nuxt pages, Nitro routes, auto-imports and runtimeConfig keys."""
 
@@ -932,6 +1712,7 @@ class NuxtFrameworkAdapter:
                     ("kind", "navigation"),
                     ("path", route),
                     ("route_path", route),
+                    ("route_name", _nuxt_route_name(route)),
                     ("registration_chain", chain),
                 ),
             )
@@ -1308,6 +2089,15 @@ class NuxtFrameworkAdapter:
                 _Location(path, line),
                 PAGE_HANDLER_RULE,
             )
+
+        _index_nuxt_navigation(
+            vue_modules=vue_modules,
+            ts_modules=ts_modules,
+            entities=entities,
+            edges=edges,
+            issues=issues,
+            emit_edge=emit_edge,
+        )
 
         for ordinal, item in enumerate(
             sorted(

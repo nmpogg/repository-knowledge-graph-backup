@@ -34,6 +34,7 @@ import { ReactFlowProvider } from '@xyflow/react'
 import { getRkgClient } from '../../client'
 import { DEMO_SNAPSHOT_ID } from '../../client/mock/fixtures'
 import { KnowledgeGraph, relationAccent } from '../../components/graph/KnowledgeGraph'
+import { PROJECT_OVERVIEW_ROOT_ID, loadProjectOverview } from '../../components/graph/projectOverview'
 import { SnapshotStructure } from './SnapshotStructure'
 import { useAnnouncer } from '../../components/ui/Announcer'
 import { Badge } from '../../components/ui/Badge'
@@ -98,6 +99,7 @@ export function ExplorerPage() {
   const [detail, setDetail] = useState<EntityDetail | null>(null)
   const [graph, setGraph] = useState<SubgraphResponse | null>(null)
   const graphRequest = useRef(0)
+  const viewRequest = useRef(0)
   const [direction, setDirection] = useState<EdgeDirection>('both')
   const [depth, setDepth] = useState(6)
   const [maxNodes, setMaxNodes] = useState(50)
@@ -397,18 +399,22 @@ export function ExplorerPage() {
   )
 
   const openDetail = async (id: string) => {
+    const requestId = ++viewRequest.current
     setSelectedId(id)
     try {
       const d = await client.getEntity(snapshotId, id)
+      if (requestId !== viewRequest.current) return
       setDetail(d)
       announce(t('explorer.announce.selected', { name: d.name }))
     } catch (err) {
+      if (requestId !== viewRequest.current) return
       setDetail(null)
       announce(formatError(err, locale), true)
     }
   }
 
   const selectEntity = async (id: string, asRoot = false, graphOverrides?: Parameters<typeof loadGraph>[1]) => {
+    const requestId = ++viewRequest.current
     setSelectedId(id)
     setView('graph')
     if (asRoot || !rootId) {
@@ -417,11 +423,14 @@ export function ExplorerPage() {
       setRootId(id)
       await loadGraph(id, { ...graphOverrides, view: 'flow' })
     }
+    if (requestId !== viewRequest.current) return
     try {
       const d = await client.getEntity(snapshotId, id)
+      if (requestId !== viewRequest.current) return
       setDetail(d)
       announce(t('explorer.announce.selected', { name: d.name }))
     } catch (err) {
+      if (requestId !== viewRequest.current) return
       setDetail(null)
       announce(formatError(err, locale), true)
     }
@@ -429,63 +438,43 @@ export function ExplorerPage() {
 
   const openProjectOverview = async () => {
     if (!snapshotId) return
+    const requestId = ++graphRequest.current
+    viewRequest.current += 1
     setActivePreset('')
     setOverviewGraph(true)
-    setGraphView('neighborhood')
-    setDirection('both')
-    setEdgeTypes(undefined)
-    setDepth(6)
-    setMaxNodes(200)
     setView('graph')
     setOptionsOpen(false)
-
-    let root =
-      results.find((r) => r.type === 'directory')?.id ??
-      results.find((r) => r.type === 'module')?.id ??
-      results.find((r) => r.type === 'class')?.id ??
-      results[0]?.id ??
-      null
-    if (!root) {
-      try {
-        const page = await client.searchEntities(snapshotId, {
-          type: 'directory',
-          limit: 5,
-        })
-        root = page.items[0]?.id ?? null
-        if (!root) {
-          const any = await client.searchEntities(snapshotId, { limit: 1 })
-          root = any.items[0]?.id ?? null
-        }
-      } catch (err) {
-        setError(formatError(err, locale))
+    setSelectedId(null)
+    setDetail(null)
+    setGraph(null)
+    setRootId(null)
+    setLoading(true)
+    setError(null)
+    try {
+      const graph = await loadProjectOverview(client, snapshotId)
+      if (requestId !== graphRequest.current) return
+      if (graph.nodes.length === 0) {
+        setGraph(null)
+        announce(t('explorer.announce.noOverview'), true)
         return
       }
-    }
-    if (!root) {
-      announce(t('explorer.announce.noOverview'), true)
-      return
-    }
-
-    setSelectedId(root)
-    await loadGraph(root, {
-      direction: 'both',
-      edge_types: undefined,
-      depth: 6,
-      max_nodes: 200,
-      view: 'neighborhood',
-    })
-    try {
-      const d = await client.getEntity(snapshotId, root)
-      setDetail(d)
+      setGraph(graph)
+      if (graph.truncated) announce(t('explorer.announce.truncated'))
       announce(t('explorer.announce.overviewLoaded'))
-    } catch {
-      setDetail(null)
+    } catch (err) {
+      if (requestId !== graphRequest.current) return
+      setGraph(null)
+      setError(formatError(err, locale))
+      announce(formatError(err, locale), true)
+    } finally {
+      if (requestId === graphRequest.current) setLoading(false)
     }
   }
 
   useEffect(() => {
+    if (overviewGraph) return
     if (rootId) void loadGraph(rootId)
-  }, [direction, depth, maxNodes, edgeTypes, graphView, includeStructure, includeDependencies]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [direction, depth, maxNodes, edgeTypes, graphView, includeStructure, includeDependencies, overviewGraph]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const bumpLayout = () => {
     window.setTimeout(() => setLayoutKey((k) => k + 1), 220)
@@ -576,6 +565,7 @@ export function ExplorerPage() {
     const presetId = flowPresetIdForEntry(kind)
     const preset = GRAPH_PRESETS.find((item) => item.id === presetId)
     if (!preset || !snapshotId) return
+    const requestId = ++viewRequest.current
     setSelectedId(id)
     setActivePreset(preset.id)
     setOverviewGraph(false)
@@ -592,11 +582,14 @@ export function ExplorerPage() {
       depth: preset.max_depth,
       view: 'flow',
     })
+    if (requestId !== viewRequest.current) return
     try {
       const d = await client.getEntity(snapshotId, id)
+      if (requestId !== viewRequest.current) return
       setDetail(d)
       announce(t('explorer.announce.selected', { name: endpointDisplayLabel(d) }))
     } catch (err) {
+      if (requestId !== viewRequest.current) return
       setDetail(null)
       announce(formatError(err, locale), true)
     }
@@ -1225,24 +1218,7 @@ export function ExplorerPage() {
                 </ul>
               )}
             </div>
-          ) : !rootId ? (
-            <div className="explorer-canvas-empty">
-              <h2>{t('explorer.pickEntityTitle')}</h2>
-              <p>{t('explorer.pickEntityBody')}</p>
-              <div className="row-actions">
-                <Button variant="primary" onClick={() => void openProjectOverview()}>
-                  {t('explorer.projectOverview')}
-                </Button>
-                {!leftOpen ? (
-                  <Button onClick={toggleLeft}>{t('explorer.openSearch')}</Button>
-                ) : null}
-              </div>
-            </div>
-          ) : loading && !graph ? (
-            <div className="explorer-canvas-empty" aria-busy="true">
-              <h2>{t('explorer.loadingGraph')}</h2>
-            </div>
-          ) : graph ? (
+          ) : graph && (rootId || overviewGraph) ? (
             <ReactFlowProvider>
               {rootId &&
               detail &&
@@ -1258,7 +1234,7 @@ export function ExplorerPage() {
               <KnowledgeGraph
                 nodes={graph.nodes}
                 edges={graph.edges}
-                rootId={rootId}
+                rootId={overviewGraph ? PROJECT_OVERVIEW_ROOT_ID : rootId!}
                 selectedId={selectedId}
                 mode={overviewGraph ? 'architecture' : 'flow'}
                 showStructure={includeStructure}
@@ -1267,7 +1243,24 @@ export function ExplorerPage() {
                 onSelect={(id) => void selectEntity(id)}
               />
             </ReactFlowProvider>
-          ) : null}
+          ) : loading && (rootId || overviewGraph) ? (
+            <div className="explorer-canvas-empty" aria-busy="true">
+              <h2>{t('explorer.loadingGraph')}</h2>
+            </div>
+          ) : (
+            <div className="explorer-canvas-empty">
+              <h2>{t('explorer.pickEntityTitle')}</h2>
+              <p>{t('explorer.pickEntityBody')}</p>
+              <div className="row-actions">
+                <Button variant="primary" onClick={() => void openProjectOverview()}>
+                  {t('explorer.projectOverview')}
+                </Button>
+                {!leftOpen ? (
+                  <Button onClick={toggleLeft}>{t('explorer.openSearch')}</Button>
+                ) : null}
+              </div>
+            </div>
+          )}
         </section>
 
         <AnimatePresence initial={false}>

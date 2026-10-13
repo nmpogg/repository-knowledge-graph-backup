@@ -1,0 +1,429 @@
+{
+  "fixture_id": "rkg-fixture-next",
+  "oracle_source": "tests/evaluation/fixtures/rkg-fixture-next",
+  "notes": [
+    "Dynamic segments keep a colon spelling: [orderId] -> :orderId and [slug] -> :slug. Catch-all [...name] would be *.",
+    "Route groups (shop) are omitted, so app/(shop)/catalog/page.tsx is /catalog.",
+    "Pages are Endpoint kind=navigation. Route handlers are HTTP Endpoint method+path.",
+    "handled_by uses RKG.next.handler.v1. Navigation calls use RKG.next.navigation.v1 from the caller Callable to the unique page handler Callable.",
+    "allow_unlisted_actual is false: every SourceUnit, Callable, Endpoint, ExternalDependency, contains, imports, handled_by and calls fact is listed.",
+    "ExternalDependency next is the npm package from next/link and next/navigation imports. HTTP depends_on is not emitted."
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": false
+  },
+  "allowlist": [],
+  "prohibited": [
+    {
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST",
+      "reason": "sentinel must not be persisted"
+    }
+  ],
+  "entities": [
+    {
+      "type": "Callable",
+      "qualified_name": "app.(shop).catalog.page.CatalogPage"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.account.page.AccountPage"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.api.orders.[orderId].route.GET"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.api.orders.route.GET"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.api.orders.route.POST"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.orders.[orderId].page.OrderPage"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.orders.page.OrdersPage"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.page.HomePage"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "pages.about.AboutPage"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "pages.api.health.health"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "pages.blog.[slug].PostPage"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "pages.legacy.LegacyPage"
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "GET /api/health",
+      "required_attributes": {
+        "path": "/api/health",
+        "route_path": "/api/health",
+        "method": "GET"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "GET /api/orders/:orderId",
+      "required_attributes": {
+        "path": "/api/orders/:orderId",
+        "route_path": "/api/orders/:orderId",
+        "method": "GET"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "GET /api/orders",
+      "required_attributes": {
+        "path": "/api/orders",
+        "route_path": "/api/orders",
+        "method": "GET"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "POST /api/orders",
+      "required_attributes": {
+        "path": "/api/orders",
+        "route_path": "/api/orders",
+        "method": "POST"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/about",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/about",
+        "route_path": "/about"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/account",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/account",
+        "route_path": "/account"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/blog/:slug",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/blog/:slug",
+        "route_path": "/blog/:slug"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/catalog",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/catalog",
+        "route_path": "/catalog"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/legacy",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/legacy",
+        "route_path": "/legacy"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/orders/:orderId",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/orders/:orderId",
+        "route_path": "/orders/:orderId"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/orders",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/orders",
+        "route_path": "/orders"
+      }
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/",
+        "route_path": "/"
+      }
+    },
+    {
+      "type": "ExternalDependency",
+      "qualified_name": "next",
+      "required_attributes": {
+        "kind": "npm_package"
+      }
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.(shop).catalog.page"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.account.page"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.api.orders.[orderId].route"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.api.orders.route"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.orders.[orderId].page"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.orders.page"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.page"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "lib.paths"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "pages.about"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "pages.api.health"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "pages.blog.[slug]"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "pages.legacy"
+    }
+  ],
+  "edges": [
+    {
+      "type": "calls",
+      "source": "app.account.page.AccountPage",
+      "target": "pages.about.AboutPage",
+      "rule_id": "RKG.next.navigation.v1"
+    },
+    {
+      "type": "calls",
+      "source": "app.page.HomePage",
+      "target": "app.(shop).catalog.page.CatalogPage",
+      "rule_id": "RKG.next.navigation.v1"
+    },
+    {
+      "type": "calls",
+      "source": "app.page.HomePage",
+      "target": "app.orders.page.OrdersPage",
+      "rule_id": "RKG.next.navigation.v1"
+    },
+    {
+      "type": "calls",
+      "source": "pages.legacy.LegacyPage",
+      "target": "pages.about.AboutPage",
+      "rule_id": "RKG.next.navigation.v1"
+    },
+    {
+      "type": "contains",
+      "source": "app.(shop).catalog.page",
+      "target": "app.(shop).catalog.page.CatalogPage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "app.account.page",
+      "target": "app.account.page.AccountPage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "app.api.orders.[orderId].route",
+      "target": "app.api.orders.[orderId].route.GET",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "app.api.orders.route",
+      "target": "app.api.orders.route.GET",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "app.api.orders.route",
+      "target": "app.api.orders.route.POST",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "app.orders.[orderId].page",
+      "target": "app.orders.[orderId].page.OrderPage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "app.orders.page",
+      "target": "app.orders.page.OrdersPage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "app.page",
+      "target": "app.page.HomePage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "pages.about",
+      "target": "pages.about.AboutPage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "pages.api.health",
+      "target": "pages.api.health.health",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "pages.blog.[slug]",
+      "target": "pages.blog.[slug].PostPage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "pages.legacy",
+      "target": "pages.legacy.LegacyPage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "GET /api/health",
+      "target": "pages.api.health.health",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "GET /api/orders/:orderId",
+      "target": "app.api.orders.[orderId].route.GET",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "GET /api/orders",
+      "target": "app.api.orders.route.GET",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "POST /api/orders",
+      "target": "app.api.orders.route.POST",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/about",
+      "target": "pages.about.AboutPage",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/account",
+      "target": "app.account.page.AccountPage",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/blog/:slug",
+      "target": "pages.blog.[slug].PostPage",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/catalog",
+      "target": "app.(shop).catalog.page.CatalogPage",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/legacy",
+      "target": "pages.legacy.LegacyPage",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/orders/:orderId",
+      "target": "app.orders.[orderId].page.OrderPage",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/orders",
+      "target": "app.orders.page.OrdersPage",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/",
+      "target": "app.page.HomePage",
+      "rule_id": "RKG.next.handler.v1"
+    },
+    {
+      "type": "imports",
+      "source": "app.account.page",
+      "target": "next",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "app.page",
+      "target": "next",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "pages.legacy",
+      "target": "lib.paths",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "pages.legacy",
+      "target": "next",
+      "rule_id": "RKG.typescript.import.v1"
+    }
+  ]
+}

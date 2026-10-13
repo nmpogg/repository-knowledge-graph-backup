@@ -6,7 +6,8 @@
     "Qualified names use package short forms from README inventory (api/application/domain/...)",
     "DataResource identities follow README relational:schema.table spelling",
     "audit.orders must remain distinct from commerce.orders with no application read/write edge",
-    "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+    "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP",
+    "Registered OncePerRequestFilter and HandlerInterceptor types store integer order only when a literal or unique constant agrees"
   ],
   "match_policy": {
     "allow_unlisted_actual": true
@@ -134,6 +135,29 @@
       "required_attributes": {"name": "payments.events"},
       "rule_id": null,
       "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "config.RequestAuditFilter",
+      "required_attributes": {"order": 1},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}],
+      "note": "statically registered OncePerRequestFilter; order from unique ORDER constant"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "config.OrderAuditInterceptor",
+      "required_attributes": {"order": 2},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}],
+      "note": "statically registered HandlerInterceptor; order from literal order(2)"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "config.WebMvcConfig",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}],
+      "note": "WebMvcConfigurer that registers OrderAuditInterceptor"
     },
     {
       "type": "Endpoint",
@@ -403,6 +427,27 @@
     {
       "reason": "secret sentinel must never appear in facts or diagnostics",
       "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST"
+    },
+    {
+      "reason": "Filter registration must not invent a handled_by target",
+      "edge": {
+        "type": "handled_by",
+        "target_qualified_name_contains": "RequestAuditFilter"
+      }
+    },
+    {
+      "reason": "Interceptor registration must not invent a handled_by target",
+      "edge": {
+        "type": "handled_by",
+        "target_qualified_name_contains": "OrderAuditInterceptor"
+      }
+    },
+    {
+      "reason": "UnregisteredRequestFilter must not gain a handled_by edge",
+      "edge": {
+        "type": "handled_by",
+        "target_qualified_name_contains": "UnregisteredRequestFilter"
+      }
     }
   ]
 }

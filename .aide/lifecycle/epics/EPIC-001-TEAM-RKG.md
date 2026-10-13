@@ -5,8 +5,8 @@ type: epic
 group: normative
 scope: lifecycle
 system: SYS-RKG
-status: draft
-revision: 7
+status: done
+revision: 8
 change_set: CHG-RKG-2026-001
 implements: [FR-RKG-001, FR-RKG-003]
 affected_components: [CMP-RKG-WEB]
@@ -48,4 +48,4 @@ Ba task điều kiện trên đã `done` với evidence:
 `DIARY-TASK-RKG-001*` / `TEST-RKG-DDL-BOOTSTRAP-001`,
 `DIARY-TASK-RKG-017` / `TEST-RKG-UI-MVP-MOCK-001`,
 `DIARY-TASK-RKG-025` / `TEST-RKG-UI-REPO-MGMT-MOCK-001`.
-Epic giữ `draft` đến khi gate/baseline M0 được ký riêng (không suy ra từ PLAN).
+Status epic là `done` vì `TASK-RKG-001`, `TASK-RKG-017` và `TASK-RKG-025` đã `done`. Gate và baseline M0 không được ký bởi câu này.

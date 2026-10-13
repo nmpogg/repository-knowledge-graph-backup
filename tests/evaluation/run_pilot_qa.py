@@ -9,7 +9,11 @@ import os
 import tempfile
 from pathlib import Path
 
-from tests.integration.test_pilot_corpus import EXPECTED_PILOT_SHA256, pilot_digest
+from tests.integration.test_pilot_corpus import (
+    DEFAULT_PILOT,
+    EXPECTED_PILOT_SHA256,
+    pilot_digest,
+)
 
 from rkg.conversations import create_conversation, submit_grounded_turn
 from rkg.graph import build_context, search_entities
@@ -368,7 +372,7 @@ def run(
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--pilot", type=Path, default=Path("../pilot_fastapi"))
+    parser.add_argument("--pilot", type=Path, default=DEFAULT_PILOT)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--key", default="TEST-RKG-QA-EVAL-001")

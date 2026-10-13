@@ -12,6 +12,8 @@ export type GraphNodeData = {
   qualifiedName: string
   location?: string
   flow?: boolean
+  /** Top-down stratum used by overview 2D and 3D. */
+  layer?: number
 }
 
 export type RkgFlowNode = Node<GraphNodeData, 'rkg'>
@@ -26,7 +28,7 @@ export function RkgEntityNode({ data, selected }: NodeProps<RkgFlowNode>) {
       <Handle type="target" position={Position.Right} id="target-right" className="graph-node-handle" aria-hidden />
       <Handle type="target" position={Position.Top} id="target-top" className="graph-node-handle" aria-hidden />
       <Handle type="target" position={Position.Bottom} id="target-bottom" className="graph-node-handle" aria-hidden />
-      <span className="type">{data.entityType}</span>
+      <span className="type">{data.entityType === 'topic' ? 'event' : data.entityType}</span>
       <div className="label" title={data.qualifiedName}>{data.label}</div>
       {data.location ? <div className="graph-node-location" title={data.location}>{data.location}</div> : null}
       <Handle type="source" position={Position.Left} id="source-left" className="graph-node-handle" aria-hidden />

@@ -282,3 +282,154 @@ def test_dynamic_conditional_route_is_diagnostic(tmp_path: Path) -> None:
         "route" in code and ("dynamic" in code or "unresolved" in code)
         for code in codes
     ), codes
+
+
+def _navigate_calls(result) -> set[tuple[str, str]]:
+    from rkg.domain import EdgeType
+
+    by_id = {item.id: item for item in result.facts.entities}
+    return {
+        (by_id[edge.source_id].qualified_name, by_id[edge.target_id].qualified_name)
+        for edge in result.facts.edges
+        if edge.type == EdgeType.CALLS and edge.rule == "RKG.react_router.navigate.v1"
+    }
+
+
+def _route_shell(tmp_path: Path, extra_pages: str = "") -> None:
+    _write(
+        tmp_path,
+        "src/app/pages.tsx",
+        "export const OrdersPage = () => null;\n"
+        "export const DetailPage = () => null;\n"
+        "export const EditPage = () => null;\n"
+        "export const UsersPage = () => null;\n"
+        + extra_pages,
+    )
+    _write(
+        tmp_path,
+        "src/app/router.tsx",
+        "import { createBrowserRouter, type RouteObject } "
+        "from 'react-router-dom';\n"
+        "import { OrdersPage, DetailPage, EditPage, UsersPage } "
+        "from './pages';\n"
+        "export const appRoutes: RouteObject[] = [\n"
+        "  { path: '/orders', element: <OrdersPage /> },\n"
+        "  { path: '/orders/:orderId', element: <DetailPage /> },\n"
+        "  { path: '/orders/:orderId/edit', element: <EditPage /> },\n"
+        "  { path: '/admin/users', element: <UsersPage /> },\n"
+        "];\n"
+        "export const router = createBrowserRouter(appRoutes);\n",
+    )
+
+
+def test_static_navigation_calls_unique_handler(tmp_path: Path) -> None:
+    """Link, navigate, history, and redirect call the unique handler."""
+    _route_shell(tmp_path)
+    _write(
+        tmp_path,
+        "src/app/nav.tsx",
+        "import { Link, NavLink, Navigate, useNavigate, redirect, useHistory } "
+        "from 'react-router-dom';\n"
+        "const ADMIN = '/admin/users';\n"
+        "export function OrdersPage() {\n"
+        "  const navigate = useNavigate();\n"
+        "  const history = useHistory();\n"
+        "  navigate('/orders');\n"
+        "  navigate({ pathname: ADMIN });\n"
+        "  history.push('/admin/users');\n"
+        "  history.replace({ pathname: '/orders' });\n"
+        "  redirect('/orders');\n"
+        "  return <><Link to=\"/orders\" /><NavLink to={ADMIN}>Admin</NavLink>"
+        "<Navigate to={{ pathname: '/orders' }} /></>;\n"
+        "}\n",
+    )
+    _write(
+        tmp_path,
+        "src/app/pages.tsx",
+        "import { Link } from 'react-router-dom';\n"
+        "export const OrdersPage = () => null;\n"
+        "export function DetailPage() {\n"
+        "  return <Link to=\"edit\">Edit</Link>;\n"
+        "}\n"
+        "export const EditPage = () => null;\n"
+        "export const UsersPage = () => null;\n",
+    )
+    _, result, _ = _run(tmp_path)
+    calls = _navigate_calls(result)
+    assert ("src.app.nav.OrdersPage", "src.app.pages.OrdersPage") in calls
+    assert ("src.app.nav.OrdersPage", "src.app.pages.UsersPage") in calls
+    assert ("src.app.pages.DetailPage", "src.app.pages.EditPage") in calls
+    assert all(
+        edge.rule == "RKG.react_router.navigate.v1" and edge.evidence_ids
+        for edge in result.facts.edges
+        if edge.rule == "RKG.react_router.navigate.v1"
+    )
+    evidence_rules = {item.rule for item in result.facts.evidence}
+    assert "RKG.react_router.navigate.v1" in evidence_rules
+
+
+def test_dynamic_navigation_is_diagnostic_without_edge(tmp_path: Path) -> None:
+    _route_shell(tmp_path)
+    _write(
+        tmp_path,
+        "src/app/pages.tsx",
+        "import { Link, useNavigate } from 'react-router-dom';\n"
+        "export function OrdersPage() {\n"
+        "  const id = '1';\n"
+        "  const navigate = useNavigate();\n"
+        "  navigate(`/orders/${id}`);\n"
+        "  return <Link to={`/orders/${id}`}>Open</Link>;\n"
+        "}\n"
+        "export const DetailPage = () => null;\n"
+        "export const EditPage = () => null;\n"
+        "export const UsersPage = () => null;\n",
+    )
+    _, result, _ = _run(tmp_path)
+    assert _navigate_calls(result) == set()
+    codes = {item.code for item in result.facts.diagnostics}
+    assert "react_router_navigate_dynamic" in codes
+
+
+def test_ambiguous_navigation_target_has_no_edge(tmp_path: Path) -> None:
+    _write(
+        tmp_path,
+        "src/app/pages.tsx",
+        "import { Link } from 'react-router-dom';\n"
+        "export function Left() { return <Link to=\"/orders\">Orders</Link>; }\n"
+        "export const Right = () => null;\n",
+    )
+    _write(
+        tmp_path,
+        "src/app/router.tsx",
+        "import { createBrowserRouter, type RouteObject } "
+        "from 'react-router-dom';\n"
+        "import { Left, Right } from './pages';\n"
+        "export const appRoutes: RouteObject[] = [\n"
+        "  { path: '/orders', element: <Left /> },\n"
+        "  { path: '/orders', element: <Right /> },\n"
+        "];\n"
+        "export const router = createBrowserRouter(appRoutes);\n",
+    )
+    _, result, _ = _run(tmp_path)
+    assert _navigate_calls(result) == set()
+    codes = {item.code for item in result.facts.diagnostics}
+    assert "react_router_navigate_ambiguous" in codes
+
+
+def test_shadowed_navigation_api_has_no_edge(tmp_path: Path) -> None:
+    _route_shell(tmp_path)
+    _write(
+        tmp_path,
+        "src/app/shadow.tsx",
+        "import { useNavigate, Link } from 'react-router-dom';\n"
+        "export function OrdersPage() {\n"
+        "  const navigate = (path: string) => path;\n"
+        "  navigate('/orders');\n"
+        "  function Link(props: { to: string }) { return props.to; }\n"
+        "  return <Link to=\"/orders\" />;\n"
+        "}\n",
+    )
+    _, result, _ = _run(tmp_path)
+    assert _navigate_calls(result) == set()
+    codes = {item.code for item in result.facts.diagnostics}
+    assert "react_router_navigate_shadowed" in codes

@@ -1,0 +1,46 @@
+key: CHG-RKG-2026-019
+label: Go HTTP static route extraction
+type: change-set
+group: normative
+scope: lifecycle
+system: SYS-RKG
+status: draft
+revision: 1
+phase: code_present_lifecycle_backfill
+change_request: CR-RKG-034
+tier: T2
+tier_status: proposed
+tier_basis: Recorded request backfills lifecycle for behavior already on the tree. One team. No new bounded context and no ADR replacement are stated. No signer decided this proposal.
+flow: change
+objective:
+  description: Route Gin, chi và gorilla/mux tĩnh thành Endpoint method và path, với `handled_by` khi handler resolve một Callable. Không thực thi source. Deep support withheld.
+  satisfies:
+  - AC-RKG-004
+  - AC-RKG-006
+affected_systems:
+- SYS-RKG
+affected_teams:
+- TEAM-RKG
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+coordination:
+  mode: independent
+  integration_gate_required: false
+stories:
+- STORY-RKG-040
+tasks:
+- TASK-RKG-052
+gates:
+  scope: pending
+  architecture: pending
+  ui_ux: pending
+  contract: pending
+  component_merge: pending
+baseline: not_recorded
+task_review: not_recorded
+deep_support: withheld
+release_slice: separate
+release_slice_reason: This backfill is not attached to adapter_scope of CHG-RKG-2026-001. No shared adapter release is recorded.
+classification: internal
+ai_assisted: true

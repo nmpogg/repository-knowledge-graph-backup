@@ -1,0 +1,21 @@
+key: CR-RKG-033
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-09'
+task: TASK-RKG-051
+story: STORY-RKG-039
+change_set: CHG-RKG-2026-018
+source: lifecycle_backfill
+request_summary: >-
+  Static Nest route and message-pattern extraction already implemented by rkg.nest. Literal controller, router and global prefixes plus verb decorators become Endpoint method and path. Literal MessagePattern and EventPattern become MessageChannel facts with consumes. Analyzed source is not executed. reviewed_deep_support is false. Emitted capabilities are DETECTED_ONLY. Deep support is withheld.
+authorization_boundary: >-
+  Record the static route behavior already on the tree. Do not execute
+  analyzed source. Do not promote deep-supported. Do not sign gates. A
+  repo-test copy is not the census oracle.
+record_boundary: >-
+  Backfill after the implementation files were already present. No
+  conversation transcript. This request does not create a new product behavior.
+classification: internal
+ai_assisted: true

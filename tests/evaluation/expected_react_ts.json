@@ -258,6 +258,30 @@
       "target": "src.services.httpClient.FetchHttpClient.request",
       "rule_id": null,
       "evidence": [{"file_path": "src/services/httpClient.ts", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "src.app.layouts.RootLayout.RootLayout",
+      "target": "src.app.routes.OrdersPage.OrdersPage",
+      "rule_id": "RKG.react_router.navigate.v1",
+      "evidence": [{"file_path": "src/app/layouts/RootLayout.tsx", "start_line": null}],
+      "note": "NavLink to=/orders → OrdersPage handler"
+    },
+    {
+      "type": "calls",
+      "source": "src.app.layouts.RootLayout.RootLayout",
+      "target": "src.app.routes.AdminUsersPage.AdminUsersPage",
+      "rule_id": "RKG.react_router.navigate.v1",
+      "evidence": [{"file_path": "src/app/layouts/RootLayout.tsx", "start_line": null}],
+      "note": "NavLink to=/admin/users → AdminUsersPage handler"
+    },
+    {
+      "type": "calls",
+      "source": "src.app.routes.OrderDetailPage.OrderDetailPage",
+      "target": "src.app.routes.OrderEditPage.OrderEditPage",
+      "rule_id": "RKG.react_router.navigate.v1",
+      "evidence": [{"file_path": "src/app/routes/OrderDetailPage.tsx", "start_line": null}],
+      "note": "relative Link to=edit from the order detail route"
     }
   ],
   "prohibited": [

@@ -2,11 +2,28 @@ import type { GraphEdge, GraphNode } from '../../types/api'
 import type { RkgFlowNode } from './RkgEntityNode'
 import { flowLevels } from './flowPresentation'
 
-const COLUMN_GAP = 318
-const ROW_GAP = 104
 const FLOW_ROW = 132
 const FLOW_COL = 244
 const WING_X = 280
+const ARCH_COL = 228
+const ARCH_ROW = 112
+const ARCH_PER_ROW = 6
+const ARCH_LAYER_GAP = 84
+
+/** Semantic band inside a topological layer so mixed kinds stack like a flow diagram. */
+const TYPE_RANK: Record<string, number> = {
+  directory: 0,
+  module: 1,
+  file: 2,
+  endpoint: 3,
+  interface: 4,
+  class: 5,
+  function: 6,
+  topic: 7,
+  table: 8,
+  config: 9,
+  dependency: 10,
+}
 
 /** Opposing participant roles around a shared hub (left wing, right wing). */
 const OPPOSING_ROLES: ReadonlyArray<readonly [string, string]> = [
@@ -237,13 +254,39 @@ function nodeRole(id: string, edges: GraphEdge[], byId: Map<string, GraphNode>):
 
 const ROLE_ORDER: RoleWing[] = ['reads', 'main', 'writes', 'depends']
 
+function architectureLevels(nodes: GraphNode[], edges: GraphEdge[]): Map<string, number> {
+  const byId = new Map(nodes.map((node) => [node.id, node]))
+  const directed = flowLevels(nodes, edges)
+  const linked = new Set<string>()
+  for (const edge of edges) {
+    if (!byId.has(edge.source) || !byId.has(edge.target) || edge.source === edge.target) continue
+    linked.add(edge.source)
+    linked.add(edge.target)
+  }
+  const anchored = [...directed.entries()].filter(([id]) => linked.has(id))
+  const last = anchored.length ? Math.max(...anchored.map(([, level]) => level)) : -1
+  for (const node of nodes) {
+    if (!linked.has(node.id)) directed.set(node.id, last + 1)
+  }
+
+  const keyed = new Map<string, number>()
+  for (const node of nodes) {
+    const topo = directed.get(node.id) ?? 0
+    const rank = TYPE_RANK[node.type] ?? 6
+    keyed.set(node.id, topo * 20 + rank)
+  }
+  const order = [...new Set(keyed.values())].sort((a, b) => a - b)
+  const compact = new Map(order.map((value, index) => [value, index]))
+  return new Map(nodes.map((node) => [node.id, compact.get(keyed.get(node.id)!) ?? 0]))
+}
+
 function layoutLayeredPositions(
   nodes: GraphNode[],
   edges: GraphEdge[],
-  rootId: string,
+  _rootId: string,
   mode: 'architecture' | 'flow',
   withRoleWings: boolean,
-): Map<string, Point> {
+): { positions: Map<string, Point>; levels: Map<string, number> } {
   const byId = new Map(nodes.map((node) => [node.id, node]))
   const neighbors = new Map(nodes.map((node) => [node.id, new Set<string>()]))
   for (const edge of edges) {
@@ -252,22 +295,7 @@ function layoutLayeredPositions(
     neighbors.get(edge.target)?.add(edge.source)
   }
 
-  const levels = mode === 'flow' ? flowLevels(nodes, edges) : new Map<string, number>()
-  const queue = mode === 'architecture' && byId.has(rootId) ? [rootId] : []
-  if (queue.length) levels.set(rootId, 0)
-  for (let index = 0; index < queue.length; index++) {
-    const id = queue[index]
-    const adjacent = [...(neighbors.get(id) ?? [])].sort()
-    for (const other of adjacent) {
-      if (levels.has(other)) continue
-      levels.set(other, (levels.get(id) ?? 0) + 1)
-      queue.push(other)
-    }
-  }
-
-  const disconnected = nodes.filter((node) => !levels.has(node.id)).sort((a, b) => a.id.localeCompare(b.id))
-  const lastLevel = Math.max(0, ...levels.values())
-  disconnected.forEach((node) => levels.set(node.id, lastLevel + 1))
+  const levels = mode === 'architecture' ? architectureLevels(nodes, edges) : flowLevels(nodes, edges)
 
   const columns: string[][] = []
   for (const node of nodes) {
@@ -298,6 +326,7 @@ function layoutLayeredPositions(
   }
 
   const positions = new Map<string, Point>()
+  let cursorY = 0
   layers.forEach((column, level) => {
     const roleLists = new Map<RoleWing, string[]>()
     for (const id of column) {
@@ -313,11 +342,26 @@ function layoutLayeredPositions(
       column.length >= 3 &&
       presentRoles.length >= 2
 
+    if (mode === 'architecture') {
+      const rows = Math.max(1, Math.ceil(column.length / ARCH_PER_ROW))
+      column.forEach((id, index) => {
+        const row = Math.floor(index / ARCH_PER_ROW)
+        const col = index % ARCH_PER_ROW
+        const count = Math.min(ARCH_PER_ROW, column.length - row * ARCH_PER_ROW)
+        positions.set(id, {
+          x: (col - (count - 1) / 2) * ARCH_COL,
+          y: cursorY + row * ARCH_ROW,
+        })
+      })
+      cursorY += rows * ARCH_ROW + ARCH_LAYER_GAP
+      return
+    }
+
     if (!split) {
       column.forEach((id, index) => {
         positions.set(id, {
-          x: mode === 'flow' ? (index - (column.length - 1) / 2) * FLOW_COL : level * COLUMN_GAP,
-          y: mode === 'flow' ? level * FLOW_ROW : (index - (column.length - 1) / 2) * ROW_GAP,
+          x: (index - (column.length - 1) / 2) * FLOW_COL,
+          y: level * FLOW_ROW,
         })
       })
       return
@@ -334,17 +378,19 @@ function layoutLayeredPositions(
       })
     })
   })
-  return positions
+  return { positions, levels }
 }
 
 function toFlowNodes(
   nodes: GraphNode[],
   positions: Map<string, Point>,
   flow: boolean,
+  levels?: Map<string, number>,
 ): RkgFlowNode[] {
   return sortedIds(nodes.map((node) => node.id)).map((id) => {
     const node = nodes.find((entry) => entry.id === id)!
     const position = positions.get(id) ?? { x: 0, y: 0 }
+    const layer = levels?.get(id)
     return {
       id,
       type: 'rkg' as const,
@@ -355,12 +401,139 @@ function toFlowNodes(
         qualifiedName: node.qualified_name,
         location: node.location,
         flow,
+        ...(layer !== undefined ? { layer } : {}),
       },
     }
   })
 }
 
-/** Stable layout: pattern-aware in flow mode, layered BFS in architecture mode. */
+const ENTRY_COL = 320
+const ENTRY_ROW = 156
+const DATA_TYPES = new Set(['table', 'config', 'dependency'])
+
+/**
+ * Whole-project overview: one vertical chain per entrypoint, shared data on the last row.
+ * A single chain keeps the layered top-to-bottom placement.
+ */
+function layoutEntryColumns(
+  nodes: GraphNode[],
+  edges: GraphEdge[],
+): { positions: Map<string, Point>; levels: Map<string, number> } | null {
+  const byId = new Map(nodes.map((node) => [node.id, node]))
+  const entries = nodes
+    .filter((node) => node.type === 'endpoint' || node.type === 'topic')
+    .sort((a, b) => a.label.localeCompare(b.label) || a.id.localeCompare(b.id))
+  if (entries.length < 2) return null
+
+  const outgoing = new Map<string, string[]>()
+  for (const edge of edges) {
+    if (!byId.has(edge.source) || !byId.has(edge.target)) continue
+    if (edge.type === 'contains' || edge.type === 'imports') continue
+    const list = outgoing.get(edge.source) ?? []
+    if (!list.includes(edge.target)) list.push(edge.target)
+    outgoing.set(edge.source, list)
+  }
+  for (const list of outgoing.values()) list.sort((a, b) => a.localeCompare(b))
+
+  const reachedBy = new Map<string, Set<string>>()
+  const walk = (entryId: string) => {
+    const seen = new Set<string>([entryId])
+    const queue = [entryId]
+    while (queue.length) {
+      const id = queue.shift()!
+      for (const next of outgoing.get(id) ?? []) {
+        if (seen.has(next)) continue
+        seen.add(next)
+        const owners = reachedBy.get(next) ?? new Set<string>()
+        owners.add(entryId)
+        reachedBy.set(next, owners)
+        queue.push(next)
+      }
+    }
+  }
+  for (const entry of entries) walk(entry.id)
+
+  const shared = new Set<string>()
+  for (const [id, owners] of reachedBy) {
+    const node = byId.get(id)
+    if (node && DATA_TYPES.has(node.type) && owners.size >= 2) shared.add(id)
+  }
+
+  const columnOf = new Map<string, string>()
+  for (const entry of entries) {
+    columnOf.set(entry.id, entry.id)
+    const seen = new Set<string>([entry.id])
+    const queue = [entry.id]
+    while (queue.length) {
+      const id = queue.shift()!
+      for (const next of outgoing.get(id) ?? []) {
+        if (seen.has(next) || shared.has(next)) continue
+        seen.add(next)
+        if (!columnOf.has(next)) columnOf.set(next, entry.id)
+        queue.push(next)
+      }
+    }
+  }
+
+  const positions = new Map<string, Point>()
+  const levels = new Map<string, number>()
+  let lowest = 0
+  entries.forEach((entry, column) => {
+    const members = nodes
+      .map((node) => node.id)
+      .filter((id) => columnOf.get(id) === entry.id && !shared.has(id))
+    const depth = new Map<string, number>([[entry.id, 0]])
+    const queue = [entry.id]
+    while (queue.length) {
+      const id = queue.shift()!
+      for (const next of outgoing.get(id) ?? []) {
+        if (columnOf.get(next) !== entry.id || depth.has(next)) continue
+        depth.set(next, (depth.get(id) ?? 0) + 1)
+        queue.push(next)
+      }
+    }
+    const rows = new Map<number, string[]>()
+    for (const id of members) {
+      const row = depth.get(id) ?? 0
+      const list = rows.get(row) ?? []
+      list.push(id)
+      rows.set(row, list)
+    }
+    let cursor = 0
+    for (const row of [...rows.keys()].sort((a, b) => a - b)) {
+      const ids = (rows.get(row) ?? []).sort((a, b) => a.localeCompare(b))
+      ids.forEach((id, index) => {
+        const y = cursor + index * ENTRY_ROW
+        positions.set(id, { x: column * ENTRY_COL, y })
+        levels.set(id, Math.round(y / ENTRY_ROW))
+        lowest = Math.max(lowest, y)
+      })
+      cursor += ids.length * ENTRY_ROW + 28
+    }
+  })
+
+  const sharedIds = [...shared].sort((a, b) => a.localeCompare(b))
+  const loose = nodes
+    .map((node) => node.id)
+    .filter((id) => !positions.has(id) && !shared.has(id))
+    .sort((a, b) => a.localeCompare(b))
+  const tail = [...sharedIds, ...loose]
+  const tailY = lowest + ENTRY_ROW + 36
+  tail.forEach((id, index) => {
+    const row = Math.floor(index / ARCH_PER_ROW)
+    const col = index % ARCH_PER_ROW
+    const count = Math.min(ARCH_PER_ROW, tail.length - row * ARCH_PER_ROW)
+    const y = tailY + row * ENTRY_ROW
+    positions.set(id, {
+      x: (col - (count - 1) / 2) * ARCH_COL + ((entries.length - 1) * ENTRY_COL) / 2,
+      y,
+    })
+    levels.set(id, Math.round(y / ENTRY_ROW))
+  })
+  return { positions, levels }
+}
+
+/** Stable layout: pattern-aware in flow mode, top-down strata in architecture mode. */
 export function layoutGraph(
   nodes: GraphNode[],
   edges: GraphEdge[],
@@ -368,7 +541,10 @@ export function layoutGraph(
   mode: 'architecture' | 'flow' = 'architecture',
 ): RkgFlowNode[] {
   if (mode === 'architecture') {
-    return toFlowNodes(nodes, layoutLayeredPositions(nodes, edges, rootId, mode, false), false)
+    const columns = layoutEntryColumns(nodes, edges)
+    if (columns) return toFlowNodes(nodes, columns.positions, true, columns.levels)
+    const laid = layoutLayeredPositions(nodes, edges, rootId, mode, false)
+    return toFlowNodes(nodes, laid.positions, true, laid.levels)
   }
 
   const pattern = classifyFlowLayout(nodes, edges, rootId)
@@ -378,9 +554,6 @@ export function layoutGraph(
   if (pattern.kind === 'fan_in') {
     return toFlowNodes(nodes, layoutFanInPositions(pattern.hubId, pattern.groups), true)
   }
-  return toFlowNodes(
-    nodes,
-    layoutLayeredPositions(nodes, edges, rootId, 'flow', pattern.kind === 'pipeline'),
-    true,
-  )
+  const laid = layoutLayeredPositions(nodes, edges, rootId, 'flow', pattern.kind === 'pipeline')
+  return toFlowNodes(nodes, laid.positions, true, laid.levels)
 }

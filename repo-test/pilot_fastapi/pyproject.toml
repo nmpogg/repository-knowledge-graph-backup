@@ -1,0 +1,10 @@
+[project]
+name = "pilot-fastapi"
+version = "0.2.0"
+description = "Synthetic FastAPI corpus for the RKG pilot baseline."
+requires-python = ">=3.11"
+dependencies = [
+    "aiokafka==0.14.0",
+    "fastapi==0.141.1",
+    "sqlalchemy==2.1.1",
+]

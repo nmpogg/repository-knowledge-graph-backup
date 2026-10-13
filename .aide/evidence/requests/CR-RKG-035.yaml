@@ -1,0 +1,21 @@
+key: CR-RKG-035
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-09'
+task: TASK-RKG-053
+story: STORY-RKG-041
+change_set: CHG-RKG-2026-020
+source: lifecycle_backfill
+request_summary: >-
+  Static TanStack Router navigation extraction already implemented by rkg.tanstack-router. createFileRoute and createRoute with a literal or uniquely resolved path become navigation Endpoint facts. navigate and Link emit calls only when the target equals exactly one navigation route. Analyzed source is not executed. reviewed_deep_support is false. Emitted capabilities are DETECTED_ONLY. Deep support is withheld.
+authorization_boundary: >-
+  Record the navigation behavior already on the tree. Do not execute
+  analyzed source. Do not promote deep-supported. Do not sign gates. A
+  repo-test copy is not the census oracle.
+record_boundary: >-
+  Backfill after the implementation files were already present. No
+  conversation transcript. This request does not create a new product behavior.
+classification: internal
+ai_assisted: true

@@ -6,7 +6,7 @@ group: normative
 scope: system
 system: SYS-RKG
 status: draft
-revision: 1
+revision: 2
 ownership: {accountable_team: TEAM-RKG, accountable_role: tech-lead}
 relations:
   verifies: []
@@ -29,5 +29,5 @@ tự đổi trạng thái change set.
 
 `approval-012` và `approval-013` là quyết định người đã ký cho các lát
 `TASK-RKG-030` và `TASK-RKG-031`…`035` trên `CHG-RKG-2026-002`. Chúng không đóng
-Component Merge Gate của `CHG-RKG-2026-001` hay của `CHG-RKG-2026-003`…`014`.
-Các change set đó vẫn `component_merge: pending` trong `change-set.yaml`.
+Component Merge Gate của change set khác. `CHG-RKG-2026-015`…`022` vẫn
+`component_merge: pending`, cùng `CHG-RKG-2026-001` và `CHG-RKG-2026-003`…`014`.

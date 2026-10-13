@@ -6,7 +6,7 @@ group: normative
 scope: lifecycle
 system: SYS-RKG
 status: draft
-revision: 41
+revision: 42
 flow: new-system
 tier: T1
 affected_systems:
@@ -212,14 +212,22 @@ current_change:
     unapproved candidate.
 adapter_scope:
   included: false
-  reason: documentation_recovery.task_scope and the current baseline stop at TASK-RKG-029. Each adapter story has its own change set because the stories exclude one another and no shared release slice is recorded.
+  reason: documentation_recovery.task_scope and the current baseline stop at TASK-RKG-029. Each adapter story has its own change set because the stories exclude one another and no shared release slice is recorded. Change sets 015-022 are recorded here with included false; they are not attached to this release slice.
   change_sets:
-  - CHG-RKG-2026-009
-  - CHG-RKG-2026-010
-  - CHG-RKG-2026-011
-  - CHG-RKG-2026-012
-  - CHG-RKG-2026-013
-  - CHG-RKG-2026-014
+  - { key: CHG-RKG-2026-009, included: false }
+  - { key: CHG-RKG-2026-010, included: false }
+  - { key: CHG-RKG-2026-011, included: false }
+  - { key: CHG-RKG-2026-012, included: false }
+  - { key: CHG-RKG-2026-013, included: false }
+  - { key: CHG-RKG-2026-014, included: false }
+  - { key: CHG-RKG-2026-015, included: false }
+  - { key: CHG-RKG-2026-016, included: false }
+  - { key: CHG-RKG-2026-017, included: false }
+  - { key: CHG-RKG-2026-018, included: false }
+  - { key: CHG-RKG-2026-019, included: false }
+  - { key: CHG-RKG-2026-020, included: false }
+  - { key: CHG-RKG-2026-021, included: false }
+  - { key: CHG-RKG-2026-022, included: false }
 classification: internal
 ai_assisted: true
 documentation_recovery:

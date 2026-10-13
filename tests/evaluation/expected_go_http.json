@@ -1,0 +1,150 @@
+{
+  "fixture_id": "rkg-fixture-go-http",
+  "oracle_source": "tests/evaluation/fixtures/rkg-fixture-go-http/README.md",
+  "notes": [
+    "allow_unlisted_actual is false: every scored entity and edge is listed",
+    "Gin, chi, and gorilla/mux static routes only",
+    "Concatenated and suppressed paths are not endpoints"
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": false
+  },
+  "allowlist": [],
+  "prohibited": [
+    {
+      "reason": "secret persisted",
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST"
+    },
+    {
+      "reason": "dynamic path invented",
+      "entity": {"type": "Endpoint", "attributes": {"path": "/dyn/x"}}
+    }
+  ],
+  "entities": [
+    {
+      "type": "SourceUnit",
+      "qualified_name": "internal.httpapi.routes",
+      "rule_id": null
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "httpapi.GinHealth",
+      "rule_id": null
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "httpapi.ChiCatalog",
+      "rule_id": null
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "httpapi.MuxShipment",
+      "rule_id": null
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "httpapi.Register",
+      "rule_id": null
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "gin.Default",
+      "rule_id": null
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "chi.NewRouter",
+      "rule_id": null
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "mux.NewRouter",
+      "rule_id": null
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:POST",
+      "rule_id": null
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "httpapi.GinHealth",
+      "required_attributes": {"method": "GET", "path": "/health"},
+      "rule_id": null
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "httpapi.ChiCatalog",
+      "required_attributes": {"method": "GET", "path": "/orders"},
+      "rule_id": null
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "httpapi.MuxShipment",
+      "required_attributes": {"method": "POST", "path": "/shipments"},
+      "rule_id": null
+    }
+  ],
+  "edges": [
+    {
+      "type": "contains",
+      "source": "internal.httpapi.routes",
+      "target": "httpapi.GinHealth",
+      "rule_id": "RKG.go.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "internal.httpapi.routes",
+      "target": "httpapi.ChiCatalog",
+      "rule_id": "RKG.go.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "internal.httpapi.routes",
+      "target": "httpapi.MuxShipment",
+      "rule_id": "RKG.go.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "internal.httpapi.routes",
+      "target": "httpapi.Register",
+      "rule_id": "RKG.go.structure.v1"
+    },
+    {
+      "type": "calls",
+      "source": "httpapi.Register",
+      "target": "gin.Default",
+      "rule_id": "RKG.go.call.v1"
+    },
+    {
+      "type": "calls",
+      "source": "httpapi.Register",
+      "target": "chi.NewRouter",
+      "rule_id": "RKG.go.call.v1"
+    },
+    {
+      "type": "calls",
+      "source": "httpapi.Register",
+      "target": "mux.NewRouter",
+      "rule_id": "RKG.go.call.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "httpapi.GinHealth",
+      "target": "httpapi.GinHealth",
+      "rule_id": "RKG.go_http.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "httpapi.ChiCatalog",
+      "target": "httpapi.ChiCatalog",
+      "rule_id": "RKG.go_http.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "httpapi.MuxShipment",
+      "target": "httpapi.MuxShipment",
+      "rule_id": "RKG.go_http.handler.v1"
+    }
+  ]
+}

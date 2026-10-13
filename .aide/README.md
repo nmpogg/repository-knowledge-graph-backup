@@ -5,17 +5,16 @@ SDLC tổng quát và PRD template tại `docs/reference/agentic-sdlc/` chỉ l�
 tham khảo (không normative).
 
 Phần lớn artifact chuẩn tắc đang `draft`. `TASK-RKG-000` đến `TASK-RKG-041` đã
-`done`. `TASK-RKG-042` đến `TASK-RKG-047` vẫn `in_progress` trên
-`CHG-RKG-2026-009`…`014`: stack đã có verify evidence, deep-support vẫn withheld,
-chưa có baseline. Các stack là TypeScript/React Router, Vue/Nuxt, BullMQ,
-Java/Spring/JPA/Spring Kafka, Go/kafka-go/pgx và Flask DETECTED_ONLY. Runbook
-vận hành nằm ở `README.md` (setup, đường dẫn local, index, serve, LLM, lịch sử,
-retention, xử lý sự cố). `EPIC-001`…`005` giữ `draft`. `EPIC-006` là
-`in_progress`. `OQ-RKG-001`…`005` và `OQ-RKG-007` đã resolve. `OQ-RKG-006` vẫn
-mở. Gate Scope, Architecture, UI/UX và Contract của `CHG-RKG-2026-001` vẫn
-pending. Component Merge có checklist `GATE-MERGE`; các approval `012`/`013` chỉ
-khóa lát cắt đã ghi. UAT có checklist `GATE-UAT` và chưa có approval. Change Set
-view là artifact dẫn xuất.
+`done`. `TASK-RKG-042` đến `TASK-RKG-055` vẫn `in_progress` trên
+`CHG-RKG-2026-009`…`022`: deep-support vẫn withheld, chưa có baseline.
+`EPIC-001`, `EPIC-003`, `EPIC-004` và `EPIC-005` khớp task đã `done`.
+`EPIC-002` và `EPIC-006` là `in_progress`. `OQ-RKG-001`…`005` và `OQ-RKG-007`
+đã resolve. `OQ-RKG-006` và `OQ-RKG-008` vẫn mở. Gate Scope, Architecture, UI/UX
+và Contract của `CHG-RKG-2026-001` vẫn pending. Component Merge có checklist
+`GATE-MERGE`; các approval `012`/`013` chỉ khóa lát cắt đã ghi trên
+`CHG-RKG-2026-002`. UAT có checklist `GATE-UAT` và chưa có approval. Change Set
+view là artifact dẫn xuất. Runbook vận hành nằm ở `README.md` (setup, đường dẫn
+local, index, serve, LLM, lịch sử, retention, xử lý sự cố).
 
 Bộ `docs/` sản phẩm (SPEC/ARCHITECTURE/TASK/…) đã gỡ khỏi repo — không còn nguồn
 đối chiếu chuyển tiếp. Mọi quyết định lấy từ `.aide/`.
@@ -59,7 +58,7 @@ Trạng thái task chính thức nằm trong frontmatter tại `lifecycle/tasks/
 - Contracts: `tech-specs/RKG-TRANSPORT/api/` · `tech-specs/RKG-GRAPH/schema/`
 - Experience: `design/README.md`, `design/ux/` và `design/ui/`
 - Observability KPI: `OBS-RKG-001`, `002`, `005`; performance và extensibility quality gates nằm trong NFR tương ứng
-- Delivery: `lifecycle/change-sets/CHG-RKG-2026-001/` … `014/` · `lifecycle/epics/` · `lifecycle/stories/` · `lifecycle/tasks/`
+- Delivery: `lifecycle/change-sets/CHG-RKG-2026-001/` … `022/` · `lifecycle/epics/` · `lifecycle/stories/` · `lifecycle/tasks/`
 - Evidence: `evidence/`
 - Policies: `policies/gates/` (`GATE-RKG-SCOPE`, `ARCHITECTURE`, `UIUX`, `CONTRACT`, `GATE-MERGE`, `GATE-UAT`) · rubric ở `policies/eval/`
 - Review inputs: `reviewer/packages/`, `reviewer/prompts/` — không normative; disposition chính thức được append ở `evidence/reviews/`
@@ -122,17 +121,17 @@ vì chưa có deployment record. `generated/traceability/` bị gitignore (sinh 
 mỗi lần CI). Không có `EVT-*` và không có `SVC-*`.
 
 `CHG-RKG-2026-001`…`008` có `change-set.yaml`, `impact.yaml` và baseline.
-`CHG-RKG-2026-009`…`014` có shell và impact, `baseline: not_recorded` — không
+`CHG-RKG-2026-009`…`022` có shell và impact, `baseline: not_recorded` — không
 tạo file baseline giả. CSV dẫn xuất hiện có cho `001` và `002`. Các change set
-`003`…`008` chưa có CSV; view đó chỉ sinh bằng generator, không viết tay.
+`003`…`022` chưa có CSV; view đó chỉ sinh bằng generator, không viết tay.
 
 ### Bước đã tới
 
 | # | Bước | Trạng thái hiện tại |
 |---|---|---|
 | 1–10 | PRD đến UI spec / contract | Artifact có. Gate Scope, Architecture, UI/UX, Contract của `CHG-RKG-2026-001` vẫn pending. `OQ-RKG-006` mở. `OQ-RKG-007` resolved. |
-| 11 | Epic / Story / Task | Epic ×6. Story ×35 (016 deprecated). Task ×48. `000`–`041` `done`. `042`–`047` `in_progress`. |
-| 12–14 | Context, plan, diary | Mỗi task `000`–`047` có CTX, PLAN và DIARY. |
+| 11 | Epic / Story / Task | Epic ×6. `EPIC-001`, `EPIC-003`, `EPIC-004`, `EPIC-005` khớp task `done`. `EPIC-002` và `EPIC-006` là `in_progress`. Story ×43 (016 deprecated). Task ×56. `000`–`041` `done`. `042`–`055` `in_progress`. |
+| 12–14 | Context, plan, diary | Mỗi task `000`–`055` có CTX, PLAN và DIARY. |
 | 15–16 | Validation và Component Merge | Checklist `GATE-MERGE`. `approval-012` và `approval-013` chỉ khóa lát cắt đã ghi trên `CHG-RKG-2026-002`. Change set khác vẫn `component_merge: pending`. |
 | 18 | UAT | Checklist `GATE-UAT`. `CHG-RKG-2026-002` phase UAT pending. Chưa có approval UAT. |
 | 19–22 | Release, deploy, close | Chưa tới. Không tạo release plan, deployment hay production record. |
@@ -141,12 +140,13 @@ tạo file baseline giả. CSV dẫn xuất hiện có cho `001` và `002`. Các
 
 1. **OQ-RKG-006:** ai được ủy quyền ký Scope / UI/UX cho revision hiện tại.
 2. Component Merge và UAT của từng change set chưa được quyết cho toàn bộ lát cắt đang pending.
-3. `TASK-RKG-042`…`047` chưa `done`; deep-support vẫn withheld; baseline `009`…`014` chưa được ghi.
+3. `TASK-RKG-042`…`055` chưa `done`; deep-support vẫn withheld; baseline `009`…`022` chưa được ghi.
+4. **OQ-RKG-008:** chiều `depends_on` của liên kết HTTP tĩnh so với then-clause `AC-RKG-005`. Chặn đóng `TASK-RKG-055` và `component_merge` của `CHG-RKG-2026-022`. Then-clause không sửa tại chỗ.
 
 ### Giữ nguyên
 
 - `TASK-RKG-000` không thêm `epic`.
 - `DDL-RKG-GRAPH.cypher` đứng cạnh TBL.
 - Không tạo `VAL-*`, `product/vision/`, `EVT-*`.
-- Không viết tay CSV cho change set `003`…`008`.
+- Không viết tay CSV cho change set `003`…`022`.
 - Evaluation không đi quá KPI-RKG-005.

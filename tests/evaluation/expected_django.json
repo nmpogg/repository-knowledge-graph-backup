@@ -1,0 +1,233 @@
+{
+  "fixture_id": "rkg-fixture-django",
+  "oracle_source": "tests/evaluation/fixtures/rkg-fixture-django/README.md",
+  "notes": [
+    "allow_unlisted_actual is false: every scored Python and Django fact is listed",
+    "Endpoint path for path() is slash-joined with one leading slash; converters stay literal",
+    "re_path and url store the regex literal; method is omitted when it is not a literal or resolved constant",
+    "path() does not imply GET. require_POST and literal http_method_names=['get'] set method",
+    "require_http_methods(_method_names()) is a call, so /shop/varied/ has path and no method",
+    "include('shop.urls') prefixes shop urlpatterns; it is not a separate edge type",
+    "OrderDetail.as_view() identity is shop.views.OrderDetail.as_view; handled_by targets OrderDetail.get because http_method_names is the literal ['get']",
+    "BareDetail.as_view() keeps /bare/ with no method and no handled_by; def get is not a guessed handler",
+    "Repository exposes edges are not scored because the repository id is not an entity"
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": false
+  },
+  "allowlist": [],
+  "prohibited": [
+    {
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST",
+      "reason": "sentinel must not be persisted"
+    },
+    {
+      "entity": {
+        "type": "Endpoint",
+        "attributes": {"path": "/ghost/"}
+      },
+      "reason": "unresolved view must not become an endpoint"
+    },
+    {
+      "entity": {
+        "type": "Endpoint",
+        "attributes": {"path": "/dyn/"}
+      },
+      "reason": "dynamic include must not become an endpoint"
+    },
+    {
+      "edge": {
+        "type": "handled_by",
+        "target": "shop.views.BareDetail.get"
+      },
+      "reason": "def get without literal http_method_names is not a handler"
+    }
+  ],
+  "entities": [
+    {"type": "SourceUnit", "qualified_name": "config"},
+    {"type": "SourceUnit", "qualified_name": "config.urls"},
+    {"type": "SourceUnit", "qualified_name": "shop"},
+    {"type": "SourceUnit", "qualified_name": "shop.urls"},
+    {"type": "SourceUnit", "qualified_name": "shop.views"},
+    {"type": "Type", "qualified_name": "shop.views.BareDetail"},
+    {"type": "Type", "qualified_name": "shop.views.OrderDetail"},
+    {"type": "Callable", "qualified_name": "config.urls._dynamic_urls"},
+    {"type": "Callable", "qualified_name": "shop.views.BareDetail.get"},
+    {"type": "Callable", "qualified_name": "shop.views.OrderDetail.get"},
+    {"type": "Callable", "qualified_name": "shop.views._method_names"},
+    {"type": "Callable", "qualified_name": "shop.views.create_order"},
+    {"type": "Callable", "qualified_name": "shop.views.health"},
+    {"type": "Callable", "qualified_name": "shop.views.legacy_report"},
+    {"type": "Callable", "qualified_name": "shop.views.unused"},
+    {"type": "Callable", "qualified_name": "shop.views.varied"},
+    {
+      "type": "Endpoint",
+      "qualified_name": "shop.views.health::/health/",
+      "required_attributes": {"path": "/health/"}
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "shop.views.BareDetail.as_view::/bare/",
+      "required_attributes": {"path": "/bare/"}
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "shop.views.OrderDetail.as_view:GET:/orders/<int:pk>/",
+      "required_attributes": {"path": "/orders/<int:pk>/", "method": "GET"}
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "shop.views.create_order:POST:/shop/orders/",
+      "required_attributes": {"path": "/shop/orders/", "method": "POST"}
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "shop.views.varied::/shop/varied/",
+      "required_attributes": {"path": "/shop/varied/"}
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "shop.views.legacy_report::^legacy/$",
+      "required_attributes": {"path": "^legacy/$"}
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "shop.views.health::^old/$",
+      "required_attributes": {"path": "^old/$"}
+    }
+  ],
+  "edges": [
+    {
+      "type": "contains",
+      "source": "config.urls",
+      "target": "config.urls._dynamic_urls",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "shop.views",
+      "target": "shop.views.BareDetail",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "shop.views.BareDetail",
+      "target": "shop.views.BareDetail.get",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "shop.views",
+      "target": "shop.views.OrderDetail",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "shop.views.OrderDetail",
+      "target": "shop.views.OrderDetail.get",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "shop.views",
+      "target": "shop.views._method_names",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "shop.views",
+      "target": "shop.views.create_order",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "shop.views",
+      "target": "shop.views.health",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "shop.views",
+      "target": "shop.views.legacy_report",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "shop.views",
+      "target": "shop.views.unused",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "shop.views",
+      "target": "shop.views.varied",
+      "rule_id": "RKG.python.structure.v1"
+    },
+    {
+      "type": "imports",
+      "source": "config.urls",
+      "target": "shop.views.BareDetail",
+      "rule_id": "RKG.python.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "config.urls",
+      "target": "shop.views.OrderDetail",
+      "rule_id": "RKG.python.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "config.urls",
+      "target": "shop.views.health",
+      "rule_id": "RKG.python.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "shop.urls",
+      "target": "shop.views.create_order",
+      "rule_id": "RKG.python.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "shop.urls",
+      "target": "shop.views.varied",
+      "rule_id": "RKG.python.import.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "shop.views.health::/health/",
+      "target": "shop.views.health",
+      "rule_id": "RKG.django.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "shop.views.OrderDetail.as_view:GET:/orders/<int:pk>/",
+      "target": "shop.views.OrderDetail.get",
+      "rule_id": "RKG.django.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "shop.views.create_order:POST:/shop/orders/",
+      "target": "shop.views.create_order",
+      "rule_id": "RKG.django.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "shop.views.varied::/shop/varied/",
+      "target": "shop.views.varied",
+      "rule_id": "RKG.django.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "shop.views.legacy_report::^legacy/$",
+      "target": "shop.views.legacy_report",
+      "rule_id": "RKG.django.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "shop.views.health::^old/$",
+      "target": "shop.views.health",
+      "rule_id": "RKG.django.handler.v1"
+    }
+  ]
+}

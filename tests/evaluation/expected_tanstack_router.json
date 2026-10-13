@@ -1,0 +1,324 @@
+{
+  "fixture_id": "rkg-fixture-tanstack-router",
+  "oracle_source": "tests/evaluation/fixtures/rkg-fixture-tanstack-router",
+  "notes": [
+    "allow_unlisted_actual is false: every scored entity and edge is listed",
+    "UI routes are Endpoint kind=navigation; navigate/Link calls use RKG.tanstack_router.navigate.v1",
+    "Two /catalog routes stay in the oracle; navigation to /catalog is a diagnostic and has no calls edge",
+    "Relative dangling route and dynamic/shadowed navigate calls are diagnostics only"
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": false
+  },
+  "allowlist": [],
+  "prohibited": [
+    {
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST",
+      "reason": "sentinel must not be persisted"
+    }
+  ],
+  "entities": [
+    {
+      "type": "Callable",
+      "qualified_name": "src.go.openOrders"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.negative.ambiguous"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.negative.broken"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.negative.navigate"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.negative.pickParent"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.negative.shadowed"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.pages.CatalogPage"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.pages.OrderDetailPage"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.pages.OrdersPage"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.pages.RootLayout"
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/catalog",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/catalog",
+        "route_path": "/catalog"
+      },
+      "framework_kind": "tanstack-router",
+      "semantic_kind": "navigation_route"
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/catalog",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/catalog",
+        "route_path": "/catalog"
+      },
+      "framework_kind": "tanstack-router",
+      "semantic_kind": "navigation_route"
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/orders/$orderId",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/orders/$orderId",
+        "route_path": "/orders/$orderId"
+      },
+      "framework_kind": "tanstack-router",
+      "semantic_kind": "navigation_route"
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/orders",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/orders",
+        "route_path": "/orders"
+      },
+      "framework_kind": "tanstack-router",
+      "semantic_kind": "navigation_route"
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "navigation:/",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/",
+        "route_path": "/"
+      },
+      "framework_kind": "tanstack-router",
+      "semantic_kind": "navigation_route"
+    },
+    {
+      "type": "ExternalDependency",
+      "qualified_name": "@tanstack/react-router",
+      "required_attributes": {
+        "kind": "npm_package"
+      }
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.detail"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.go"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.negative"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.pages"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.paths"
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "src.routes"
+    }
+  ],
+  "edges": [
+    {
+      "type": "calls",
+      "source": "src.go.openOrders",
+      "target": "src.pages.OrderDetailPage",
+      "rule_id": "RKG.tanstack_router.navigate.v1"
+    },
+    {
+      "type": "calls",
+      "source": "src.go.openOrders",
+      "target": "src.pages.OrdersPage",
+      "rule_id": "RKG.tanstack_router.navigate.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.go",
+      "target": "src.go.openOrders",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative",
+      "target": "src.negative.ambiguous",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative",
+      "target": "src.negative.broken",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative",
+      "target": "src.negative.navigate",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative",
+      "target": "src.negative.pickParent",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.negative",
+      "target": "src.negative.shadowed",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.pages",
+      "target": "src.pages.CatalogPage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.pages",
+      "target": "src.pages.OrderDetailPage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.pages",
+      "target": "src.pages.OrdersPage",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "contains",
+      "source": "src.pages",
+      "target": "src.pages.RootLayout",
+      "rule_id": "RKG.typescript.structure.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/catalog",
+      "target": "src.pages.CatalogPage",
+      "rule_id": "RKG.tanstack_router.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/catalog",
+      "target": "src.pages.CatalogPage",
+      "rule_id": "RKG.tanstack_router.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/orders/$orderId",
+      "target": "src.pages.OrderDetailPage",
+      "rule_id": "RKG.tanstack_router.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/orders",
+      "target": "src.pages.OrdersPage",
+      "rule_id": "RKG.tanstack_router.handler.v1"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/",
+      "target": "src.pages.RootLayout",
+      "rule_id": "RKG.tanstack_router.handler.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.detail",
+      "target": "@tanstack/react-router",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.detail",
+      "target": "src.pages.OrderDetailPage",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.go",
+      "target": "@tanstack/react-router",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.go",
+      "target": "src.paths",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.negative",
+      "target": "@tanstack/react-router",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.negative",
+      "target": "src.pages.CatalogPage",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.negative",
+      "target": "src.pages.OrdersPage",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.routes",
+      "target": "@tanstack/react-router",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.routes",
+      "target": "src.pages.CatalogPage",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.routes",
+      "target": "src.pages.OrdersPage",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.routes",
+      "target": "src.pages.RootLayout",
+      "rule_id": "RKG.typescript.import.v1"
+    },
+    {
+      "type": "imports",
+      "source": "src.routes",
+      "target": "src.paths",
+      "rule_id": "RKG.typescript.import.v1"
+    }
+  ]
+}

@@ -5,8 +5,8 @@ type: epic
 group: normative
 scope: lifecycle
 system: SYS-RKG
-status: draft
-revision: 5
+status: done
+revision: 6
 change_set: CHG-RKG-2026-001
 implements: [FR-RKG-005]
 affected_components: [CMP-RKG-CONVERSATION, CMP-RKG-GRAPH, CMP-RKG-TRANSPORT, CMP-RKG-WEB]

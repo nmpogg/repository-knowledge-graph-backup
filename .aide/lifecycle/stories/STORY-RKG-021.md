@@ -3,13 +3,13 @@ key: STORY-RKG-021
 group: normative
 scope: lifecycle
 system: SYS-RKG
-revision: 3
+revision: 5
 change_set: CHG-RKG-2026-002
 classification: internal
 ai_assisted: true
 type: story
 epic: EPIC-006-TEAM-RKG
-status: in_progress
+status: done
 satisfies:
 - AC-RKG-074
 - AC-RKG-075
@@ -35,6 +35,8 @@ component_approval: approval-013
 ## Giao cái gì
 
 Hiểu câu hỏi và trả lời quan hệ có bằng chứng theo FR-RKG-005 và baseline r8. Hành vi và tiêu chí nằm trong AC được tham chiếu; story không sao chép chúng.
+
+Status khớp task đã `done`. `human_acceptance` vẫn `pending`. Gate không đổi.
 
 ## Task
 

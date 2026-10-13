@@ -9,7 +9,7 @@ story: STORY-RKG-015
 status: done
 review_record: REV-RKG-2026-004
 review_record_note: REV-RKG-2026-004 lists this task in its documentation reconciliation. No REV-TASK file exists.
-revision: 18
+revision: 19
 ownership:
   accountable_team: TEAM-RKG
   accountable_role: tech-lead
@@ -48,8 +48,9 @@ static-check result, to verify `NFR-RKG-EXT-001` before MVP acceptance.
 evidence may record a miss; `verifies` here means the AC was measured, not that
 every NFR threshold passed.
 
-The selected corpus is the sibling `../pilot_fastapi/` (OQ-RKG-002 resolved;
-inventory and relocation evidence in `TEST-RKG-PILOT-CORPUS-001/002`).
+The selected corpus is `repo-test/pilot_fastapi/` inside this repository
+(OQ-RKG-002 resolved; inventory and relocation evidence in
+`TEST-RKG-PILOT-CORPUS-001/002`).
 The pinned-corpus reports are published under `.aide/evidence/tests/`:
 `TEST-RKG-PILOT-REVIEW-SUMMARY-001` (historical) and
 `TEST-RKG-PILOT-REVIEW-SUMMARY-002` (current pilot precision), Q&A summaries

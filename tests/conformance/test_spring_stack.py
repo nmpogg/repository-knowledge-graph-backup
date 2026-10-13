@@ -422,3 +422,140 @@ public class OrderController {
         "persistence.JpaOrderRepository.findById",
         "relational:commerce.orders",
     ) in reads
+
+
+def test_static_filter_and_interceptor_registration(tmp_path: Path) -> None:
+    _write(
+        tmp_path,
+        "src/main/java/com/example/rkgfixture/orders/api/OrderController.java",
+        """
+package com.example.rkgfixture.orders.api;
+import org.springframework.web.bind.annotation.*;
+@RestController
+@RequestMapping("/api/orders")
+public class OrderController {
+  @GetMapping("/{orderId}")
+  public String get(@PathVariable String orderId) { return orderId; }
+  @RequestMapping(path = "/readiness", method = {RequestMethod.GET, RequestMethod.HEAD})
+  public String readiness() { return "ready"; }
+}
+""".strip(),
+    )
+    _write(
+        tmp_path,
+        "src/main/java/com/example/rkgfixture/orders/config/RequestAuditFilter.java",
+        """
+package com.example.rkgfixture.orders.config;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+@Component
+@Order(RequestAuditFilter.ORDER)
+public class RequestAuditFilter extends OncePerRequestFilter {
+  public static final int ORDER = 1;
+  protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) {}
+}
+""".strip(),
+    )
+    _write(
+        tmp_path,
+        "src/main/java/com/example/rkgfixture/orders/config/OrderAuditInterceptor.java",
+        """
+package com.example.rkgfixture.orders.config;
+import org.springframework.web.servlet.HandlerInterceptor;
+public class OrderAuditInterceptor implements HandlerInterceptor {}
+""".strip(),
+    )
+    _write(
+        tmp_path,
+        "src/main/java/com/example/rkgfixture/orders/config/WebMvcConfig.java",
+        """
+package com.example.rkgfixture.orders.config;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+@Configuration
+public class WebMvcConfig implements WebMvcConfigurer {
+  public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(new OrderAuditInterceptor()).addPathPatterns("/api/orders/{orderId}").order(2);
+  }
+  @Bean
+  public FilterRegistrationBean<RequestAuditFilter> audit() {
+    FilterRegistrationBean<RequestAuditFilter> bean = new FilterRegistrationBean<>();
+    bean.setFilter(new RequestAuditFilter());
+    bean.addUrlPatterns("/api/orders/readiness");
+    bean.setOrder(9);
+    return bean;
+  }
+}
+""".strip(),
+    )
+    _write(
+        tmp_path,
+        "src/main/java/com/example/rkgfixture/orders/analysiscases/negative/UnregisteredRequestFilter.java",
+        """
+package com.example.rkgfixture.orders.analysiscases.negative;
+import org.springframework.web.filter.OncePerRequestFilter;
+public class UnregisteredRequestFilter extends OncePerRequestFilter {}
+""".strip(),
+    )
+    _write(
+        tmp_path,
+        "src/main/java/com/example/rkgfixture/orders/analysiscases/negative/DynamicInterceptorConfig.java",
+        """
+package com.example.rkgfixture.orders.analysiscases.negative;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+@Configuration
+public class DynamicInterceptorConfig implements WebMvcConfigurer {
+  public void addInterceptors(InterceptorRegistry registry) {
+    HandlerInterceptor selected = select();
+    registry.addInterceptor(selected).addPathPatterns("/api/orders/{orderId}");
+  }
+  private HandlerInterceptor select() { return null; }
+}
+""".strip(),
+    )
+    batch = _pipeline(tmp_path)
+    types = {
+        item.qualified_name: dict(item.attributes)
+        for item in _entities(batch, EntityType.TYPE)
+    }
+    assert types["config.OrderAuditInterceptor"]["order"] == 2
+    assert "order" not in types["analysiscases.negative.UnregisteredRequestFilter"]
+    assert "order" not in types["config.RequestAuditFilter"]
+    codes = {item.code for item in batch.diagnostics}
+    assert "spring_filter_unregistered" in codes
+    assert "spring_filter_ambiguous" in codes
+    assert "spring_filter_order_ambiguous" in codes
+    assert "spring_filter_target_ambiguous" in codes
+    by_id = {item.id: item for item in batch.entities}
+    evidence = {item.id: item for item in batch.evidence}
+    attached = []
+    for edge in batch.edges:
+        if edge.type != EdgeType.HANDLED_BY:
+            continue
+        source = by_id[edge.source_id]
+        rules = [(evidence[ref].rule, evidence[ref].file_path) for ref in edge.evidence_ids]
+        if source.qualified_name == "api.OrderController.get":
+            attached.extend(rules)
+        if "readiness" in source.qualified_name:
+            assert not any(rule == "RKG.spring.registration.v1" for rule, _path in rules)
+    assert any(
+        rule == "RKG.spring.registration.v1" and path.endswith("WebMvcConfig.java")
+        for rule, path in attached
+    )
+    assert not any("DynamicInterceptorConfig" in path for _rule, path in attached)
+    assert not any(
+        edge.type == EdgeType.DEPENDS_ON and by_id[edge.source_id].type == EntityType.ENDPOINT
+        for edge in batch.edges
+        if edge.source_id in by_id
+    )
+

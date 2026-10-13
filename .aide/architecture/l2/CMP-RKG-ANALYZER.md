@@ -6,7 +6,7 @@ group: normative
 scope: system
 system: SYS-RKG
 status: draft
-revision: 14
+revision: 15
 ownership: {accountable_team: TEAM-RKG, accountable_role: architect}
 relations: {realizes: [CAP-RKG-001], constrained_by: [NFR-RKG-SEC-001]}
 classification: internal
@@ -62,6 +62,21 @@ và `rkg.pgx` (data_access). Cả ba đã implemented / selectable theo
 `rkg.pgx` phụ thuộc `rkg.go`. kafka-go emit `MessageChannel` cùng `publishes` /
 `consumes`. pgx emit `DataResource` với identity `relational:{schema}.{table}`
 và method `reads` / `writes`. Không mở entity type mới.
+
+`builtin_adapters()` cũng đăng ký `rkg.django`, `rkg.next`, `rkg.express`,
+`rkg.nest`, `rkg.go-http`, `rkg.tanstack-router` và `rkg.vue-router`. Cả bảy
+đã có trong `REG-ADAPTER-001` revision 18, chạy trong pipeline mặc định, và giữ
+`reviewed_deep_support = False` với capability `DETECTED_ONLY`. Chúng không phải
+profile deep-supported đã review. Không mở entity type mới. Các adapter này
+không emit HTTP `depends_on`.
+
+Sau merge, coordinator chạy `link_static_http_depends_on` trong
+`src/rkg/jobs/http_depends.py`. Pass này không phải adapter id và không đổi
+`builtin_adapters()`. Callable `depends_on` đúng một Endpoint không phải
+navigation khi method và path tĩnh khớp một lần. Chiều Callable→Endpoint là
+hành vi trên cây. Then-clause `AC-RKG-005` đã xuất bản vẫn là Callable→Callable
+hoặc Endpoint→Callable. Lệch đó là `OQ-RKG-008`; component này không sửa
+then-clause tại chỗ.
 
 `IndexCoordinator.run` đọc catalog qua `get_repository`. Nếu request mang
 `app_module` hoặc `app_symbol`, coordinator ghi các field đó bằng

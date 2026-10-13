@@ -1,0 +1,21 @@
+key: CR-RKG-034
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-09'
+task: TASK-RKG-052
+story: STORY-RKG-040
+change_set: CHG-RKG-2026-019
+source: lifecycle_backfill
+request_summary: >-
+  Static Go HTTP route extraction already implemented by rkg.go-http. Gin, chi and gorilla/mux literal paths and resolved constants become Endpoint facts. handled_by is emitted only when the handler resolves to exactly one base Callable. Analyzed source is not executed. reviewed_deep_support is false. Emitted capabilities are DETECTED_ONLY. Deep support is withheld.
+authorization_boundary: >-
+  Record the static route behavior already on the tree. Do not execute
+  analyzed source. Do not promote deep-supported. Do not sign gates. A
+  repo-test copy is not the census oracle.
+record_boundary: >-
+  Backfill after the implementation files were already present. No
+  conversation transcript. This request does not create a new product behavior.
+classification: internal
+ai_assisted: true

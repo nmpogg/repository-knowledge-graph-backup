@@ -1,6 +1,6 @@
 // CHG-RKG-2026-003: TBL revision14 widens pending question text only; physical table shape and SchemaMeta.version3 stay unchanged.
 // DDL-RKG-GRAPH — physical bootstrap for TBL-RKG-GRAPH revision 15.
-// Artifact revision: 14. Candidate SchemaMeta version 3; Kuzu 0.11.3. Target bootstrap must record version 3.
+// Artifact revision: 15. Candidate SchemaMeta version 3; Kuzu 0.11.3. Target bootstrap must record version 3.
 // Adds only nullable Turn.response_metadata_json; graph tables/relationships stay unchanged.
 // Existing version-2 databases use MIG-RKG-CHATBOT-v3, never bootstrap over live data.
 // Executed on isolated fixtures before Contract Gate; production integration is pending.

@@ -308,7 +308,7 @@ export const vi: Record<MessageKey, string> = {
   'explorer.presetLabel': 'Preset đồ thị',
   'explorer.presetPlaceholder': 'Preset…',
   'explorer.overview': 'Tổng quan',
-  'explorer.overviewTitle': 'Tải gần như toàn bộ snapshot thành một đồ thị',
+  'explorer.overviewTitle': 'Sơ đồ cả project, không phụ thuộc mục đang chọn',
   'explorer.viewMode': 'Chế độ xem canvas',
   'explorer.graph': 'Đồ thị',
   'explorer.relations': 'Quan hệ trực tiếp',

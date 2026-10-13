@@ -59,7 +59,62 @@ describe('graph layout', () => {
     const result = layoutGraph([extra, ...nodes], edges, 'repo')
     const positions = result.map((node) => `${node.position.x}:${node.position.y}`)
     expect(new Set(positions).size).toBe(result.length)
-    expect(result.find((node) => node.id === 'repo')?.position.x).toBe(0)
+    const y = new Map(result.map((node) => [node.id, node.position.y]))
+    expect(y.get('endpoint')!).toBeLessThan(y.get('handler')!)
+    expect(y.get('handler')!).toBeLessThan(y.get('repo')!)
+    expect(y.get('repo')!).toBeLessThan(y.get('table')!)
+    expect(y.get('table')!).toBeLessThan(y.get('isolated')!)
+    expect(new Set(result.map((node) => node.data.layer)).size).toBeGreaterThanOrEqual(5)
+  })
+
+  it('wraps a wide architecture layer onto extra rows instead of one endless line', () => {
+    const wide: GraphNode[] = [
+      { id: 'root', type: 'directory', label: 'src', qualified_name: 'src' },
+      ...Array.from({ length: 8 }, (_, index) => ({
+        id: `file-${index}`,
+        type: 'file' as const,
+        label: `file-${index}`,
+        qualified_name: `file-${index}`,
+      })),
+    ]
+    const wideEdges: GraphEdge[] = wide.slice(1).map((node) => ({
+      id: `c-${node.id}`,
+      source: 'root',
+      target: node.id,
+      type: 'contains' as const,
+      label: 'contains',
+    }))
+    const placed = layoutGraph(wide, wideEdges, 'root', 'architecture')
+    const files = placed.filter((node) => node.id.startsWith('file-'))
+    const ys = new Set(files.map((node) => node.position.y))
+    expect(ys.size).toBeGreaterThan(1)
+    expect(placed.find((node) => node.id === 'root')!.position.y).toBeLessThan(Math.min(...files.map((node) => node.position.y)))
+  })
+
+  it('places each project entry in its own column and shared tables underneath', () => {
+    const project: GraphNode[] = [
+      { id: 'get', type: 'endpoint', label: 'GET /orders', qualified_name: 'GET /orders' },
+      { id: 'post', type: 'endpoint', label: 'POST /orders', qualified_name: 'POST /orders' },
+      { id: 'load', type: 'function', label: 'load_order', qualified_name: 'load_order' },
+      { id: 'save', type: 'function', label: 'save_order', qualified_name: 'save_order' },
+      { id: 'orders', type: 'table', label: 'orders', qualified_name: 'orders' },
+    ]
+    const projectEdges: GraphEdge[] = [
+      { id: 'h1', source: 'get', target: 'load', type: 'handled_by', label: 'handled_by' },
+      { id: 'h2', source: 'post', target: 'save', type: 'handled_by', label: 'handled_by' },
+      { id: 'r', source: 'load', target: 'orders', type: 'reads', label: 'reads' },
+      { id: 'w', source: 'save', target: 'orders', type: 'writes', label: 'writes' },
+    ]
+    const positions = new Map(
+      layoutGraph(project, projectEdges, 'get', 'architecture').map((node) => [node.id, node.position]),
+    )
+    expect(positions.get('get')!.y).toBe(positions.get('post')!.y)
+    expect(positions.get('get')!.x).not.toBe(positions.get('post')!.x)
+    expect(positions.get('load')!.x).toBe(positions.get('get')!.x)
+    expect(positions.get('save')!.x).toBe(positions.get('post')!.x)
+    expect(positions.get('load')!.y).toBeGreaterThan(positions.get('get')!.y)
+    expect(positions.get('orders')!.y).toBeGreaterThan(positions.get('load')!.y)
+    expect(positions.get('orders')!.y).toBeGreaterThan(positions.get('save')!.y)
   })
 
   it('splits topic publishers and consumers onto opposite sides of the hub', () => {

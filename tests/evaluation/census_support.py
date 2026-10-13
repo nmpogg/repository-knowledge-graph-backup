@@ -15,6 +15,7 @@ from typing import Any
 from rkg.adapters import AdapterContext, ParseResult
 from rkg.domain import FactBatch, SourceScanConfig, validate_fact_batch
 from rkg.ingestion import LocalSourcePolicy, build_manifest, resolve_local_source
+from rkg.jobs.http_depends import link_static_http_depends_on
 
 SECRET = "RKG_TEST_SECRET_DO_NOT_PERSIST"
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -113,6 +114,8 @@ def run_language_pipeline(
         if resolve is not None:
             batch = resolve(context, parsed, batch).facts
             validate_fact_batch(batch)
+    batch = link_static_http_depends_on(batch, job_id=context.job_id)
+    validate_fact_batch(batch)
     return batch
 
 
@@ -218,6 +221,8 @@ def run_polyglot_pipeline(
         if resolve is not None:
             batch = resolve(context, parsed, batch).facts
             validate_fact_batch(batch)
+    batch = link_static_http_depends_on(batch, job_id=context.job_id)
+    validate_fact_batch(batch)
     return batch
 
 

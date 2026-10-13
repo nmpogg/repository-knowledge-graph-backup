@@ -5,8 +5,8 @@ type: epic
 group: normative
 scope: lifecycle
 system: SYS-RKG
-status: draft
-revision: 15
+status: in_progress
+revision: 17
 change_set: CHG-RKG-2026-001
 implements: [FR-RKG-001, FR-RKG-002, FR-RKG-004]
 affected_components: [CMP-RKG-ANALYZER, CMP-RKG-GRAPH, CMP-RKG-TRANSPORT]
@@ -42,7 +42,9 @@ Một team. Giao pipeline phân tích, publication, đọc graph và HTTP v1. UI
 
 ## Story theo change set adapter
 
-Mỗi story một change set. CR và phần loại trừ của story không ghi một lát release chung. Story và task giữ `in_progress`, phase `verified_deep_support_withheld`. Chưa có REV-TASK. Không thăng deep-supported. Epic giữ `draft`.
+Mỗi story một change set. CR và phần loại trừ của story không ghi một lát release chung. Story và task của các change set adapter giữ `in_progress`. Chưa có REV-TASK. Không thăng deep-supported. Epic là `in_progress` vì còn task chưa `done`.
+
+STORY-RKG-036..043 là backfill sau khi code đã có. Change set của chúng dùng phase `code_present_lifecycle_backfill`. Chúng được ghi trong `adapter_scope` của CHG-RKG-2026-001 với `included: false`. Deep support vẫn withheld. Gate của các change set đó là `pending`.
 
 - STORY-RKG-026 — TypeScript language + React Router framework extraction (`CHG-RKG-2026-009`)
 - STORY-RKG-027 — Vue language + Nuxt framework extraction (`CHG-RKG-2026-010`)
@@ -50,6 +52,14 @@ Mỗi story một change set. CR và phần loại trừ của story không ghi 
 - STORY-RKG-029 — Java + Spring + JPA + Spring Kafka extraction (`CHG-RKG-2026-012`)
 - STORY-RKG-024 — Go + kafka-go + pgx extraction (`CHG-RKG-2026-013`)
 - STORY-RKG-025 — Flask static route extraction (`CHG-RKG-2026-014`)
+- STORY-RKG-036 — Django static route extraction (`CHG-RKG-2026-015`)
+- STORY-RKG-037 — Next static route and navigation extraction (`CHG-RKG-2026-016`)
+- STORY-RKG-038 — Express static route extraction (`CHG-RKG-2026-017`)
+- STORY-RKG-039 — Nest static route and message-pattern extraction (`CHG-RKG-2026-018`)
+- STORY-RKG-040 — Go HTTP static route extraction (`CHG-RKG-2026-019`)
+- STORY-RKG-041 — TanStack Router static navigation extraction (`CHG-RKG-2026-020`)
+- STORY-RKG-042 — Vue Router static navigation extraction (`CHG-RKG-2026-021`)
+- STORY-RKG-043 — Static HTTP Callable to Endpoint link (`CHG-RKG-2026-022`)
 
 ## Task (không qua Story — không có AC)
 
@@ -66,5 +76,6 @@ AC-RKG-048..055/058/060/062/065…072 — Directory/Namespace và phần static
 FastAPI của STORY-RKG-017/018, TypeScript/React Router của STORY-RKG-026,
 Vue/Nuxt của STORY-RKG-027, BullMQ của STORY-RKG-028, Java/Spring/JPA/Spring
 Kafka của STORY-RKG-029, Go + kafka-go + pgx của STORY-RKG-024, Flask static route của STORY-RKG-025, cùng adapter conformance của NFR-RKG-EXT-001 đều có
-test evidence. `TASK-RKG-042..047` hiện vẫn `in_progress` trên CHG-RKG-2026-009…014. Epic giữ `draft` cho đến khi gate được ký lại; trạng thái task
-`done` không đóng epic.
+test evidence. `TASK-RKG-042..047` hiện vẫn `in_progress` trên CHG-RKG-2026-009…014.
+`TASK-RKG-048..055` hiện vẫn `in_progress` trên CHG-RKG-2026-015…022
+(backfill hồ sơ cho adapter và liên kết HTTP tĩnh đã có trên cây). Status epic là `in_progress` vì các task đó chưa `done`. Gate không đổi.

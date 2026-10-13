@@ -7,6 +7,7 @@
     "Navigation Endpoints emit handled_by → page SourceUnit and route_signal/outbound_requests from static $fetch/useFetch evidence",
     "SourceUnit/Callable QNs follow rkg.vue / rkg.typescript path→dots conventions",
     "Auto-import facts are convention-backed depends_on; analyzers must not invent ES imports",
+    "useOrders static GET /api/orders depends_on the Nitro GET /api/orders endpoint (RKG.http.depends_on.v1)",
     "Generated trees .nuxt/.output/node_modules/dist/coverage are ignored paths",
     "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
   ],
@@ -279,6 +280,30 @@
       "rule_id": null,
       "evidence": [{"file_path": "app/layouts/default.vue", "start_line": null}],
       "note": "useRuntimeConfig -> public.portalName"
+    },
+    {
+      "type": "calls",
+      "source": "app.pages.index.setup",
+      "target": "app.pages.orders.index.setup",
+      "rule_id": "RKG.nuxt.navigate.v1",
+      "evidence": [{"file_path": "app/pages/index.vue", "start_line": null}],
+      "note": "NuxtLink to=/orders → orders page setup"
+    },
+    {
+      "type": "calls",
+      "source": "app.pages.orders.[orderId].setup",
+      "target": "app.pages.orders.index.setup",
+      "rule_id": "RKG.nuxt.navigate.v1",
+      "evidence": [{"file_path": "app/pages/orders/[orderId].vue", "start_line": null}],
+      "note": "NuxtLink to=/orders → orders page setup"
+    },
+    {
+      "type": "depends_on",
+      "source": "app.composables.useOrders.useOrders",
+      "target": "server.api.orders.index.get",
+      "rule_id": "RKG.http.depends_on.v1",
+      "evidence": [{"file_path": "app/composables/useOrders.ts", "start_line": null}],
+      "note": "static GET /api/orders matches the Nitro GET /api/orders endpoint"
     }
   ],
   "prohibited": [

@@ -6,7 +6,7 @@ group: normative
 scope: system
 system: SYS-RKG
 status: draft
-revision: 17
+revision: 18
 ownership:
   accountable_team: TEAM-RKG
   accountable_role: architect
@@ -67,7 +67,6 @@ phải deterministic theo adapter ID/version và evidence.
 | `rkg.sqlalchemy` | data_access | Python / SQLAlchemy | 2.x supported subset | tables, maps-to, reads, writes | deep-supported |
 | `rkg.aiokafka` | messaging | Python / aiokafka | supported subset | topics, publishes, consumes | deep-supported |
 | `rkg.flask` | framework | Python / Flask | CPython 3.12 AST | app, routes | registered in `builtin_adapters()`; `reviewed_deep_support = False`; emitted capabilities are `DETECTED_ONLY`; not a reviewed deep-supported MVP profile |
-| `rkg.conformance.fixture` | language/framework fixture | synthetic | test-only | structure, route, diagnostic | conformance-only |
 | `rkg.typescript` | language | TypeScript / TSX | tree-sitter TypeScript/TSX | structure, imports, calls, classes, metadata | implemented (TASK-RKG-042 GREEN); registered in `builtin_adapters()`; not deep-supported until conformance review |
 | `rkg.react-router` | framework | TypeScript / React Router | `react-router-dom >=6,<8` | app, routes | implemented (TASK-RKG-042 GREEN); depends on `rkg.typescript`; navigation routes use `framework_kind=react-router` (OQ-RKG-007); not deep-supported until conformance review |
 | `rkg.bullmq` | messaging | TypeScript / BullMQ | BullMQ 6.x Queue/Worker | topics, publishes, consumes | implemented; depends on `rkg.typescript`; registered in `builtin_adapters()`; not deep-supported until conformance review |
@@ -80,12 +79,33 @@ phải deterministic theo adapter ID/version và evidence.
 | `rkg.go` | language | Go | tree-sitter Go | structure, calls, classes, metadata | implemented; registered in `builtin_adapters()`; not deep-supported until conformance review |
 | `rkg.kafka-go` | messaging | Go / kafka-go | `NewKafkaReader` / `EventPublisher.Publish` | topics, publishes, consumes | implemented; depends on `rkg.go`; registered in `builtin_adapters()`; not deep-supported until conformance review |
 | `rkg.pgx` | data_access | Go / pgx | static SQL `schema.table` | tables, reads, writes | implemented; depends on `rkg.go`; registered in `builtin_adapters()`; DataResource identity `relational:{schema}.{table}`; not deep-supported until conformance review |
+| `rkg.django` | framework | Python / Django | CPython 3.12 AST | routes | registered in `builtin_adapters()`; `reviewed_deep_support = False`; emitted capabilities are `DETECTED_ONLY`; not deep-supported |
+| `rkg.next` | framework | TypeScript / Next | Next `>=13,<16` | app, routes | registered in `builtin_adapters()`; `reviewed_deep_support = False`; emitted capabilities are `DETECTED_ONLY`; not deep-supported |
+| `rkg.express` | framework | TypeScript / Express | Express application and Router verb calls | routes | registered in `builtin_adapters()`; `reviewed_deep_support = False`; emitted capabilities are `DETECTED_ONLY`; not deep-supported |
+| `rkg.nest` | framework | TypeScript / Nest | NestJS controller and message-pattern decorators | channels, routes | registered in `builtin_adapters()`; `reviewed_deep_support = False`; emitted capabilities are `DETECTED_ONLY`; not deep-supported |
+| `rkg.go-http` | framework | Go / go-http | Gin, chi, gorilla/mux static routes | routes | registered in `builtin_adapters()`; `reviewed_deep_support = False`; emitted capabilities are `DETECTED_ONLY`; not deep-supported |
+| `rkg.tanstack-router` | framework | TypeScript / TanStack Router | TanStack Router `>=1,<2` static routes | app, routes | registered in `builtin_adapters()`; `reviewed_deep_support = False`; emitted capabilities are `DETECTED_ONLY`; not deep-supported |
+| `rkg.vue-router` | framework | Vue / vue-router | `vue-router >=3,<5` | app, routes | registered in `builtin_adapters()`; `reviewed_deep_support = False`; emitted capabilities are `DETECTED_ONLY`; not deep-supported |
+
+`rkg.conformance.fixture` vẫn là fixture test-only (structure, route, diagnostic,
+conformance-only). Nó không được `builtin_adapters()` trả về, nên không nằm trong
+bảng MVP.
 
 Stack được detect nhưng không có compatible deep adapter vẫn được công bố là
 `detected_only`. `rkg.flask` nằm trong default registration và vẫn ở cột support
 trên: được chạy khi selection chọn nó, không được gọi là deep-supported. Adapter
 ngoài bảng phải thêm entry/revision được review, công bố supported patterns và
 pass `TEST-RKG-ADAPTER-CONFORMANCE` trước khi gọi là deep-supported.
+
+Quy ước oracle census: `tests/evaluation/fixtures/` cùng
+`tests/evaluation/expected_*.json`. Bản sao cùng tên dưới `repo-test/`, nếu còn
+tồn tại, không phải oracle của census. Bảy id mới ở bảng trên dùng cặp đó. Trên
+cây này không có `repo-test/rkg-fixture-django`, `repo-test/rkg-fixture-next`,
+`repo-test/rkg-fixture-express`, `repo-test/rkg-fixture-nest`,
+`repo-test/rkg-fixture-go-http`, `repo-test/rkg-fixture-tanstack-router`, hay
+`repo-test/rkg-fixture-vue-router`. Census test của react-ts, nuxt4, bullmq,
+spring-orders và go-event-worker vẫn mở trực tiếp `repo-test/`; đó là đường dẫn
+test đang ghi, không phải bản sao của một fixture `tests/evaluation/fixtures/`.
 
 `rkg.typescript` và `rkg.react-router` đã có module dưới `src/rkg/adapters/`
 (`typescript_language.py`, `react_router_framework.py`) và đăng ký trong
@@ -350,3 +370,210 @@ until conformance review.
 | `rkg.go` | `*.go` CST via tree-sitter; package-scoped QN (`domain.Type`); no Namespace | Type/Callable; value+pointer receivers; generics name-only; explicit `calls`; env key names (`KAFKA_*`, `DATABASE_URL`, `CLEANUP_INTERVAL`) | package as Namespace; secret sentinel; absolute paths; guessed ambiguous interface targets |
 | `rkg.kafka-go` | `ReaderConfig.Topic` literal/const via `NewKafkaReader`; `EventPublisher.Publish` with static topic/const (incl. import alias) | `MessageChannel`; `consumes` from `NewKafkaReader`; `publishes` from `EventPublisher.Publish` | dynamic topic; package-level publish; shadowed `kafka`; payloads; Type-sourced consumes (schema requires Callable) |
 | `rkg.pgx` | static SQL string constants with `schema.table` | `DataResource` `relational:{schema}.{table}` (`kind=table`); method `reads`/`writes` | runtime-built SQL; credentials; row values |
+
+## `rkg.flask`
+
+`rkg.flask` keeps `adapter_id=rkg.flask` and `reviewed_deep_support = False`.
+Emitted capabilities stay `DETECTED_ONLY`. The adapter does not execute the
+analyzed module. A route is an `Endpoint` plus `handled_by` only when the
+blueprint mount, path and methods each resolve once from a string literal or
+one module-level constant. `app.route` and `add_url_rule` stay in that same
+rule. HTTP `depends_on` is not emitted here.
+
+| Pattern | Evidence đủ | Fact | Không tạo / không lưu |
+|---|---|---|---|
+| `Blueprint(..., url_prefix=...)` | literal or one module constant starting with `/`; omitted prefix is empty | prefix used when `register_blueprint` does not pass `url_prefix` | non-literal, reassigned, star-import, or shadowed prefix; no guessed path |
+| `register_blueprint(bp)` | `bp` resolves to one `Blueprint` | constructor `url_prefix` joined under the parent prefix | unresolved target; registration inside a branch or function |
+| `register_blueprint(bp, url_prefix=...)` | one registration; literal or one module constant | this prefix replaces the constructor prefix, then joins the parent | a second mount of the same blueprint; non-literal prefix does not fall back to the constructor prefix |
+| nested `register_blueprint` | unique chain | parent effective prefix + child effective prefix | cycle; ambiguous mount |
+| `@bp.route(path, methods=[...])`, `@bp.get` / `@bp.post` / other method shortcuts, `add_url_rule` | path and `methods` are literals or one module constant; omitted `methods` on `route` / `add_url_rule` is `GET`; a shortcut supplies its method | one `Endpoint` per method, `path` includes the blueprint prefix, `handled_by` the unique handler | dynamic path or methods; handler that does not resolve once |
+| sentinel `RKG_TEST_SECRET_DO_NOT_PERSIST` | — | — | never in facts, diagnostics text, or stdout |
+
+## `rkg.django`
+
+`rkg.django` framework extract (implemented). Module `src/rkg/adapters/django_framework.py`.
+Descriptor: `adapter_id=rkg.django`, `kind=framework`, `language=python`,
+`framework=django`, grammar CPython 3.12 AST, capability `routes`. Depends on
+base facts from `rkg.python`. `reviewed_deep_support = False`. Emitted
+capabilities are `DETECTED_ONLY`. Registered in `builtin_adapters()`. Not a
+reviewed deep-supported profile. Django ORM is out of scope. No new edge or
+entity type. No HTTP `depends_on`.
+
+Oracle: `tests/evaluation/fixtures/rkg-fixture-django` and `tests/evaluation/expected_django.json`
+(`allow_unlisted_actual` false). A route path is emitted only when it resolves
+from a literal or a unique constant. `handled_by` is emitted only when the
+handler resolves once. `path()` does
+not imply GET. `method` is stored only for `require_GET`, `require_POST`,
+`require_safe`, a literal or uniquely resolved `require_http_methods` sequence,
+or a literal `http_method_names` on the class or `as_view(...)`. Otherwise the
+endpoint keeps `path` and omits `method`.
+
+| Pattern | Evidence đủ | Fact | Không tạo / không lưu |
+|---|---|---|---|
+| `path` / `re_path` / `url` | literal or unique constant route, unique handler | `Endpoint` `framework_kind=django_route`; `path` (slash-joined with a leading `/` for `path()`, regex literal for `re_path`/`url`); `handled_by` | guessed GET; ORM; dynamic route |
+| `include()` | string or imported name resolves to exactly one scanned URLconf module | that module's routes under the include prefix; `exposes` evidence at the include site | edge or route when the target is dynamic, ambiguous, or cyclic |
+| function or dotted path | unique `Callable` | `handled_by` to that callable | shadowed or missing view (diagnostic `django_view_unresolved`, no edge) |
+| `Class.as_view()` | unique `Type` | endpoint label `{type}.as_view`; `handled_by` `{type}.as_view` when that method exists, otherwise the verb callable named by a literal or uniquely resolved `http_method_names` | inherited `as_view` invented as a callable; when `http_method_names` is absent or dynamic the endpoint stays (no method attribute) and `def get` / `def post` are not guessed as `handled_by` (`django_view_unresolved`) |
+
+## `rkg.next`
+
+`rkg.next` framework extract (implemented). Module
+`src/rkg/adapters/next_framework.py`. Descriptor: `adapter_id=rkg.next`,
+`kind=framework`, `language=typescript`, `framework=next`, Next `>=13,<16`,
+capabilities `app` / `routes`. Depends on `rkg.typescript` base facts.
+`reviewed_deep_support = False`. Emitted capabilities are `DETECTED_ONLY`.
+Registered in `builtin_adapters()`. No new edge or entity type. No HTTP
+`depends_on`. Analyzed source is never executed.
+
+Oracle: `tests/evaluation/fixtures/rkg-fixture-next` and `tests/evaluation/expected_next.json`
+(`allow_unlisted_actual` false). Dynamic segments are spelled with a colon:
+`[orderId]` → `:orderId`. Catch-all `[...name]` is `*`. Route groups `(name)`
+and parallel slots `@slot` are omitted from the path.
+
+| Pattern | Evidence đủ | Fact | Không tạo / không lưu |
+|---|---|---|---|
+| `app/**/page.tsx` and `pages/**` (not `pages/api`) | static segments after dropping `(group)` / `@slot` | `Endpoint` `framework_kind=next`, `kind=navigation`, `path` with `:param`; `handled_by` when the default export resolves to one Callable | optional catch-all `[[...slug]]`; private `_` folders; guessed handler |
+| `app/**/route.ts` named `GET`/`POST`/other verb exports | method is the export name; handler is that function, a unique const arrow, or one re-export | HTTP `Endpoint` method+path; `handled_by` (`RKG.next.handler.v1`) | `export const GET = make()` keeps the endpoint and emits `next_handler_unresolved` with no edge |
+| `pages/api/**` default export | `req.method === "GET"` (or `==`) string literals only | one HTTP `Endpoint` per literal verb, `handled_by` the default function | no literal verb, or any non-literal `.method` use: diagnostic, no endpoint |
+| `Link` `href`, `router.push`, `redirect` | literal or one already-resolved string constant; binding is the `next/link` / `next/navigation` / `next/router` import | `calls` (`RKG.next.navigation.v1`) from the enclosing Callable to the page handler Callable of exactly one `kind=navigation` Endpoint | dynamic/template href, shadowed `Link` / `useRouter`, zero or several matching routes: diagnostic, no edge |
+| sentinel `RKG_TEST_SECRET_DO_NOT_PERSIST` | — | — | never in facts, diagnostics, or census stdout |
+
+## `rkg.express` and `rkg.nest`
+
+`rkg.express` and `rkg.nest` framework extracts (implemented). Modules
+`src/rkg/adapters/express_framework.py` and `src/rkg/adapters/nest_framework.py`.
+Both use the TypeScript CST (`rkg.typescript` file patterns are `*.ts` / `*.tsx`
+only, so fixtures are `.ts`). `reviewed_deep_support = False`. Emitted
+capabilities are `DETECTED_ONLY` (`routes` for Express; `channels` and `routes`
+for Nest). No new edge or entity type. No HTTP `depends_on`. No schema change.
+Analyzed source is never executed.
+
+Oracles: `tests/evaluation/fixtures/rkg-fixture-express`, `tests/evaluation/fixtures/rkg-fixture-nest`,
+`tests/evaluation/expected_express.json`, `tests/evaluation/expected_nest.json`
+(`allow_unlisted_actual` false).
+
+Middleware (`app.use` / `router.use`, and callback arguments before the last
+handler) is an evidence row `RKG.express.middleware.v1` only. It is not an
+`Endpoint` and it does not create an edge. Mount prefixes on `use` are not
+composed onto routes.
+
+`@MessagePattern` / `@EventPattern` literals become `MessageChannel` entities,
+not HTTP endpoints. `channel_kind` is `pattern` or `event`. The unique method
+`Callable` `consumes` that channel (`RKG.nest.consume.v1`). There is no
+`publishes` edge: these decorators are handlers, and no publisher call is
+resolved. A non-literal pattern is a diagnostic and no channel.
+
+| Adapter | Pattern | Fact | Không tạo / không lưu |
+|---|---|---|---|
+| `rkg.express` | `.get` / `.post` / `.put` / `.patch` / `.delete` / `.head` / `.options` / `.all` on a unique `express()` or `Router()` binding | `Endpoint` method+path; `handled_by` when the last callback resolves to one Callable | dynamic or shadowed path; inline handler (endpoint, no edge); `use` as an endpoint |
+| `rkg.nest` | `@Controller` prefix + `@Get` / `@Post` / other verb decorators | `Endpoint` path = global prefix + unique `RouterModule.register` path + controller prefix + method path; `handled_by` the method | non-literal `setGlobalPrefix`, `RouterModule` path, or controller prefix; dynamic method path |
+| `rkg.nest` | `@MessagePattern` / `@EventPattern` literal or one constant | `MessageChannel`; `consumes` from the method Callable | HTTP endpoint for the pattern; `publishes`; dynamic pattern |
+| both | sentinel `RKG_TEST_SECRET_DO_NOT_PERSIST` | — | never in facts, diagnostics, or census stdout |
+
+## `rkg.spring` static registration
+
+`rkg.spring` static `OncePerRequestFilter` / `HandlerInterceptor` registration.
+`reviewed_deep_support` stays false. No new entity or edge type. Existing
+request-mapping Endpoint rows stay as they are except evidence attachment.
+HTTP `depends_on` is package 10.
+
+| Pattern | Fact | Không tạo / không lưu |
+|---|---|---|
+| Concrete `OncePerRequestFilter` or `HandlerInterceptor` that is a stereotype bean, or is passed as `new Type()` / `Type.class` to `setFilter` / `addInterceptor`, or returned from a `@Bean` method on a stereotype type | Evidence `RKG.spring.registration.v1`. Integer `order` on the existing Type when every `@Order`, `setOrder`, and `order(...)` expression is the same literal or the same uniquely assigned integer constant | Unregistered subclass; dynamic, shadowed, or overloaded simple-name target; conflicting or non-static order; new edge type |
+| Path literal or uniquely resolved string constant equals exactly one existing Endpoint `path` | That registration evidence is attached to the existing `handled_by` edge | Ant match; shared `GET`+`HEAD` path; Endpoint attribute edits; HTTP `depends_on` |
+
+## `rkg.react-router` and `rkg.nuxt` navigation
+
+Static UI navigation `calls` on `rkg.react-router` and `rkg.nuxt`.
+`reviewed_deep_support` stays false. Extract and resolve still report
+capabilities `app` and `routes` as `SUPPORTED`, which is the adapters'
+pre-existing capability state. No new edge or entity type. No HTTP
+`depends_on`. Analyzed source is never executed.
+A navigation edge is `Callable --calls--> Callable` where the target is the
+handler of exactly one `kind=navigation` Endpoint. Evidence rules:
+`RKG.react_router.navigate.v1` and `RKG.nuxt.navigate.v1`.
+
+| Pattern | Evidence đủ | Fact | Không tạo / không lưu |
+|---|---|---|---|
+| React `navigate` from `useNavigate()`, `redirect`, `history.push` / `history.replace`, `Link` / `NavLink` / `Navigate` `to` | literal or one already-resolved string constant; absolute path matches one route, or a relative path joins the caller's single handled route | `calls` to that route's handler | dynamic template, shadow, zero or several routes: diagnostic `react_router_navigate_dynamic` / `_shadowed` / `_ambiguous` / `_unresolved`, no edge |
+| Nuxt `navigateTo`, `router.push` / `router.replace` (`useRouter()`), `NuxtLink` `to` / `:to` | absolute path, or a bare token whose route-name and relative-join readings that match a route agree on one page (`/orders/:orderId` → `orders-orderId`) | `calls` from the enclosing Callable, or the page `setup` Callable when the site is the script-setup page | dynamic target, shadowed `navigateTo` / `router`, or a name and a relative join that do not agree (including a duplicate joined path): diagnostic `nuxt_navigate_dynamic` / `_shadowed` / `_ambiguous` / `_unresolved`, no edge |
+| sentinel `RKG_TEST_SECRET_DO_NOT_PERSIST` | — | — | never in facts, diagnostics, or census stdout |
+
+## `rkg.go-http`
+
+`rkg.go-http` (`src/rkg/adapters/go_http_framework.py`) depends on `rkg.go`.
+Kind `framework`, language `go`, framework `go-http`. Gin, chi, and gorilla/mux
+literal paths (and resolved constants) become `Endpoint` facts. `handled_by`
+is emitted only when the handler resolves to exactly one base Callable.
+Dynamic paths, shadowed names, and ambiguous targets are diagnostics.
+`reviewed_deep_support` is false. Capabilities stay `DETECTED_ONLY`.
+No HTTP `depends_on`. Oracle: `tests/evaluation/fixtures/rkg-fixture-go-http` and
+`tests/evaluation/expected_go_http.json`. The event-worker fixture has no
+Gin, chi, or mux routes, so this adapter does not add worker facts.
+
+## `rkg.tanstack-router`
+
+`rkg.tanstack-router` (`src/rkg/adapters/tanstack_router_framework.py`) depends on `rkg.typescript`.
+Kind `framework`, language `typescript`, framework `tanstack-router`.
+`reviewed_deep_support` is false. Capabilities `app` and `routes` stay `DETECTED_ONLY`.
+Registered in `builtin_adapters()`. No new edge or entity type. No HTTP `depends_on`.
+Analyzed source is never executed. Oracle: `tests/evaluation/fixtures/rkg-fixture-tanstack-router` and
+`tests/evaluation/expected_tanstack_router.json` (`allow_unlisted_actual` false).
+
+A route is an `Endpoint` `framework_kind=tanstack-router`, `kind=navigation`.
+`createFileRoute` uses its literal or uniquely resolved path as the full path.
+`createRoute` joins a parent only when `getParentRoute` resolves to exactly one route.
+`handled_by` is emitted only when `component` resolves to one Callable.
+`navigate({ to })` (from `useNavigate()`) and `Link` `to` emit `calls`
+(`RKG.tanstack_router.navigate.v1`) from the enclosing Callable to that handler
+only when `to` equals exactly one navigation route. Evidence rules:
+`RKG.tanstack_router.route.v1`, `RKG.tanstack_router.handler.v1`,
+`RKG.tanstack_router.navigate.v1`.
+
+| Pattern | Evidence đủ | Fact | Không tạo / không lưu |
+|---|---|---|---|
+| `createFileRoute(path)({ component })` | path is a literal or one module constant | navigation `Endpoint`; `handled_by` when `component` is one Callable | dynamic path; nested registration |
+| `createRoute({ path, getParentRoute, component })` | path literal or one constant; parent identifier is exactly one route | full path is the parent path plus a relative segment; absolute path stands alone | relative path whose parent is missing, dynamic, or cyclic: diagnostic, no route |
+| `navigate({ to })` / `Link to` | `to` is a literal or one constant and equals one route that has one handler | `calls` to that handler | dynamic, shadowed, zero, or several routes: diagnostic, no edge |
+| sentinel `RKG_TEST_SECRET_DO_NOT_PERSIST` | — | — | never in facts, diagnostics, or census stdout |
+
+## `rkg.vue-router`
+
+`rkg.vue-router` (`src/rkg/adapters/vue_router_framework.py`) depends on
+`rkg.vue` (page Callables) and reads TypeScript route modules from
+`rkg.typescript`. Kind `framework`, language `vue`, framework `vue-router`,
+constraint `vue-router >=3.0,<5.0`. `reviewed_deep_support` is false. Emitted
+capabilities `app` and `routes` stay `DETECTED_ONLY`. No new edge or entity
+type. No HTTP `depends_on`. Analyzed source is never executed.
+
+Oracle: `tests/evaluation/fixtures/rkg-fixture-vue-router` and
+`tests/evaluation/expected_vue_router.json` (`allow_unlisted_actual` false).
+
+| Pattern | Evidence đủ | Fact | Không tạo / không lưu |
+|---|---|---|---|
+| `createRouter({ routes })` or `new Router({ routes })` imported from `vue-router` | `path` / `name` literal or one module constant; `children` joined the same way | `Endpoint` `framework_kind=vue-router`, `kind=navigation`, `path` / `route_path`; evidence `RKG.vue_router.route.v1` | dynamic path or name; shadowed `createRouter` / `Router`; guessed route |
+| `component: () => import("./Page.vue")` or an import of exactly one `.vue` file | that file's existing `setup` Callable | `handled_by` `RKG.vue_router.handler.v1` | zero or several `.vue` targets; missing `setup`: diagnostic `vue_router_unresolved`, no edge |
+| `router.push` / `router.replace` on `useRouter()`, `createRouter`, or `new Router` | literal, `{ path }` / `{ name }`, or one already-resolved constant; absolute path or `route_name` matches one route, or a relative path joins the caller's single handled route | `calls` `RKG.vue_router.navigate.v1` from the enclosing Callable to that route's handler Callable | dynamic target, shadow, zero or several routes: diagnostic `vue_router_navigate_dynamic` / `_shadowed` / `_ambiguous` / `_unresolved`, no edge |
+| sentinel `RKG_TEST_SECRET_DO_NOT_PERSIST` | — | — | never in facts, diagnostics, or census stdout |
+
+## HTTP static depends_on
+
+Post-merge HTTP link in `src/rkg/jobs/http_depends.py` (`link_static_http_depends_on`).
+Not an adapter: `builtin_adapters()` is unchanged and `reviewed_deep_support` stays
+false. No new edge or entity type. Runs after language and deep adapters in
+`IndexCoordinator` and at the end of `run_language_pipeline` /
+`run_polyglot_pipeline`.
+
+A Callable `depends_on` exactly one Endpoint when `http_requests` already contains
+one static method and one static path and exactly one non-navigation Endpoint
+has that pair. Evidence rule: `RKG.http.depends_on.v1`. Navigation endpoints
+(`kind=navigation`, no HTTP method) are not match targets. Several endpoints
+for the same pair yield diagnostic `http_depends_on_ambiguous` and no edge.
+A dynamic path in the stored request yields diagnostic `http_depends_on_dynamic`
+and no edge. Zero matches emit no edge. Query strings and fragments are dropped
+before compare and are not stored on the new edge, evidence, or diagnostic.
+ExternalDependency is not a target. Analyzed source is never executed.
+
+| Pattern | Evidence đủ | Fact | Không tạo / không lưu |
+|---|---|---|---|
+| Callable `http_requests` segment `METHOD path` | method case and a leading slash only; path has no query, fragment, template, or parameter segment | `depends_on` to the one Endpoint with that method and path; `RKG.http.depends_on.v1` | second endpoint: `http_depends_on_ambiguous`; dynamic segment: `http_depends_on_dynamic`; method-only or absolute URL: no edge; query string; ExternalDependency; navigation Endpoint |

@@ -76,7 +76,7 @@ function toEdges(
       focused,
       muted: focusOnly && !focused,
       flowing: !flow && selectedId != null && (edge.source === selectedId || edge.target === selectedId),
-      showLabel: flow || focused || (!focusOnly && edges.length <= 12),
+      showLabel: (flow && edges.length <= 40) || focused || (!focusOnly && edges.length <= 12),
       vertical,
       bypassX: flow && vertical && source && target && dy > 140
         ? source.x + (dx >= 0 ? 222 : -22) + lane * 8 : undefined,
@@ -137,10 +137,10 @@ function GraphCamera({
 
     const id = window.requestAnimationFrame(() => {
       if (graphChanged) {
-        void fitView({ padding: mode === 'flow' ? 0.06 : 0.18, duration: 280 })
+        void fitView({ padding: mode === 'flow' ? 0.06 : 0.14, duration: 280 })
         return
       }
-      if (mode === 'flow') return
+      if (mode === 'flow' || mode === 'architecture') return
       const focusId = selectedId ?? rootId
       const node = getNode(focusId)
       if (!node) {
@@ -190,7 +190,14 @@ export function KnowledgeGraph({
   const focusId = selectedId ?? rootId
   const initialNodes = useMemo(() => layoutGraph(presentation.nodes, presentation.edges, rootId, effectiveMode), [presentation, rootId, effectiveMode])
   const initialEdges = useMemo(
-    () => toEdges(presentation.edges, focusId, selectedId, focusOnly, initialNodes, effectiveMode === 'flow'),
+    () => toEdges(
+      presentation.edges,
+      focusId,
+      selectedId,
+      focusOnly,
+      initialNodes,
+      effectiveMode === 'flow' || (effectiveMode === 'architecture' && presentation.edges.length <= 40),
+    ),
     [presentation, focusId, selectedId, focusOnly, initialNodes, effectiveMode],
   )
   const relations = useMemo(
@@ -228,7 +235,7 @@ export function KnowledgeGraph({
       nodeTypes={nodeTypes}
       edgeTypes={relationshipEdgeTypes}
       fitView
-      fitViewOptions={{ padding: effectiveMode === 'flow' ? 0.06 : 0.18 }}
+      fitViewOptions={{ padding: effectiveMode === 'flow' ? 0.06 : 0.14 }}
       minZoom={0.2}
       maxZoom={1.8}
       onNodeClick={(_, node) => onSelect(node.id)}

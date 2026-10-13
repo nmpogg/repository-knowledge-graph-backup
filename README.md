@@ -13,8 +13,12 @@ là lớp tùy chọn phía trên snapshot đã pin.
 ## Trạng thái bàn giao
 
 Nguồn tiến độ là frontmatter trong [`.aide/lifecycle/tasks/`](.aide/lifecycle/tasks/).
-Trên cây hiện tại, `TASK-RKG-000` đến `TASK-RKG-025` đã `done`, gồm index/CLI,
+Trên cây hiện tại, `TASK-RKG-000` đến `TASK-RKG-041` đã `done`, gồm index/CLI,
 API loopback, UI live, hội thoại và pilot/eval (`TASK-RKG-022`).
+`TASK-RKG-042` đến `TASK-RKG-047` đang `in_progress` trên `CHG-RKG-2026-009` đến
+`CHG-RKG-2026-014`. `TASK-RKG-048` đến `TASK-RKG-055` đang `in_progress` trên
+`CHG-RKG-2026-015` đến `CHG-RKG-2026-022` (backfill hồ sơ cho adapter và liên kết
+HTTP tĩnh đã có trên cây).
 
 Runbook này thuộc `TASK-RKG-023`. Kết quả regression, phạm vi, giới hạn và rủi
 ro còn lại nằm ở `DIARY-TASK-RKG-023` và `TEST-RKG-FINAL-REGRESSION-001`.
@@ -263,7 +267,7 @@ cd frontend && npm test && npm run lint && npx tsc -b
 ```
 
 Bài kiểm tra live OpenRouter được skip khi không có `OPENROUTER_API_KEY`.
-Bài kiểm tra pilot skip khi không có thư mục sibling `../pilot_fastapi/` và
-không đặt `RKG_PILOT_REPO`. Đặt `RKG_PILOT_REPO` tới đường dẫn không tồn tại
-thì bài đó fail. Kết quả regression đã ghi cho bàn giao này là
+Bài kiểm tra pilot dùng corpus trong `repo-test/pilot_fastapi/`. Nó skip khi
+thư mục đó không có và không đặt `RKG_PILOT_REPO`. Đặt `RKG_PILOT_REPO` tới
+đường dẫn không tồn tại thì bài đó fail. Kết quả regression đã ghi cho bàn giao này là
 `TEST-RKG-FINAL-REGRESSION-001`.

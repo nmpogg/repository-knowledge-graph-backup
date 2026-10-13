@@ -25,6 +25,7 @@ from rkg.ingestion import (
     build_manifest,
     resolve_local_source,
 )
+from rkg.jobs.http_depends import link_static_http_depends_on
 from rkg.jobs.partition import partition_language_files
 from rkg.jobs.structure import add_directory_structure
 from rkg.storage._util import CURRENT_SCHEMA_VERSION, TERMINAL_JOB_STAGES
@@ -490,6 +491,8 @@ class IndexCoordinator:
             adapter_versions[adapter.descriptor.adapter_id] = (
                 adapter.descriptor.adapter_version
             )
+        batch = link_static_http_depends_on(batch, job_id=job.id)
+        validate_adapter_fact_batch(batch)
         version_warnings = tuple(
             Diagnostic(
                 diagnostic_id(

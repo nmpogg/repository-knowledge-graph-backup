@@ -306,7 +306,7 @@ export const en = {
   'explorer.presetLabel': 'Graph preset',
   'explorer.presetPlaceholder': 'Preset…',
   'explorer.overview': 'Overview',
-  'explorer.overviewTitle': 'Load nearly the whole snapshot as one graph',
+  'explorer.overviewTitle': 'Show the whole project, independent of the current selection',
   'explorer.viewMode': 'Canvas view mode',
   'explorer.graph': 'Graph',
   'explorer.relations': 'Relationships',

@@ -25,6 +25,7 @@ from rkg.adapters.contracts import (
     TechnologyConstraint,
     TechnologyDetection,
 )
+from rkg.adapters.django_framework import DjangoFrameworkAdapter
 from rkg.adapters.fastapi_framework import FastAPIFrameworkAdapter
 from rkg.adapters.flask_framework import FlaskFrameworkAdapter
 from rkg.adapters.python_language import PythonLanguageAdapter
@@ -46,6 +47,7 @@ __all__ = [
     "ConformanceReport",
     "DetectionEvidence",
     "DetectionReport",
+    "DjangoFrameworkAdapter",
     "FrameworkAdapter",
     "FastAPIFrameworkAdapter",
     "FlaskFrameworkAdapter",

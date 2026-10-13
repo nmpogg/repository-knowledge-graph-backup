@@ -15,7 +15,11 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from fastapi.testclient import TestClient
-from tests.integration.test_pilot_corpus import EXPECTED_PILOT_SHA256, pilot_digest
+from tests.integration.test_pilot_corpus import (
+    DEFAULT_PILOT,
+    EXPECTED_PILOT_SHA256,
+    pilot_digest,
+)
 
 from rkg.api import create_app
 from rkg.graph import search_entities
@@ -239,7 +243,7 @@ def run(pilot: Path, key: str) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--pilot", type=Path, default=Path("../pilot_fastapi"))
+    parser.add_argument("--pilot", type=Path, default=DEFAULT_PILOT)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--key", default="TEST-RKG-PERF-001")
     args = parser.parse_args()

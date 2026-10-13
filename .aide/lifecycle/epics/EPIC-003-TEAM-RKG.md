@@ -5,8 +5,8 @@ type: epic
 group: normative
 scope: lifecycle
 system: SYS-RKG
-status: draft
-revision: 9
+status: done
+revision: 10
 change_set: CHG-RKG-2026-001
 implements:
 - FR-RKG-001
@@ -51,9 +51,9 @@ Một team. Nối UI đã duyệt vào API thật, rồi thêm Structure và lu�
 `TASK-RKG-024`, `TASK-RKG-026` và `TASK-RKG-029` hoàn tất. AC-RKG-011/018/027/043/
 054/056/057/061/066…072 chạy với backend thật. Structure control thuộc TASK-RKG-026 trực tiếp Epic; current `AC-RKG-073` thuộc STORY-RKG-017. Focused flow thuộc
 STORY-RKG-019 và không bao gồm AC-RKG-073. Cả hai có evidence trên client đã
-nối API. Mock/live không lệch schema, state hoặc accessibility behavior. Epic
-giữ `draft` cho đến khi gate được ký lại. Revision 6 gộp AC-RKG-073 vào dòng
-Structure của epic này.
+nối API. Mock/live không lệch schema, state hoặc accessibility behavior. Status
+epic là `done` vì `TASK-RKG-024`, `TASK-RKG-026` và `TASK-RKG-029` đã `done`.
+Gate vẫn pending. Revision 6 gộp AC-RKG-073 vào dòng Structure của epic này.
 
 ## Task trực tiếp Epic
 

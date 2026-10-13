@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "authority": "non_normative_merge_verification",
+  "date": "2026-10-12",
+  "target_branch": "dev",
+  "target_before": "d55ee005c8347e8c42d609bf32c1e6dac8a88ef9",
+  "source_branch": "fix/chatbot-evaluation-90",
+  "source_commit": "9141aadf33a6c59770459f241208ca0344d911aa",
+  "explicit_merge_base": "2033a60f0c476358fa52e7d37ce5a1d59db501d7",
+  "verified_code_tree": "829ad4e98188fee10551ac7eaa24faef264d97e4",
+  "strategy": "Three-way merge using source dev as explicit base because target is an independent snapshot import. Preserve target-only adapter, fixture and documentation additions.",
+  "conflict_resolution": {
+    "src/rkg/adapters/spring_framework.py": "Keep re, dataclass and replace imports required by both branches."
+  },
+  "checks": {
+    "offline_pytest": {
+      "passed": 716,
+      "failed": 10,
+      "duration_seconds": 80.01,
+      "live_tests_excluded": [
+        "tests/integration/test_grounded_qa_live.py",
+        "tests/integration/test_openrouter_live.py"
+      ],
+      "credential_environment": "OPENAI_API_KEY and OPENROUTER_API_KEY empty",
+      "command": "python -m pytest -q tests evaluation/test_validate.py evaluation/test_run_ragas.py --ignore=tests/integration/test_grounded_qa_live.py --ignore=tests/integration/test_openrouter_live.py --durations=10"
+    },
+    "diff_check": "passed",
+    "conflict_marker_check": "passed",
+    "ruff": {
+      "before_errors": 37,
+      "after_errors": 31,
+      "new_diagnostics": 0
+    },
+    "golden_validator": {
+      "status": "failed",
+      "reason": "stale_source_manifest:rkg-fixture-spring-orders",
+      "added_source_files": 5,
+      "modified_pinned_source_files": 0,
+      "removed_pinned_source_files": 0
+    }
+  },
+  "findings": [
+    {
+      "id": "MERGE-GR6-001",
+      "affected_tests": 2,
+      "reason": "pilot_fastapi digest mismatch. Pilot fixture and test were unchanged by this merge; mismatch is inherited from target dev."
+    },
+    {
+      "id": "MERGE-GR6-002",
+      "affected_tests": 8,
+      "reason": "Imported golden corpus revision 3 pins the older Spring fixture. Target dev adds five Spring source files. Historical corpus, pins and results were preserved; a reviewed corpus revision is required before evaluation acceptance."
+    }
+  ],
+  "live_provider_calls": false,
+  "gate_approval": "not_asserted",
+  "task_status_changes": false
+}

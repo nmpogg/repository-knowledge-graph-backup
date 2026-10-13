@@ -9,7 +9,11 @@ import random
 from collections import Counter
 from pathlib import Path
 
-from tests.integration.test_pilot_corpus import EXPECTED_PILOT_SHA256, pilot_digest
+from tests.integration.test_pilot_corpus import (
+    DEFAULT_PILOT,
+    EXPECTED_PILOT_SHA256,
+    pilot_digest,
+)
 
 from rkg.adapters import (
     AdapterContext,
@@ -220,7 +224,7 @@ def run(pilot: Path) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--pilot", type=Path, default=Path("../pilot_fastapi"))
+    parser.add_argument("--pilot", type=Path, default=DEFAULT_PILOT)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     assert args.output.stem == "TEST-RKG-PILOT-REVIEW-001"

@@ -433,3 +433,188 @@ def test_ambiguous_auto_import_is_not_guessed(tmp_path: Path) -> None:
         target = by_id.get(edge.target_id)
         if target is not None:
             assert "useSummary" not in target.qualified_name
+
+
+def _navigate_calls(result) -> set[tuple[str, str]]:
+    by_id = {item.id: item for item in result.facts.entities}
+    return {
+        (by_id[edge.source_id].qualified_name, by_id[edge.target_id].qualified_name)
+        for edge in result.facts.edges
+        if edge.type == EdgeType.CALLS and edge.rule == "RKG.nuxt.navigate.v1"
+    }
+
+
+def _nuxt_pages(tmp_path: Path) -> None:
+    _write(
+        tmp_path,
+        "package.json",
+        '{"dependencies":{"nuxt":"4.5.2","vue":"3.5.0"}}',
+    )
+    _write(tmp_path, "nuxt.config.ts", "export default defineNuxtConfig({})\n")
+    _write(
+        tmp_path,
+        "app/pages/index.vue",
+        "<script setup lang=\"ts\"></script>\n<template><p>home</p></template>\n",
+    )
+    _write(
+        tmp_path,
+        "app/pages/orders/index.vue",
+        "<script setup lang=\"ts\"></script>\n<template><p>orders</p></template>\n",
+    )
+    _write(
+        tmp_path,
+        "app/pages/account/profile.vue",
+        "<script setup lang=\"ts\"></script>\n<template><p>profile</p></template>\n",
+    )
+
+
+def test_static_nuxt_navigation_calls_page_handler(tmp_path: Path) -> None:
+    """navigateTo, NuxtLink, and router push/replace by path or name."""
+    _nuxt_pages(tmp_path)
+    _write(
+        tmp_path,
+        "app/pages/index.vue",
+        "<script setup lang=\"ts\">\n"
+        "const dest = '/account/profile'\n"
+        "const router = useRouter()\n"
+        "navigateTo('/orders')\n"
+        "navigateTo({ name: 'account-profile' })\n"
+        "router.push(dest)\n"
+        "router.replace({ path: '/orders' })\n"
+        "useRouter().push({ name: 'orders' })\n"
+        "</script>\n"
+        "<template>\n"
+        "  <NuxtLink to=\"/orders\">Orders</NuxtLink>\n"
+        "  <NuxtLink :to=\"dest\">Profile</NuxtLink>\n"
+        "</template>\n",
+    )
+    _adapter, result = _run_fixture(tmp_path)
+    calls = _navigate_calls(result)
+    assert ("app.pages.index.setup", "app.pages.orders.index.setup") in calls
+    assert ("app.pages.index.setup", "app.pages.account.profile.setup") in calls
+    assert "RKG.nuxt.navigate.v1" in {item.rule for item in result.facts.evidence}
+
+
+def test_dynamic_nuxt_link_is_diagnostic_without_edge(tmp_path: Path) -> None:
+    _nuxt_pages(tmp_path)
+    _write(
+        tmp_path,
+        "app/pages/orders/index.vue",
+        "<script setup lang=\"ts\">\n"
+        "const id = '1'\n"
+        "navigateTo(`/orders/${id}`)\n"
+        "</script>\n"
+        "<template><NuxtLink :to=\"`/orders/${id}`\">Open</NuxtLink></template>\n",
+    )
+    _adapter, result = _run_fixture(tmp_path)
+    assert _navigate_calls(result) == set()
+    codes = {item.code for item in result.facts.diagnostics}
+    assert "nuxt_navigate_dynamic" in codes
+
+
+def test_shadowed_navigate_to_is_diagnostic_without_edge(tmp_path: Path) -> None:
+    _nuxt_pages(tmp_path)
+    _write(
+        tmp_path,
+        "app/pages/index.vue",
+        "<script setup lang=\"ts\">\n"
+        "function navigateTo(path: string) { return path }\n"
+        "navigateTo('/orders')\n"
+        "</script>\n<template><p /></template>\n",
+    )
+    _adapter, result = _run_fixture(tmp_path)
+    assert _navigate_calls(result) == set()
+    codes = {item.code for item in result.facts.diagnostics}
+    assert "nuxt_navigate_shadowed" in codes
+
+
+def test_ambiguous_nuxt_path_has_no_edge(tmp_path: Path) -> None:
+    _nuxt_pages(tmp_path)
+    _write(
+        tmp_path,
+        "app/pages/(extra)/index.vue",
+        "<script setup lang=\"ts\"></script>\n<template><p>also home</p></template>\n",
+    )
+    _write(
+        tmp_path,
+        "app/pages/go.vue",
+        "<script setup lang=\"ts\">\n"
+        "navigateTo('/')\n"
+        "</script>\n<template><NuxtLink to=\"/\">Home</NuxtLink></template>\n",
+    )
+    _adapter, result = _run_fixture(tmp_path)
+    assert _navigate_calls(result) == set()
+    codes = {item.code for item in result.facts.diagnostics}
+    assert "nuxt_navigate_ambiguous" in codes
+
+
+def test_bare_target_requires_name_and_relative_to_agree(tmp_path: Path) -> None:
+    """Name and relative readings of a bare target must agree."""
+    _write(
+        tmp_path,
+        "package.json",
+        '{"dependencies":{"nuxt":"4.5.2","vue":"3.5.0"}}',
+    )
+    _write(tmp_path, "nuxt.config.ts", "export default defineNuxtConfig({})\n")
+    _write(
+        tmp_path,
+        "app/pages/shop.vue",
+        "<script setup lang=\"ts\">\n"
+        "navigateTo('orders')\n"
+        "</script>\n<template><p>shop</p></template>\n",
+    )
+    _write(
+        tmp_path,
+        "app/pages/orders.vue",
+        "<script setup lang=\"ts\"></script>\n<template><p>orders</p></template>\n",
+    )
+    _write(
+        tmp_path,
+        "app/pages/(a)/shop/orders.vue",
+        "<script setup lang=\"ts\"></script>\n<template><p>a</p></template>\n",
+    )
+    _write(
+        tmp_path,
+        "app/pages/(b)/shop/orders.vue",
+        "<script setup lang=\"ts\"></script>\n<template><p>b</p></template>\n",
+    )
+    _adapter, result = _run_fixture(tmp_path)
+    assert _navigate_calls(result) == set()
+    assert "nuxt_navigate_ambiguous" in {
+        item.code for item in result.facts.diagnostics
+    }
+
+    reverse = tmp_path / "reverse"
+    _write(
+        reverse,
+        "package.json",
+        '{"dependencies":{"nuxt":"4.5.2","vue":"3.5.0"}}',
+    )
+    _write(reverse, "nuxt.config.ts", "export default defineNuxtConfig({})\n")
+    _write(
+        reverse,
+        "app/pages/shop.vue",
+        "<script setup lang=\"ts\">\n"
+        "navigateTo('orders')\n"
+        "</script>\n<template><p>shop</p></template>\n",
+    )
+    _write(
+        reverse,
+        "app/pages/(a)/orders.vue",
+        "<script setup lang=\"ts\"></script>\n<template><p>a</p></template>\n",
+    )
+    _write(
+        reverse,
+        "app/pages/(b)/orders.vue",
+        "<script setup lang=\"ts\"></script>\n<template><p>b</p></template>\n",
+    )
+    _write(
+        reverse,
+        "app/pages/shop/orders.vue",
+        "<script setup lang=\"ts\"></script>\n<template><p>child</p></template>\n",
+    )
+    _adapter, reverse_result = _run_fixture(reverse)
+    assert _navigate_calls(reverse_result) == set()
+    assert "nuxt_navigate_ambiguous" in {
+        item.code for item in reverse_result.facts.diagnostics
+    }

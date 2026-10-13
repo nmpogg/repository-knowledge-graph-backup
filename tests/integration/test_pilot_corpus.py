@@ -1,4 +1,4 @@
-"""Check the sibling pilot source selected for Task 22."""
+"""Check the in-repo pilot source selected for Task 22."""
 
 import hashlib
 import os
@@ -21,7 +21,7 @@ from rkg.jobs import IndexCoordinator
 from rkg.llm import MockProvider
 from rkg.storage import Storage
 
-DEFAULT_PILOT = Path(__file__).resolve().parents[3] / "pilot_fastapi"
+DEFAULT_PILOT = Path(__file__).resolve().parents[2] / "repo-test" / "pilot_fastapi"
 EXPECTED_PILOT_SHA256 = (
     "a094fc7b39def8636e2b73766d80510c4f4b917ea1da5a6e93e22619ef237417"
 )
@@ -33,7 +33,7 @@ def pilot_path() -> Path:
     if not path.is_dir():
         if configured:
             pytest.fail("configured pilot repository is unavailable")
-        pytest.skip("sibling pilot repository is unavailable")
+        pytest.skip("pilot repository is unavailable")
     return path
 
 

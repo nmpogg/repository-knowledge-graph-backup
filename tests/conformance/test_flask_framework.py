@@ -50,6 +50,7 @@ def _run(root: Path, *, application: str | None = None):
         no_execution_marker=lambda: False,
     )
     assert report.pass_rate == 1.0, report.cases
+    assert FlaskFrameworkAdapter.reviewed_deep_support is False
     assert {item.support_state for item in result.capabilities} == {
         SupportState.DETECTED_ONLY
     }
@@ -121,6 +122,9 @@ def test_blueprint_route_add_url_rule_and_plain_callable(tmp_path: Path) -> None
         "methods = ['POST']\n"
         "@app.route(rule, methods=methods)\n"
         "def moving():\n"
+        "    pass\n"
+        "@app.route('/dyn' + 'x', methods=['GET'])\n"
+        "def slipped():\n"
         "    pass\n",
     )
     result = _run(tmp_path)
@@ -129,7 +133,12 @@ def test_blueprint_route_add_url_rule_and_plain_callable(tmp_path: Path) -> None
         (dict(item.attributes)["method"], dict(item.attributes)["path"])
         for item in endpoints.values()
     )
-    assert found == [("GET", "/health"), ("GET", "/ping"), ("POST", "/v1/items")]
+    assert found == [
+        ("GET", "/health"),
+        ("GET", "/ping"),
+        ("POST", "/moving"),
+        ("POST", "/v1/items"),
+    ]
     entities = {item.id: item for item in result.facts.entities}
     handled = {
         entities[edge.target_id].qualified_name
@@ -139,6 +148,7 @@ def test_blueprint_route_add_url_rule_and_plain_callable(tmp_path: Path) -> None
     assert handled == {
         "routes_file.create_item",
         "web.health",
+        "web.moving",
         "web.ping",
     }
     assert "routes_file.not_routed" not in handled
@@ -152,7 +162,12 @@ def test_blueprint_route_add_url_rule_and_plain_callable(tmp_path: Path) -> None
         item.type == EntityType.CALLABLE and item.qualified_name == "web.moving"
         for item in result.facts.entities
     )
-    assert not any("moving" in item.qualified_name for item in endpoints.values())
+    assert any(
+        dict(item.attributes)["method"] == "POST"
+        and dict(item.attributes)["path"] == "/moving"
+        for item in endpoints.values()
+    )
+    assert not any("slipped" in item.qualified_name for item in endpoints.values())
     depends = _names(result, EdgeType.DEPENDS_ON)
     endpoint = next(
         item
@@ -273,3 +288,116 @@ def test_local_flask_module_does_not_become_an_endpoint(tmp_path: Path) -> None:
         "    pass\n",
     )
     assert _endpoints(_run(tmp_path)) == {}
+
+
+def test_blueprint_prefixes_methods_and_constants(tmp_path: Path) -> None:
+    _write(tmp_path, "api_prefix.py", 'ROOT = "/v1"\n')
+    _write(
+        tmp_path,
+        "web.py",
+        "from flask import Flask, Blueprint\n"
+        "from api_prefix import ROOT\n"
+        "def local_only():\n"
+        "    ROOT = '/hidden'\n"
+        "    NEST = '/no'\n"
+        "NEST = '/child'\n"
+        "app = Flask(__name__)\n"
+        "parent = Blueprint('parent', __name__, url_prefix=ROOT)\n"
+        "child = Blueprint('child', __name__, url_prefix=NEST)\n"
+        "parent.register_blueprint(child)\n"
+        "app.register_blueprint(parent, url_prefix='/api')\n"
+        "@parent.route('/keep', methods=['GET', 'PUT'])\n"
+        "def keep():\n"
+        "    pass\n"
+        "@child.post('/note')\n"
+        "def note():\n"
+        "    pass\n"
+        "PATH = '/const'\n"
+        "METHODS = ['PATCH']\n"
+        "other = Blueprint('other', __name__, url_prefix=ROOT)\n"
+        "app.register_blueprint(other)\n"
+        "@other.route(PATH, methods=METHODS)\n"
+        "def patched():\n"
+        "    pass\n"
+        "@app.get('/live')\n"
+        "def live():\n"
+        "    pass\n",
+    )
+    result = _run(tmp_path)
+    found = sorted(
+        (dict(item.attributes)["method"], dict(item.attributes)["path"])
+        for item in _endpoints(result).values()
+    )
+    assert found == [
+        ("GET", "/api/keep"),
+        ("GET", "/live"),
+        ("PATCH", "/v1/const"),
+        ("POST", "/api/child/note"),
+        ("PUT", "/api/keep"),
+    ]
+    paths = {path for _, path in found}
+    assert "/v1/keep" not in paths
+    assert "/hidden/const" not in paths
+    assert "/api/no/note" not in paths
+    assert "/api/v1/keep" not in paths
+
+
+def test_nonliteral_prefix_and_ambiguous_blueprint_emit_no_route(
+    tmp_path: Path,
+) -> None:
+    _write(
+        tmp_path,
+        "web.py",
+        "from flask import Flask, Blueprint\n"
+        "def make_prefix():\n"
+        "    return '/nope'\n"
+        "app = Flask(__name__)\n"
+        "dynamic = Blueprint('dynamic', __name__, url_prefix=make_prefix())\n"
+        "app.register_blueprint(dynamic)\n"
+        "@dynamic.route('/dyn', methods=['GET'])\n"
+        "def dyn():\n"
+        "    pass\n"
+        "built = Blueprint('built', __name__, url_prefix='/built')\n"
+        "app.register_blueprint(built, url_prefix='/mount/' + 'x')\n"
+        "@built.route('/item', methods=['POST'])\n"
+        "def built_item():\n"
+        "    pass\n"
+        "left = Blueprint('left', __name__, url_prefix='/left')\n"
+        "app.register_blueprint(left, url_prefix='/one')\n"
+        "app.register_blueprint(left, url_prefix='/two')\n"
+        "@left.route('/item', methods=['GET'])\n"
+        "def left_item():\n"
+        "    pass\n"
+        "prefix = '/a'\n"
+        "prefix = '/b'\n"
+        "shadowed = Blueprint('shadowed', __name__, url_prefix=prefix)\n"
+        "app.register_blueprint(shadowed)\n"
+        "@shadowed.route('/item', methods=['GET'])\n"
+        "def shadowed_item():\n"
+        "    pass\n"
+        "if prefix:\n"
+        "    app.register_blueprint(dynamic, url_prefix='/again')\n"
+        "@app.route('/static', methods=make_prefix())\n"
+        "def static_methods():\n"
+        "    pass\n",
+    )
+    result = _run(tmp_path)
+    assert _endpoints(result) == {}
+    codes = {item.code for item in result.facts.diagnostics}
+    assert "flask_blueprint_unresolved" in codes
+    assert "flask_route_dynamic" in codes
+    assert all(
+        item.file_path == "web.py"
+        and item.line
+        and "\\" not in (item.file_path or "")
+        and not (item.file_path or "").startswith("/")
+        for item in result.facts.diagnostics
+        if item.code.startswith("flask_")
+    )
+    entities = {item.id: item for item in result.facts.entities}
+    handled = {
+        entities[edge.target_id].qualified_name
+        for edge in result.facts.edges
+        if edge.type == EdgeType.HANDLED_BY and edge.target_id in entities
+    }
+    assert handled == set()

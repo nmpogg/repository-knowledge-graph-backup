@@ -1,10 +1,18 @@
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { getRkgClient } from '../../client'
 import { DEMO_SNAPSHOT_ID } from '../../client/mock/fixtures'
+import type { SubgraphParams } from '../../client/mock/mockClient'
 import { AnnouncerProvider } from '../../components/ui/Announcer'
 import { LocaleProvider } from '../../i18n'
 import { ExplorerPage } from './ExplorerPage'
+
+const SELECTED_ENDPOINT = 'ent-endpoint-get-order'
+
+function endpointScopedCall(params: SubgraphParams) {
+  return params.root_id === SELECTED_ENDPOINT && params.max_edges == null
+}
 
 afterEach(() => {
   cleanup()
@@ -108,6 +116,73 @@ describe('Explorer structure view', () => {
     fireEvent.click(screen.getByRole('button', { name: 'List' }))
     expect(screen.getByRole('button', { name: 'List' })).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByRole('button', { name: 'Structure' })).toHaveAttribute('aria-pressed', 'false')
+  }, 15000)
+})
+
+describe('Explorer project overview', () => {
+  it('shows the loading canvas instead of the empty picker while overview is in flight', async () => {
+    vi.stubGlobal('ResizeObserver', class {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    })
+    renderExplorer()
+    fireEvent.click(await screen.findByRole('button', { name: 'Graph' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Project overview' }))
+
+    expect(screen.queryByRole('heading', { name: 'Pick a starting entity' })).not.toBeInTheDocument()
+    expect(screen.queryByLabelText('Knowledge graph canvas')).not.toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Loading graph…' })).toBeInTheDocument()
+    const canvas = await screen.findByLabelText('Knowledge graph canvas', {}, { timeout: 8000 })
+    expect(within(canvas).getByText('handle_order_event')).toBeInTheDocument()
+    expect(within(canvas).getByText('GET /orders/{id}')).toBeInTheDocument()
+  }, 15000)
+
+  it('replaces a selected endpoint flow with the whole snapshot, not that endpoint subgraph', async () => {
+    vi.stubGlobal('ResizeObserver', class {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    })
+    const client = getRkgClient()
+    const original = client.getSubgraph.bind(client)
+    const calls: SubgraphParams[] = []
+    client.getSubgraph = async (params) => {
+      calls.push({ ...params })
+      return original(params)
+    }
+    try {
+      renderExplorer()
+      const apiList = (await screen.findByRole('heading', { name: 'Entrypoints' })).closest('.explorer-list-fallback') as HTMLElement
+      fireEvent.click(await within(apiList).findByRole('button', { name: /GET \/orders\/\{id\}/ }))
+      const flow = await screen.findByLabelText('Knowledge graph canvas')
+      expect(within(flow).queryByText('handle_order_event')).not.toBeInTheDocument()
+      expect(await screen.findByRole('heading', { name: 'GET /orders/{id}' })).toBeInTheDocument()
+      const scopedBefore = calls.filter(endpointScopedCall).length
+      expect(scopedBefore).toBeGreaterThan(0)
+
+      fireEvent.click(screen.getByRole('button', { name: 'Overview' }))
+
+      expect(screen.queryByLabelText('Knowledge graph canvas')).not.toBeInTheDocument()
+      expect(screen.queryByRole('heading', { name: 'Pick a starting entity' })).not.toBeInTheDocument()
+      expect(screen.getByRole('heading', { name: 'Loading graph…' })).toBeInTheDocument()
+      const canvas = await screen.findByLabelText('Knowledge graph canvas', {}, { timeout: 8000 })
+      expect(await within(canvas).findByText('handle_order_event')).toBeInTheDocument()
+      expect(within(canvas).getByText('GET /orders/{id}')).toBeInTheDocument()
+      expect(screen.queryByRole('heading', { name: 'GET /orders/{id}' })).not.toBeInTheDocument()
+      expect(calls.filter(endpointScopedCall)).toHaveLength(scopedBefore)
+      expect(calls.some((params) =>
+        params.root_id === 'ent-topic-order-events' && params.max_edges === 80,
+      )).toBe(true)
+
+      const callsAfterOverview = calls.length
+      fireEvent.click(screen.getByRole('button', { name: 'Options' }))
+      fireEvent.change(screen.getByLabelText('Depth'), { target: { value: '2' } })
+      expect(calls).toHaveLength(callsAfterOverview)
+      expect(within(canvas).getByText('handle_order_event')).toBeInTheDocument()
+    } finally {
+      client.getSubgraph = original
+    }
   }, 15000)
 })
 
