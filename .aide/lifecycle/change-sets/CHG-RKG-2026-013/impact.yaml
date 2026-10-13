@@ -22,6 +22,12 @@ tier: T2
 tier_status: proposed
 flow: change
 skipped_with_reason:
+- area: csv
+  reason: No baseline is recorded, so a hand-written CSV was not created.
+- area: traceability
+  reason: This repo has no command that writes generated/traceability/TRC-*.json. Result is not_run. No traceability JSON was created.
+- area: graph-query
+  reason: The embedded graph could not be opened because its lock could not be acquired, including a read-only open. Impact was not recomputed. graph_queried stays false. tier_status stays proposed.
 - area: deep-supported
   reason: CR-RKG-028 authorization_boundary says do not promote deep-supported.
 - area: AC-RKG-005

@@ -4,6 +4,7 @@ from rkg.domain.ids import source_entity_id
 from rkg.domain.models import Entity, EntityType, FactBatch
 from rkg.domain.validation import validate_fact_batch
 from rkg.jobs.http_depends import RULE, link_static_http_depends_on
+from tests.conformance.published_edge_evidence import assert_ac_rkg_007
 
 REPO = "repo"
 SNAP = "snap"
@@ -100,6 +101,7 @@ def test_unique_static_pair_links_and_drops_query() -> None:
         job_id=JOB,
     )
     validate_fact_batch(batch)
+    assert_ac_rkg_007(batch)
     assert _depends(batch) == [("app.list_orders", "api.list", RULE)]
     assert "status=open" not in str(batch.edges)
     assert "status=open" not in str(batch.evidence)

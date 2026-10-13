@@ -1,0 +1,28 @@
+key: REL-PLAN-002
+type: release-plan
+group: normative
+scope: lifecycle
+system: SYS-RKG
+status: draft
+revision: 1
+change_set: CHG-RKG-2026-002
+baseline: BL-CHG-RKG-2026-002-r8
+approved_by:
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: sre
+classification: internal
+ai_assisted: true
+coordination_note: One team and mode independent. Change Integration Gate is intentionally not applied.
+units:
+  - key: MIG-RKG-CHATBOT-v3
+    type: migration
+    order: 0
+    rollback: none
+    note: The baseline records a transaction around ALTER TABLE Turn. A failed run before COMMIT rolls back that connection. No down migration is in the baseline, so a committed column is not a reversible release unit.
+  - key: CHG-RKG-2026-002
+    type: backend
+    order: 1
+    rollback: none
+    note: Baseline r8 does not record a reversible deploy unit.
+partial_failure_policy: halt-and-hold

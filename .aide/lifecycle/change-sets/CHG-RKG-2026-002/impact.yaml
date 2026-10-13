@@ -32,6 +32,10 @@ tier: T2
 tier_status: proposed
 flow: change
 skipped_with_reason:
+- area: traceability
+  reason: This repo has no command that writes generated/traceability/TRC-*.json. Result is not_run. No traceability JSON was created.
+- area: graph-query
+  reason: The embedded graph could not be opened because its lock could not be acquired, including a read-only open. Impact was not recomputed. graph_queried stays false. tier_status stays proposed.
 - area: human-UAT
   reason: change-set implementation_progress.human_UAT is not_run.
 - area: release

@@ -6,7 +6,7 @@ group: normative
 scope: system
 system: SYS-RKG
 status: draft
-revision: 18
+revision: 19
 ownership:
   accountable_team: TEAM-RKG
   accountable_role: architect
@@ -18,6 +18,15 @@ ai_assisted: true
 ---
 
 # REG-ADAPTER-001 - Analyzer Adapter Registry
+
+Revision 19 rechecks `builtin_adapters()` on the current tree. `rkg.django`,
+`rkg.next`, `rkg.express`, `rkg.nest`, `rkg.go-http`, `rkg.tanstack-router`
+and `rkg.vue-router` stay in the table below with `reviewed_deep_support`
+false and emitted capabilities `DETECTED_ONLY`. This revision does not
+promote any of them to deep-supported. Static HTTP linking remains the
+post-merge job `link_static_http_depends_on` in `src/rkg/jobs/http_depends.py`.
+The registry does not treat that job as an adapter, and `builtin_adapters()`
+does not register an adapter id for it.
 
 Implemented contract: `rkg.adapter/v2` (TASK-RKG-027). Namespace remains readable
 in historical snapshots; v1 adapters are rejected for new indexing. Removing

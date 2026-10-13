@@ -6,7 +6,7 @@ scope: lifecycle
 system: SYS-RKG
 story: STORY-RKG-038
 status: in_progress
-revision: 2
+revision: 3
 authorization: CR-RKG-032
 change_set: CHG-RKG-2026-017
 ownership:
@@ -43,17 +43,17 @@ Không biến `use` thành Endpoint. Không HTTP `depends_on`. Không thăng dee
 
 ## Acceptance criteria under test
 
-AC-RKG-004, AC-RKG-006.
+AC-RKG-004, AC-RKG-006, AC-RKG-007.
 
 AC-RKG-004 và AC-RKG-006. `tests/conformance/test_express_framework.py` assert method, path, `handled_by` khi handler resolve một lần, và diagnostic không tạo cạnh cho path động, receiver bị che, handler gán lại.
 
 ## Chưa under test
 
-AC-RKG-005, AC-RKG-007, AC-RKG-016, AC-RKG-048 chưa under test. `validate_fact_batch` chạy nhưng không assert evidence location hay rule_id. Sentinel không nằm trong repr không đủ để khai AC-RKG-016.
+AC-RKG-007 đã có assert rule id và evidence location (`TEST-RKG-AC007-ASSERT-001`, passed). AC-RKG-005, AC-RKG-016, AC-RKG-048 chưa under test. Sentinel không nằm trong repr không đủ để khai AC-RKG-016. Status stays `in_progress`.
 
 ## Xong khi
 
-Suite nêu trong plan được chạy trên cây này và evidence ghi kết quả, gate vẫn chỉ `pending` cho đến khi có chữ ký, và deep support vẫn withheld. Lát hồ sơ này chưa chạy pytest.
+Suite nêu trong plan được chạy trên cây này và evidence ghi kết quả, gate vẫn chỉ `pending` cho đến khi có chữ ký, và deep support vẫn withheld. TEST-RKG-AC007-ASSERT-001 ghi passed cho assert rule id và evidence location. Census trong plan không nằm trong lần chạy đó. Task chưa done.
 
 ## Hồ sơ triển khai
 

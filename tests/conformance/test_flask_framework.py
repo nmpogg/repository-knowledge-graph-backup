@@ -19,6 +19,7 @@ from rkg.detection import (
     select_adapters,
 )
 from rkg.domain import EdgeType, EntityType, SourceScanConfig, validate_fact_batch
+from tests.conformance.published_edge_evidence import assert_ac_rkg_007
 from rkg.ingestion import LocalSourcePolicy, build_manifest, resolve_local_source
 
 
@@ -41,6 +42,8 @@ def _run(root: Path, *, application: str | None = None):
     adapter = FlaskFrameworkAdapter(application)
     result = adapter.extract(context, parsed, base.facts)
     validate_fact_batch(result.facts)
+    if result.facts.edges:
+        assert_ac_rkg_007(result.facts)
     report = run_framework_conformance(
         adapter,
         manifest,

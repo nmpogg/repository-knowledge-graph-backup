@@ -6,6 +6,7 @@ from pathlib import Path
 
 from rkg.adapters import AdapterContext
 from rkg.domain import EdgeType, EntityType, SourceScanConfig, validate_fact_batch
+from tests.conformance.published_edge_evidence import assert_ac_rkg_007
 from rkg.ingestion import LocalSourcePolicy, build_manifest, resolve_local_source
 
 _PATTERNS = ("*.go", "**/*.go")
@@ -36,6 +37,8 @@ def _pipeline(root: Path):
     for adapter in (KafkaGoMessagingAdapter(), PgxDataAccessAdapter()):
         batch = adapter.extract(context, parsed, batch).facts
         validate_fact_batch(batch)
+        if batch.edges:
+            assert_ac_rkg_007(batch)
     return batch
 
 

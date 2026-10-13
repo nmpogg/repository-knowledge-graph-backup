@@ -6,7 +6,7 @@ scope: lifecycle
 system: SYS-RKG
 story: STORY-RKG-036
 status: in_progress
-revision: 2
+revision: 3
 authorization: CR-RKG-030
 change_set: CHG-RKG-2026-015
 ownership:
@@ -43,17 +43,17 @@ Không ORM. Không HTTP `depends_on`. Không thăng deep-supported. Không ký g
 
 ## Acceptance criteria under test
 
-AC-RKG-004, AC-RKG-006.
+AC-RKG-004, AC-RKG-006, AC-RKG-007.
 
 AC-RKG-004 và AC-RKG-006. `tests/conformance/test_django_framework.py` assert method, path, `handled_by`, diagnostic `django_view_unresolved` / `django_include_unresolved`, và không gán method khi không có bằng chứng tĩnh.
 
 ## Chưa under test
 
-AC-RKG-003, AC-RKG-005, AC-RKG-007, AC-RKG-015, AC-RKG-016, AC-RKG-035, AC-RKG-048 chưa under test. Suite không assert import, `depends_on`, `calls`, rule_id kèm evidence location, hay Configuration key. Việc sentinel không xuất hiện trong output không đủ để khai AC-RKG-016. Census so expected JSON không được gắn vào một AC id.
+AC-RKG-007 đã có assert rule id và evidence location (`TEST-RKG-AC007-ASSERT-001`, passed). AC-RKG-003, AC-RKG-005, AC-RKG-015, AC-RKG-016, AC-RKG-035, AC-RKG-048 chưa under test. Suite không assert import, `depends_on`, `calls`, hay Configuration key kèm user `depends_on`. Việc sentinel không xuất hiện trong output không đủ để khai AC-RKG-016. Census so expected JSON không được gắn vào một AC id. Status stays `in_progress`.
 
 ## Xong khi
 
-Suite nêu trong plan được chạy trên cây này và evidence ghi kết quả, gate vẫn chỉ `pending` cho đến khi có chữ ký, và deep support vẫn withheld. Lát hồ sơ này chưa chạy pytest.
+Suite nêu trong plan được chạy trên cây này và evidence ghi kết quả, gate vẫn chỉ `pending` cho đến khi có chữ ký, và deep support vẫn withheld. TEST-RKG-AC007-ASSERT-001 ghi passed cho assert rule id và evidence location. Census trong plan không nằm trong lần chạy đó. Task chưa done.
 
 ## Hồ sơ triển khai
 

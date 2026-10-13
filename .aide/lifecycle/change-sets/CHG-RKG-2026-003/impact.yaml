@@ -22,6 +22,10 @@ tier_status: proposed
 tier_basis: Recorded request removes six application ceilings inside the existing chatbot. One team. No new bounded context and no ADR replacement are stated. Same recorded shape as CHG-RKG-2026-002 tier_reason. This change set did not previously store a tier, and no signer decided this proposal.
 flow: change
 skipped_with_reason:
+- area: traceability
+  reason: This repo has no command that writes generated/traceability/TRC-*.json. Result is not_run. No traceability JSON was created.
+- area: graph-query
+  reason: The embedded graph could not be opened because its lock could not be acquired, including a read-only open. Impact was not recomputed. graph_queried stays false. tier_status stays proposed.
 - area: live-provider-limits
   reason: CR-RKG-018 authorization_boundary keeps live-provider limits and charges external.
 - area: historic-gate-approval

@@ -6,7 +6,7 @@ scope: lifecycle
 system: SYS-RKG
 story: STORY-RKG-025
 status: in_progress
-revision: 4
+revision: 5
 authorization: CR-RKG-029
 change_set: CHG-RKG-2026-014
 ownership:
@@ -42,7 +42,7 @@ deep-supported promotion; live eval; AC-RKG-003; AC-RKG-007; AC-RKG-035.
 
 ## Acceptance criteria under test
 
-AC-RKG-004, AC-RKG-005, AC-RKG-006, AC-RKG-048.
+AC-RKG-004, AC-RKG-005, AC-RKG-006, AC-RKG-007, AC-RKG-048.
 Verify path: `tests/conformance/test_flask_framework.py`. Append evidence
 before marking done.
 
@@ -52,8 +52,7 @@ method and path, `handled_by`, a `depends_on` edge, `calls`, dynamic-route and
 ambiguous-app negatives, an unregistered callable left off the handler set, a
 local flask module that yields no endpoint, `DETECTED_ONLY`, and one-versus-many
 app selection. `validate_fact_batch` runs. It does not assert import edges or
-a syntax-error sibling. AC-RKG-007 is not under test because
-`validate_fact_batch` does not assert evidence locations or rule ids.
+a syntax-error sibling. AC-RKG-007 is asserted by `assert_ac_rkg_007` in `tests/conformance/test_flask_framework.py`. Result: `TEST-RKG-AC007-ASSERT-001` passed. AC-RKG-003 and AC-RKG-035 stay not under test.
 
 ## Result
 

@@ -117,8 +117,9 @@ Top-level `.aide/` khớp chuẩn. `product/vision/` và `product/proposals/` kh
 tạo (bước 0 tuỳ chọn). `policies/rules/` chưa có `VAL-*` vì bước 22 chưa chạy.
 `lifecycle/bugs/` và `lifecycle/releases/` chỉ có placeholder: chưa có bug và
 chưa tới release prep. `evidence/deployments/` và `evidence/production/` trống
-vì chưa có deployment record. `generated/traceability/` bị gitignore (sinh lại
-mỗi lần CI). Không có `EVT-*` và không có `SVC-*`.
+vì chưa có deployment record. `generated/traceability/` bị gitignore (sinh lại mỗi lần CI, không ai ký).
+Lệnh ghi: `python -m tools.write_traceability` từ root repo. Không có `EVT-*`
+và không có `SVC-*`.
 
 `CHG-RKG-2026-001`…`008` có `change-set.yaml`, `impact.yaml` và baseline.
 `CHG-RKG-2026-009`…`022` có shell và impact, `baseline: not_recorded` — không

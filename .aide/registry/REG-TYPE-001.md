@@ -5,7 +5,7 @@ type: type-registry
 group: normative
 scope: org
 status: draft
-revision: 6
+revision: 7
 ownership:
   accountable_team: TEAM-RKG
   accountable_role: tech-lead
@@ -65,6 +65,7 @@ ai_assisted: true
 | LCV | contract-view | derived | `generated/contract-views/` |
 | UIM | ui-mock | derived | `generated/ui-mocks/` |
 | DGM | diagram-view | derived | `generated/diagrams/` |
+| TRC | traceability-record | derived | `generated/traceability/` |
 | RVP | review-package | derived | `reviewer/packages/` (không normative) |
 
 ## Evidence file conventions

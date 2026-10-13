@@ -268,6 +268,7 @@ export const en = {
   'ask.sending': 'Asking…',
   'ask.pending': 'Waiting for the answer. You can still read history.',
   'ask.claims': 'Claims',
+  'ask.more': 'More detail',
   'ask.citations': 'Citations',
   'ask.openCitation': 'Open citation {n}',
   'ask.citationTitle': 'Citation evidence',

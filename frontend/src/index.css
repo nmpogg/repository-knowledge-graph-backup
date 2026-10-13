@@ -2221,6 +2221,121 @@ code,
   list-style: none;
 }
 
+.ask-sources {
+  margin-top: 10px;
+  padding-top: 6px;
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+}
+
+.ask-sources > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  padding: 2px 0;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  list-style: none;
+}
+
+.ask-sources > summary::-webkit-details-marker,
+.ask-sources > summary::marker {
+  content: "";
+  display: none;
+}
+
+.ask-sources > summary::before {
+  content: "";
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 5px solid currentColor;
+  transform-origin: 20% 50%;
+}
+
+.ask-sources[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.ask-source-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.125rem;
+  height: 1.125rem;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--color-elevated);
+  font-size: 11px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.ask-extra ul.ask-claim-list {
+  display: grid;
+  gap: 0;
+  margin-top: 2px;
+}
+
+.ask-claim-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  padding: 6px 0;
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 45%, transparent);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.ask-claim-list li:first-child {
+  border-top: 0;
+}
+
+.ask-claim-marks,
+.ask-cites {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.ask-cites {
+  margin-top: 4px;
+}
+
+.ask-claim-text {
+  color: var(--color-text);
+}
+
+button.btn.ask-cite-n {
+  width: 1.25rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-action) 18%, var(--color-surface));
+  color: var(--color-action);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+}
+
+button.btn.ask-cite-n:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--color-action) 32%, var(--color-surface));
+}
+
+button.btn.ask-cite-n:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
 .ask-extra li {
   font-size: 12px;
   line-height: 16px;
@@ -2275,4 +2390,17 @@ code,
 
 .ask-answer { white-space: pre-wrap; overflow-wrap: anywhere; }
 .ask-extra summary { cursor: pointer; font-weight: 600; }
+.ask-more summary {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  font-size: 13px;
+  line-height: 18px;
+}
+.ask-more summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 .ask-candidates .btn { white-space: normal; overflow-wrap: anywhere; text-align: left; height: auto; }

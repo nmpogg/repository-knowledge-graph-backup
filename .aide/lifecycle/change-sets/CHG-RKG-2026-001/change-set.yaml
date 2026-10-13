@@ -5,7 +5,7 @@ type: change-set
 group: normative
 scope: lifecycle
 system: SYS-RKG
-status: draft
+status: approved
 revision: 42
 flow: new-system
 tier: T1
@@ -169,9 +169,9 @@ artifacts:
   - DGM-RKG-L1
   - DGM-RKG-L2
   - UIM-RKG-001
-open_questions:
-- OQ-RKG-006
+open_questions: []
 resolved_questions:
+- OQ-RKG-006
 - OQ-RKG-001
 - OQ-RKG-002
 - OQ-RKG-003
@@ -179,10 +179,13 @@ resolved_questions:
 - OQ-RKG-005
 - OQ-RKG-007
 gates:
-  scope: pending
-  architecture: pending
-  ui_ux: pending
-  contract: pending
+  scope: approved
+  architecture: approved
+  ui_ux: approved
+  contract: approved
+  approval: approval-014
+  uat: approved
+  uat_approval: approval-015
 baseline: BL-CHG-RKG-2026-001
 candidate_baseline: BL-CHG-RKG-2026-001
 baseline_chain:

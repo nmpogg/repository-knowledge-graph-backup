@@ -5,8 +5,8 @@ type: open-question
 group: normative
 scope: lifecycle
 system: SYS-RKG
-status: open
-revision: 4
+status: resolved
+revision: 5
 ownership: {accountable_team: TEAM-RKG, accountable_role: product-owner}
 relations:
   part_of: [CHG-RKG-2026-001]
@@ -23,21 +23,16 @@ backfill identity cho Scope nếu tổ chức yêu cầu) cho revision hiện t�
 
 ## Trạng thái hiện tại
 
-Câu hỏi còn mở. Chưa có signer identity được tổ chức ủy quyền.
+Đã resolve ở revision 5. Người được ủy quyền ghi trong `approval-014` là PhongNM.
+Quyết định ngày 2026-10-13. Bản ghi này không đổi `approval-004`.
 
-`GATE-RKG-SCOPE`, `GATE-RKG-ARCHITECTURE`, `GATE-RKG-UIUX` và
-`GATE-RKG-CONTRACT` đang `pending` trên Change Set. PRD revision hiện tại chưa
-được Scope Gate ký lại. Candidate baseline hiện hành là
-`BL-CHG-RKG-2026-001` revision 3 (`status: candidate`), chưa phải approval.
-Tên lịch sử `BL-r1` / `BL-r2` chỉ còn trong `revision_history` và evidence cũ;
-không còn file baseline riêng.
+`approval-004` vẫn chỉ khóa `PRD-RKG` revision 16 và cố ý để trống `approvers`.
+Chữ ký hiện tại là `approval-014`, không phải `approval-004`.
 
-`approval-004` chỉ khóa `PRD-RKG` revision 16 và các revision FR/NFR ghi trong
-record đó. Record cố ý để trống `approvers`. Nó không đóng Scope Gate cho
-revision hiện tại và không đóng UI/UX Gate.
+## Lịch sử revision 4
 
-OQ này chặn approval mới của Scope Gate và UI/UX Gate cho candidate baseline.
-Nó không tự đổi `status` của artifact và không được ghi là đã resolve.
+Revision 4 còn ghi gate đang pending và OQ còn chặn chữ ký mới. Câu đó đúng tới
+trước `approval-014`. Giữ làm lịch sử.
 
 ## Lịch sử revision 2
 

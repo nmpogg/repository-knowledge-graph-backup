@@ -7,8 +7,7 @@ touches:
 - FR-RKG-002
 - AC-RKG-006
 - AC-RKG-048
-stale_artifacts:
-- REG-ADAPTER-001
+stale_artifacts: []
 affected_teams:
 - TEAM-RKG
 external_consumers: []
@@ -26,6 +25,10 @@ tier: T2
 tier_status: proposed
 flow: change
 skipped_with_reason:
+- area: traceability
+  reason: This repo has no command that writes generated/traceability/TRC-*.json. Result is not_run. No traceability JSON was created.
+- area: graph-query
+  reason: The embedded graph could not be opened because its lock could not be acquired, including a read-only open. Impact was not recomputed. graph_queried stays false. tier_status stays proposed.
 - area: deep-supported
   reason: Authorization boundary withholds deep-supported promotion.
 - area: gate-signature
@@ -36,8 +39,22 @@ skipped_with_reason:
   reason: This change set is not added to adapter_scope of CHG-RKG-2026-001.
 - area: repo-test-oracle
   reason: A repo-test copy is not the census oracle. Census oracle, when present, is tests/evaluation/fixtures plus tests/evaluation/expected_*.json.
-- area: steps-5-through-10
-  reason: Domain, L1, L2, UX, contract and UI specification steps are not executed in this backfill.
+- area: domain
+  reason: T2. No new business term or invariant. Step 5 is skipped. No glossary file was created.
+- area: l1
+  reason: No new capability. Existing CAP coverage of FR-RKG-002 is unchanged. No L1 file was bumped.
+- area: l2
+  reason: CMP-RKG-ANALYZER revision 16 cites REG-ADAPTER-001 revision 19. No other L2 file was bumped.
+- area: ux
+  reason: No flow, screen, or UI design change. No UX or UI file was bumped.
+- area: contract
+  reason: No API, TBL, or EVT change. Contract files were not bumped.
+- area: ui-spec
+  reason: No level-4 UI specification change. No UI spec file was created.
+- area: registry
+  reason: REG-ADAPTER-001 revision 19 records the adapters on the tree. Deep-supported stays withheld. Static HTTP linking stays a job, not an adapter. Removed from stale_artifacts because the revision bump handles it.
+- area: csv
+  reason: No baseline is recorded for this change set, so a hand-written CSV was not created.
 - area: pytest-this-pass
   reason: This documentation pass does not record a pytest result. Plan check command stays not_run until a later evidence file records a run.
 confidence:

@@ -1,5 +1,6 @@
 change_request: CR-RKG-001
 analysis_mode: manual-bootstrap
+graph_queried: false
 touches:
 - product
 - requirements
@@ -23,6 +24,10 @@ risk_signals:
 tier: T1
 flow: new-system
 skipped_with_reason:
+- area: graph-query
+  reason: The embedded graph could not be opened because its lock could not be acquired, including a read-only open. Impact was not recomputed. graph_queried stays false. tier stays the recorded proposal.
+- area: traceability
+  reason: This repo has no command that writes generated/traceability/TRC-*.json. Result is not_run. No traceability JSON was created.
 - area: production-deploy
   reason: Release steps 19–21 not performed; validation/review/fixes/UAT (15–18) remain
     applicable. Documentation recovery adds no task or feature.

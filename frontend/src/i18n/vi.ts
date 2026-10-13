@@ -270,6 +270,7 @@ export const vi: Record<MessageKey, string> = {
   'ask.sending': 'Đang hỏi…',
   'ask.pending': 'Đang chờ câu trả lời. Bạn vẫn đọc được lịch sử.',
   'ask.claims': 'Nhận định',
+  'ask.more': 'Phần mở rộng',
   'ask.citations': 'Trích dẫn',
   'ask.openCitation': 'Mở trích dẫn {n}',
   'ask.citationTitle': 'Bằng chứng trích dẫn',

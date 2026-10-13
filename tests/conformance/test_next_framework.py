@@ -12,6 +12,7 @@ from pathlib import Path
 from rkg.adapters import AdapterContext
 from rkg.adapters.contracts import AdapterKind, SupportState
 from rkg.domain import EdgeType, EntityType, SourceScanConfig, validate_fact_batch
+from tests.conformance.published_edge_evidence import assert_ac_rkg_007
 from rkg.ingestion import LocalSourcePolicy, build_manifest, resolve_local_source
 
 _TS_PATTERNS = ("*.ts", "*.tsx", "**/*.ts", "**/*.tsx")
@@ -49,6 +50,8 @@ def _run(root: Path):
     adapter = _next_adapter()
     result = adapter.extract(context, parsed, base)
     validate_fact_batch(result.facts)
+    if result.facts.edges:
+        assert_ac_rkg_007(result.facts)
     return adapter, result
 
 

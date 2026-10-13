@@ -1,0 +1,82 @@
+key: approval-014
+type: approval-record
+group: evidence
+scope: system
+system: SYS-RKG
+status: recorded
+revision: 1
+classification: internal
+ai_assisted: true
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: product-owner
+relations:
+  verifies:
+  - GATE-RKG-SCOPE
+  - GATE-RKG-ARCHITECTURE
+  - GATE-RKG-UIUX
+  - GATE-RKG-CONTRACT
+  - GATE-MERGE
+  resolves:
+  - OQ-RKG-006
+gate: GATE-RKG-SCOPE
+change_sets:
+- CHG-RKG-2026-001
+- CHG-RKG-2026-002
+- CHG-RKG-2026-003
+- CHG-RKG-2026-004
+- CHG-RKG-2026-005
+- CHG-RKG-2026-006
+- CHG-RKG-2026-007
+- CHG-RKG-2026-008
+- CHG-RKG-2026-009
+- CHG-RKG-2026-010
+- CHG-RKG-2026-011
+- CHG-RKG-2026-012
+- CHG-RKG-2026-013
+- CHG-RKG-2026-014
+- CHG-RKG-2026-015
+- CHG-RKG-2026-016
+- CHG-RKG-2026-017
+- CHG-RKG-2026-018
+- CHG-RKG-2026-019
+- CHG-RKG-2026-020
+- CHG-RKG-2026-021
+- CHG-RKG-2026-022
+decision: approved
+decided_at: '2026-10-13T16:58:00+07:00'
+approval_scope: >
+  Human decision on 2026-10-13 for Scope, Architecture, UI/UX and Contract on
+  CHG-RKG-2026-001 through 022, and Component Merge on 001 through 021.
+  CHG-RKG-2026-022 component_merge is not included because OQ-RKG-008 is open.
+  This record does not rewrite approval-007 through approval-013. Those stay
+  bound to their original baselines. Historical approvals invalidated by a later
+  change set are not reused; this is a new decision for the current tree.
+  Change sets 009 through 021 have baseline not_recorded and task_review
+  not_recorded. The signer accepts that exception. No baseline file is created
+  here. Tasks are not marked done. Production deploy is not approved.
+approvers:
+- name: PhongNM
+  role: product-owner
+  authority_basis: explicit_user_confirmation
+- name: PhongNM
+  role: tech-lead
+  authority_basis: explicit_user_confirmation
+- name: PhongNM
+  role: architect
+  authority_basis: explicit_user_confirmation
+human_presence:
+  mode: interactive
+  signer: PhongNM
+  agent_is_signer: false
+captured_against:
+  code_tree: cbdfa3e25acc5b9c246ece0c4f68b7b3a5004f48
+  note: Decision against the working tree at this commit. Per-artifact hashes are not re-snapshotted in this record.
+excluded:
+- change_set: CHG-RKG-2026-022
+  gate: GATE-MERGE
+  reason: OQ-RKG-008 open. depends_on direction is not chosen.
+- gate: GATE-UAT
+  reason: Recorded separately in approval-015.
+- gate: GATE-PRODUCTION
+  reason: No deployment or production verification record.

@@ -196,6 +196,11 @@ def location(entity: Entity, language: str) -> str | None:
     return position
 
 
+# Splits the decision from supporting call flow. The UI hides the tail until opened.
+# Must survive redaction, which strips HTML-like tags.
+ANSWER_DETAIL_MARK = "\n\n@@rkg-detail@@\n\n"
+
+
 @dataclass(frozen=True)
 class ChangeGuidance:
     answer: str
@@ -454,7 +459,11 @@ def suggest_changes(
             if vi
             else "This is the definition range, not the exact statement to change."
         )
-    return ChangeGuidance("\n\n".join(paragraphs), claims, citations)
+    lead, *supporting = paragraphs
+    answer = lead
+    if supporting:
+        answer += ANSWER_DETAIL_MARK + "\n\n".join(supporting)
+    return ChangeGuidance(answer, claims, citations)
 
 
 def implementation_details(storage, repository_id, snapshot_id, subjects, language):

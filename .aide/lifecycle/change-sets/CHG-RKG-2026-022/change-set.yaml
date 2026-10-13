@@ -31,11 +31,12 @@ stories:
 tasks:
 - TASK-RKG-055
 gates:
-  scope: pending
-  architecture: pending
-  ui_ux: pending
-  contract: pending
+  scope: approved
+  architecture: approved
+  ui_ux: approved
+  contract: approved
   component_merge: pending
+  approval: approval-014
 open_questions:
 - OQ-RKG-008
 baseline: not_recorded

@@ -17,6 +17,7 @@ from rkg.domain import (
     validate_fact_batch,
 )
 from rkg.ingestion import LocalSourcePolicy, build_manifest, resolve_local_source
+from tests.conformance.published_edge_evidence import assert_ac_rkg_007
 
 _VUE_PATTERNS = ("*.vue", "**/*.vue")
 _TS_PATTERNS = ("*.ts", "**/*.ts", "package.json")
@@ -157,6 +158,8 @@ def _run(root: Path):
     extracted = router.extract(context, parsed, batch)
     resolved = router.resolve(context, parsed, extracted.facts)
     validate_fact_batch(resolved.facts)
+    if resolved.facts.edges:
+        assert_ac_rkg_007(resolved.facts)
     return router, detected, resolved
 
 

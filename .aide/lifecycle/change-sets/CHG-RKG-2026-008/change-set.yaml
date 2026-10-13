@@ -1,33 +1,30 @@
-{
-  "key": "CHG-RKG-2026-008",
-  "type": "change-set",
-  "group": "normative",
-  "revision": 5,
-  "status": "draft",
-  "phase": "implementation_verified_independently_reviewed_pending_gate_decision",
-  "change_request": "CR-RKG-023",
-  "tier": "T2",
-  "tier_status": "proposed",
-  "flow": "change",
-  "previous_baseline": "BL-CHG-RKG-2026-007-r1",
-  "tasks": [
-    "TASK-RKG-041"
-  ],
-  "stories": [
-    "STORY-RKG-035"
-  ],
-  "active_task": null,
-  "gates": {
-    "scope": "pending",
-    "architecture": "pending",
-    "ui_ux": "pending",
-    "contract": "pending",
-    "component_merge": "pending"
-  },
-  "baseline": "BL-CHG-RKG-2026-008-r1",
-  "verification_evidence": "TEST-TASK-RKG-041-003",
-  "completed_tasks": [
-    "TASK-RKG-041"
-  ],
-  "review_record": "REV-TASK-RKG-041-002"
-}
+key: CHG-RKG-2026-008
+type: change-set
+group: normative
+revision: 5
+status: approved
+phase: implementation_verified_independently_reviewed_pending_gate_decision
+change_request: CR-RKG-023
+tier: T2
+tier_status: proposed
+flow: change
+previous_baseline: BL-CHG-RKG-2026-007-r1
+tasks:
+- TASK-RKG-041
+stories:
+- STORY-RKG-035
+active_task: null
+gates:
+  scope: approved
+  architecture: approved
+  ui_ux: approved
+  contract: approved
+  component_merge: approved
+  approval: approval-014
+  uat: approved
+  uat_approval: approval-015
+baseline: BL-CHG-RKG-2026-008-r1
+verification_evidence: TEST-TASK-RKG-041-003
+completed_tasks:
+- TASK-RKG-041
+review_record: REV-TASK-RKG-041-002

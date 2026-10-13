@@ -15,6 +15,7 @@ from rkg.adapters.tanstack_router_framework import (
     TanStackRouterFrameworkAdapter,
 )
 from rkg.domain import EdgeType, EntityType, SourceScanConfig, validate_fact_batch
+from tests.conformance.published_edge_evidence import assert_ac_rkg_007
 from rkg.ingestion import LocalSourcePolicy, build_manifest, resolve_local_source
 
 _SECRET = "RKG_TEST_SECRET_DO_NOT_PERSIST"
@@ -43,6 +44,8 @@ def _run(root: Path):
     adapter = TanStackRouterFrameworkAdapter()
     result = adapter.extract(context, parsed, base.facts)
     validate_fact_batch(result.facts)
+    if result.facts.edges:
+        assert_ac_rkg_007(result.facts)
     report = run_framework_conformance(
         adapter,
         manifest,

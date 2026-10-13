@@ -6,6 +6,7 @@ from pathlib import Path
 
 from rkg.adapters.contracts import AdapterContext, SupportState
 from rkg.domain import EdgeType, EntityType, SourceScanConfig, validate_fact_batch
+from tests.conformance.published_edge_evidence import assert_ac_rkg_007
 from rkg.ingestion import LocalSourcePolicy, build_manifest, resolve_local_source
 
 _TS_PATTERNS = ("*.ts", "*.tsx", "**/*.ts", "**/*.tsx")
@@ -45,6 +46,8 @@ def _run(root: Path):
     adapter = _nest_adapter()
     result = adapter.extract(context, parsed, base)
     validate_fact_batch(result.facts)
+    if result.facts.edges:
+        assert_ac_rkg_007(result.facts)
     return adapter, result
 
 
@@ -151,6 +154,13 @@ def test_controller_prefix_and_message_channels(tmp_path: Path) -> None:
         ("src.orders.controller.OrdersController.onCreated", "order.created"),
         ("src.orders.controller.OrdersController.onShipped", "order.shipped"),
     }
+    handled = [
+        edge for edge in result.facts.edges if edge.type == EdgeType.HANDLED_BY
+    ]
+    assert len(handled) == 2
+    handled_targets = {by_id[edge.target_id].qualified_name for edge in handled}
+    assert any(name.endswith(".findOne") for name in handled_targets)
+    assert any(name.endswith(".create") for name in handled_targets)
     assert not any(
         item.type == EntityType.ENDPOINT
         and dict(item.attributes).get("path") in {"order.created", "order.shipped"}

@@ -6,7 +6,7 @@ group: normative
 scope: system
 system: SYS-RKG
 status: draft
-revision: 15
+revision: 16
 ownership: {accountable_team: TEAM-RKG, accountable_role: architect}
 relations: {realizes: [CAP-RKG-001], constrained_by: [NFR-RKG-SEC-001]}
 classification: internal
@@ -65,7 +65,7 @@ và method `reads` / `writes`. Không mở entity type mới.
 
 `builtin_adapters()` cũng đăng ký `rkg.django`, `rkg.next`, `rkg.express`,
 `rkg.nest`, `rkg.go-http`, `rkg.tanstack-router` và `rkg.vue-router`. Cả bảy
-đã có trong `REG-ADAPTER-001` revision 18, chạy trong pipeline mặc định, và giữ
+đã có trong `REG-ADAPTER-001` revision 19, chạy trong pipeline mặc định, và giữ
 `reviewed_deep_support = False` với capability `DETECTED_ONLY`. Chúng không phải
 profile deep-supported đã review. Không mở entity type mới. Các adapter này
 không emit HTTP `depends_on`.

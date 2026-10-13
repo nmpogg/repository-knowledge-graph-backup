@@ -6,7 +6,7 @@ scope: lifecycle
 system: SYS-RKG
 story: STORY-RKG-024
 status: in_progress
-revision: 7
+revision: 8
 authorization: CR-RKG-028
 change_set: CHG-RKG-2026-013
 ownership:
@@ -79,4 +79,4 @@ Verify lát recorded: `TEST-RKG-GO-KAFKA-PGX-001` (`test_go_stack.py` 3 passed,
 `test_go_census.py` 2 passed, on commit `2d0af72…`) and `DIARY-TASK-RKG-046`.
 The AC-RKG-007 wording correction is `TEST-RKG-GO-KAFKA-PGX-001-r2`, and
 `TEST-RKG-GO-KAFKA-PGX-001` remains the verify record.
-Status remains `in_progress` — deep-support review not closed.
+`TEST-RKG-AC007-ASSERT-001` records passed for `assert_ac_rkg_007` on `tests/conformance/test_go_stack.py` (rule id and evidence location). Status remains `in_progress` — deep-support review not closed. AC-RKG-003, AC-RKG-016, and AC-RKG-035 stay not under test.

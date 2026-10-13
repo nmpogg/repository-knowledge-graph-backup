@@ -52,6 +52,8 @@ def test_redaction_removes_forbidden_fragments_and_keeps_prose() -> None:
     ):
         assert forbidden not in cleaned
     assert redact_conversation_text(cleaned) == cleaned
+    assert "@@rkg-detail@@" in redact_conversation_text("lead\n\n@@rkg-detail@@\n\ntail")
+    assert "<!--rkg-detail-->" not in redact_conversation_text("lead\n\n<!--rkg-detail-->\n\ntail")
 
 
 def test_json_redaction_drops_reasoning_and_secrets() -> None:

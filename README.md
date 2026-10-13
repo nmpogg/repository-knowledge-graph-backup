@@ -70,6 +70,16 @@ uv run rkg --allow-root D:\sources repository create --name "orders" --path D:\s
 ```
 
 `--path` phải là thư mục nằm trong một `--allow-root` đã khai báo.
+Muốn mở rộng đường dẫn được phép, kể cả cả một ổ đĩa, truyền gốc đó vào
+`--allow-root` rồi chạy lại lệnh (tạo repository, index hoặc serve):
+
+```powershell
+uv run rkg --allow-root <goc> serve
+```
+
+`<goc>` là thư mục cha hoặc gốc ổ, dạng `X:\`. Cùng một cờ lặp lại khi cần
+nhiều gốc. Server đang chạy phải khởi động lại với cờ này thì UI mới nhận
+gốc mới.
 `--source-root`, khi có, là thư mục con tương đối dùng làm gốc quét.
 Đường dẫn UNC, device path, thư mục ngoài root, symlink/junction thoát khỏi
 root canonical bị từ chối trước khi đọc nội dung. Loader bỏ symlink/junction
@@ -122,8 +132,8 @@ uv run rkg serve
 npm run dev
 ```
 
-Muốn phân tích source ngoài thư mục repo, dùng
-`uv run rkg --allow-root D:\sources serve`. Nếu PowerShell trên máy chặn
+Muốn phân tích source ngoài thư mục repo, mở rộng gốc được phép rồi serve:
+`uv run rkg --allow-root <goc> serve`. Nếu PowerShell trên máy chặn
 `npm.ps1`, chạy `npm.cmd run dev` thay cho `npm run dev`.
 
 Mở `http://127.0.0.1:5173`. Để trống `VITE_RKG_API_BASE` để Vite proxy `/api`
@@ -239,7 +249,7 @@ không đổi (`repository_source_immutable`).
 
 | `error_code` | Việc cần làm |
 | --- | --- |
-| `source_outside_allowed_roots` | Đưa thư mục vào `--allow-root` rồi tạo/index lại. |
+| `source_outside_allowed_roots` | Mở rộng đường dẫn: `uv run rkg --allow-root <goc> serve` (hoặc create/index) với `<goc>` bao thư mục đó, rồi tạo/index lại. |
 | `source_path_invalid`, `source_not_directory`, `source_root_invalid` | Kiểm tra `--path` là thư mục thật và `--source-root` nằm trong đó. |
 | `source_link_escape` | Gỡ symlink/junction trỏ ra ngoài root canonical. |
 | `file_limit_exceeded` | Tăng `--max-files` hoặc thu hẹp cây source. |

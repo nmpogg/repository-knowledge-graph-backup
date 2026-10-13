@@ -3,10 +3,10 @@ type: change-set
 group: normative
 scope: lifecycle
 system: SYS-RKG
-revision: 28
+revision: 29
 label: Chatbot dễ hỏi và trả lời tự nhiên
-status: draft
-phase: implementation_complete_UAT_pending
+status: approved
+phase: gates_approved_uat_recorded
 change_request: CR-RKG-002
 objective:
   description: Cải thiện cách hỏi, câu trả lời và hướng dẫn khôi phục của chatbot,
@@ -23,6 +23,8 @@ ownership:
 coordination:
   mode: independent
   integration_gate_required: false
+  integration_gate: not_applied
+  integration_gate_reason: One team and mode independent. Change Integration Gate is intentionally not applied.
 tier: T2
 tier_status: proposed
 tier_reason: Thay đổi hành vi trong grounded conversation hiện có, một team, chưa
@@ -30,10 +32,13 @@ tier_reason: Thay đổi hành vi trong grounded conversation hiện có, một 
 flow: change
 baseline: BL-CHG-RKG-2026-002-r8
 gates:
-  scope: pending
-  architecture: pending
-  ui_ux: pending
-  contract: pending
+  scope: approved
+  architecture: approved
+  ui_ux: approved
+  contract: approved
+  approval: approval-014
+  uat: approved
+  uat_approval: approval-015
 planning_evidence:
   context: CTX-CHG-RKG-2026-002-r16
   plan: PLAN-CHG-RKG-2026-002-r5
@@ -253,7 +258,7 @@ implementation_progress:
     - FND-TASK-RKG-030-003
     review_round_limit_reached: true
   live_provider_quality: not_run
-  human_UAT: not_run
+  human_UAT: recorded_in_approval-015
   release: not_run
 execution_state: implementation_complete_awaiting_UAT
 pause_evidence: CR-RKG-011

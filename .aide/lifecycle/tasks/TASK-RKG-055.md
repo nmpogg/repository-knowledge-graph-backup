@@ -6,7 +6,7 @@ scope: lifecycle
 system: SYS-RKG
 story: STORY-RKG-043
 status: in_progress
-revision: 2
+revision: 3
 authorization: CR-RKG-037
 change_set: CHG-RKG-2026-022
 ownership:
@@ -43,17 +43,19 @@ Không sửa `builtin_adapters()`. Không target ExternalDependency. Không thă
 
 ## Acceptance criteria under test
 
-AC-RKG-006.
+AC-RKG-006, AC-RKG-007.
 
 AC-RKG-006. `tests/unit/test_http_depends.py` assert không tạo cạnh khi cặp method/path mơ hồ hoặc path động, và có diagnostic `http_depends_on_ambiguous` hoặc `http_depends_on_dynamic`.
 
+AC-RKG-007. Cạnh tĩnh duy nhất có rule id và evidence location. `TEST-RKG-AC007-ASSERT-001` ghi passed. Kết quả đó không gắn suite vào `AC-RKG-005`.
+
 ## Chưa under test
 
-AC-RKG-005 chưa under test. Suite assert `depends_on` Callable tới Endpoint. Then-clause đã xuất bản là Callable tới Callable hoặc Endpoint tới Callable. `OQ-RKG-008` mở trên `CHG-RKG-2026-022` và chặn đóng task này. Then-clause không sửa tại chỗ. AC-RKG-004, AC-RKG-007, AC-RKG-016, AC-RKG-048 chưa under test. Không có oracle census.
+AC-RKG-005 chưa under test. Suite assert `depends_on` Callable tới Endpoint. Then-clause đã xuất bản là Callable tới Callable hoặc Endpoint tới Callable. `OQ-RKG-008` mở trên `CHG-RKG-2026-022` và chặn đóng task này. Then-clause không sửa tại chỗ. Suite không được gắn vào `AC-RKG-005`. AC-RKG-004, AC-RKG-016, AC-RKG-048 chưa under test. Không có oracle census. Status stays `in_progress`.
 
 ## Xong khi
 
-Suite nêu trong plan được chạy trên cây này và evidence ghi kết quả, gate vẫn chỉ `pending` cho đến khi có chữ ký, và deep support vẫn withheld. Lát hồ sơ này chưa chạy pytest.
+Suite nêu trong plan được chạy trên cây này và evidence ghi kết quả, gate vẫn chỉ `pending` cho đến khi có chữ ký, và deep support vẫn withheld. `TEST-RKG-AC007-ASSERT-001` chỉ phủ assert rule id và location. Task chưa `done`.
 
 ## Hồ sơ triển khai
 
