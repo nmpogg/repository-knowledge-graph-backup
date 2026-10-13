@@ -1,0 +1,68 @@
+uid: null
+key: REV-RKG-2026-002
+type: review-evidence
+group: evidence
+scope: system
+system: SYS-RKG
+status: completed
+revision: 1
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+relations:
+  reviews:
+  - CHG-RKG-2026-001
+classification: internal
+ai_assisted: true
+record: |-
+  # Consolidated review v2 disposition — 2026-09-18
+
+  ## Inputs
+
+  - `.aide/reviewer/v2/REVIEWS_GEMINI.md`
+  - `.aide/reviewer/v2/REVIEWS_SONNET.md`
+  - `.aide/reviewer/v2/REVIEWS_GROK.md`
+
+  The reports remain unchanged. This append-only record captures the verified
+  disposition; where reviewers disagree, the current artifact content and normative
+  sources decide.
+
+  ## Accepted and addressed
+
+  - Added a positive, evidence-bearing `calls` AC and made scan outcomes binary:
+    partial parse can publish with warnings; `max_files` fails; an oversized file is
+    skipped with a warning; `partial` is not a job-stage enum.
+  - Separated FastAPI app disambiguation from technology/adapter detection. Multiple
+    app candidates block until explicit selection; one app is auto-selected; multiple
+    valid adapters remain non-blocking and run together.
+  - Added coverage for source-root/symlink isolation, local onboarding, CLI behavior,
+    index-session authorization, polling cleanup, no-active-snapshot reads, context
+    performance, visual accessibility, dependency/technology panels, LLM budgets,
+    required turn fields and conversation redaction.
+  - Made clone/workspace, LLM-turn and history limits canonical in NFRs; expanded KPI
+    Q&A corpus/safety targets and reconciled symmetric FR↔NFR links.
+  - Completed ADR/domain/schema traceability, documented full SHA-256 Turn identity and
+    rule-ID format, and mapped threat verification to planned test keys.
+  - Verified existing `tokens.json`, UI states/presets, single-worker constraint and
+    L1/L2 derived diagrams against their normative CAP/CMP sources.
+  - Measured the current core token contrast independently and appended
+    `TEST-RKG-WCAG-CONTRAST`; the verified ratios differ slightly from Gemini's prose
+    but all tested pairs pass WCAG AA.
+
+  ## Not auto-completed
+
+  - PRD/Scope, Architecture, UI/UX and Contract approvals remain pending named human
+    sign-off; no status was changed to `approved` and no approval record was fabricated.
+  - `DDL-RKG-GRAPH.cypher` execution remains pending the Kùzu/Python version pin in
+    `TASK-RKG-001`; Contract Gate cannot approve that item yet.
+  - Token-level contrast evidence does not replace component/browser checks for all UI
+    states and breakpoints.
+  - OQ-RKG-001 (live provider) and OQ-RKG-002 (pilot repository) remain open with
+    explicit resolution triggers.
+
+  ## Recommendations not adopted
+
+  - OBS-003/004 do not duplicate numeric performance thresholds; NFR-RKG-PERF-001
+    remains the normative source to prevent drift.
+  - Generated diagrams were not hand-edited: they already match the three CAP and five
+    CMP artifacts and retain the documented bootstrap exception.

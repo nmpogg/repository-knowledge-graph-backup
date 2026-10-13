@@ -1,0 +1,485 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-001
+revision: 3
+implementation_date: '2026-09-17'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-001
+    revision: 3
+    hash: ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d
+    path: architecture/adr/ADR-2026-001.md
+  - key: CMP-RKG-TRANSPORT
+    revision: 7
+    hash: 6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286
+    path: architecture/l2/CMP-RKG-TRANSPORT.md
+  - key: CMP-RKG-WEB
+    revision: 8
+    hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+    path: architecture/l2/CMP-RKG-WEB.md
+  - key: EPIC-001-TEAM-RKG
+    revision: 6
+    hash: bc183b55d630509c25e119cb8849c560d3939b51c02b926f41a1565b1bb2b855
+    path: lifecycle/epics/EPIC-001-TEAM-RKG.md
+  implementation_phases:
+  - commit: ec0a1c04815ab62a181dfcec08035d21b17cc551
+    author_at: '2026-09-17T11:26:27+07:00'
+    committed_at: '2026-09-17T11:26:27+07:00'
+    implementation_date: '2026-09-17'
+    changed_paths:
+    - .nvmrc
+    - .python-version
+    - README.md
+    - frontend/package-lock.json
+    - frontend/package.json
+    - frontend/src/App.css
+    - frontend/src/App.tsx
+    - frontend/src/index.css
+    - frontend/src/main.tsx
+    - frontend/src/vite-env.d.ts
+    - pyproject.toml
+    - src/rkg/__init__.py
+    - src/rkg/api/__init__.py
+    - src/rkg/cli/__init__.py
+    - src/rkg/config/__init__.py
+    - src/rkg/conversations/__init__.py
+    - src/rkg/detection/__init__.py
+    - src/rkg/domain/__init__.py
+    - src/rkg/extractors/__init__.py
+    - src/rkg/graph/__init__.py
+    - src/rkg/ingestion/__init__.py
+    - src/rkg/jobs/__init__.py
+    - src/rkg/llm/__init__.py
+    - src/rkg/parsing/__init__.py
+    - src/rkg/resolution/__init__.py
+    - src/rkg/storage/__init__.py
+    - tests/evals/.gitkeep
+    - tests/fixtures/.gitkeep
+    - tests/integration/.gitkeep
+    - tests/unit/test_skeleton.py
+    - uv.lock
+  - commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    author_at: '2026-09-24T09:49:29+07:00'
+    committed_at: '2026-09-24T09:49:29+07:00'
+    implementation_date: '2026-09-24'
+    changed_paths:
+    - .python-version
+    - README.md
+    - pyproject.toml
+    - src/rkg/__init__.py
+    - src/rkg/adapters/__init__.py
+    - src/rkg/api/__init__.py
+    - src/rkg/cli/__init__.py
+    - src/rkg/config/__init__.py
+    - src/rkg/conversations/__init__.py
+    - src/rkg/detection/__init__.py
+    - src/rkg/domain/__init__.py
+    - src/rkg/extractors/__init__.py
+    - src/rkg/graph/__init__.py
+    - src/rkg/ingestion/__init__.py
+    - src/rkg/jobs/__init__.py
+    - src/rkg/llm/__init__.py
+    - src/rkg/parsing/__init__.py
+    - src/rkg/resolution/__init__.py
+    - src/rkg/storage/__init__.py
+    - tests/evals/.gitkeep
+    - tests/fixtures/.gitkeep
+    - tests/integration/.gitkeep
+    - tests/integration/test_ddl_execute.py
+    - tests/unit/test_skeleton.py
+    - uv.lock
+  files:
+  - path: .nvmrc
+    implementation_commit: ec0a1c04815ab62a181dfcec08035d21b17cc551
+    implementation_sha256: f14b4987904bcb5814e4459a057ed4d20f58a633152288a761214dcd28780b56
+    current_sha256: 12d3a4efa6646b3ece4782f70033b9785bf0d167b553c43e22579b031cea5c4d
+  - path: .python-version
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: f50159fad3f4319868eb38717b91d55843c41e9803014c8de05e116a6d0bcfdc
+    current_sha256: 9bccfb61c57081accd6a0a9bbc2909a77ee387cfe0168a97c8f1592f3d9d6b92
+  - path: README.md
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: eb9670beccfc3fccbffdd0520c10ad7a4d365bfec351c4bdcf7822d3eca50d94
+    current_sha256: b05e41a4ed37690fbf80349f3a16d4fa07ed2586027906162377e286d5f5ce30
+  - path: frontend/package-lock.json
+    implementation_commit: ec0a1c04815ab62a181dfcec08035d21b17cc551
+    implementation_sha256: b74a94e259f6c21da789aa151ff7dc6481393627373b0817ed4a9296c7d3c84a
+    current_sha256: 6eec44191152aeda64759291530ae587c8719b95561b34086c0398647c2d8bf0
+  - path: frontend/package.json
+    implementation_commit: ec0a1c04815ab62a181dfcec08035d21b17cc551
+    implementation_sha256: fcaf9120a18436d67d36b04b1496a9c91fe5e71176f4d939fdb073f89e3a078c
+    current_sha256: 26b6cc449bbbf60a8ffe8a5d64254bd5a088d6a6f1c93ab5553d52fbcb620b07
+  - path: frontend/src/App.css
+    implementation_commit: ec0a1c04815ab62a181dfcec08035d21b17cc551
+    implementation_sha256: 7a5084b2c0f8e4043549694b6503a516954658a436a2b0201862de485e7d0a5b
+    current_sha256: null
+  - path: frontend/src/App.tsx
+    implementation_commit: ec0a1c04815ab62a181dfcec08035d21b17cc551
+    implementation_sha256: 12bb94937dab5aa92334fb9d252cb3b6ee741112494f05d8284edd50bdb43f9a
+    current_sha256: a78c7f6154622a4ef68e56b516e805b6529d01ad34d80d59c539e67dfdc386cf
+  - path: frontend/src/index.css
+    implementation_commit: ec0a1c04815ab62a181dfcec08035d21b17cc551
+    implementation_sha256: 473c123b4a8166a50495421d0d7bfc1a85177d42f919cc5eb169e743a375a6b2
+    current_sha256: e0ad8cd42dd72acaace8677df0d9597d1124e0343fd704846e44ea241b9d3aaa
+  - path: frontend/src/main.tsx
+    implementation_commit: ec0a1c04815ab62a181dfcec08035d21b17cc551
+    implementation_sha256: 6e9e5807fcbd48b75a96db5cbef36c996262196be42e6d4760dc86babbe61ad2
+    current_sha256: 484f93f3048565a86a47e308f5a12ee27aa12f5291f3b52a4bb5dc03d887dbc7
+  - path: frontend/src/vite-env.d.ts
+    implementation_commit: ec0a1c04815ab62a181dfcec08035d21b17cc551
+    implementation_sha256: 65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5
+    current_sha256: 77ccd859ab092566bcb9194a33ac35c43315283d244c508870c4f9a3b815f784
+  - path: pyproject.toml
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: f516e57d162b1558a57504534298f3c2ccd5485351b3dd96669d62eadb202ff9
+    current_sha256: 9cf2132b6a3566f1f2ebd763ed6a9215dd39b244fcc1c743c17a3c8b72ae5a85
+  - path: src/rkg/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: efecc6351d4b1fc6a17e2cb95b0e3145864b90598edf342bffc6f475d7ee0baa
+    current_sha256: b41b2c62f25fe4d45a0cc05e111a2f4e4e87f07267463d07eafcd946de6d5495
+  - path: src/rkg/api/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: 55ab052563ff1daf4b6c491b54ad4ed295c4267ffcfac9ce8ef46336471d4da9
+  - path: src/rkg/cli/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: f5ce0359ebd7796f40ea0d653622e1bd970c7267a813b6e6f6d49abfd69c1d64
+  - path: src/rkg/config/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+  - path: src/rkg/conversations/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: a2b8fbd222f540db126d8b66f7b95669796e815d9147f83a4c03f8469145d0c8
+  - path: src/rkg/detection/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: d6e3123cda9e2a75907ef58dd201d4848ee089ece394f36c5a5ce2e09d96e91d
+  - path: src/rkg/domain/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: 024dedf5cf4267ec8ee2b76a05eeccc1f64c5129e3bdb40c5b5bcdd132852bd1
+  - path: src/rkg/extractors/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+  - path: src/rkg/graph/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: 7a2445c8764385fd6bec56b3d0299e67e28daeff69d96d564d181dab973daad3
+  - path: src/rkg/ingestion/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: 5a928d7a424d95d3f80744ca12fb90a701dc4ac3d3fc7a292355956eae35c693
+  - path: src/rkg/jobs/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: 2d2c49d6b6297504ca60846f2709f4fe9a615a9e8bc49da32261c762a3ef4de5
+  - path: src/rkg/llm/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: 04a85cb12bdacd2d185df8960d49c9ce5fbdd5ce57c85376c91660d651f46e4f
+  - path: src/rkg/parsing/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+  - path: src/rkg/resolution/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+  - path: src/rkg/storage/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: 69b508e57309f0971a300ffa82764ba56af405985efbd04a6866e4e3e962f105
+  - path: tests/evals/.gitkeep
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: f01a374e9c81e3db89b3a42940c4d6a5447684986a1296e42bf13f196eed6295
+  - path: tests/fixtures/.gitkeep
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: f01a374e9c81e3db89b3a42940c4d6a5447684986a1296e42bf13f196eed6295
+  - path: tests/integration/.gitkeep
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: b42f2099187886def637d6aa840022266e05cb6c987a9394e708e23cd505eb46
+    current_sha256: f01a374e9c81e3db89b3a42940c4d6a5447684986a1296e42bf13f196eed6295
+  - path: tests/unit/test_skeleton.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: e03ef48cdf586c3c03ec296b18ec9dd401e3194103b75e3a26cbf02f913109a3
+    current_sha256: 73f7a20c618f2a9d31fecd1d055eeea74b14a03220a305c83b3f306b4c4188f4
+  - path: uv.lock
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: 331c361534bc570789b347cf2b0073b4a8a2fff1e42294b6b254c7b337ba9658
+    current_sha256: 6d8d84d83558626838b6c41374bf9b1c66f4e70a292e5a60a6ea7e25ffda06d4
+  - path: src/rkg/adapters/__init__.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    current_sha256: 186bb482f9aa1523ee6ce23cd72070663150d57b9442a95f12f8ef47a9b6c0d3
+  - path: tests/integration/test_ddl_execute.py
+    implementation_commit: 9cae9d0caaed7328d4df70a3c183fb433aa952ee
+    implementation_sha256: 1421992e024d3242bcb683b831eef9146e71dbf1ea3d5186fe37d399365adc85
+    current_sha256: a507a427eea36c7883ce31eab5a1ad9c27c7c2de36e6c528dfbebf0b93964899
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-001
+objective: TASK-RKG-001
+objective_description: Dựng src/tests/frontend, khóa Python/Kuzu và frontend toolchain, ghi lệnh setup/lint/test/build. Giữ
+  scaffold tách khỏi chức năng nghiệp vụ.
+requirements: []
+design:
+- CMP-RKG-TRANSPORT
+- CMP-RKG-WEB
+decisions:
+- ADR-2026-001
+contracts: []
+constraints: []
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- .nvmrc
+- .python-version
+- README.md
+- frontend/package-lock.json
+- frontend/package.json
+- frontend/src/App.css
+- frontend/src/App.tsx
+- frontend/src/index.css
+- frontend/src/main.tsx
+- frontend/src/vite-env.d.ts
+- pyproject.toml
+- src/rkg/__init__.py
+- src/rkg/api/__init__.py
+- src/rkg/cli/__init__.py
+- src/rkg/config/__init__.py
+- src/rkg/conversations/__init__.py
+- src/rkg/detection/__init__.py
+- src/rkg/domain/__init__.py
+- src/rkg/extractors/__init__.py
+- src/rkg/graph/__init__.py
+- src/rkg/ingestion/__init__.py
+- src/rkg/jobs/__init__.py
+- src/rkg/llm/__init__.py
+- src/rkg/parsing/__init__.py
+- src/rkg/resolution/__init__.py
+- src/rkg/storage/__init__.py
+- tests/evals/.gitkeep
+- tests/fixtures/.gitkeep
+- tests/integration/.gitkeep
+- tests/unit/test_skeleton.py
+- uv.lock
+- src/rkg/adapters/__init__.py
+- tests/integration/test_ddl_execute.py
+inputs:
+  ADR-2026-001:
+    revision: 3
+    hash: ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d
+    path: architecture/adr/ADR-2026-001.md
+  CMP-RKG-TRANSPORT:
+    revision: 7
+    hash: 6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286
+    path: architecture/l2/CMP-RKG-TRANSPORT.md
+  CMP-RKG-WEB:
+    revision: 8
+    hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+    path: architecture/l2/CMP-RKG-WEB.md
+  EPIC-001-TEAM-RKG:
+    revision: 6
+    hash: bc183b55d630509c25e119cb8849c560d3939b51c02b926f41a1565b1bb2b855
+    path: lifecycle/epics/EPIC-001-TEAM-RKG.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-001
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-001
+    captured_at: 2026-09-17
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-001
+        revision: 1
+      - key: EPIC-001-TEAM-RKG
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: PRD-RKG
+        revision: 1
+      - key: ADR-2026-001
+        revision: 1
+      - key: CMP-RKG-WEB
+        revision: 1
+      - key: CMP-RKG-TRANSPORT
+        revision: 1
+      - key: NFR-RKG-UX-001
+        revision: 1
+      docs:
+      - docs/RULES.md
+      - docs/SPEC.md
+      - docs/ARCHITECTURE.md
+      - docs/TASK.md
+      - docs/PLAN.md
+      code_tree: none
+  record: |-
+    # CTX-TASK-RKG-001
+
+    ## objective
+    TASK-RKG-001 — Project skeleton and toolchain (T-01 / M0 nền tảng).
+
+    ## requirements
+    - Không gắn AC nghiệp vụ riêng; là task nền tảng (epic trực tiếp, không qua Story).
+    - Phục vụ DoD giai đoạn I: clean env chạy được lệnh frontend; lock dependency; check tối thiểu.
+    - Analyzer target: CPython 3.12 (SPEC); patch + lock chốt tại T-01 (ARCHITECTURE §2, D-06).
+    - UI stack: React + Vite (PRD, CMP-RKG-WEB, ARCHITECTURE).
+
+    ## design
+    - CMP-RKG-WEB — cây `frontend/` (React/Vite); tách mock/live để lại cho T-17.
+    - CMP-RKG-TRANSPORT — production sẽ phục vụ Vite build cùng origin; T-01 chỉ chuẩn bị layout + toolchain, chưa wire serve.
+    - ADR-2026-001 — CPython 3.12 static analysis; không thêm Neo4j/Celery/Redis/vector DB.
+
+    ## layout_target
+    ```text
+    src/rkg/          # package Python tối thiểu (placeholder modules theo ARCHITECTURE §3)
+    tests/            # unit/ + smoke tối thiểu; fixtures/ để trống hoặc .gitkeep
+    frontend/         # Vite + React app tối thiểu
+    pyproject.toml    # metadata + tool config + Python requires
+    uv.lock           # lock Python (đề xuất)
+    frontend/package.json + lockfile
+    README.md         # lệnh install / check / build thật
+    ```
+
+    ## constraints
+    - Không implement analyzer, API, Kùzu, LLM, Explorer flows (T-02… / T-17).
+    - Không giả claim feature đã chạy; không tự approve gate / baseline.
+    - Không commit secret; config mẫu không chứa credential.
+    - Domain không import API/UI/provider (boundary giữ từ skeleton).
+    - Artifact `.aide/` phần lớn vẫn `draft`; `docs/SPEC.md` + `docs/ARCHITECTURE.md` là nguồn đối chiếu toolchain cho task này.
+
+    ## decisions_to_lock_in_plan
+    - Python package manager + lockfile format.
+    - CPython 3.12 patch pin (ghi trong pyproject / README).
+    - Node major + frontend package manager + lockfile.
+    - Lệnh tối thiểu: install, lint/typecheck hoặc smoke, test (pytest), frontend build/dev.
+    - Thư viện graph cụ thể: chưa chọn ở T-01 nếu chưa cần runtime — ghi “chốt khi T-17” nếu chưa đưa vào package.json.
+
+    ## previous_findings
+    []
+
+    ## open_questions_not_blocking
+    - OQ-RKG-001 — LLM provider (chặn live T-19, không chặn T-01).
+    - OQ-RKG-002 — pilot repo (chặn T-22, không chặn T-01).
+
+    ## verification_intent
+    Clean clone / clean env: cài dependency theo README → chạy smoke Python + frontend build/check → pass. Không yêu cầu E2E UI hay API.
+- revision: 2
+  metadata:
+    key: CTX-TASK-RKG-001-r2
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-001
+    revision: 2
+    captured_at: 2026-09-23
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-001
+        revision: 3
+      - key: EPIC-001-TEAM-RKG
+        revision: 1
+      - key: CMP-RKG-WEB
+        revision: 4
+      - key: CMP-RKG-TRANSPORT
+        revision: 4
+      - key: ADR-2026-003
+        revision: 1
+      - key: ADR-2026-001
+        revision: 3
+      - key: NFR-RKG-UX-001
+        revision: 7
+      - key: NFR-RKG-SEC-001
+        revision: 7
+      - key: PRD-RKG
+        revision: 16
+      - key: REG-REPO-001
+        revision: 1
+      code_tree: partial
+  record: |-
+    # CTX-TASK-RKG-001-r2
+
+    ## objective
+    Slice FE của TASK-RKG-001: scaffold mới `frontend/` React + Vite + TypeScript
+    (base toolchain), không lấy implementation từ commit cũ, không dựng màn hình
+    nghiệp vụ (để T-017/T-025).
+
+    ## requirements
+    - TASK-RKG-001: chốt Node major, npm + lockfile, lệnh install/dev/build/lint/test FE.
+    - CMP-RKG-WEB / ADR-2026-003: React + Vite SPA; assets sẽ được TRANSPORT serve cùng origin sau này.
+    - Không ship Explorer/onboarding/mock client (T-017).
+
+    ## design
+    - `CMP-RKG-WEB` — cây `frontend/`; ranh giới mock/live chưa wire.
+    - `ADR-2026-003` — SPA + typed client sau này; M0 fixture ≠ M3 live.
+    - `CMP-RKG-TRANSPORT` — chưa wire serve build trong slice này.
+
+    ## authority
+    Normative chỉ từ `.aide/` (task, CMP, ADR, NFR, PRD, registry). Không dùng
+    `docs/SPEC.md` / `docs/ARCHITECTURE.md` / `docs/TASK.md` làm nguồn thiết kế.
+
+    ## code_scope
+    - `frontend/**` (tạo mới)
+    - `.nvmrc` (tạo nếu thiếu)
+    - `README.md` — chỉ cập nhật lệnh FE thật
+    - `.aide/evidence/{plans,diaries}/` + điểm tiếp tục `TASK-RKG-001`
+
+    ## layout_target
+    ```text
+    frontend/
+      package.json + package-lock.json
+      vite.config.ts
+      tsconfig.json / tsconfig.app.json / tsconfig.node.json
+      eslint.config.js
+      index.html
+      public/
+      dist/.gitkeep
+      src/main.tsx
+      src/App.tsx          # heading sản phẩm tối thiểu
+      src/App.test.tsx     # smoke test
+      src/index.css
+      src/vite-env.d.ts
+    .nvmrc                 # Node 22
+    ```
+
+    ## constraints
+    - Không restore frontend từ git history / commit cũ.
+    - Không implement screens, routing nghiệp vụ, RkgClient mock/live, tokens UI đầy đủ.
+    - Không đụng Python/uv/Kùzu trong slice này (còn lại của T-001).
+    - Không sửa FR/AC/ADR/CMP; mâu thuẫn → OQ.
+
+    ## decisions_to_lock
+    - Node **22** LTS (`.nvmrc` + `engines`); máy local có thể là Node 24 trong range `>=22 <25`.
+    - npm + `package-lock.json`.
+    - Vitest (+ Testing Library) cho smoke test skeleton.
+    - Graph UI lib: chưa cài.
+
+    ## previous_findings
+    - DIARY/PLAN/CTX revision 1 là lịch sử scaffold trước; working tree hiện không có `frontend/`.
+
+    ## verification_intent
+    `cd frontend && npm ci && npm run lint && npm test && npm run build` → pass.
+    ---
+parent:
+- EPIC-001-TEAM-RKG

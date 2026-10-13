@@ -1,0 +1,5 @@
+// Expected: do not infer a table/read edge from runtime SQL or a non-literal table name.
+String runtimeSql = input.readLine();
+entityManager.createNativeQuery(runtimeSql).getResultList();
+@Table(name = runtimeTableName)
+class DynamicTableFixture {}

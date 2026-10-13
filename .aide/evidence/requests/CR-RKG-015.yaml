@@ -1,0 +1,15 @@
+{
+  "group": "evidence",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "captured_at": "2026-10-07T09:58:47+07:00",
+  "classification": "internal",
+  "ai_assisted": true,
+  "change_set": "CHG-RKG-2026-002",
+  "key": "CR-RKG-015",
+  "type": "change-request",
+  "source": "explicit_user_delegation",
+  "scope": "Use an independent reviewer agent per TASK031\u2013035, maximum two adversarial rounds, and repair findings.",
+  "automatic_human_gate_signatures": false,
+  "record_boundary": "Normalized delegation only; no transcript."
+}

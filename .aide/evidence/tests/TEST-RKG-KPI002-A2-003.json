@@ -1,0 +1,1289 @@
+{
+  "key": "TEST-RKG-KPI002-A2-003",
+  "role": "A2",
+  "seed": 220026,
+  "edge_id_lock_sha256": "57244f67dc1a50901a19141c3dd758302f5cea41adaba4360662b93b987e8b26",
+  "pilot_tree_sha256": "a094fc7b39def8636e2b73766d80510c4f4b917ea1da5a6e93e22619ef237417",
+  "samples": [
+    {
+      "group": "imports",
+      "edge_id": "edge_f5101e4b9290c7349d8e79fb08ac8d8323777a9c2205ff877ddc16598f5a29fe",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_a19ea5b317f0a095ecd33a966aefa28b6cde6ccefbc6a4ea6203c75934fb2b99",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_63c9ea2e373fc7d3faefa25eb50db1bb47bc5f7d4e02cc016d288f78782f4e61",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 13
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_3f47dbb6bb703ddb9fa6329c7543594097783e84ce3b6f4053aba0a71af83323",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 13
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_f66f1f387eb3551dab465c12754983caaa5b107f164ace0c8a499aed0f57cae8",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 12
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_1e661181c1860829937a051ad5bf9e72e3c714e7004dc30054c7db7b31eac3c2",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_53a4a71b6090604856fc4b9e68a7210f7d0126c233f337dcc9394bc170a21da1",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 13
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_05db1444289e78d2d2af23bf33752ab61c5f77ca54c1d2f61370ea426ca6bd28",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_458f03fb6fbdc66841c5879d047ea5faedebb6f8c28bce318f7de90eb530b25d",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 13
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_d7498ced7362387f633f059c3f95d6f2f5efa1b7ef9f7183af759833770fc795",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_3864693835af9487a17f38d434a22e59f536c14b5a844519a932e12f98d840ae",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_3df7fdff8f2a2abeb2de1d2423da829520db5ff0b3f900ae7124e6dd665fc5d1",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 12
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_5084697ae3a04e9d782d01e82d973b1fd10a94fc598b79d978f797dc025d4dde",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 12
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_d2f523a05570a436bbf6f1040a1c57684f2881493a08f31d7c5d9213c9ac0867",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 13
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_1adef2e332320c600b725ded5e0c77e6b4c50d69d269e1c82bfea877c707ec65",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_4ed5028dbc180a970103a9738575e7780d559f27bb279e08e9cac306d4be029c",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_35d6a53715d3600deed1e75193858cf87d85bb5d07cd9a8860b8c8a10035f79d",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 13
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_baa13ac5529adf51eab6c23942c0d9291ba747af767a13e8eee0030e4f247e0b",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 12
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_8af1df91b035a92bf2b15a6c9645515020ed764ffd3b418cbc14936b08991d81",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 13
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_e111bcd908a245a200907c0bc445188aa787bb8c2d391292328907cfda84125c",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 13
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_feab2d84c5bf7ee0785f8800c54fe93e0de325569642aaccd6bc12af8631182e",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_f3bf39cc82eedffc47520487f35dfd2101c479b44e06d6908a4d02a48b057834",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 13
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_6d643c7a150522cdea953835171de90a8ad0209722ca1b2141a21fa882ad8630",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 12
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_90230ac93e0c80fb9391ea199e8eeea7f9289f4feab28d6700eb872815a29aec",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_d8e282ff768fa2a681ff8bd8e27ba12460891f514479c6d36fbc5c102b7b64c8",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 12
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_45a81c209f21ad99b99be80724de9865ac34694380678ce25e58e64da0c5d115",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 12
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_ed9c086038696d25dc87a7acbb2c745abdae3c9d2d5b29a2423441602d3cc82f",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 12
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_1b35f83d8376b6e69f4f383efb9af92a8a04242bd02964852aebdfc5a8a9349a",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 12
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_3ed6aef986c9318d07d3fe16ad6da5c253b04923719e736f956dad864cc064e4",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 12
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_949c555fc56552dde23c266f9f9ed6b06bca43dc0e64ec10257a643b118e7582",
+      "label": "TP",
+      "reason": "This line imports the claimed target into the source module.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 13
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_be7fd70eb0cfe25b6fdd3e2dc504f521d624cd88c0bc5627abce34024a63520b",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 52
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_e26516c10d51a6585c70111f50488f05953a8f09676c3e5dcfad9f1364628df5",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 60
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_e89b267a60994c7b9c7db132e3060cc4eb1fb83b72ed2420906f7adcb8e1830f",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 60
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_7367c19649c9a926d378dbafcb9c6868a36b5dfaef6b8020cf63129f53457576",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 56
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_5f3b81572d174e2c3b8abd60f07c8830b641aa8f8fef40e1059191428e21a0f8",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 64
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_3035b01baee61ba26c784fde4d6381af16b45edbb1cb5a357b04fa4807bdfd77",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 56
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_e49acbcca2c4d789b4cfc141038717e8db0082671629f30dc9870b450ed73a02",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 52
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_29cfe0eecabc93968932412b6e51d166875d6a2cc9e0d192ff19b47fcfec1cce",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 60
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_a768de8491736aa4fde95be0b2c8b57ca945b17b9baea4455ad8d9597d338d14",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 60
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_03cb83e5aa6699bdf141490181af35522006df2e987797197e3d06d592db9c96",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 60
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_69789386c420856a27aa92cc2bde37b97a8e6d72d703667287816a41446a3daf",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 56
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_d32bbb0986620ebb45f43617ccd0ac72a05ea7fb0a2bc9cd11084fbd0b5a9155",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 64
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_4c473610e6d3616279fbb1a3e8b90aa2563f08379fe1f378dba25b60c0d9439c",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 60
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_5dc029c7bc79022b9fe10ad2da89900f606464bca7b4ac0c754580b4dba63b88",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 52
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_a59c993ed86285018c62834a1a65a09f91e5d176039168aaca9dc6f79f9b569b",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 56
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_72108742f1995dded589c4ac4518e297e8df6221ef55dbfa852ece191a7ffb11",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 64
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_0a56d83fcae007b6528e4d13e900fea285904b88655daa078e2191fef0fcb547",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 56
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_5200552cfba85ea2c8cecc9ce22c5d8fe8e27b3cf39706020874af88f08923ea",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 60
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_1841cd358f9d465a41800a2a63ae740b79f469c3b9437d72455ac307f1b37435",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 52
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_2ec33c7e5792e5a93359e769041e326d6242f4169eeeff5238d904dc6e1f5805",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 52
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_f0e9dddc5ce8a06e06d131ddb736f532abc0b820536d9d9f30be1790f8e2e5aa",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 52
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_cc36b9ae55732c22649586b1d2701a107d101baf01d094da2658225ce73e8a89",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 60
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_9112cab39fa80af808d921beefc5e0708153d81b719ab63b648e95d28adf4702",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 64
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_68c624b87b9e16eacc7414c2d523b5aa54e911104456ec2685a98155c99bda04",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 52
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_5ba0300dcefc362b1ac943e7c0e655c595d66c80ed08af5cb1c1784bd77fb730",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 56
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_76df57b4fcadca12365bc7c99bc7944c97f8a7be96f848342a88dea9ae32f017",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 60
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_d65de939c354888003b0e710fe34446cce9c450c5b2d1fbdb06cd86f7c0f3b9d",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 64
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_aa89a83e40d60c889902f37e5cd8f3b8690a06dec1cf0aa6098908dc8dc04408",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 56
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_de2d69cceab08392e260900185aec66aa0339d0c62d72c482f63c215ab630f36",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 52
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_12ee7be86c95701918bdcf9074d2a51ba4eefdf11e61dd1b68d0e9d06660f080",
+      "label": "TP",
+      "reason": "This line calls the claimed target from the source callable.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 64
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_a6dbdd613a0366e60bbebb4dde0e63913e82a0a245ca15c9257152517ab388b2",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 84
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_ed649966f9a0bb490de2f06405bbf4016bcfab5425c0019fc21cea3b269e38ad",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 88
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_f78a3076a335644db4d5d6f6a8ca131e81e5bba77ab91015916238c2a60d38fa",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 88
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_727df5ad786ac12c72de1f1eb42265a71240a30f27c4b90f4ce31bddd6d96d16",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 88
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_4cf9c4e1606d935e4ad47e4018fd2a2565cba6d2b45974e97a2c1c525353a961",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 92
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_2c80432b56576b3ba81f123d6083e951bab12c1e6ad2f346f65924b0c7694d6b",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 84
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_f0ba972e32846335a7c1a90de590f13991f539a2c9694dda5f4ff55c76b922d9",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 84
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_13d38f166ce28d89e3f02745c7e8f9b9785239d55d2132ae8c49af2cfd0d7d3e",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 92
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_a4fc8396ffeeff6dc725d28520290279b4f42de0065a4637c8636b03cfeda3d0",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 92
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_026f54f9e64e4dadc78a902c51402f2bc8438072425ed13b322fe21a1719f3f5",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 80
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_64cf27aa087ff92781f4bcf0342d7bd3f121cbdc2ff76158b36aaa28fd71a212",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 80
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_d5cad1cdc9d102499fd833e68d3219e335444b8cb0162efdcd2314139347adcc",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 92
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_3650d9b11530ddb10bafbc3c2ecc99d6875c4eb5496dc9448728b47c4cd64f09",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 80
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_4c865869aece2b202071ad8cdf47fe37235d07abf75b4c0ca0f975892b904372",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 88
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_98978d7d6c7d90e532292e6075f37305d90b3227d38e59f48ca3c1b79f1f283d",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 80
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_6bdabaf16fd387323e6341179039add4fb3dd72cc881f91622712568ccf5e9ea",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 84
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_040ab6af4b32b368a91d5889636828421af09439062bb05825a8c093d06b2171",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 80
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_3f8eaa2aa51068a16e260aaadb710956cfd97dda71cf8ad455a700dfc6ddab60",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 84
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_12cb97bca250f7c4a94850892f969bd376246ebeced86a6d63c5756b1847c362",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 92
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_18f737b2fb9b2096940cd1a7571840c576030e1bdb9be897203fb81c3dae549d",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 92
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_fa2f7f86e2a884a2e5f50b1a19c245c31a7d60242afb119dc304fa4118ea748b",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 84
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_b03380fe777b06251a3bc3f385bc60342d5e678ba0a3a61cfab338df30b39d85",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 80
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_8b171c8be0ace8de1cf87d25a566688870ae46b727f7c1ffe88b9dfa49504656",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 84
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_588a9582bfd75b2341af57005ddecf735b67258098cf0539e85d6049ccb02706",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 80
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_429b8cd28629d2d3d7ada07b3ae80591570c0b031538c168e6e5e387b5d91534",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 80
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_80c5197d108bb1f2a1b1c92dca4ba0bcc53256facc00999d3dd3d6ffa155e69a",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 88
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_d9081717a6d603733a3957e68efe651c3200a12e8097c10fa1a9f81d2c85d21d",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 80
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_a5169453cf720562ea581fe9e864c161061ca9d997e74ef46d524278faae28cd",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 88
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_e3759c15955d76935ec39995061066cc88d3705168dcd540435b78e7c63a81b5",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 88
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_0f1210ac31b2317c97de7faf3f60ad8d6802a50145edf457a998ad1293666d71",
+      "label": "TP",
+      "reason": "This line binds the claimed callable with Depends on the source callable.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 92
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_ac5695380cd63bab53e28d1c915cd064abcf373348d751801e767a8b02d207d1",
+      "label": "TP",
+      "reason": "This line sets the claimed type table to the claimed resource.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_f7ba6870c0a78c7e64e9f3261890b2ca068d337d7fd8b58b93719bd54919ceeb",
+      "label": "TP",
+      "reason": "This line sets the claimed type table to the claimed resource.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_65da59bfc639475e97de0fba1f96437d8666ca4605dfa51b3a1de9d7074913ce",
+      "label": "TP",
+      "reason": "This line sets the claimed type table to the claimed resource.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_5701cc2c72f9fd269ff6aed81cb098d49d22528f2b31f366c69f46466c1d3cf0",
+      "label": "TP",
+      "reason": "This line sets the claimed type table to the claimed resource.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_3fb626ba6599389448a60c1ce0288ef3b3306e50096097e35d0a4245ac4328c2",
+      "label": "TP",
+      "reason": "This line sets the claimed type table to the claimed resource.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_a26591665c08b1661b85a696947713904c83e802d2fe3af1feea723158d6ac7e",
+      "label": "TP",
+      "reason": "This line sets the claimed type table to the claimed resource.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_08cda6a36fd9c6c9d7f09db6c3aebea4a0ffacec8d28b2fd0aaefa04f619616a",
+      "label": "TP",
+      "reason": "This line sets the claimed type table to the claimed resource.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_51a37a7025220f070905611257de0009cc4b7990e25e83d3350a4e2f5adf37f5",
+      "label": "TP",
+      "reason": "This line sets the claimed type table to the claimed resource.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_c51413576ca4b5f4c6aa69e1daa5cc297b8bfddc9c98166f9643ddafc51f6155",
+      "label": "TP",
+      "reason": "This line sets the claimed type table to the claimed resource.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_1e8a57f745a498b6a65ec4588486b145e9acaf7269e56e98e9f2ce87bb8e8b27",
+      "label": "TP",
+      "reason": "This line sets the claimed type table to the claimed resource.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 17
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_e722271b70f1cb3ec5d5a1e3fa45ad9fb4305bec0550cd9397a65357723f0c6e",
+      "label": "TP",
+      "reason": "This line selects the model mapped to the claimed table inside the source reader.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 44
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_f167a2e27904bb8b1fbf0392f756d21c0f5038a2fcb64cf2ef8ab1f96bdfd7a3",
+      "label": "TP",
+      "reason": "This line selects the model mapped to the claimed table inside the source reader.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 44
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_c7d71c8f39af990922eb8a515589ddab5d11b13e367098220eb483bca709fe07",
+      "label": "TP",
+      "reason": "This line selects the model mapped to the claimed table inside the source reader.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 44
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_bf12d93b040cdbbdc5d394348f52d14f59bc757c9a5624f3ae61d8d72f529247",
+      "label": "TP",
+      "reason": "This line selects the model mapped to the claimed table inside the source reader.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 44
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_7fedfffed417e4898568cc4cc19f5273578db9297f7360566672380d00a4c6bf",
+      "label": "TP",
+      "reason": "This line selects the model mapped to the claimed table inside the source reader.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 44
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_e2b81dff1f591402ff5a1bca38d5990cb19e78824efc902f3bd147a4f3e8cc8e",
+      "label": "TP",
+      "reason": "This line selects the model mapped to the claimed table inside the source reader.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 44
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_47e28e68660fe8f60c9c17caa453c3ebc5b9f6f7859cf3470f76e9b5875ed12f",
+      "label": "TP",
+      "reason": "This line selects the model mapped to the claimed table inside the source reader.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 44
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_b47d138458bfd3c343b6e6313511d0bc89116fc3a818f005a9dc2f141d28eaf6",
+      "label": "TP",
+      "reason": "This line selects the model mapped to the claimed table inside the source reader.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 44
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_ee56b885ee1ea078d5de1bfe119bef786f0f6a94b38d12ac6fb44ffd44955e1c",
+      "label": "TP",
+      "reason": "This line selects the model mapped to the claimed table inside the source reader.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 44
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_6970d429d2411ede012fa5a743845d289f0ce36b9be73e2ff6bfa1fe5e23bbdc",
+      "label": "TP",
+      "reason": "This line selects the model mapped to the claimed table inside the source reader.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 44
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_ac5b591e0c3a7bc8e7e1cc7c251ff8c0467809331fd110ec69201a71e0b00b5e",
+      "label": "TP",
+      "reason": "This line adds the model mapped to the claimed table inside the source writer.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 48
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_daeb0dafe2002b0bc49d0a67452f3e0ecb960416e5f378406dc6c830f479006f",
+      "label": "TP",
+      "reason": "This line adds the model mapped to the claimed table inside the source writer.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 48
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_8e8c14396c13494ccad75f4e4ed09a1bf83382ec3294fbe05db70c093bcea88d",
+      "label": "TP",
+      "reason": "This line adds the model mapped to the claimed table inside the source writer.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 48
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_7eac6277dd0b3213c384b966f98e0453d434f3d2ec990cdb29a00dfb27258b2c",
+      "label": "TP",
+      "reason": "This line adds the model mapped to the claimed table inside the source writer.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 48
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_7314ffa444b8b7be63f05e82f1327125fbee49461cc7e56a2c728695bb672421",
+      "label": "TP",
+      "reason": "This line adds the model mapped to the claimed table inside the source writer.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 48
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_9c29f9296e4ee53fb0a1495c102cd2d9b4b369e6c31401be402a354739c4c973",
+      "label": "TP",
+      "reason": "This line adds the model mapped to the claimed table inside the source writer.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 48
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_33890524edbebb11ae4ae23bbc57f769478dcaab05f30b923c92b407dc353fea",
+      "label": "TP",
+      "reason": "This line adds the model mapped to the claimed table inside the source writer.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 48
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_76b1b1371243a2118ef8830358db20ddd5ed8a3420869f8dbc2eb16aad100581",
+      "label": "TP",
+      "reason": "This line adds the model mapped to the claimed table inside the source writer.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 48
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_d0c2fd02f29aa45508e639317ee44365c3f1e7416c286baa418fc2b7a80a7f97",
+      "label": "TP",
+      "reason": "This line adds the model mapped to the claimed table inside the source writer.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 48
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_5534bcef95a849bdbd4012020d2410548b56773eaf46654aa9299cab3131ad31",
+      "label": "TP",
+      "reason": "This line adds the model mapped to the claimed table inside the source writer.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 48
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_f2367dea3eacf03cdf88415017171305eee8521f77f3c5f4c8998d2cc865693c",
+      "label": "TP",
+      "reason": "This line publishes the claimed topic from the source callable.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 68
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_fe29c3ea92a2bfed6d336ba053a991370683ac0926291d023e81e9064f62aa14",
+      "label": "TP",
+      "reason": "This line publishes the claimed topic from the source callable.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 68
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_c651ba3b59d83970cee44df8f0c5dd7132ac6277b577e9f71b9328c91a5da918",
+      "label": "TP",
+      "reason": "This line publishes the claimed topic from the source callable.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 68
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_b9bbb55d243ce0014b2d3a59e324bd6c1b6b108662f3a0d3c30e0831e4fb7440",
+      "label": "TP",
+      "reason": "This line publishes the claimed topic from the source callable.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 68
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_7a19a61d1aaaeb31710690019a305694bcb0b3502b01bf42eabc02267155f34c",
+      "label": "TP",
+      "reason": "This line publishes the claimed topic from the source callable.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 68
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_ed1042d071f5f0a4d53cb0446f3bf74f157b8fbc9c38ee8fe9b6051644535839",
+      "label": "TP",
+      "reason": "This line publishes the claimed topic from the source callable.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 68
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_4ff11cb053d3848fee03fe5987608e85ce635b8059c9d4caa2a909a520fd97d3",
+      "label": "TP",
+      "reason": "This line publishes the claimed topic from the source callable.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 68
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_ad4e68a4aec19a037c018a5af253b22de27204d63a2fbb226d8bd944c8cc18d3",
+      "label": "TP",
+      "reason": "This line publishes the claimed topic from the source callable.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 68
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_f75bd6d33d06a653fe462d67d94bf1b83decd77b1bd81b0abae7ad53f84c66c4",
+      "label": "TP",
+      "reason": "This line publishes the claimed topic from the source callable.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 68
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_5d9e12b449e680d797c79448b4e2c6fb7349a9e6fc207cbcbea9fa687193e014",
+      "label": "TP",
+      "reason": "This line publishes the claimed topic from the source callable.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 68
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_a18e9fbc921babc67774446e2ba3f01240ffd2baa86017fcd544f633c681c25e",
+      "label": "TP",
+      "reason": "This line subscribes the source callable to the claimed topic.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 72
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_ae47c2297f8b3c9ae0d35cb23eaf327dce05bf5af274d3330ecb4ecc0c8f9af8",
+      "label": "TP",
+      "reason": "This line subscribes the source callable to the claimed topic.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 72
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_895400796a64c31e4f6ce9fa36d1def7d32afbdb54a57e3ca682fcc91de767f2",
+      "label": "TP",
+      "reason": "This line subscribes the source callable to the claimed topic.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 72
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_73ee6979b727d41953add06ae00cb926fefc04a91c27543aabd70b513ad97704",
+      "label": "TP",
+      "reason": "This line subscribes the source callable to the claimed topic.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 72
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_534ee9ae67ee8ae2b7ac6aed4a3a7f169816bc2128022799f7ce10791579a39f",
+      "label": "TP",
+      "reason": "This line subscribes the source callable to the claimed topic.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 72
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_9f9240ba654afe8af7ff805772f5558db0b05bf285f4e033b5f7341c14302dc9",
+      "label": "TP",
+      "reason": "This line subscribes the source callable to the claimed topic.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 72
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_350efdee18ccd352898c65d6b48a36429381376d30c313a3a63a20c1f2352889",
+      "label": "TP",
+      "reason": "This line subscribes the source callable to the claimed topic.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 72
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_5ff2cfeb059faf4ec7c1ec0cb8ddd7cec9ceecd95bec0ad8336138e75dd5cc99",
+      "label": "TP",
+      "reason": "This line subscribes the source callable to the claimed topic.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 72
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_ad1ecc6289d8a3a73d53cbdce3ec4b159fcbefdbc6f7311a83f0464413fc563f",
+      "label": "TP",
+      "reason": "This line subscribes the source callable to the claimed topic.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 72
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_42f62c6f964e4747be4b893db3cb76d0c630fa5f30289fffe701104fbfed848f",
+      "label": "TP",
+      "reason": "This line subscribes the source callable to the claimed topic.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 72
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_c15f20fdff74040ba26ed79589d9ba810077b15c59e9223c77c812f1b57fa390",
+      "label": "TP",
+      "reason": "This line reads the claimed environment key inside the source loader.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 77
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_e8e044bc6627b26c9b432220dacd0e8a6e6282da0812d8b7a2b7101b8c7c8097",
+      "label": "TP",
+      "reason": "This line reads the claimed environment key inside the source loader.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 77
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_81b4886c20346abe239c28931968192ff8621b4fd37109f391b3bbdb6f35a261",
+      "label": "TP",
+      "reason": "This line reads the claimed environment key inside the source loader.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 77
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_7cf39b87024ca0e7a89468b1ac26311ca6dbf7ee7d36d8c2c227751898f07b3e",
+      "label": "TP",
+      "reason": "This line reads the claimed environment key inside the source loader.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 77
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_5d0fbf70f65e4c43172992adb31f0a2babb79093208880732d83069fcabc4593",
+      "label": "TP",
+      "reason": "This line reads the claimed environment key inside the source loader.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 77
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_ad80bc3bceb8699f994efe7285fc62b437de9459ad85299f9e9e18eb54bdc18e",
+      "label": "TP",
+      "reason": "This line reads the claimed environment key inside the source loader.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 77
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_02c834c5348ef294732acb2c513cfa36ef39f21e152183c73db422aa75168749",
+      "label": "TP",
+      "reason": "This line reads the claimed environment key inside the source loader.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 77
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_7612bd2bd0089fd32b76113c47f3d36a5248894d0a2a882c4222c106ae9f5ae2",
+      "label": "TP",
+      "reason": "This line reads the claimed environment key inside the source loader.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 77
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_d4094f68cbff9c614da6d5c91fc1c668cbc90173ff0c4b922f53cc73a83610e7",
+      "label": "TP",
+      "reason": "This line reads the claimed environment key inside the source loader.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 77
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_4e718ff940b2a6db6878cc40979bec81ac6c2792faa0f73c8ff428bb55b9a20f",
+      "label": "TP",
+      "reason": "This line reads the claimed environment key inside the source loader.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 77
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_9e91865dee534025edcbb9ceae20678ff6a6baf2c298d2715de8b6437eb6f869",
+      "label": "TP",
+      "reason": "This line declares the claimed type implementing the claimed base.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 26
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_e80ab97492225a0b384362bc8c6e0e85417fde954359e133a3614c79927dc6f0",
+      "label": "TP",
+      "reason": "This line declares the claimed type implementing the claimed base.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 26
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_748d9742fd5f99ddd8a65e08293bf31607657f78b564f19a979419e81ac72bca",
+      "label": "TP",
+      "reason": "This line declares the claimed type implementing the claimed base.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 26
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_468ed3c530979ec7ac9aafff29eaca4c375cec14bc57a34e2bc0338865adcd88",
+      "label": "TP",
+      "reason": "This line declares the claimed type implementing the claimed base.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 26
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_2dc6fa15fae1960a5ea0bc76fb7621e19a940331c2640b585703a3af8bec97b0",
+      "label": "TP",
+      "reason": "This line declares the claimed type implementing the claimed base.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 26
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_983a8ae32ede232be9cd7626f9a21f0314fc80b6dc91c9d174b74d3652dd8dcd",
+      "label": "TP",
+      "reason": "This line declares the claimed type implementing the claimed base.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 26
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_0200c2ade3b26528165c86c054b6cfaa75cfaa6754647883287500b18a951da3",
+      "label": "TP",
+      "reason": "This line declares the claimed type implementing the claimed base.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 26
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_45818794bc6de23666102fedc4652eb1b5915cf9beb4764a32874bfc7fd3b89c",
+      "label": "TP",
+      "reason": "This line declares the claimed type implementing the claimed base.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 26
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_daec9dc33e1a2b43e44f79c58e0d37cd22810c8dd84c047442e1c1cad65d3776",
+      "label": "TP",
+      "reason": "This line declares the claimed type implementing the claimed base.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 26
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_2cce7fcc99bf75a7c2a20ecffb69970d06f535b31653d17167d7f68770d08d8d",
+      "label": "TP",
+      "reason": "This line declares the claimed type implementing the claimed base.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 26
+    }
+  ]
+}

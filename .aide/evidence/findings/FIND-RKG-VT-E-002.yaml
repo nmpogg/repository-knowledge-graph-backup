@@ -1,0 +1,43 @@
+---
+key: FIND-RKG-VT-E-002
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: minor
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-046
+story_key: STORY-RKG-024
+captured_at: '2026-10-08'
+disposition: accept
+route: TEST-RKG-GO-KAFKA-PGX-001
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [TEST-RKG-GO-KAFKA-PGX-001]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-VT-E-002 — TEST still describes the pre-remediation AC-RKG-007 sentence
+
+## Summary
+
+`TASK-RKG-046` revision 4 states the AC-RKG-007 contract: relative `file_path`,
+null `rule_id` and `start_line`, census match on type, qualified name,
+required attributes, and edge endpoints only, null oracle `rule_id` not
+checked, and `validate_fact_batch` rejecting a non-relative entity path.
+`TEST-RKG-GO-KAFKA-PGX-001` still says the suites disagree on AC-RKG-007 path
+equality and that the row is narrower than a task sentence treating
+AC-RKG-007 as verified corpus-level evidence paths.
+
+## Decision
+
+Operator ACCEPT 2026-10-08. Remediation is a new evidence file. Do not rewrite
+`TEST-RKG-GO-KAFKA-PGX-001`. Its `captured_against` task revision 3 stays
+capture history.
+
+## Remediation
+
+- done: AUTHOR wrote `TEST-RKG-GO-KAFKA-PGX-001-r2`. TASK-RKG-046 is revision
+  5. Disposition ACCEPT unchanged. REVIEWER confirmed 2026-10-08.

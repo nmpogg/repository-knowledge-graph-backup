@@ -1,0 +1,241 @@
+{
+  "fixture_id": "rkg-fixture-bullmq-worker",
+  "oracle_source": "repo-test/rkg-fixture-bullmq-worker/README.md",
+  "notes": [
+    "rule_id is null wherever README does not name a versioned extraction rule",
+    "MessageChannel identities are the static queue names from README",
+    "Scheduled cleanup job must not be converted into an HTTP Endpoint",
+    "Redis URL, payloads, retry bodies, emails, and secrets are not graph facts",
+    "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": true
+  },
+  "allowlist": [],
+  "entities": [
+    {
+      "type": "MessageChannel",
+      "qualified_name": "order-processing",
+      "required_attributes": {"name": "order-processing"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/queues/names.ts", "start_line": null}]
+    },
+    {
+      "type": "MessageChannel",
+      "qualified_name": "order-email",
+      "required_attributes": {"name": "order-email"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/queues/emailQueue.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.queues.orderQueue.createOrderQueue",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/queues/orderQueue.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.queues.emailQueue.createEmailQueue",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/queues/emailQueue.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.producers.orderProducer.OrderProducer.enqueue",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/producers/orderProducer.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.producers.emailProducer.enqueueOrderEmail",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/producers/emailProducer.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.workers.orderWorker.createOrderWorker",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/workers/orderWorker.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.workers.emailWorker.createEmailWorker",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/workers/emailWorker.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.analysis-cases.positive.typedWorkerFactory.createTypedWorker",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/analysis-cases/positive/typedWorkerFactory.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.workers.cleanupScheduler.createCleanupScheduler",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/workers/cleanupScheduler.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.workers.orderWorker.processOrderJob",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/workers/orderWorker.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.services.orderService.OrderService.processOrder",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/orderService.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.repositories.inMemoryOrderRepository.InMemoryOrderRepository.save",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/repositories/inMemoryOrderRepository.ts", "start_line": null}],
+      "note": "concrete unique implementer of OrderRepository.save"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.workers.emailWorker.processEmailJob",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/workers/emailWorker.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.services.emailService.EmailService.sendOrderEmail",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/emailService.ts", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:REDIS_URL",
+      "required_attributes": {"kind": "environment"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/config/environment.ts", "start_line": null}],
+      "note": "key name only"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:ORDER_WORKER_CONCURRENCY",
+      "required_attributes": {"kind": "environment"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/config/environment.ts", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:EMAIL_FROM",
+      "required_attributes": {"kind": "environment"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/config/environment.ts", "start_line": null}]
+    }
+  ],
+  "edges": [
+    {
+      "type": "publishes",
+      "source": "src.producers.orderProducer.OrderProducer.enqueue",
+      "target": "order-processing",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/producers/orderProducer.ts", "start_line": null}],
+      "note": "job name process-order"
+    },
+    {
+      "type": "publishes",
+      "source": "src.producers.emailProducer.enqueueOrderEmail",
+      "target": "order-email",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/producers/emailProducer.ts", "start_line": null}],
+      "note": "job name send-order-email"
+    },
+    {
+      "type": "consumes",
+      "source": "src.workers.orderWorker.createOrderWorker",
+      "target": "order-processing",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/workers/orderWorker.ts", "start_line": null}]
+    },
+    {
+      "type": "consumes",
+      "source": "src.workers.emailWorker.createEmailWorker",
+      "target": "order-email",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/workers/emailWorker.ts", "start_line": null}],
+      "note": "namedProcessor"
+    },
+    {
+      "type": "consumes",
+      "source": "src.analysis-cases.positive.typedWorkerFactory.createTypedWorker",
+      "target": "order-processing",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/analysis-cases/positive/typedWorkerFactory.ts", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "src.workers.orderWorker.processOrderJob",
+      "target": "src.services.orderService.OrderService.processOrder",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/workers/orderWorker.ts", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "src.services.orderService.OrderService.processOrder",
+      "target": "src.repositories.inMemoryOrderRepository.InMemoryOrderRepository.save",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/orderService.ts", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "src.workers.orderWorker.processOrderJob",
+      "target": "src.producers.emailProducer.enqueueOrderEmail",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/workers/orderWorker.ts", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "src.workers.emailWorker.processEmailJob",
+      "target": "src.services.emailService.EmailService.sendOrderEmail",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/workers/emailWorker.ts", "start_line": null}]
+    }
+  ],
+  "prohibited": [
+    {
+      "reason": "dynamic queue name must not invent a MessageChannel",
+      "edge": {
+        "type": "publishes",
+        "source_qualified_name_contains": "dynamicQueueName"
+      }
+    },
+    {
+      "reason": "reassigned worker must not create a consume edge",
+      "edge": {
+        "type": "consumes",
+        "source_qualified_name_contains": "reassignedWorker"
+      }
+    },
+    {
+      "reason": "LocalPublisher.publish is not a BullMQ publish edge",
+      "edge": {
+        "type": "publishes",
+        "source_qualified_name_contains": "unscopedPublish"
+      }
+    },
+    {
+      "reason": "shadowed local Queue/Worker must not create BullMQ channel edges",
+      "edge": {
+        "type": "publishes",
+        "source_qualified_name_contains": "shadowedBullmq"
+      }
+    },
+    {
+      "reason": "scheduled cleanup must not become an HTTP Endpoint",
+      "entity": {
+        "type": "Endpoint",
+        "qualified_name_contains": "cleanup"
+      }
+    },
+    {
+      "reason": "secret sentinel must never appear in facts or diagnostics",
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST"
+    }
+  ]
+}

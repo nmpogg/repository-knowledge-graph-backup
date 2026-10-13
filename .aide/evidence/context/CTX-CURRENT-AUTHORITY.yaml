@@ -1,0 +1,31 @@
+key: CTX-CURRENT-AUTHORITY
+type: context-snapshot
+group: evidence
+system: SYS-RKG
+captured_at: 2026-10-05
+task_key: none
+authority:
+  role: evidence-note
+  workflow_authority: false
+  closes_gates: false
+  overrides_approvals: false
+  baseline: BL-CHG-RKG-2026-001
+  baseline_status: candidate
+  minimum_status: not_approved
+  prior_baseline: BL-CHG-RKG-2026-001
+  prior_baseline_status: superseded
+  gates: pending
+  reject_if_treated_as_approval: true
+  baseline_revision: 3
+  prior_baseline_revision: 1
+captured_against:
+  change_set:
+    key: CHG-RKG-2026-001
+    revision: 27
+  baseline:
+    key: BL-CHG-RKG-2026-001
+    revision: 3
+  code_tree: d602426734c5ea37e07074bceca0e19d0de6b026
+record: The current task contexts pin Git implementation commits and the current artifact inputs. Original context snapshots
+  remain in each context revision_history. The current baseline is BL-CHG-RKG-2026-001 revision 3 (candidate); historical
+  names BL-r1/BL-r2 are not separate baseline files. No approval or independent review is implied.

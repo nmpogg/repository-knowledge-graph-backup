@@ -1,0 +1,28 @@
+type: context-snapshot
+key: CTX-TASK-RKG-046
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-046
+revision: 1
+implementation_date: '2026-10-08'
+change_set: CHG-RKG-2026-001
+provenance: go-stack-code-verify
+captured_against:
+  code_commit: 2d0af7204d89ea3944fbe507bc590744e45a5033
+  artifacts:
+  - key: TASK-RKG-046
+    path: lifecycle/tasks/TASK-RKG-046.md
+  - key: STORY-RKG-024
+    path: lifecycle/stories/STORY-RKG-024.md
+  - key: CMP-RKG-ANALYZER
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: REG-ADAPTER-001
+    path: registry/REG-ADAPTER-001.md
+  - key: CHG-RKG-2026-001
+    path: lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+notes:
+  - Three adapters implemented and registered (`rkg.go`, `rkg.kafka-go`, `rkg.pgx`).
+  - Story STORY-RKG-024 owns the Go + kafka-go + pgx stack.
+  - Deep-support promotion not closed; task remains in_progress.
+  - This lát is pytest verify (`test_go_stack.py`, `test_go_census.py`).

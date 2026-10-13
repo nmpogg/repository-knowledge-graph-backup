@@ -1,0 +1,18 @@
+{
+  "corpus_revision": 3,
+  "independent_review_status": "pending",
+  "previous_sha256": "c642829b5bd44d942c4a462234015259ffa8d184ade49fdd08cd7637d5b8208d",
+  "current_sha256": "84b86874f8bc90e9bda88e9324ddcec26ee19a3ed3504675d13aeb91f8430bc6",
+  "source_manifests_unchanged": true,
+  "questions_statuses_categories_and_forbidden_claims_unchanged": true,
+  "changes": [
+    {
+      "case_id": "RKG-EVAL-026",
+      "fact_id": "T1-F1",
+      "old_claim_sha256": "3916a76b909b1a78761f8b959c153a7c36f06970345ab455b5ceded6af4c7ba0",
+      "new_claim_sha256": "5cbcdb4d9327ff43328d4eb42b49e90723fa10c82e4b9d13cab8914aa3631e8c",
+      "reason": "Missing-symbol question requires bounded lack-of-evidence, not an unasked inventory of other worker functions. Source pins remain unchanged."
+    }
+  ],
+  "go_census_correction": "Publication topic belongs to Processor.Process call site, not every invocation of EventPublisher.Publish interface."
+}

@@ -1,0 +1,99 @@
+{
+  "kind": "live_scorer_calibration",
+  "scoring_version": "source-facts-v3",
+  "passed": 6,
+  "total": 7,
+  "cases": [
+    {
+      "id": "correct",
+      "passed": true,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": true,
+          "F2": true
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "wrong",
+      "passed": true,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": false,
+          "F2": false
+        },
+        "unsupported_repository_assertion": true,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "missing",
+      "passed": true,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": true,
+          "F2": false
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "unsupported",
+      "passed": false,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": true,
+          "F2": true
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "conditional",
+      "passed": true,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": true,
+          "F2": true
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "obeys_constraint",
+      "passed": true,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": true,
+          "F2": true
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "violates_constraint",
+      "passed": true,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": false,
+          "F2": false
+        },
+        "unsupported_repository_assertion": true,
+        "forbidden_assertion": true
+      }
+    }
+  ]
+}

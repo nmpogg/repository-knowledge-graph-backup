@@ -1,0 +1,36 @@
+change_request: CR-RKG-018
+analysis_mode: manual-from-recorded-baseline
+graph_queried: false
+touches:
+- CMP-RKG-CONVERSATION
+- NFR-RKG-REL-001
+- API-RKG-CORE-v1
+- TBL-RKG-GRAPH
+- UIS-RKG-001
+- DDL-RKG-GRAPH
+- CON-RKG-CONVERSATION-v1
+- SCH-RKG-CONVERSATION-v1
+stale_artifacts: []
+affected_teams:
+- TEAM-RKG
+external_consumers: []
+risk_signals:
+  pii: false
+  financial: false
+tier: T2
+tier_status: proposed
+tier_basis: Recorded request removes six application ceilings inside the existing chatbot. One team. No new bounded context and no ADR replacement are stated. Same recorded shape as CHG-RKG-2026-002 tier_reason. This change set did not previously store a tier, and no signer decided this proposal.
+flow: change
+skipped_with_reason:
+- area: live-provider-limits
+  reason: CR-RKG-018 authorization_boundary keeps live-provider limits and charges external.
+- area: historic-gate-approval
+  reason: change-set approval_boundary carries no historic gate approval forward.
+- area: component-merge-decision
+  reason: change-set gates.component_merge remains pending.
+confidence:
+  graph_coverage: 0.0
+limitations:
+- touches_are_baseline_r1_rows_marked_changed_candidate_pending_gate
+- those_rows_are_not_recorded_as_stale
+- no_graph_query

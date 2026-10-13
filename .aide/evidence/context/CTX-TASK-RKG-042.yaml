@@ -1,0 +1,25 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-042
+revision: 1
+implementation_date: '2026-10-06'
+provenance: red-phase-tdd-preparation
+captured_against:
+  code_tree: 86ecab6546384227d1901e24c8b8fbfc6c0e8527
+  artifacts:
+  - key: FR-RKG-002
+    path: requirements/fr/FR-RKG-002.md
+  - key: NFR-RKG-EXT-001
+    path: requirements/nfr/NFR-RKG-EXT-001.md
+  - key: REG-ADAPTER-001
+    path: registry/REG-ADAPTER-001.md
+  - key: OQ-RKG-007
+    path: lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-007.md
+  - key: TASK-RKG-042
+    path: lifecycle/tasks/TASK-RKG-042.md
+notes:
+  - RED phase only; no adapter modules under src/; tests import future paths.
+  - Oracle fixture: repo-test/rkg-fixture-react-ts (semantic inventory, no entity hash IDs).
+  - Absolute host paths and secrets must not appear in evidence or adapter diagnostics text.

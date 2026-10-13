@@ -1,0 +1,25 @@
+key: CR-RKG-004
+type: change-request
+group: evidence
+system: SYS-RKG
+captured_at: '2026-10-06'
+source: explicit_user_scope_approval
+request: approval luon
+change_set: CHG-RKG-2026-002
+signer:
+  name: PhongNM
+  roles:
+  - product-owner
+  - tech-lead
+  - qa-lead
+  identity_basis: user_provided
+  role_basis: explicit_user_confirmation
+approved_scope: FR-RKG-005 conversational usability requirements
+not_approved:
+- Architecture Gate
+- UIUX Gate
+- Contract Gate
+- runtime acceptance
+- full-MVP scope
+record_boundary: Approval instruction and normalized signer metadata only; no conversation
+  transcript retained.

@@ -1,0 +1,10 @@
+:root { font-family: system-ui, sans-serif; color: #172033; background: #f5f7fb; }
+body { margin: 0; }
+header { align-items: center; background: #172033; color: white; display: flex; justify-content: space-between; padding: 1rem 2rem; }
+nav { display: flex; gap: 1rem; }
+nav a { color: #cdd7ed; } nav a.active { color: white; }
+main { margin: 0 auto; max-width: 60rem; padding: 2rem; }
+li { margin: .65rem 0; } form { display: grid; gap: 1rem; max-width: 28rem; }
+label { display: grid; gap: .35rem; } input, select, button { font: inherit; padding: .55rem; }
+.status { border-radius: 999px; background: #dce5f5; padding: .15rem .55rem; }
+.status--SHIPPED { background: #cef3dc; } .status--cancelled { background: #ffd5d5; }

@@ -1,0 +1,286 @@
+{
+  "key": "TEST-RKG-KPI002-S1-002",
+  "type": "test-evidence",
+  "role": "S1",
+  "sources": [
+    "TEST-RKG-KPI002-P0-002",
+    "TEST-RKG-KPI002-X1-002",
+    "TEST-RKG-PERF-X2-002"
+  ],
+  "decision_state": "awaiting_owner",
+  "owner_adjudication_filled": false,
+  "acceptance_evidence_written": false,
+  "marked_pass": false,
+  "digest_expected": "a094fc7b39def8636e2b73766d80510c4f4b917ea1da5a6e93e22619ef237417",
+  "digest_actual": "a094fc7b39def8636e2b73766d80510c4f4b917ea1da5a6e93e22619ef237417",
+  "digest_match": true,
+  "edge_id_lock_sha256": "5093255910c0c223fc80751f723efce06db6b78e12e0f659ab669ac9252bec77",
+  "lock_unchanged": true,
+  "groups": {
+    "imports": {
+      "population": 36,
+      "sample": 30,
+      "consensus_tp": 0,
+      "consensus_fp": 30,
+      "disagreement_count": 0,
+      "provisional_precision": 0.0,
+      "status": "measured"
+    },
+    "calls": {
+      "population": 48,
+      "sample": 30,
+      "consensus_tp": 0,
+      "consensus_fp": 30,
+      "disagreement_count": 0,
+      "provisional_precision": 0.0,
+      "status": "measured"
+    },
+    "di": {
+      "population": 48,
+      "sample": 30,
+      "consensus_tp": 0,
+      "consensus_fp": 30,
+      "disagreement_count": 0,
+      "provisional_precision": 0.0,
+      "status": "measured"
+    },
+    "db_maps_to": {
+      "population": 12,
+      "sample": 10,
+      "consensus_tp": 0,
+      "consensus_fp": 10,
+      "disagreement_count": 0,
+      "provisional_precision": 0.0,
+      "status": "measured"
+    },
+    "db_reads": {
+      "population": 12,
+      "sample": 10,
+      "consensus_tp": 0,
+      "consensus_fp": 10,
+      "disagreement_count": 0,
+      "provisional_precision": 0.0,
+      "status": "measured"
+    },
+    "db_writes": {
+      "population": 12,
+      "sample": 10,
+      "consensus_tp": 0,
+      "consensus_fp": 10,
+      "disagreement_count": 0,
+      "provisional_precision": 0.0,
+      "status": "measured"
+    },
+    "event_publishes": {
+      "population": 12,
+      "sample": 10,
+      "consensus_tp": 0,
+      "consensus_fp": 10,
+      "disagreement_count": 0,
+      "provisional_precision": 0.0,
+      "status": "measured"
+    },
+    "event_consumes": {
+      "population": 12,
+      "sample": 10,
+      "consensus_tp": 0,
+      "consensus_fp": 10,
+      "disagreement_count": 0,
+      "provisional_precision": 0.0,
+      "status": "measured"
+    },
+    "config": {
+      "population": 12,
+      "sample": 10,
+      "consensus_tp": 0,
+      "consensus_fp": 10,
+      "disagreement_count": 0,
+      "provisional_precision": 0.0,
+      "status": "measured"
+    },
+    "implements": {
+      "population": 12,
+      "sample": 10,
+      "consensus_tp": 0,
+      "consensus_fp": 10,
+      "disagreement_count": 0,
+      "provisional_precision": 0.0,
+      "status": "measured"
+    }
+  },
+  "disagreements": [],
+  "host_eligible": true,
+  "pilot_file_count": 15,
+  "pilot_sloc": 629,
+  "pilot_under_size_ceiling": true,
+  "size_ceiling": {
+    "files": 500,
+    "sloc": 50000
+  },
+  "limitation": "The pilot is under the 500-file and 50000-SLOC ceiling (15 files, 629 SLOC). That does not flip a numeric threshold. These runs are not a full-size acceptance.",
+  "runs": [
+    {
+      "key": "TEST-RKG-PERF-002-RUN1",
+      "captured_at": "2026-10-08T08:36:42.652990+00:00",
+      "pilot_tree_sha256": "a094fc7b39def8636e2b73766d80510c4f4b917ea1da5a6e93e22619ef237417",
+      "digest_match": true,
+      "machine": {
+        "os": "Windows",
+        "architecture": "AMD64",
+        "cpu_logical": 14,
+        "physical_memory_gib": 15.44,
+        "python": "3.12.14",
+        "kuzu": "0.11.3"
+      },
+      "scan_duration_ms": 1078,
+      "scan_peak_mib": 394.18,
+      "scan_ram_field_used": "scan.process_peak_working_set_mib",
+      "process_peak_after_queries_mib": 1560.59,
+      "search_p95_ms": 14.293,
+      "subgraph_p95_ms": 71.304,
+      "context_p95_ms": 124.34,
+      "sample_counts": {
+        "search": 100,
+        "subgraph": 100,
+        "context": 100
+      },
+      "method": "in-process FastAPI TestClient, 5 warm-up, 100 sequential",
+      "context_limits": {
+        "depth": 6,
+        "max_nodes": 200,
+        "max_edges": 400,
+        "max_chars": 50000
+      },
+      "entity_total": 308,
+      "edge_total": 524,
+      "llm_mixed": false,
+      "thresholds": {
+        "digest": "pass",
+        "full_scan_wall_time": "pass",
+        "scan_peak_ram": "pass",
+        "search_p95": "pass",
+        "subgraph_p95": "pass",
+        "context_p95": "pass",
+        "method": "pass",
+        "context_budget": "pass",
+        "llm_not_mixed": "pass"
+      }
+    },
+    {
+      "key": "TEST-RKG-PERF-002-RUN2",
+      "captured_at": "2026-10-08T08:37:17.057219+00:00",
+      "pilot_tree_sha256": "a094fc7b39def8636e2b73766d80510c4f4b917ea1da5a6e93e22619ef237417",
+      "digest_match": true,
+      "machine": {
+        "os": "Windows",
+        "architecture": "AMD64",
+        "cpu_logical": 14,
+        "physical_memory_gib": 15.44,
+        "python": "3.12.14",
+        "kuzu": "0.11.3"
+      },
+      "scan_duration_ms": 1031,
+      "scan_peak_mib": 392.09,
+      "scan_ram_field_used": "scan.process_peak_working_set_mib",
+      "process_peak_after_queries_mib": 1582.83,
+      "search_p95_ms": 17.721,
+      "subgraph_p95_ms": 91.183,
+      "context_p95_ms": 179.038,
+      "sample_counts": {
+        "search": 100,
+        "subgraph": 100,
+        "context": 100
+      },
+      "method": "in-process FastAPI TestClient, 5 warm-up, 100 sequential",
+      "context_limits": {
+        "depth": 6,
+        "max_nodes": 200,
+        "max_edges": 400,
+        "max_chars": 50000
+      },
+      "entity_total": 308,
+      "edge_total": 524,
+      "llm_mixed": false,
+      "thresholds": {
+        "digest": "pass",
+        "full_scan_wall_time": "pass",
+        "scan_peak_ram": "pass",
+        "search_p95": "pass",
+        "subgraph_p95": "pass",
+        "context_p95": "pass",
+        "method": "pass",
+        "context_budget": "pass",
+        "llm_not_mixed": "pass"
+      }
+    }
+  ],
+  "metrics": {
+    "digest": {
+      "rule": "pilot_tree_sha256 equals a094fc7b39def8636e2b73766d80510c4f4b917ea1da5a6e93e22619ef237417",
+      "run1": "pass",
+      "run2": "pass",
+      "pair_result": "pass"
+    },
+    "full_scan_wall_time": {
+      "threshold": "<= 60000 ms",
+      "run1_ms": 1078,
+      "run2_ms": 1031,
+      "run1": "pass",
+      "run2": "pass",
+      "pair_result": "pass"
+    },
+    "scan_peak_ram": {
+      "threshold": "<= 1024 MiB",
+      "field": "scan.process_peak_working_set_mib",
+      "run1_mib": 394.18,
+      "run2_mib": 392.09,
+      "run1": "pass",
+      "run2": "pass",
+      "scan_ram_fault": false,
+      "pair_result": "pass"
+    },
+    "search_p95": {
+      "threshold": "< 500 ms",
+      "run1_ms": 14.293,
+      "run2_ms": 17.721,
+      "run1": "pass",
+      "run2": "pass",
+      "pair_result": "pass"
+    },
+    "subgraph_p95": {
+      "threshold": "< 500 ms",
+      "run1_ms": 71.304,
+      "run2_ms": 91.183,
+      "run1": "pass",
+      "run2": "pass",
+      "pair_result": "pass"
+    },
+    "context_p95": {
+      "threshold": "< 500 ms",
+      "run1_ms": 124.34,
+      "run2_ms": 179.038,
+      "run1": "pass",
+      "run2": "pass",
+      "pair_result": "pass"
+    },
+    "method": {
+      "threshold": "5 warm-up then 100 sequential requests",
+      "run1": "pass",
+      "run2": "pass",
+      "pair_result": "pass"
+    },
+    "context_budget": {
+      "threshold": "depth 6, max_nodes 200, max_edges 400, max_chars 50000",
+      "run1": "pass",
+      "run2": "pass",
+      "pair_result": "pass"
+    },
+    "llm_not_mixed": {
+      "threshold": "no LLM timing folded into scan or query latency",
+      "run1": "pass",
+      "run2": "pass",
+      "llm_mixed": false,
+      "pair_result": "pass"
+    }
+  }
+}

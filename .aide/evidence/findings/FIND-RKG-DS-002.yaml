@@ -1,0 +1,40 @@
+---
+key: FIND-RKG-DS-002
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: minor
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-046
+captured_at: '2026-10-08'
+disposition: accept
+route: REV-RKG-STACK-SUPPORT-001
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [REV-RKG-STACK-SUPPORT-001]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-DS-002 — TASK-RKG-046 withhold line uses the old AC-RKG-007 phrase
+
+## Summary
+
+The TASK-RKG-046 bullet says AC-RKG-007 is not verified corpus-level evidence
+paths. `TEST-RKG-GO-KAFKA-PGX-001-r2` states the current contract: relative
+`file_path`, null `rule_id` and `start_line`, census compare on type,
+qualified name, required attributes, and edge endpoints only, a null oracle
+`rule_id` not checked, and `validate_fact_batch` only rejecting a
+non-relative entity path.
+
+## Decision
+
+Operator ACCEPT 2026-10-08. Remediation: replace that phrase with the r2
+contract gaps. Do not rewrite `TEST-RKG-GO-KAFKA-PGX-001`.
+
+## Remediation
+
+- done: AUTHOR replaced the TASK-RKG-046 bullet in REV-RKG-STACK-SUPPORT-001
+  revision 2. Disposition ACCEPT unchanged. REVIEWER confirmed 2026-10-08.

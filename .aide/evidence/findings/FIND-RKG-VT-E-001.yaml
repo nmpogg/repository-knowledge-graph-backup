@@ -1,0 +1,42 @@
+---
+key: FIND-RKG-VT-E-001
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: major
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-046
+story_key: STORY-RKG-024
+captured_at: '2026-10-08'
+disposition: accept
+route: TASK-RKG-046
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [TASK-RKG-046]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-VT-E-001 — TASK-RKG-046 overstates AC-RKG-007
+
+## Summary
+
+`TEST-RKG-GO-KAFKA-PGX-001` records that Go oracle rows carry a relative
+`file_path` with null `rule_id` and `start_line`, that census compare matches
+type, qualified name, required attributes, and edge endpoints only, that a
+null oracle `rule_id` is not checked, and that `validate_fact_batch` only
+rejects a non-relative entity path. `TASK-RKG-046` still says AC-RKG-007 is
+corpus-level evidence paths.
+
+## Decision
+
+Operator ACCEPT 2026-10-08. Remediation: replace that task sentence with the
+TEST contract. Do not rewrite `TEST-RKG-GO-KAFKA-PGX-001`.
+
+## Remediation
+
+- done: AUTHOR replaced the AC-RKG-007 sentence in TASK-RKG-046 (revision 4).
+  The AC-RKG-007 sentence now matches the TEST contract row. Disposition
+  ACCEPT unchanged. REVIEWER confirmed 2026-10-08.

@@ -1,0 +1,70 @@
+{
+  "key": "TEST-TASK-RKG-031-002",
+  "type": "test-evidence",
+  "group": "evidence",
+  "revision": 1,
+  "task": "TASK-RKG-031",
+  "captured_at": "2026-10-07T03:03:22.139368+00:00",
+  "captured_against": {
+    "baseline": {
+      "key": "BL-CHG-RKG-2026-002-r8",
+      "path": ".aide/lifecycle/change-sets/CHG-RKG-2026-002/baseline/BL-CHG-RKG-2026-002-r8.yaml",
+      "sha256": "a2620db609df23ceb548f86c4b41cecc983a9e4d4f25c43322f663521240a61c"
+    },
+    "candidate_files": [
+      {
+        "path": "src/rkg/conversations/grounded.py",
+        "sha256": "a91e8b86842a3f6cac026d73b04526e340d19d2c82077386cf820afb41274f99"
+      },
+      {
+        "path": "src/rkg/conversations/identity.py",
+        "sha256": "3602308d43fa114ba1c87894d81cb0b688230417bc2b1ce002beb2483424756c"
+      },
+      {
+        "path": "src/rkg/conversations/service.py",
+        "sha256": "30c1cd287a65e6ee0b79b5c9e9a1b25b5b3a045ca98c7aee6fa21e45e2885b4d"
+      },
+      {
+        "path": "src/rkg/conversations/language.py",
+        "sha256": "897be3660f31053c8d5a5f3a61f68bc9ddf8cc1b2af7c6dedcf6508022026c81"
+      },
+      {
+        "path": "src/rkg/conversations/resolver.py",
+        "sha256": "d4da6e31a0ca4faf4eb8f10b46406745935a6f1e6eb76c381a9ab2acbfb36f96"
+      },
+      {
+        "path": "src/rkg/graph/search.py",
+        "sha256": "456a2f2b755bc20ebad48dd8e643426326a282de62fce91be2e126657554c7be"
+      },
+      {
+        "path": "src/rkg/llm/openrouter.py",
+        "sha256": "e46c2120122088a08c9c522314e15e40ce45923e2d9636c011e9fd095473f7f1"
+      },
+      {
+        "path": "tests/unit/test_conversation_language.py",
+        "sha256": "fecb4d5b87b9034bebe5f2f0f8b709ece566d016c2e37ac97af19239229fe8d6"
+      },
+      {
+        "path": "tests/integration/test_conversation_resolution.py",
+        "sha256": "ca534f0a9a2a1b693229376ff4b1557ed2834ddd7f5f552752902cf46c01853c"
+      }
+    ]
+  },
+  "red_first": "5 failing regression checks reproduce round1 before fixes.",
+  "checks": {
+    "targeted_suite": {
+      "result": "passed",
+      "count": 44,
+      "seconds": 5.47
+    },
+    "ruff_lint": "passed",
+    "diff_check": "passed"
+  },
+  "not_run": [
+    "live_provider",
+    "operator_database",
+    "UI_walkthrough",
+    "UAT",
+    "release"
+  ]
+}

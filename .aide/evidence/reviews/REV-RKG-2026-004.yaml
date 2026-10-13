@@ -1,0 +1,193 @@
+uid: null
+key: REV-RKG-2026-004
+type: review-record
+group: evidence
+scope: system
+system: SYS-RKG
+status: completed
+revision: 2
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+relations:
+  reviews:
+  - CHG-RKG-2026-001
+  - PRD-RKG
+  - GATE-RKG-SCOPE
+  - GATE-RKG-UIUX
+classification: internal
+ai_assisted: true
+record: |-
+  # Consolidation integrity review — 2026-09-23
+
+  ## Disposition
+
+  - Corrected filename/frontmatter/heading identity for FR-RKG-003…005.
+  - Removed current task references to retired AC-RKG-019 and undefined AC-RKG-073.
+  - Reconciled current task/README state with the working tree without rewriting
+    historical diary or approval evidence.
+  - Returned UI/UX Gate to `pending` because signed UX/UI revisions changed.
+  - Refreshed consolidated capability mappings and removed the direct
+    Conversation→Kùzu write path from the derived L2 diagram.
+  - Aligned DDL Entity fields and declared TBL revision with the semantic schema.
+  - Aligned UX traceability and typography across UID, NFR, tokens and frontend CSS.
+  - Added root `AGENTS.md` operating rules.
+
+  ## Validation
+
+  - 103 YAML frontmatters parsed successfully with unique keys.
+  - `tokens.json` parsed successfully.
+  - 26 task dependency records have no missing dependency and no cycle.
+  - FR filename, frontmatter key and primary heading agree for FR-RKG-001…005.
+  - `git diff --check` reported no whitespace error or conflict marker.
+
+  Frontend lint could not be rerun because dependencies are not installed in the
+  current workspace (`eslint` unavailable). This does not change the documentation
+  checks above; task completion remains `in_progress` until current-tree evidence is
+  recorded.
+
+  ## Remaining human decision
+
+  `OQ-RKG-006` blocks new Scope/UIUX approvals until accountable signer identities
+  are supplied. Historical approval records and BL-r1 remain unchanged.
+documentation_reconciliation:
+- metadata:
+    key: REV-RKG-2026-004
+    type: review-record
+    group: evidence
+    scope: system
+    system: SYS-RKG
+    revision: 1
+    review_class: documentation-reconciliation
+    independent_code_review: false
+    captured_against:
+      code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  record: "# REV-RKG-2026-004 — Reconcile implementation records for the fixed task set\n\nScope: existing 29 implementation\
+    \ tasks and bootstrap 000. No new task, runtime feature or product AC is introduced. CTX/PLAN/DIARY revisions are reconstructed\
+    \ from verified commits, current file hashes and prior evidence. Plan body uses prospective wording; plan_date identifies\
+    \ the referenced implementation milestone. Git author time and committer time are both retained; dates below are author\
+    \ time converted to Asia/Bangkok. \n\n## Implementation milestones\n\n| Task | Initial milestone | Last mapped milestone\
+    \ | Commits |\n|---|---|---|---|\n| TASK-RKG-000 | 2026-09-15 | 2026-09-15 | `799cb6c` |\n| TASK-RKG-001 | 2026-09-17\
+    \ | 2026-09-24 | `ec0a1c0`, `9cae9d0` |\n| TASK-RKG-002 | 2026-09-24 | 2026-09-24 | `968a9f6` |\n| TASK-RKG-003 | 2026-09-24\
+    \ | 2026-09-24 | `4ee8a54` |\n| TASK-RKG-004 | 2026-09-24 | 2026-09-24 | `b10116e`, `fd72965` |\n| TASK-RKG-005 | 2026-09-24\
+    \ | 2026-09-24 | `49e8909` |\n| TASK-RKG-006 | 2026-09-24 | 2026-09-24 | `c91e4d2` |\n| TASK-RKG-007 | 2026-09-25 | 2026-09-25\
+    \ | `4e902eb` |\n| TASK-RKG-008 | 2026-09-25 | 2026-09-25 | `51cede9` |\n| TASK-RKG-009 | 2026-09-25 | 2026-09-25 | `ca69624`\
+    \ |\n| TASK-RKG-010 | 2026-09-25 | 2026-09-25 | `6668053` |\n| TASK-RKG-011 | 2026-09-25 | 2026-09-25 | `8e9882d` |\n\
+    | TASK-RKG-012 | 2026-09-25 | 2026-09-25 | `50eacb3` |\n| TASK-RKG-013 | 2026-09-24 | 2026-09-24 | `348ee61` |\n| TASK-RKG-014\
+    \ | 2026-09-24 | 2026-09-24 | `4399660` |\n| TASK-RKG-015 | 2026-09-25 | 2026-09-25 | `668df4b` |\n| TASK-RKG-016 | 2026-09-25\
+    \ | 2026-09-25 | `20931a3` |\n| TASK-RKG-017 | 2026-09-24 | 2026-09-24 | `acb4a7f` |\n| TASK-RKG-018 | 2026-09-25 | 2026-09-25\
+    \ | `4847c3d` |\n| TASK-RKG-019 | 2026-09-28 | 2026-09-28 | `ca85004` |\n| TASK-RKG-020 | 2026-09-28 | 2026-09-28 | `1f4b747`,\
+    \ `249684a` |\n| TASK-RKG-021 | 2026-09-28 | 2026-09-28 | `d94aff5` |\n| TASK-RKG-022 | 2026-09-28 | 2026-09-28 | `adcf438`,\
+    \ `3230351`, `7eec602`, `8153d3e` |\n| TASK-RKG-023 | 2026-09-28 | 2026-09-28 | `16208d8` |\n| TASK-RKG-024 | 2026-09-28\
+    \ | 2026-09-28 | `9557874` |\n| TASK-RKG-025 | 2026-09-24 | 2026-09-24 | `5a3f36f` |\n| TASK-RKG-026 | 2026-09-29 | 2026-09-29\
+    \ | `d2148a5` |\n| TASK-RKG-027 | 2026-10-01 | 2026-10-01 | `64739d4`, `08fd2d0` |\n| TASK-RKG-028 | 2026-10-01 | 2026-10-01\
+    \ | `7b24db7` |\n| TASK-RKG-029 | 2026-10-01 | 2026-10-01 | `e8a4710`, `d602426` |\n\n## Historical corrections\n\nBL-r1\
+    \ original content is restored from d602426; SHA-256 `c3d54547d7ab747f9b1aa8859a6f31a5c60841c7bc2be4ea980c934897b54e6b`.\
+    \ BL-r2 stays unchanged. New CTX snapshots do not inherit unsupported approved_in_baseline claims from contexts that pinned\
+    \ artifacts absent from BL-r1. Original evidence stays unchanged. Task 029 corrections include the browser review and\
+    \ active-snapshot refresh recorded in evidence 002/003; the earlier no-browser/no-reindex statements retain their historical\
+    \ scope.\n\n## Delivery versus acceptance\n\nTask execution is done as recorded. Task 022 published findings rather than\
+    \ a KPI waiver: fixture census is unmeasured, pilot adjudication pending and context performance not reliably accepted.\
+    \ Scope/Architecture/UIUX/Contract remain pending for current revisions. This recovery supplies missing traceability,\
+    \ not invented independent review, UAT, release records or human signatures."
+- metadata:
+    key: REV-RKG-2026-004
+    type: review-record
+    group: evidence
+    scope: system
+    system: SYS-RKG
+    revision: 1
+    captured_against:
+      code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  record: |-
+    # REV-RKG-2026-004 — AC, delivery task and execution evidence map
+
+    This mapping associates current Story ACs with the existing task/test/evidence records. An association is not a new per-AC pass or independent UAT. All code paths are derived from the mapped Git commits; evidence links identify their original execution scope.
+
+    | Task | Story ACs | Test files present in mapped delivery | Prior execution evidence |
+    |---|---|---|---|
+    | TASK-RKG-000 | No separate AC | See UI/structural checks in task records | [DIARY-TASK-RKG-000](../diaries/DIARY-TASK-RKG-000.md) |
+    | TASK-RKG-001 | No separate AC | `tests/integration/test_ddl_execute.py`<br>`tests/unit/test_skeleton.py` | [DIARY-TASK-RKG-001-r2](../diaries/DIARY-TASK-RKG-001.md)<br>[DIARY-TASK-RKG-001-r3](../diaries/DIARY-TASK-RKG-001.md)<br>[DIARY-TASK-RKG-001-r4](../diaries/DIARY-TASK-RKG-001.md)<br>[DIARY-TASK-RKG-001](../diaries/DIARY-TASK-RKG-001.md)<br>[TEST-RKG-DDL-BOOTSTRAP-001](../tests/TEST-RKG-DDL-BOOTSTRAP-001.md) |
+    | TASK-RKG-002 | No separate AC | `tests/unit/test_domain_schema.py` | [DIARY-TASK-RKG-002](../diaries/DIARY-TASK-RKG-002.md) |
+    | TASK-RKG-003 | AC-RKG-001, AC-RKG-026, AC-RKG-051, AC-RKG-049, AC-RKG-050 | `tests/unit/test_local_source.py` | [DIARY-TASK-RKG-003](../diaries/DIARY-TASK-RKG-003.md) |
+    | TASK-RKG-004 | No separate AC | `tests/conformance/test_adapter_conformance.py`<br>`tests/unit/test_adapter_registry.py` | [DIARY-TASK-RKG-004](../diaries/DIARY-TASK-RKG-004.md) |
+    | TASK-RKG-005 | AC-RKG-035, AC-RKG-006, AC-RKG-048, AC-RKG-017, AC-RKG-007 | `tests/conformance/test_python_language.py` | [DIARY-TASK-RKG-005](../diaries/DIARY-TASK-RKG-005.md) |
+    | TASK-RKG-006 | AC-RKG-035, AC-RKG-006, AC-RKG-048, AC-RKG-017, AC-RKG-007 | `tests/conformance/test_python_language.py`<br>`tests/conformance/test_python_resolution.py` | [DIARY-TASK-RKG-006](../diaries/DIARY-TASK-RKG-006.md) |
+    | TASK-RKG-007 | AC-RKG-022, AC-RKG-020, AC-RKG-021, AC-RKG-040, AC-RKG-052, AC-RKG-053, AC-RKG-065 | `tests/conformance/test_python_metadata.py` | [DIARY-TASK-RKG-007](../diaries/DIARY-TASK-RKG-007.md)<br>[TEST-RKG-PKG-INVENTORY](../tests/TEST-RKG-PKG-INVENTORY.md) |
+    | TASK-RKG-008 | AC-RKG-022, AC-RKG-020, AC-RKG-021, AC-RKG-040, AC-RKG-052, AC-RKG-053, AC-RKG-065 | `tests/unit/test_technology_detection.py` | [DIARY-TASK-RKG-008](../diaries/DIARY-TASK-RKG-008.md)<br>[TEST-RKG-DETECT-001](../tests/TEST-RKG-DETECT-001.md) |
+    | TASK-RKG-009 | AC-RKG-004, AC-RKG-005, AC-RKG-013, AC-RKG-014, AC-RKG-015, AC-RKG-016, AC-RKG-023 | `tests/conformance/test_fastapi_framework.py` | [DIARY-TASK-RKG-009](../diaries/DIARY-TASK-RKG-009.md)<br>[TEST-RKG-FASTAPI-ADAPTER-001](../tests/TEST-RKG-FASTAPI-ADAPTER-001.md) |
+    | TASK-RKG-010 | AC-RKG-004, AC-RKG-005, AC-RKG-013, AC-RKG-014, AC-RKG-015, AC-RKG-016, AC-RKG-023 | `tests/conformance/test_sqlalchemy_data.py` | [DIARY-TASK-RKG-010](../diaries/DIARY-TASK-RKG-010.md)<br>[TEST-RKG-SQLALCHEMY-ADAPTER-001](../tests/TEST-RKG-SQLALCHEMY-ADAPTER-001.md) |
+    | TASK-RKG-011 | AC-RKG-004, AC-RKG-005, AC-RKG-013, AC-RKG-014, AC-RKG-015, AC-RKG-016, AC-RKG-023 | `tests/conformance/test_aiokafka_messaging.py`<br>`tests/conformance/test_sqlalchemy_data.py` | [DIARY-TASK-RKG-011](../diaries/DIARY-TASK-RKG-011.md)<br>[TEST-RKG-AIOKAFKA-ADAPTER-001](../tests/TEST-RKG-AIOKAFKA-ADAPTER-001.md) |
+    | TASK-RKG-012 | AC-RKG-004, AC-RKG-005, AC-RKG-013, AC-RKG-014, AC-RKG-015, AC-RKG-016, AC-RKG-023 | `tests/conformance/test_python_config.py`<br>`tests/conformance/test_python_metadata.py`<br>`tests/conformance/test_python_resolution.py`<br>`tests/integration/test_config_http_publish.py` | [DIARY-TASK-RKG-012](../diaries/DIARY-TASK-RKG-012.md)<br>[TEST-RKG-CONFIG](../tests/TEST-RKG-CONFIG.md)<br>[TEST-RKG-HTTP-INVENTORY](../tests/TEST-RKG-HTTP-INVENTORY.md) |
+    | TASK-RKG-013 | AC-RKG-008 | `tests/integration/test_schema_migrate.py`<br>`tests/integration/test_storage_lifecycle.py` | [DIARY-TASK-RKG-013](../diaries/DIARY-TASK-RKG-013.md)<br>[TEST-RKG-STORAGE-SNAPSHOTS-001](../tests/TEST-RKG-STORAGE-SNAPSHOTS-001.md) |
+    | TASK-RKG-014 | AC-RKG-009, AC-RKG-036, AC-RKG-060, AC-RKG-010 | `tests/integration/test_graph_reads.py` | [DIARY-TASK-RKG-014](../diaries/DIARY-TASK-RKG-014.md) |
+    | TASK-RKG-015 | AC-RKG-034, AC-RKG-055, AC-RKG-012, AC-RKG-038 | `tests/integration/test_index_coordinator.py` | [DIARY-TASK-RKG-015](../diaries/DIARY-TASK-RKG-015.md) |
+    | TASK-RKG-016 | AC-RKG-058, AC-RKG-061, AC-RKG-066, AC-RKG-067, AC-RKG-068, AC-RKG-069, AC-RKG-070, AC-RKG-071, AC-RKG-072 | `tests/integration/test_core_api.py` | [DIARY-TASK-RKG-016](../diaries/DIARY-TASK-RKG-016.md) |
+    | TASK-RKG-017 | AC-RKG-027, AC-RKG-043, AC-RKG-011, AC-RKG-018, AC-RKG-054, AC-RKG-056, AC-RKG-057, AC-RKG-061, AC-RKG-066, AC-RKG-068 | See UI/structural checks in task records | [DIARY-TASK-RKG-017](../diaries/DIARY-TASK-RKG-017.md)<br>[TEST-RKG-UI-MVP-MOCK-001](../tests/TEST-RKG-UI-MVP-MOCK-001.md) |
+    | TASK-RKG-018 | AC-RKG-030, AC-RKG-031, AC-RKG-033, AC-RKG-044, AC-RKG-045 | `tests/integration/test_conversation_persistence.py`<br>`tests/unit/test_conversation_redaction.py` | [DIARY-TASK-RKG-018](../diaries/DIARY-TASK-RKG-018.md)<br>[TEST-RKG-CONVERSATION-STATE-001](../tests/TEST-RKG-CONVERSATION-STATE-001.md) |
+    | TASK-RKG-019 | AC-RKG-024, AC-RKG-025, AC-RKG-028, AC-RKG-029, AC-RKG-032, AC-RKG-042, AC-RKG-063, AC-RKG-064 | `tests/integration/test_openrouter_live.py`<br>`tests/unit/test_llm_provider.py` | [DIARY-TASK-RKG-019-r2](../diaries/DIARY-TASK-RKG-019.md)<br>[DIARY-TASK-RKG-019-r3](../diaries/DIARY-TASK-RKG-019.md)<br>[DIARY-TASK-RKG-019-r4](../diaries/DIARY-TASK-RKG-019.md)<br>[DIARY-TASK-RKG-019](../diaries/DIARY-TASK-RKG-019.md)<br>[TEST-RKG-LLM-LIMITS](../tests/TEST-RKG-LLM-LIMITS.md)<br>[TEST-RKG-OPENROUTER-LIVE-001](../tests/TEST-RKG-OPENROUTER-LIVE-001.md)<br>[TEST-RKG-OPENROUTER-LIVE-002](../tests/TEST-RKG-OPENROUTER-LIVE-002.md)<br>[TEST-RKG-OPENROUTER-MODEL-001](../tests/TEST-RKG-OPENROUTER-MODEL-001.md) |
+    | TASK-RKG-020 | AC-RKG-024, AC-RKG-025, AC-RKG-028, AC-RKG-029, AC-RKG-032, AC-RKG-042, AC-RKG-063, AC-RKG-064 | `tests/integration/test_grounded_qa.py`<br>`tests/integration/test_grounded_qa_live.py` | [DIARY-TASK-RKG-020-r2](../diaries/DIARY-TASK-RKG-020.md)<br>[DIARY-TASK-RKG-020](../diaries/DIARY-TASK-RKG-020.md)<br>[TEST-RKG-GROUNDED-QA-001](../tests/TEST-RKG-GROUNDED-QA-001.md)<br>[TEST-RKG-GROUNDED-QA-002](../tests/TEST-RKG-GROUNDED-QA-002.md) |
+    | TASK-RKG-021 | AC-RKG-041, AC-RKG-046, AC-RKG-047, AC-RKG-059 | `tests/integration/test_conversation_api.py`<br>`tests/integration/test_core_api.py` | [DIARY-TASK-RKG-021](../diaries/DIARY-TASK-RKG-021.md)<br>[TEST-RKG-CONVERSATION-API-001](../tests/TEST-RKG-CONVERSATION-API-001.md) |
+    | TASK-RKG-022 | AC-RKG-037, AC-RKG-039, AC-RKG-062 | `tests/integration/test_pilot_corpus.py` | [DIARY-TASK-RKG-022-r2](../diaries/DIARY-TASK-RKG-022.md)<br>[DIARY-TASK-RKG-022](../diaries/DIARY-TASK-RKG-022.md)<br>[TEST-RKG-ADAPTER-CONFORMANCE-r2](../tests/TEST-RKG-ADAPTER-CONFORMANCE.json)<br>[TEST-RKG-ADAPTER-CONFORMANCE-r3](../tests/TEST-RKG-ADAPTER-CONFORMANCE.json)<br>[TEST-RKG-EXTRACTION-FIXTURES-001](../tests/TEST-RKG-EXTRACTION-FIXTURES-001.md)<br>[TEST-RKG-PERF-001-r2](../tests/TEST-RKG-PERF-001.json)<br>[TEST-RKG-PERF-001-r3](../tests/TEST-RKG-PERF-001.json)<br>[TEST-RKG-PERF-001-r4](../tests/TEST-RKG-PERF-001.json)<br>[TEST-RKG-PERF-001](../tests/TEST-RKG-PERF-001.json)<br>[TEST-RKG-PERF-SUMMARY-001](../tests/TEST-RKG-PERF-SUMMARY-001.md)<br>[TEST-RKG-PILOT-CORPUS-001](../tests/TEST-RKG-PILOT-CORPUS-001.md)<br>[TEST-RKG-PILOT-CORPUS-002](../tests/TEST-RKG-PILOT-CORPUS-002.md)<br>[TEST-RKG-PILOT-REVIEW-001](../tests/TEST-RKG-PILOT-REVIEW-001.json)<br>[TEST-RKG-PILOT-REVIEW-SUMMARY-001](../tests/TEST-RKG-PILOT-REVIEW-SUMMARY-001.md)<br>[TEST-RKG-QA-EVAL-001-r2](../tests/TEST-RKG-QA-EVAL-001.json)<br>[TEST-RKG-QA-EVAL-001-r3](../tests/TEST-RKG-QA-EVAL-001.json)<br>[TEST-RKG-QA-EVAL-001-r4](../tests/TEST-RKG-QA-EVAL-001.json)<br>[TEST-RKG-QA-EVAL-001-r5](../tests/TEST-RKG-QA-EVAL-001.json)<br>[TEST-RKG-QA-EVAL-001-r6](../tests/TEST-RKG-QA-EVAL-001.json)<br>[TEST-RKG-QA-EVAL-001](../tests/TEST-RKG-QA-EVAL-001.json)<br>[TEST-RKG-QA-EVAL-SUMMARY-001-r2](../tests/TEST-RKG-QA-EVAL-SUMMARY-001.md)<br>[TEST-RKG-QA-EVAL-SUMMARY-001-r3](../tests/TEST-RKG-QA-EVAL-SUMMARY-001.md)<br>[TEST-RKG-QA-EVAL-SUMMARY-001-r4](../tests/TEST-RKG-QA-EVAL-SUMMARY-001.md)<br>[TEST-RKG-QA-EVAL-SUMMARY-001](../tests/TEST-RKG-QA-EVAL-SUMMARY-001.md) |
+    | TASK-RKG-023 | No separate AC | `tests/integration/test_grounded_qa_live.py`<br>`tests/integration/test_openrouter_live.py`<br>`tests/integration/test_pilot_corpus.py`<br>`tests/unit/test_local_source.py` | [DIARY-TASK-RKG-023](../diaries/DIARY-TASK-RKG-023.md)<br>[TEST-RKG-FINAL-REGRESSION-001](../tests/TEST-RKG-FINAL-REGRESSION-001.md) |
+    | TASK-RKG-024 | AC-RKG-011, AC-RKG-018, AC-RKG-027, AC-RKG-054, AC-RKG-056, AC-RKG-057, AC-RKG-061 | `tests/integration/test_core_api.py` | [DIARY-TASK-RKG-024](../diaries/DIARY-TASK-RKG-024.md)<br>[TEST-RKG-UI-LIVE-API-001](../tests/TEST-RKG-UI-LIVE-API-001.md) |
+    | TASK-RKG-025 | AC-RKG-054, AC-RKG-066, AC-RKG-067, AC-RKG-068, AC-RKG-069, AC-RKG-070, AC-RKG-071, AC-RKG-072 | See UI/structural checks in task records | [DIARY-TASK-RKG-025](../diaries/DIARY-TASK-RKG-025.md)<br>[TEST-RKG-UI-REPO-MGMT-MOCK-001](../tests/TEST-RKG-UI-REPO-MGMT-MOCK-001.md) |
+    | TASK-RKG-026 | No separate AC | See UI/structural checks in task records | [DIARY-TASK-RKG-026](../diaries/DIARY-TASK-RKG-026.md)<br>[TEST-RKG-UI-STRUCTURE](../tests/TEST-RKG-UI-STRUCTURE.md) |
+    | TASK-RKG-027 | AC-RKG-002, AC-RKG-003, AC-RKG-007, AC-RKG-073 | `tests/integration/test_directory_entities.py`<br>`tests/integration/test_index_coordinator.py`<br>`tests/integration/test_index_language_partition.py`<br>`tests/unit/test_adapter_registry.py`<br>`tests/unit/test_directory_structure.py`<br>`tests/unit/test_local_source.py` | [DIARY-TASK-RKG-027](../diaries/DIARY-TASK-RKG-027.md) |
+    | TASK-RKG-028 | AC-RKG-004, AC-RKG-005, AC-RKG-020, AC-RKG-040, AC-RKG-052 | `tests/conformance/test_fastapi_framework.py`<br>`tests/integration/test_index_coordinator.py`<br>`tests/integration/test_index_language_partition.py`<br>`tests/unit/test_technology_detection.py` | [DIARY-TASK-RKG-028](../diaries/DIARY-TASK-RKG-028.md) |
+    | TASK-RKG-029 | AC-RKG-009, AC-RKG-010, AC-RKG-013 | `tests/conformance/test_python_resolution.py`<br>`tests/conformance/test_sqlalchemy_data.py`<br>`tests/integration/test_focused_flow.py`<br>`tests/integration/test_index_language_partition.py` | [DIARY-TASK-RKG-029](../diaries/DIARY-TASK-RKG-029.md) |
+revision_history:
+- revision: 1
+  metadata:
+    uid: null
+    key: REV-RKG-2026-004
+    type: review-record
+    group: evidence
+    scope: system
+    system: SYS-RKG
+    status: completed
+    revision: 1
+    ownership:
+      accountable_team: TEAM-RKG
+      accountable_role: tech-lead
+    relations:
+      reviews:
+      - CHG-RKG-2026-001
+      - PRD-RKG
+      - GATE-RKG-SCOPE
+      - GATE-RKG-UIUX
+    classification: internal
+    ai_assisted: true
+  record: |-
+    # Consolidation integrity review — 2026-09-23
+
+    ## Disposition
+
+    - Corrected filename/frontmatter/heading identity for FR-RKG-003…005.
+    - Removed current task references to retired AC-RKG-019 and undefined AC-RKG-073.
+    - Reconciled current task/README state with the working tree without rewriting
+      historical diary or approval evidence.
+    - Returned UI/UX Gate to `pending` because signed UX/UI revisions changed.
+    - Refreshed consolidated capability mappings and removed the direct
+      Conversation→Kùzu write path from the derived L2 diagram.
+    - Aligned DDL Entity fields and declared TBL revision with the semantic schema.
+    - Aligned UX traceability and typography across UID, NFR, tokens and frontend CSS.
+    - Added root `AGENTS.md` operating rules.
+
+    ## Validation
+
+    - 103 YAML frontmatters parsed successfully with unique keys.
+    - `tokens.json` parsed successfully.
+    - 26 task dependency records have no missing dependency and no cycle.
+    - FR filename, frontmatter key and primary heading agree for FR-RKG-001…005.
+    - `git diff --check` reported no whitespace error or conflict marker.
+
+    Frontend lint could not be rerun because dependencies are not installed in the
+    current workspace (`eslint` unavailable). This does not change the documentation
+    checks above; task completion remains `in_progress` until current-tree evidence is
+    recorded.
+
+    ## Remaining human decision
+
+    `OQ-RKG-006` blocks new Scope/UIUX approvals until accountable signer identities
+    are supplied. Historical approval records and BL-r1 remain unchanged.

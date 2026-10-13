@@ -1,0 +1,90 @@
+{
+  "type": "object",
+  "properties": {
+    "mode": {
+      "enum": [
+        "search",
+        "focus",
+        "candidate",
+        "insufficient"
+      ]
+    },
+    "query": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "candidate_index": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 19
+    },
+    "entity_type": {
+      "enum": [
+        "Directory",
+        "SourceUnit",
+        "Namespace",
+        "Type",
+        "Callable",
+        "Endpoint",
+        "DataResource",
+        "MessageChannel",
+        "Configuration",
+        "ExternalDependency",
+        "any"
+      ]
+    },
+    "direction": {
+      "enum": [
+        "incoming",
+        "outgoing"
+      ]
+    },
+    "relation_types": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "contains",
+          "imports",
+          "exposes",
+          "handled_by",
+          "calls",
+          "implements",
+          "inherits_from",
+          "maps_to",
+          "reads",
+          "writes",
+          "publishes",
+          "consumes",
+          "depends_on"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 13,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "mode",
+    "query",
+    "candidate_index",
+    "entity_type",
+    "direction",
+    "relation_types"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rkg:read-plan:2",
+  "title": "SCH-RKG-READ-PLAN-v2",
+  "x-aide": {
+    "key": "SCH-RKG-READ-PLAN-v2",
+    "type": "json-schema",
+    "group": "normative",
+    "system": "SYS-RKG",
+    "revision": 1,
+    "status": "draft",
+    "change_set": "CHG-RKG-2026-002",
+    "owned_by": "CMP-RKG-CONVERSATION",
+    "classification": "internal",
+    "ai_assisted": true
+  }
+}

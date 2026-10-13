@@ -1,0 +1,16 @@
+{
+  "group": "evidence",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "captured_at": "2026-10-07T09:53:24+07:00",
+  "classification": "internal",
+  "ai_assisted": true,
+  "change_set": "CHG-RKG-2026-002",
+  "key": "CR-RKG-014",
+  "type": "change-request",
+  "source": "explicit_user_implementation_instruction",
+  "scope": "Implement and independently review TASK031 through TASK035 on current fix/chatbot branch, correcting findings within approved contracts.",
+  "checkout_choice": "User explicitly requests current branch, overriding process-reference worktree preference.",
+  "authorization_limits": "Does not fabricate independent review, human gate signatures, live-provider acceptance or release approval.",
+  "record_boundary": "Normalized instruction only; no transcript."
+}

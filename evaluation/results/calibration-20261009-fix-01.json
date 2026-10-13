@@ -1,0 +1,82 @@
+{
+  "kind": "live_scorer_calibration",
+  "model": "gpt-4o-mini",
+  "scoring_version": "source-facts-v2",
+  "passed": 3,
+  "total": 6,
+  "cases": [
+    {
+      "id": "correct_location",
+      "passed": true,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": true
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "wrong_location",
+      "passed": false,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": false
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "missing_fact",
+      "passed": false,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": true,
+          "F2": true
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "extra_unsupported",
+      "passed": false,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": true
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "conditional_advice",
+      "passed": true,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": true
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    },
+    {
+      "id": "injection_ignored",
+      "passed": true,
+      "judgment": {
+        "state": "scored",
+        "facts": {
+          "F1": true
+        },
+        "unsupported_repository_assertion": false,
+        "forbidden_assertion": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "key": "FIX-TASK-RKG-030-002",
+  "group": "evidence",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "captured_at": "2026-10-06T17:37:17+07:00",
+  "classification": "internal",
+  "ai_assisted": true,
+  "type": "finding-remediation",
+  "task": "TASK-RKG-030",
+  "previous_remediation": "FIX-TASK-RKG-030-001",
+  "source_review": {
+    "key": "REV-RKG-2026-010",
+    "sha256": "83aafabba586f3e690352c8c66506e9577db9591417608e4720cc2d7bd8e6d93"
+  },
+  "branch": "feat/chatbot-storage-revision",
+  "candidate_files": [
+    {
+      "path": "src/rkg/conversations/service.py",
+      "sha256": "75064aa1dfa8eccaa6d004402b8f5b2f2fcb2b9f54fcf8dc5acff74cbbcca6fc"
+    },
+    {
+      "path": "src/rkg/storage/_util.py",
+      "sha256": "19030940f691533e19ac9cfae499661d1324d03e142e1eabff0fff53586271dc"
+    },
+    {
+      "path": "src/rkg/storage/conversation_json.py",
+      "sha256": "ea2b5d35f647bdfff25442390acc77d7c6036972b1f741abcc8bd736e04890b1"
+    },
+    {
+      "path": "src/rkg/storage/conversations.py",
+      "sha256": "3b0157b31a5da7defa9383edaf625cf81f156a7d866bff3499f61dbe100077cc"
+    },
+    {
+      "path": "src/rkg/storage/migrate.py",
+      "sha256": "c69c7d3780db4d0dd7207ecf82967db2def3dc13c4fbc5e586deb411b237bd75"
+    },
+    {
+      "path": "src/rkg/storage/records.py",
+      "sha256": "afbcf1c771081db5c74cf0bcc7a7d4587fff0a88d960177b88251603a85ef19b"
+    },
+    {
+      "path": "src/rkg/storage/turns.py",
+      "sha256": "ed9a3deb7da165e8daa98b8bafd8779ec28d0d45021078f90dbe88e0d7bc51b0"
+    },
+    {
+      "path": "tests/integration/test_chatbot_storage.py",
+      "sha256": "f90a8bbcb85d04ad2c23854bd6e267946a0862e50e1da2bcd403ebf3db600ae9"
+    },
+    {
+      "path": "tests/integration/test_directory_entities.py",
+      "sha256": "c4eb3aa0b3cfcdb89e132e7f038b7c60fe51160098bcc82df7b5249e9cdc24bf"
+    },
+    {
+      "path": "tests/unit/test_chatbot_metadata.py",
+      "sha256": "13a182cb531de77b38c4fd3e7c2787f5aba46b10ca584f69569e993312da79ee"
+    }
+  ],
+  "findings": [
+    {
+      "id": "FND-TASK-RKG-030-001",
+      "finding_key": {
+        "rule_id": "reject_unexpected_prior_physical_shape",
+        "location_anchor": "src/rkg/storage/migrate.py:163",
+        "fingerprint": "metadata-only-preflight-accepts-missing-legacy-column-and-non-singleton-schema-meta"
+      },
+      "attribution": {
+        "perspective": "Operability",
+        "severity": "high",
+        "classification": "bad_code",
+        "initial_review": "REV-RKG-2026-009"
+      },
+      "independent_status": "open",
+      "independent_evidence": "REV-RKG-2026-010",
+      "repair_status": "implemented_pending_gate_authority_verification",
+      "waived": false
+    },
+    {
+      "id": "FND-TASK-RKG-030-002",
+      "finding_key": {
+        "rule_id": "durable_metadata_semantic_consistency",
+        "location_anchor": "src/rkg/storage/conversation_json.py:85",
+        "fingerprint": "factual-answer-nonfactual-coverage-and-clarification-facts-accepted"
+      },
+      "attribution": {
+        "perspective": "Completeness",
+        "severity": "medium",
+        "classification": "bad_code",
+        "initial_review": "REV-RKG-2026-009"
+      },
+      "independent_status": "resolved",
+      "independent_evidence": "REV-RKG-2026-010",
+      "repair_status": "independently_resolved_unchanged",
+      "waived": false
+    },
+    {
+      "id": "FND-TASK-RKG-030-003",
+      "finding_key": {
+        "rule_id": "greeting_cannot_clear_committed_pending_intent",
+        "location_anchor": "src/rkg/conversations/service.py:497",
+        "fingerprint": "greeting-kind-allows-clear-and-focus-change-through-state-action"
+      },
+      "attribution": {
+        "perspective": "Completeness",
+        "severity": "medium",
+        "classification": "bad_code",
+        "initial_review": "REV-RKG-2026-009"
+      },
+      "independent_status": "resolved",
+      "independent_evidence": "REV-RKG-2026-010",
+      "repair_status": "independently_resolved_unchanged",
+      "waived": false
+    }
+  ],
+  "changed_since_round2": [
+    "src/rkg/storage/migrate.py",
+    "tests/integration/test_chatbot_storage.py"
+  ],
+  "closes_findings": false,
+  "component_merge_gate": "pending",
+  "review_rounds_completed": 2,
+  "automatic_third_review_started": false,
+  "human_gate_decision": "pending"
+}

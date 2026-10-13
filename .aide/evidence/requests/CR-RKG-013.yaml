@@ -1,0 +1,28 @@
+{
+  "group": "evidence",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "captured_at": "2026-10-07T09:29:12+07:00",
+  "classification": "internal",
+  "ai_assisted": true,
+  "change_set": "CHG-RKG-2026-002",
+  "key": "CR-RKG-013",
+  "type": "change-request",
+  "source": "explicit_interactive_human_acceptance",
+  "actor": "PhongNM",
+  "roles": [
+    "tech-lead"
+  ],
+  "role_basis": [
+    "CR-RKG-004",
+    "CR-RKG-006"
+  ],
+  "request_summary": "Accept the exact repaired TASK-RKG-030 candidate r3 as-is, using the explicitly offered one-time review exception after two adversarial rounds.",
+  "selected_option": "accept_repaired_candidate_as_is",
+  "offered_explicitly": true,
+  "single_human_action": true,
+  "automatic": false,
+  "scope": "TASK-RKG-030 Component Merge Gate only; preserve independent review findings and disclose remaining verification limits.",
+  "reason": "The two-round review ceiling is reached. The repaired candidate is accepted on the documented automated evidence, including multiplicity rejection and canonical fan-in/fan-out checks.",
+  "record_boundary": "Normalized authorization; no conversation transcript."
+}

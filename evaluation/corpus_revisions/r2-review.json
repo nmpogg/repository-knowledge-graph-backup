@@ -1,0 +1,95 @@
+{
+  "corpus_revision": 2,
+  "authority": "non_normative",
+  "independent_review_status": "pending",
+  "previous_corpus_sha256": "2d75dbc84cb5ec006dfa8809c5bed9d33fc0a3e6998379dfa4a70d6c23b9e927",
+  "current_corpus_sha256": "c642829b5bd44d942c4a462234015259ffa8d184ade49fdd08cd7637d5b8208d",
+  "source_manifests_unchanged": true,
+  "questions_categories_denominators_and_forbidden_claims_unchanged": true,
+  "changes": [
+    {
+      "case_id": "RKG-EVAL-004",
+      "fact_id": "T1-F1",
+      "old_claim_sha256": "4a3e3a4bbe6cb87aef7b11a9abdd6386292e24763daf9af61e13181919c13c25",
+      "new_claim_sha256": "d4d4cad3f1c563ed7579f2a8dc8fd0ca001c1a089fad89005f3971ef5141831a",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    },
+    {
+      "case_id": "RKG-EVAL-020",
+      "fact_id": "T1-F1",
+      "old_claim_sha256": "bcb54e18ddb2f5b54be83174aa93b537a1361272f69ab23f8a687691143be466",
+      "new_claim_sha256": "59784554e92e8b3cf962d1ec6d36618c4f0307c2ddf8bf10d2de2a2efa82d8dc",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    },
+    {
+      "case_id": "RKG-EVAL-025",
+      "fact_id": "T1-F1",
+      "old_claim_sha256": "bcb54e18ddb2f5b54be83174aa93b537a1361272f69ab23f8a687691143be466",
+      "new_claim_sha256": "59784554e92e8b3cf962d1ec6d36618c4f0307c2ddf8bf10d2de2a2efa82d8dc",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    },
+    {
+      "case_id": "RKG-EVAL-025",
+      "fact_id": "T2-F1",
+      "old_claim_sha256": "d8207eea85960270bfaace61a85a698b4f26f04263ca169d9ca509be1df7e1c8",
+      "new_claim_sha256": "dea19212dccbaceb8f42c3e6b795813fd10ad74a6da21373ee6152d73e686ac6",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    },
+    {
+      "case_id": "RKG-EVAL-025",
+      "fact_id": "T3-F1",
+      "old_claim_sha256": "26cda4ee35f26a28657684e92214dc65f4696da764a7a2a1363c41c1a04ef4bd",
+      "new_claim_sha256": "c654de639649f43bda52a815f0e6f178e0bcb5e745a2256f5f80d50cbe1bb9d1",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    },
+    {
+      "case_id": "RKG-EVAL-027",
+      "fact_id": "T1-F1",
+      "old_claim_sha256": "3a6442c38859b2b4aa65f351a300e9fc2ae7edc8788c9b37739936a2ec3619b6",
+      "new_claim_sha256": "399352436735c4bac6d2ae3c7353559afa13a92a2bda55a898f5dd44dec46dfc",
+      "reason": "Align mandatory facts with the question scope; retain source pins and forbid invented claims. Declaration range includes its annotation."
+    },
+    {
+      "case_id": "RKG-EVAL-028",
+      "fact_id": "T1-F1",
+      "old_claim_sha256": "243c927df30612000009da2f5683540d54c926a574c408e2c7be1fe74e195aa7",
+      "new_claim_sha256": "07fdf5301f0a4c475f3d9071698290e74edae81c17e378808203480f6518d129",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    },
+    {
+      "case_id": "RKG-EVAL-037",
+      "fact_id": "T1-F1",
+      "old_claim_sha256": "a28fd7bd32922981b0b8ca6f0423f9b5f68d0e9fd2f82e4b4106407db7d4245f",
+      "new_claim_sha256": "21339ad9b6ee8ad9cee3d03fee704334d60a5117d97e2cd89189435d6c0378c4",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    },
+    {
+      "case_id": "RKG-EVAL-043",
+      "fact_id": "T1-F1",
+      "old_claim_sha256": "3e5c3bc65dbec803e0c47781389ccc0d9a4a412e00a320d0898c22c8f9734b7c",
+      "new_claim_sha256": "cb523d3db0f850222a3b08afbe1242c4b5abad59a6364e4c6460292cb4ddedfb",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    },
+    {
+      "case_id": "RKG-EVAL-044",
+      "fact_id": "T1-F1",
+      "old_claim_sha256": "09140377137ab41b3cc614680ebbae207ae358fa8fbc2d2ac49698540c61ba67",
+      "new_claim_sha256": "5bbb1f00c29fb9b7c1e96c210354559089eee033c397a2d60f83485eaabd1a5a",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    },
+    {
+      "case_id": "RKG-EVAL-044",
+      "fact_id": "T1-F2",
+      "old_claim_sha256": "dd32333a05ce4522c4596b79a9324ac6217900ccdf75116465e61ea89bc8b324",
+      "new_claim_sha256": "80fc4b1e75f495bc0dab06fe66ec79128eb5186f6b432c86f5506e45e5e095ef",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    },
+    {
+      "case_id": "RKG-EVAL-039",
+      "fact_id": "T1-F2",
+      "old_claim_sha256": "449ba807841fbcb87592e6693700504a2c2245265ebdc2c2ea5cf6e3c0d936db",
+      "new_claim_sha256": "5547a6a49b436f338bb9c326cdd2aed10c7ad3c867a76aa4116023f74dc63d31",
+      "reason": "Align mandatory facts with what the question asks; supporting implementation details remain in pinned sources."
+    }
+  ]
+}

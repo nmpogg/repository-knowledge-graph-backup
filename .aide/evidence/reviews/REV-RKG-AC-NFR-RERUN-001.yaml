@@ -1,0 +1,36 @@
+---
+uid:
+key: REV-RKG-AC-NFR-RERUN-001
+type: review-record
+group: evidence
+scope: system
+system: SYS-RKG
+status: closed
+revision: 1
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+relations:
+  part_of: [CHG-RKG-2026-001]
+  reviews:
+  - TEST-RKG-AC-NFR-RERUN-001-r2
+classification: internal
+ai_assisted: true
+record: |-
+  # REV-RKG-AC-NFR-RERUN-001 — Adversarial test-evidence review
+
+  ## Decision (2026-10-08)
+
+  Adversarial review pass of `.aide/evidence/tests/TEST-RKG-AC-NFR-RERUN-001-r2.md`.
+  FIND-RKG-TE-001 and FIND-RKG-TE-002 are remediated. No new finding.
+
+  Verified matrix counts: passed 59, failed 0, not_run 60 (119 items).
+  Each FR-RKG-001..005 AC and each NFR-RKG-PERF-001, SEC-001, REL-001,
+  UX-001, and EXT-001 acceptance item has one status. Cited evidence keys
+  resolve under `.aide/evidence/`. Skipped pytest stays `not_run`.
+  TASK-RKG-042..047 stay not deep-supported. Conformance `pass_rate` is not
+  100% for those adapters. Flask stays DETECTED_ONLY.
+
+  This record does not sign an approval and does not set a product gate
+  to approved.
+---

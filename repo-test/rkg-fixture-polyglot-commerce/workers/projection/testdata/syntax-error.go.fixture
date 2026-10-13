@@ -1,0 +1,6 @@
+package broken
+
+func deliberatelyBroken( {
+	return "RKG_TEST_SECRET_DO_NOT_PERSIST"
+}
+

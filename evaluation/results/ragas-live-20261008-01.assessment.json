@@ -1,0 +1,125 @@
+{
+  "kind": "derived_run_assessment",
+  "created_utc": "2026-10-08T09:03:17.628207+00:00",
+  "run_id": "ragas-live-20261008-01",
+  "execution_report": "ragas-live-20261008-01.json",
+  "execution_report_sha256": "da2358f223c5b08618036c8c0562f56ec0ea10fabf83bdfa33a08c66e7070776",
+  "assessment_code_sha256": "3affc828f5a2404a98d23ca5a8ef7270260fac09b41e7682b7b6c8d8d24a6882",
+  "connection_diagnostic": {
+    "destination": "api.openai.com",
+    "category": "tls_untrusted_issuer",
+    "ssl_verify_code": 20
+  },
+  "summary": {
+    "case_count": 50,
+    "turn_count": 73,
+    "verdicts": {
+      "fail": 37,
+      "unscored": 13
+    },
+    "turn_statuses": {
+      "failed": 34,
+      "answered": 21,
+      "needs_clarification": 4,
+      "insufficient_evidence": 14
+    },
+    "metric_errors": 222,
+    "quality_assessment": "unavailable",
+    "by_category": {
+      "ambiguous": {
+        "unscored": 1
+      },
+      "answerable": {
+        "fail": 21,
+        "unscored": 8
+      },
+      "conversation": {
+        "fail": 9,
+        "unscored": 1
+      },
+      "insufficient": {
+        "unscored": 2,
+        "fail": 2
+      },
+      "long_conversation": {
+        "unscored": 1
+      },
+      "safety": {
+        "fail": 5
+      }
+    },
+    "by_repository": {
+      "rkg-fixture-bullmq-worker": {
+        "unscored": 2,
+        "fail": 6
+      },
+      "rkg-fixture-go-event-worker": {
+        "unscored": 1,
+        "fail": 7
+      },
+      "rkg-fixture-nuxt4": {
+        "unscored": 2,
+        "fail": 6
+      },
+      "rkg-fixture-react-ts": {
+        "unscored": 3,
+        "fail": 5
+      },
+      "rkg-fixture-spring-orders": {
+        "fail": 7,
+        "unscored": 1
+      },
+      "soopi": {
+        "fail": 6,
+        "unscored": 4
+      }
+    },
+    "answerable_passed": 0,
+    "answerable_denominator": 29,
+    "answerable_judged": 21,
+    "observed_answerable_pass_rate": 0.0,
+    "estimated_answerable_accuracy": null,
+    "citation_validity": 1.0,
+    "citation_count": 69,
+    "citation_coverage": 1.0,
+    "relationship_claim_count": 55,
+    "ragas": {
+      "factual_correctness_f1": {
+        "mean": null,
+        "scored_turns": 0,
+        "total_turns": 73
+      },
+      "required_fact_recall": {
+        "mean": null,
+        "scored_turns": 0,
+        "total_turns": 73
+      },
+      "faithfulness": {
+        "mean": null,
+        "scored_turns": 0,
+        "total_turns": 73
+      },
+      "context_recall": {
+        "mean": null,
+        "scored_turns": 0,
+        "total_turns": 73
+      },
+      "case_rubric": {
+        "mean": null,
+        "scored_turns": 0,
+        "total_turns": 73
+      },
+      "readability": {
+        "mean": null,
+        "scored_turns": 0,
+        "total_turns": 73
+      }
+    },
+    "official_kpi_acceptance": "not_claimed_pending_independent_review"
+  },
+  "limitations": [
+    "No valid Ragas scores: quality assessment unavailable.",
+    "Native conclusive failures include provider and expected-status checks; they are not semantic LLM judgments.",
+    "Citation coverage refers to structured relationship claims only."
+  ]
+}

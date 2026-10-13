@@ -1,0 +1,138 @@
+{
+  "asyncapi": "2.6.0",
+  "info": {
+    "title": "Polyglot order events",
+    "version": "1.0.0"
+  },
+  "defaultContentType": "application/json",
+  "channels": {
+    "orders.events": {
+      "publish": {
+        "operationId": "publishOrderEvent",
+        "message": {
+          "$ref": "#/components/messages/OrderEvent"
+        }
+      },
+      "subscribe": {
+        "operationId": "consumeOrderEvent",
+        "message": {
+          "$ref": "#/components/messages/OrderEvent"
+        }
+      }
+    },
+    "orders.projection.updated": {
+      "publish": {
+        "operationId": "publishProjectionUpdated",
+        "message": {
+          "$ref": "#/components/messages/ProjectionUpdated"
+        }
+      }
+    },
+    "order-email": {
+      "publish": {
+        "operationId": "enqueueOrderEmail",
+        "message": {
+          "$ref": "#/components/messages/EmailJob"
+        }
+      },
+      "subscribe": {
+        "operationId": "processEmailJob",
+        "message": {
+          "$ref": "#/components/messages/EmailJob"
+        }
+      }
+    }
+  },
+  "components": {
+    "messages": {
+      "OrderEvent": {
+        "name": "OrderEvent",
+        "payload": {
+          "type": "object",
+          "required": [
+            "type",
+            "order_id",
+            "status",
+            "occurred_at"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "order.updated"
+            },
+            "order_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "CREATED",
+                "PAID",
+                "PROCESSING",
+                "SHIPPED",
+                "CANCELLED"
+              ]
+            },
+            "occurred_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      },
+      "ProjectionUpdated": {
+        "name": "ProjectionUpdated",
+        "payload": {
+          "type": "object",
+          "required": [
+            "order_id",
+            "status",
+            "updated_at"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "order_id": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "CREATED",
+                "PAID",
+                "PROCESSING",
+                "SHIPPED",
+                "CANCELLED"
+              ]
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      },
+      "EmailJob": {
+        "name": "EmailJob",
+        "payload": {
+          "type": "object",
+          "required": [
+            "orderId",
+            "template"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "orderId": {
+              "type": "string"
+            },
+            "template": {
+              "type": "string",
+              "const": "order-updated"
+            }
+          }
+        }
+      }
+    }
+  }
+}

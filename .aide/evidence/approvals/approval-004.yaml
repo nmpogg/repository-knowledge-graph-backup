@@ -1,0 +1,51 @@
+---
+uid:
+key: approval-004
+type: approval-record
+group: evidence
+scope: system
+system: SYS-RKG
+status: recorded
+revision: 1
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: product-owner
+relations:
+  verifies: [GATE-RKG-SCOPE]
+  derived_from: [CSV-CHG-RKG-2026-001]
+classification: internal
+ai_assisted: true
+gate: GATE-RKG-SCOPE
+change_set: CHG-RKG-2026-001
+decision: approved
+decided_at: 2026-09-23
+approvers: []
+notes: >-
+  Human operator directed Scope Gate closed for the current Scope artifact set.
+  Approver identity intentionally omitted from this record. Decision must not be
+  attributed to tooling.
+captured_against:
+  code_tree: 70638a938be1fa35390f485e989fffa8853fbad4
+  artifacts:
+    - { key: PRD-RKG, revision: 16, hash: 6b7982f7a128 }
+    - { key: FR-RKG-001, revision: 7, hash: c6886090bf15 }
+    - { key: FR-RKG-002, revision: 8, hash: c5e11b3d76d5 }
+    - { key: FR-RKG-003, revision: 7, hash: 2c4c20aeb6e5 }
+    - { key: FR-RKG-004, revision: 6, hash: 42cac8fa9f63 }
+    - { key: FR-RKG-005, revision: 7, hash: 106c7ce3d993 }
+    - { key: NFR-RKG-PERF-001, revision: 5, hash: 8b33e052dfbd }
+    - { key: NFR-RKG-SEC-001, revision: 7, hash: 059f449b49e3 }
+    - { key: NFR-RKG-REL-001, revision: 8, hash: a86a9623da64 }
+    - { key: NFR-RKG-UX-001, revision: 7, hash: 0689e3142082 }
+    - { key: NFR-RKG-EXT-001, revision: 3, hash: 79aaf1489c71 }
+checklist:
+  - { item: problem-persona-scope-explicit, result: pass }
+  - { item: every-fr-has-binary-ac, result: pass }
+  - { item: extensibility-via-nfr-ext, result: pass }
+  - { item: nfr-fr-links-symmetric, result: pass }
+  - { item: kpi-obs-agree-or-deviation, result: pass }
+  - { item: oq-owner-trigger-blocking-effect, result: pass }
+  - { item: repository-snapshot-lifecycle-explicit, result: pass }
+  - { item: no-impl-before-task-001, result: pass }
+  - { item: named-approvers-recorded, result: waived, reason: operator omitted identity from record }
+---

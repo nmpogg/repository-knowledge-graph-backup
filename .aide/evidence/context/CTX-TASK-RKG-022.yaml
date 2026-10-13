@@ -1,0 +1,299 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-022
+revision: 3
+implementation_date: '2026-09-28'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-001
+    revision: 3
+    hash: ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d
+    path: architecture/adr/ADR-2026-001.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-ANALYZER
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: CMP-RKG-CONVERSATION
+    revision: 6
+    hash: 7b7875f084a579e95582d429950c87a99f2081fb18a4fef734167866f94406f4
+    path: architecture/l2/CMP-RKG-CONVERSATION.md
+  - key: CMP-RKG-GRAPH
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  - key: EPIC-005-TEAM-RKG
+    revision: 4
+    hash: 382689f44bb9eda827535bcff74d335243016106f056378f27a15e4cd54dd76c
+    path: lifecycle/epics/EPIC-005-TEAM-RKG.md
+  - key: FR-RKG-001
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  - key: FR-RKG-003
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  - key: FR-RKG-004
+    revision: 6
+    hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+    path: requirements/fr/FR-RKG-004.md
+  - key: NFR-RKG-EXT-001
+    revision: 3
+    hash: 58fe8493456045b2d475c7ac14bb4a440d2e4f3ade043eae276fed4c1ec27193
+    path: requirements/nfr/NFR-RKG-EXT-001.md
+  - key: NFR-RKG-PERF-001
+    revision: 5
+    hash: b74c5ddabd7d96e4cac9b700a1a54c8eb2d615b1eabeceed1cbfd268962e7d0d
+    path: requirements/nfr/NFR-RKG-PERF-001.md
+  - key: NFR-RKG-SEC-001
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  - key: STORY-RKG-015
+    revision: 1
+    hash: 709422a23bc836b25430f51832faee78247f27f9dc0964cc3e9e580093f81dee
+    path: lifecycle/stories/STORY-RKG-015.md
+  - key: TBL-RKG-GRAPH
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+  implementation_phases:
+  - commit: adcf43816acefc63d615f2c9f90cda18dbea054d
+    author_at: '2026-09-28T15:16:26+07:00'
+    committed_at: '2026-09-28T15:16:26+07:00'
+    implementation_date: '2026-09-28'
+    changed_paths:
+    - README.md
+    - tests/integration/test_pilot_corpus.py
+  - commit: 323035184d036d3b437e62a242ce38d1c01ae08f
+    author_at: '2026-09-28T15:58:51+07:00'
+    committed_at: '2026-09-28T15:58:51+07:00'
+    implementation_date: '2026-09-28'
+    changed_paths:
+    - src/rkg/conversations/grounded.py
+    - src/rkg/graph/context.py
+    - tests/evaluation/run_pilot_benchmark.py
+    - tests/evaluation/run_pilot_qa.py
+    - tests/evaluation/run_pilot_review.py
+    - tests/integration/test_pilot_corpus.py
+  - commit: 7eec602eede39b4b8bee42131d9379ac61d07c29
+    author_at: '2026-09-28T16:46:01+07:00'
+    committed_at: '2026-09-28T16:46:01+07:00'
+    implementation_date: '2026-09-28'
+    changed_paths: []
+  - commit: 8153d3e8e55c8861dc4e95ceb48f276767b0f0de
+    author_at: '2026-09-28T16:56:35+07:00'
+    committed_at: '2026-09-28T16:56:35+07:00'
+    implementation_date: '2026-09-28'
+    changed_paths: []
+  files:
+  - path: README.md
+    implementation_commit: adcf43816acefc63d615f2c9f90cda18dbea054d
+    implementation_sha256: a04509d147a6152614db9c547a00b2944bb808dba9f080ef934d1eb5d140e212
+    current_sha256: b05e41a4ed37690fbf80349f3a16d4fa07ed2586027906162377e286d5f5ce30
+  - path: tests/integration/test_pilot_corpus.py
+    implementation_commit: 323035184d036d3b437e62a242ce38d1c01ae08f
+    implementation_sha256: 1144c8f58c053ea9dacde351c4357a41519206d1c3e43133ebf55d3953dcd5fe
+    current_sha256: 96d80997f4952b64183e7450736e341b13b5e705538c5e4d87ba37304a90bf8a
+  - path: src/rkg/conversations/grounded.py
+    implementation_commit: 323035184d036d3b437e62a242ce38d1c01ae08f
+    implementation_sha256: e7cc99daf03ca88f91944f729b16a40b538e8f03d33da4e8a6cd2f41359593e5
+    current_sha256: 3b0efbbea60e11709c7048f36720a115a4c9d02b7c601efb2572384f4f85a65a
+  - path: src/rkg/graph/context.py
+    implementation_commit: 323035184d036d3b437e62a242ce38d1c01ae08f
+    implementation_sha256: d05ab082dd6e2dab89a14d7ce58502c77b85bbac29ffb0bc47ad19e66358395f
+    current_sha256: 3cdcbe4e3e38dc347e0c3aba622fda10ee0049198261168fce6980ababf4c839
+  - path: tests/evaluation/run_pilot_benchmark.py
+    implementation_commit: 323035184d036d3b437e62a242ce38d1c01ae08f
+    implementation_sha256: 22553f8c199e4498fd2260d464e5804fce499a2291177d556ff6dd7ded2646c8
+    current_sha256: b8c38b6a3c8f420f781802906124ae13feb9de0a73fce597101ad24417f4c802
+  - path: tests/evaluation/run_pilot_qa.py
+    implementation_commit: 323035184d036d3b437e62a242ce38d1c01ae08f
+    implementation_sha256: 536a32dfd2d201004ba8219ac99f89ade04881d6032707dbf74de73f22a0f6cf
+    current_sha256: 96b0a978c3601830c2c7c0f687ee6a98ab9c142310ca0e61792b21405503da9d
+  - path: tests/evaluation/run_pilot_review.py
+    implementation_commit: 323035184d036d3b437e62a242ce38d1c01ae08f
+    implementation_sha256: 13694a46fed8881364c43626e9fe086012b0a1873449e0e5dabb453ef45f27c1
+    current_sha256: c22914775e4b90c9c16ef1627d01397e34b8641ac6ecef3aa8b1b2af4cd2f8b7
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-022
+objective: TASK-RKG-022
+objective_description: Pin corpus, chạy extraction/conformance, sampling/Q&A và benchmark; công bố method/raw reports/omissions,
+  không sửa threshold để biến failure thành pass.
+requirements:
+- FR-RKG-001
+- FR-RKG-003
+- FR-RKG-004
+- AC-RKG-037
+- AC-RKG-039
+- AC-RKG-062
+design:
+- CMP-RKG-ANALYZER
+- CMP-RKG-CONVERSATION
+- CMP-RKG-GRAPH
+decisions:
+- ADR-2026-001
+contracts:
+- API-RKG-CORE-v1
+- TBL-RKG-GRAPH
+constraints:
+- NFR-RKG-EXT-001
+- NFR-RKG-PERF-001
+- NFR-RKG-SEC-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- README.md
+- tests/integration/test_pilot_corpus.py
+- src/rkg/conversations/grounded.py
+- src/rkg/graph/context.py
+- tests/evaluation/run_pilot_benchmark.py
+- tests/evaluation/run_pilot_qa.py
+- tests/evaluation/run_pilot_review.py
+inputs:
+  ADR-2026-001:
+    revision: 3
+    hash: ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d
+    path: architecture/adr/ADR-2026-001.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-ANALYZER:
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  CMP-RKG-CONVERSATION:
+    revision: 6
+    hash: 7b7875f084a579e95582d429950c87a99f2081fb18a4fef734167866f94406f4
+    path: architecture/l2/CMP-RKG-CONVERSATION.md
+  CMP-RKG-GRAPH:
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  EPIC-005-TEAM-RKG:
+    revision: 4
+    hash: 382689f44bb9eda827535bcff74d335243016106f056378f27a15e4cd54dd76c
+    path: lifecycle/epics/EPIC-005-TEAM-RKG.md
+  FR-RKG-001:
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  FR-RKG-003:
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  FR-RKG-004:
+    revision: 6
+    hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+    path: requirements/fr/FR-RKG-004.md
+  NFR-RKG-EXT-001:
+    revision: 3
+    hash: 58fe8493456045b2d475c7ac14bb4a440d2e4f3ade043eae276fed4c1ec27193
+    path: requirements/nfr/NFR-RKG-EXT-001.md
+  NFR-RKG-PERF-001:
+    revision: 5
+    hash: b74c5ddabd7d96e4cac9b700a1a54c8eb2d615b1eabeceed1cbfd268962e7d0d
+    path: requirements/nfr/NFR-RKG-PERF-001.md
+  NFR-RKG-SEC-001:
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  STORY-RKG-015:
+    revision: 1
+    hash: 709422a23bc836b25430f51832faee78247f27f9dc0964cc3e9e580093f81dee
+    path: lifecycle/stories/STORY-RKG-015.md
+  TBL-RKG-GRAPH:
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-022
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-022
+    story: STORY-RKG-015
+    captured_at: 2026-09-28
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-022
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: PRD-RKG
+      - key: CMP-RKG-ANALYZER
+      - key: CMP-RKG-GRAPH
+      - key: CMP-RKG-CONVERSATION
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-022
+
+    ## objective
+    Đo extraction, Q&A và p95 trên corpus đã chọn. Ghi mẫu và finding, kể cả khi ngưỡng không đạt.
+
+    ## requirements
+    - AC-RKG-037
+    - AC-RKG-039
+    - AC-RKG-062
+
+    ## design
+    - CMP-RKG-ANALYZER — gồm transaction boundary, idempotency và concurrency của component này
+    - CMP-RKG-GRAPH — gồm transaction boundary, idempotency và concurrency của component này
+    - CMP-RKG-CONVERSATION — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-001
+
+    ## contracts
+    - API-RKG-CORE-v1
+    - TBL-RKG-GRAPH
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-PERF-001
+    - NFR-RKG-EXT-001
+    - NFR-RKG-SEC-001
+
+    ## code_scope
+    - tests/evaluation/**
+    - tests/integration/**
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-005-TEAM-RKG

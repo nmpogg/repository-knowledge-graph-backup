@@ -1,0 +1,858 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rkg:conversation:wire:1",
+  "title": "SCH-RKG-CONVERSATION-v1",
+  "x-aide": {
+    "key": "SCH-RKG-CONVERSATION-v1",
+    "type": "json-schema",
+    "group": "normative",
+    "system": "SYS-RKG",
+    "revision": 2,
+    "status": "draft",
+    "change_set": "CHG-RKG-2026-003",
+    "owned_by": "CMP-RKG-TRANSPORT",
+    "classification": "internal",
+    "ai_assisted": true
+  },
+  "$defs": {
+    "Subject": {
+      "type": "object",
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "type": {
+          "enum": [
+            "Directory",
+            "SourceUnit",
+            "Namespace",
+            "Type",
+            "Callable",
+            "Endpoint",
+            "DataResource",
+            "MessageChannel",
+            "Configuration",
+            "ExternalDependency"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "qualified_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "method": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 20
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "path": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "entity_id",
+        "type",
+        "name",
+        "qualified_name",
+        "method",
+        "path"
+      ],
+      "additionalProperties": false
+    },
+    "ResponseMetadata": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "language": {
+          "enum": [
+            "vi",
+            "en"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "answer",
+            "clarification",
+            "greeting",
+            "insufficient",
+            "error"
+          ]
+        },
+        "subject": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Subject"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coverage": {
+          "enum": [
+            "complete",
+            "partial",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "retrieval_truncated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "history_truncated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "max_chars",
+              "max_nodes",
+              "max_edges",
+              "max_depth",
+              "history_truncated"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 5,
+          "uniqueItems": true
+        },
+        "insufficient_reason": {
+          "enum": [
+            "entity_not_found",
+            "relation_not_found",
+            "intent_unresolved",
+            "answer_not_supported",
+            null
+          ]
+        }
+      },
+      "required": [
+        "version",
+        "language",
+        "kind",
+        "subject",
+        "coverage",
+        "retrieval_truncated",
+        "history_truncated",
+        "limitations",
+        "insufficient_reason"
+      ],
+      "additionalProperties": false
+    },
+    "TurnRequest": {
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "client_request_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "root_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ui_locale": {
+          "enum": [
+            "vi",
+            "en",
+            null
+          ]
+        }
+      },
+      "required": [
+        "question",
+        "client_request_id",
+        "expected_revision"
+      ],
+      "additionalProperties": false
+    },
+    "Claim": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "edge_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "citation_indexes": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "minItems": 1,
+          "maxItems": 100
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "additionalProperties": true
+    },
+    "Citation": {
+      "type": "object",
+      "properties": {
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "evidence_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "edge_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "quote": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "snapshot_id"
+      ],
+      "additionalProperties": true
+    },
+    "Turn": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "rkg.conversation/1"
+        },
+        "turn_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "conversation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "answered",
+            "needs_clarification",
+            "insufficient_evidence",
+            "failed",
+            "interrupted"
+          ]
+        },
+        "question": {
+          "type": "string"
+        },
+        "resolved_question": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "answer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Citation"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "context_turn_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "minItems": 0,
+          "maxItems": 6
+        },
+        "usage": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "response_metadata": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResponseMetadata"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "turn_id",
+        "sequence",
+        "status",
+        "question",
+        "resolved_question",
+        "answer",
+        "claims",
+        "citations",
+        "context_turn_ids",
+        "error_code"
+      ],
+      "additionalProperties": true
+    },
+    "TurnSubmitResponse": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "rkg.conversation/1"
+        },
+        "turn_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "conversation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "answered",
+            "needs_clarification",
+            "insufficient_evidence",
+            "interrupted"
+          ]
+        },
+        "question": {
+          "type": "string"
+        },
+        "resolved_question": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "answer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Citation"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "context_turn_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "minItems": 0,
+          "maxItems": 6
+        },
+        "usage": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "response_metadata": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResponseMetadata"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "repository_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "candidate_entities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "repository_id": {
+                "type": "string"
+              },
+              "snapshot_id": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "Directory",
+                  "SourceUnit",
+                  "Namespace",
+                  "Type",
+                  "Callable",
+                  "Endpoint",
+                  "DataResource",
+                  "MessageChannel",
+                  "Configuration",
+                  "ExternalDependency"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "qualified_name": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "name",
+              "qualified_name"
+            ],
+            "additionalProperties": true
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "retrieval_truncated": {
+          "type": "boolean"
+        },
+        "history_truncated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "turn_id",
+        "sequence",
+        "status",
+        "question",
+        "resolved_question",
+        "answer",
+        "claims",
+        "citations",
+        "context_turn_ids",
+        "error_code",
+        "schema_version",
+        "conversation_id",
+        "revision",
+        "repository_id",
+        "snapshot_id",
+        "candidate_entities",
+        "limitations",
+        "retrieval_truncated",
+        "history_truncated",
+        "usage"
+      ],
+      "additionalProperties": true
+    },
+    "HistoryResponse": {
+      "type": "object",
+      "properties": {
+        "conversation": {
+          "type": "object"
+        },
+        "candidate_entities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "repository_id": {
+                "type": "string"
+              },
+              "snapshot_id": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "Directory",
+                  "SourceUnit",
+                  "Namespace",
+                  "Type",
+                  "Callable",
+                  "Endpoint",
+                  "DataResource",
+                  "MessageChannel",
+                  "Configuration",
+                  "ExternalDependency"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "qualified_name": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "name",
+              "qualified_name"
+            ],
+            "additionalProperties": true
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Turn"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "snapshot_available": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "conversation",
+        "candidate_entities",
+        "items",
+        "offset",
+        "limit",
+        "total"
+      ],
+      "additionalProperties": true
+    },
+    "EvidenceLocation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "file_path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^(?!/)(?![A-Za-z]:)(?!.*(?:^|/)\\.{1,2}(?:/|$))[^\\\\]+$"
+        },
+        "provenance": {
+          "enum": [
+            "source",
+            "filesystem"
+          ]
+        },
+        "start_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "end_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "id",
+        "file_path",
+        "provenance",
+        "start_line",
+        "end_line",
+        "rule"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "provenance": {
+                "const": "source"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "start_line": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "end_line": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "provenance": {
+                "const": "filesystem"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "start_line": {
+                "const": null
+              },
+              "end_line": {
+                "const": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ExactCitationResponse": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "rkg.citation/1"
+        },
+        "conversation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "turn_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "citation_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "evidence": {
+          "$ref": "#/$defs/EvidenceLocation"
+        }
+      },
+      "required": [
+        "schema_version",
+        "conversation_id",
+        "turn_id",
+        "snapshot_id",
+        "citation_index",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "CapabilitiesResponse": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "rkg.conversation-capabilities/1"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "ui_locale",
+              "response_metadata_v1",
+              "exact_citation_lookup",
+              "history_unavailable"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 4,
+          "uniqueItems": true
+        },
+        "provider_enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schema_version",
+        "features",
+        "provider_enabled"
+      ],
+      "additionalProperties": false
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "minLength": 1
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "message"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "error"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "description": "L3 candidate; selects a definition by operation. Not proof of runtime implementation."
+}

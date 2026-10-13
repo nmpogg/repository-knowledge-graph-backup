@@ -1,0 +1,2 @@
+syntax = "proto3";
+message ScannerOnly { string id = 1; }

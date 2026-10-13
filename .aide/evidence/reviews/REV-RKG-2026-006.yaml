@@ -1,0 +1,68 @@
+key: REV-RKG-2026-006
+type: review-record
+group: evidence
+scope: system
+system: SYS-RKG
+revision: 1
+created_at: '2026-10-06T11:44:23+07:00'
+change_set: CHG-RKG-2026-002
+record_kind: author-finding-reconciliation
+independent_review: false
+closes_gates: false
+classification: internal
+ai_assisted: true
+captured_against:
+  source_review:
+    key: REV-RKG-2026-005
+    sha256: e4391d66239b894bc493a507cad33bdf7339c86f4581d773b96bc3e5dd1c286b
+  original_artifact:
+    key: ADR-2026-007
+    revision: 1
+    status: draft
+    hash: c699b29aa4c36c4be71c40b9f179731213f2f53e77d811a06e9307a2be68144c
+    path: architecture/adr/ADR-2026-007.md
+    role: selected_candidate
+  corrected_artifact:
+    key: ADR-2026-007
+    revision: 2
+    status: draft
+    hash: 1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a
+    path: architecture/adr/ADR-2026-007.md
+    role: selected_candidate
+  original_baseline:
+    key: BL-CHG-RKG-2026-002-r2
+    sha256: 3cf69ea1258789a8f3ed3fba07759ac860b0cff81078f74ec3643ba9e3f03bdf
+  current_baseline:
+    key: BL-CHG-RKG-2026-002-r3
+    sha256: 051a382ed452463cc891ce4183b4891116ccecd7ec345d4f1de0ac0bb328d1a5
+  base_code_commit: 86ecab6546384227d1901e24c8b8fbfc6c0e8527
+finding_dispositions:
+- id: COMP-CHG002-001
+  finding_key:
+    rule_id: effective_language_before_ui_locale
+    location_anchor: ADR-2026-007#ngon-ngu-greeting-va-clarification:L79
+    fingerprint: greeting-locale-wording-can-bypass-resolved-language
+  attribution:
+  - completeness
+  severity: low
+  route: bad_spec
+  blocker: false
+  disposition: ACCEPTED
+  decision_basis: Clarifies language precedence already selected and Scope-approved
+    in AC074/078; no new behavior or budget change.
+  correction: Greeting renderer uses effective language from language resolver; UI
+    locale remains a fallback.
+  resolution_state: corrected_pending_exact_revision_review
+  verification:
+    author_static_checks: recorded_in_TEST-RKG-DESIGN-CORRECTION-001
+    independent_delta_review: not_run
+    runtime_language_fixtures: not_run
+recovery_review:
+  required: true
+  scope: ADR-2026-007 r1 to r2 wording/revision delta only
+  full_review_repeated: false
+  reviewer_must_be_independent_of_author: true
+  gate_effect: Architecture stays pending; source pass still refers to r2 baseline
+    and ADR r1.
+notes: Does not edit the source review or represent reviewer verification of the corrected
+  artifact. The existing finding ID and fingerprint are preserved.

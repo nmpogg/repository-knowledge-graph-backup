@@ -1,0 +1,298 @@
+{
+  "fixture_id": "rkg-fixture-react-ts",
+  "oracle_source": "repo-test/rkg-fixture-react-ts/README.md",
+  "notes": [
+    "rule_id is null wherever README does not name a versioned extraction rule",
+    "TypeScript qualified_name spelling follows REG-ADAPTER-001 draft (path→dots + symbol)",
+    "UI routes reuse Endpoint with kind=navigation (no HTTP method); handled_by links route→page Callable",
+    "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": true
+  },
+  "allowlist": [],
+  "entities": [
+    {
+      "type": "Callable",
+      "qualified_name": "src.app.App.App",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/App.tsx", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.app.App.AppErrorBoundary.render",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/App.tsx", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.app.routes.OrdersPage.OrdersPage",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/routes/OrdersPage.tsx", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.hooks.useOrders.useOrders",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/hooks/useOrders.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.services.orderApi.OrderApi.listOrders",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/orderApi.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.services.orderApi.OrderApi.getOrder",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/orderApi.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.services.orderApi.OrderApi.updateOrder",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/orderApi.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.services.orderApi.OrderApi.checkInventory",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/orderApi.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.services.httpClient.FetchHttpClient.get",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/httpClient.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.services.httpClient.FetchHttpClient.put",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/httpClient.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.services.httpClient.FetchHttpClient.request",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/httpClient.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.config.environment.getEnvironment",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/config/environment.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.config.environment.parseEnvironment",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/config/environment.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "src.components.OrderStatusBadge.OrderStatusBadge",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/components/OrderStatusBadge.tsx", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:VITE_API_BASE_URL",
+      "required_attributes": {"kind": "environment"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/config/environment.ts", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:VITE_ENABLE_ADMIN",
+      "required_attributes": {"kind": "environment"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/config/environment.ts", "start_line": null}]
+    },
+    {
+      "type": "ExternalDependency",
+      "qualified_name": "https://inventory.example.test",
+      "required_attributes": {"kind": "http_service", "origin": "https://inventory.example.test"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/orderApi.ts", "start_line": null}]
+    },
+    {
+      "type": "navigation_route",
+      "semantic_kind": "navigation_route",
+      "qualified_name": "/",
+      "required_attributes": {"kind": "navigation", "path": "/"},
+      "framework_kind": "react-router",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/router.tsx", "start_line": null}],
+      "note": "UI navigation Endpoint, not HTTP method Endpoint"
+    },
+    {
+      "type": "navigation_route",
+      "semantic_kind": "navigation_route",
+      "qualified_name": "/orders",
+      "required_attributes": {"kind": "navigation", "path": "/orders"},
+      "framework_kind": "react-router",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/router.tsx", "start_line": null}]
+    },
+    {
+      "type": "navigation_route",
+      "semantic_kind": "navigation_route",
+      "qualified_name": "/orders/:orderId",
+      "required_attributes": {"kind": "navigation", "path": "/orders/:orderId"},
+      "framework_kind": "react-router",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/router.tsx", "start_line": null}]
+    },
+    {
+      "type": "navigation_route",
+      "semantic_kind": "navigation_route",
+      "qualified_name": "/orders/:orderId/edit",
+      "required_attributes": {"kind": "navigation", "path": "/orders/:orderId/edit"},
+      "framework_kind": "react-router",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/router.tsx", "start_line": null}]
+    },
+    {
+      "type": "navigation_route",
+      "semantic_kind": "navigation_route",
+      "qualified_name": "/admin/users",
+      "required_attributes": {"kind": "navigation", "path": "/admin/users"},
+      "framework_kind": "react-router",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/router.tsx", "start_line": null}]
+    },
+    {
+      "type": "navigation_route",
+      "semantic_kind": "navigation_route",
+      "qualified_name": "*",
+      "required_attributes": {"kind": "navigation", "path": "*"},
+      "framework_kind": "react-router",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/router.tsx", "start_line": null}]
+    }
+  ],
+  "edges": [
+    {
+      "type": "imports",
+      "source": "src.main",
+      "target": "src.app.App.App",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main.tsx", "start_line": null}],
+      "note": "default import of App"
+    },
+    {
+      "type": "imports",
+      "source": "src.app.routes.OrdersPage",
+      "target": "src.hooks.useOrders.useOrders",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/routes/OrdersPage.tsx", "start_line": null}],
+      "note": "named import useOrders"
+    },
+    {
+      "type": "imports",
+      "source": "src.app.routes.OrdersPage",
+      "target": "src.components.LoadingState.LoadingState",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/routes/OrdersPage.tsx", "start_line": null}],
+      "note": "default import LoadingState"
+    },
+    {
+      "type": "imports",
+      "source": "src.app.routes.OrdersPage",
+      "target": "src.components.OrderStatusBadge.OrderStatusBadge",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/routes/OrdersPage.tsx", "start_line": null}],
+      "note": "path-alias @/components/OrderStatusBadge"
+    },
+    {
+      "type": "imports",
+      "source": "src.analysis-cases.positive.aliasedCalls",
+      "target": "src.services.orderApi.OrderApi",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/analysis-cases/positive/aliasedCalls.ts", "start_line": null}],
+      "note": "aliased class import OrderApi as OrdersClient"
+    },
+    {
+      "type": "imports",
+      "source": "src.analysis-cases.positive.aliasedCalls",
+      "target": "src.config.environment.parseEnvironment",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/analysis-cases/positive/aliasedCalls.ts", "start_line": null}],
+      "note": "aliased function import parseEnvironment as parseEnv"
+    },
+    {
+      "type": "handled_by",
+      "source": "navigation:/orders",
+      "target": "src.app.routes.OrdersPage.OrdersPage",
+      "rule_id": "RKG.react_router.handler.v1",
+      "evidence": [{"file_path": "src/app/router.tsx", "start_line": null}],
+      "note": "navigation Endpoint → page Callable (same semantics as HTTP handled_by)"
+    },
+    {
+      "type": "calls",
+      "source": "src.app.routes.OrdersPage.OrdersPage",
+      "target": "src.hooks.useOrders.useOrders",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/app/routes/OrdersPage.tsx", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "src.hooks.useOrders.useOrders",
+      "target": "src.services.orderApi.OrderApi.listOrders",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/hooks/useOrders.ts", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "src.services.orderApi.OrderApi.listOrders",
+      "target": "src.services.httpClient.FetchHttpClient.get",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/orderApi.ts", "start_line": null}],
+      "note": "via httpClient.get binding"
+    },
+    {
+      "type": "calls",
+      "source": "src.services.httpClient.FetchHttpClient.get",
+      "target": "src.services.httpClient.FetchHttpClient.request",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/services/httpClient.ts", "start_line": null}]
+    }
+  ],
+  "prohibited": [
+    {
+      "reason": "dynamicImport must not invent an internal import edge",
+      "edge": {
+        "type": "imports",
+        "source_qualified_name_contains": "dynamicImport",
+        "target_qualified_name_contains": "orderApi"
+      }
+    },
+    {
+      "reason": "dynamicUrl must not invent an external origin from runtime host",
+      "edge": {
+        "type": "depends_on",
+        "source_qualified_name_contains": "dynamicUrl"
+      }
+    },
+    {
+      "reason": "relative /api/orders must not become an ExternalDependency origin",
+      "entity": {
+        "type": "ExternalDependency",
+        "qualified_name": "/api/orders"
+      }
+    },
+    {
+      "reason": "UI navigation path must not be published as HTTP method Endpoint",
+      "entity": {
+        "type": "Endpoint",
+        "attributes": {"method": "GET", "path": "/orders"}
+      }
+    },
+    {
+      "reason": "secret sentinel must never appear in facts or diagnostics",
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST"
+    }
+  ]
+}

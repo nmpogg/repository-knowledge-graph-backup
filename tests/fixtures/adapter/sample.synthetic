@@ -1,0 +1,4 @@
+unit demo
+callable demo.run
+route GET /demo demo.run
+open("source-executed.marker", "w").write("executed")

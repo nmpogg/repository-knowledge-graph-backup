@@ -1,0 +1,40 @@
+---
+key: FIND-RKG-ST-B-001
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: advisory
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-043
+story_key: STORY-RKG-027
+captured_at: '2026-10-07'
+disposition: accept
+route: OQ-RKG-007
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [OQ-RKG-007]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-ST-B-001 — OQ-RKG-007 Hệ quả thiếu citation Stack B
+
+## Summary
+
+OQ-RKG-007 quyết định đã cover “framework router tương đương” và Story/Task Stack B
+áp dụng đúng `framework_kind=nuxt`. Mục Hệ quả chỉ citation `rkg.react-router` /
+TASK-RKG-042; thiếu citation đối xứng `rkg.nuxt` / TASK-RKG-043.
+
+## Decision
+
+Operator ACCEPT 2026-10-07. Remediations: bump OQ-RKG-007 Hệ quả with symmetric
+citations for `rkg.nuxt`, `framework_kind=nuxt`, and TASK-RKG-043.
+
+## Remediation
+
+- done: AUTHOR patched OQ-RKG-007 revision 3 — Hệ quả adds REG-ADAPTER-001 /
+  `rkg.nuxt` (`framework_kind=nuxt`, `kind=navigation` on page routes) and
+  TASK-RKG-043 conformance (navigation assert; Nitro `server/api` remains HTTP
+  Endpoint). Disposition ACCEPT unchanged. REVIEWER confirm pending.

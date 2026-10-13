@@ -1,0 +1,505 @@
+{
+  "adapter_local": {
+    "exact": [
+      {
+        "key": "web.list",
+        "type": "Callable",
+        "name": "OrderApi.listOrders",
+        "evidence": [
+          {
+            "path": "apps/web/src/services/orderApi.ts",
+            "rule_intent": "source declaration",
+            "marker": "web-list-orders"
+          }
+        ],
+        "application": "web"
+      },
+      {
+        "key": "web.create",
+        "type": "Callable",
+        "name": "OrderApi.createOrder",
+        "evidence": [
+          {
+            "path": "apps/web/src/services/orderApi.ts",
+            "rule_intent": "source declaration",
+            "marker": "web-create-order"
+          }
+        ],
+        "application": "web"
+      },
+      {
+        "key": "web.http.get",
+        "type": "Callable",
+        "name": "FetchHttpClient.get",
+        "evidence": [
+          {
+            "path": "apps/web/src/services/httpClient.ts",
+            "rule_intent": "source declaration",
+            "line": 1
+          }
+        ],
+        "application": "web"
+      },
+      {
+        "key": "web.http.post",
+        "type": "Callable",
+        "name": "FetchHttpClient.post",
+        "evidence": [
+          {
+            "path": "apps/web/src/services/httpClient.ts",
+            "rule_intent": "source declaration",
+            "line": 1
+          }
+        ],
+        "application": "web"
+      },
+      {
+        "key": "web.http.request",
+        "type": "Callable",
+        "name": "FetchHttpClient.request",
+        "evidence": [
+          {
+            "path": "apps/web/src/services/httpClient.ts",
+            "rule_intent": "source declaration",
+            "line": 1
+          }
+        ],
+        "application": "web"
+      },
+      {
+        "key": "orders.get.endpoint",
+        "type": "Endpoint",
+        "name": "GET /api/orders",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/api/OrderController.java",
+            "rule_intent": "source declaration",
+            "marker": "spring-list-orders"
+          }
+        ],
+        "method": "GET",
+        "path": "/api/orders",
+        "application": "orders"
+      },
+      {
+        "key": "orders.post.endpoint",
+        "type": "Endpoint",
+        "name": "POST /api/orders",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/api/OrderController.java",
+            "rule_intent": "source declaration",
+            "marker": "spring-create-order"
+          }
+        ],
+        "method": "POST",
+        "path": "/api/orders",
+        "application": "orders"
+      },
+      {
+        "key": "orders.controller.list",
+        "type": "Callable",
+        "name": "OrderController.list",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/api/OrderController.java",
+            "rule_intent": "source declaration",
+            "marker": "spring-list-orders"
+          }
+        ],
+        "application": "orders"
+      },
+      {
+        "key": "orders.controller.create",
+        "type": "Callable",
+        "name": "OrderController.create",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/api/OrderController.java",
+            "rule_intent": "source declaration",
+            "marker": "spring-create-order"
+          }
+        ],
+        "application": "orders"
+      },
+      {
+        "key": "orders.service.create",
+        "type": "Callable",
+        "name": "OrderService.createOrder",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/application/OrderService.java",
+            "rule_intent": "source declaration",
+            "line": 1
+          }
+        ],
+        "application": "orders"
+      },
+      {
+        "key": "orders.service.impl",
+        "type": "Type",
+        "name": "DefaultOrderService",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/application/DefaultOrderService.java",
+            "rule_intent": "source declaration",
+            "marker": "orders-service"
+          }
+        ],
+        "application": "orders"
+      },
+      {
+        "key": "orders.entity",
+        "type": "Type",
+        "name": "OrderEntity",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/persistence/OrderEntity.java",
+            "rule_intent": "source declaration",
+            "marker": "commerce-orders-table"
+          }
+        ],
+        "application": "orders"
+      },
+      {
+        "key": "orders.repository",
+        "type": "Type",
+        "name": "JpaOrderRepository",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/persistence/JpaOrderRepository.java",
+            "rule_intent": "source declaration",
+            "marker": "orders-repository"
+          }
+        ],
+        "application": "orders"
+      },
+      {
+        "key": "orders.publisher",
+        "type": "Callable",
+        "name": "KafkaOrderEventPublisher.publish",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/messaging/KafkaOrderEventPublisher.java",
+            "rule_intent": "source declaration",
+            "marker": "spring-publish-orders"
+          }
+        ],
+        "application": "orders"
+      },
+      {
+        "key": "orders.table",
+        "type": "DataResource",
+        "name": "commerce.orders",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/persistence/OrderEntity.java",
+            "rule_intent": "source declaration",
+            "marker": "commerce-orders-table"
+          }
+        ],
+        "schema": "commerce",
+        "table": "orders",
+        "application": "orders"
+      },
+      {
+        "key": "audit.table",
+        "type": "DataResource",
+        "name": "audit.orders",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/analysiscases/negative/AuditOrderEntity.java",
+            "rule_intent": "source declaration",
+            "marker": "audit-orders-table"
+          }
+        ],
+        "schema": "audit",
+        "table": "orders",
+        "application": "orders",
+        "runtime_access": false
+      },
+      {
+        "key": "orders.events.java",
+        "type": "MessageChannel",
+        "name": "orders.events",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/messaging/MessagingTopics.java",
+            "rule_intent": "source declaration",
+            "line": 1
+          }
+        ],
+        "application": "orders",
+        "transport": "Kafka"
+      },
+      {
+        "key": "orders.events.go",
+        "type": "MessageChannel",
+        "name": "orders.events",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/messaging/kafka_consumer.go",
+            "rule_intent": "source declaration",
+            "marker": "projection-consume-orders"
+          }
+        ],
+        "application": "projection-worker",
+        "transport": "Kafka"
+      },
+      {
+        "key": "projection.consumer",
+        "type": "Callable",
+        "name": "NewKafkaReader",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/messaging/kafka_consumer.go",
+            "rule_intent": "source declaration",
+            "marker": "projection-consume-orders"
+          }
+        ],
+        "application": "projection-worker"
+      },
+      {
+        "key": "projection.processor",
+        "type": "Callable",
+        "name": "Processor.Process",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/app/processor.go",
+            "rule_intent": "source declaration",
+            "marker": "projection-process"
+          }
+        ],
+        "application": "projection-worker"
+      },
+      {
+        "key": "projection.repository.upsert",
+        "type": "Callable",
+        "name": "PostgresRepository.Upsert",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/storage/postgres_repository.go",
+            "rule_intent": "source declaration",
+            "marker": "projection-upsert"
+          }
+        ],
+        "application": "projection-worker"
+      },
+      {
+        "key": "projection.repository.interface",
+        "type": "Callable",
+        "name": "OrderRepository.Upsert",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/storage/repository.go",
+            "rule_intent": "source declaration",
+            "line": 1
+          }
+        ],
+        "application": "projection-worker"
+      },
+      {
+        "key": "projection.table",
+        "type": "DataResource",
+        "name": "commerce.order_projection",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/storage/queries.go",
+            "rule_intent": "source declaration",
+            "marker": "projection-table-sql"
+          }
+        ],
+        "schema": "commerce",
+        "table": "order_projection",
+        "application": "projection-worker"
+      },
+      {
+        "key": "projection.updated",
+        "type": "MessageChannel",
+        "name": "orders.projection.updated",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/messaging/topics.go",
+            "rule_intent": "source declaration",
+            "line": 1
+          }
+        ],
+        "application": "projection-worker",
+        "transport": "Kafka"
+      },
+      {
+        "key": "email.queue.create",
+        "type": "Callable",
+        "name": "createEmailQueue",
+        "evidence": [
+          {
+            "path": "workers/email/src/queues/emailQueue.ts",
+            "rule_intent": "source declaration",
+            "marker": "email-queue-producer"
+          }
+        ],
+        "application": "email-worker"
+      },
+      {
+        "key": "email.worker.create",
+        "type": "Callable",
+        "name": "createEmailWorker",
+        "evidence": [
+          {
+            "path": "workers/email/src/workers/emailWorker.ts",
+            "rule_intent": "source declaration",
+            "marker": "email-queue-consumer"
+          }
+        ],
+        "application": "email-worker"
+      },
+      {
+        "key": "email.dispatch",
+        "type": "Callable",
+        "name": "dispatchOrderEvent",
+        "evidence": [
+          {
+            "path": "workers/email/src/application/orderEvents.ts",
+            "rule_intent": "source declaration",
+            "marker": "event-to-email-queue"
+          }
+        ],
+        "application": "email-worker"
+      },
+      {
+        "key": "email.enqueue",
+        "type": "Callable",
+        "name": "enqueueOrderEmail",
+        "evidence": [
+          {
+            "path": "workers/email/src/producers/emailProducer.ts",
+            "rule_intent": "source declaration",
+            "line": 1
+          }
+        ],
+        "application": "email-worker"
+      },
+      {
+        "key": "email.process",
+        "type": "Callable",
+        "name": "processEmailJob",
+        "evidence": [
+          {
+            "path": "workers/email/src/workers/emailWorker.ts",
+            "rule_intent": "source declaration",
+            "marker": "email-process"
+          }
+        ],
+        "application": "email-worker"
+      },
+      {
+        "key": "email.send",
+        "type": "Callable",
+        "name": "EmailService.sendOrderEmail",
+        "evidence": [
+          {
+            "path": "workers/email/src/services/emailService.ts",
+            "rule_intent": "source declaration",
+            "marker": "email-service"
+          }
+        ],
+        "application": "email-worker"
+      },
+      {
+        "key": "email.queue",
+        "type": "MessageChannel",
+        "name": "order-email",
+        "evidence": [
+          {
+            "path": "workers/email/src/queues/emailQueue.ts",
+            "rule_intent": "source declaration",
+            "marker": "email-queue-producer"
+          }
+        ],
+        "application": "email-worker",
+        "transport": "BullMQ"
+      },
+      {
+        "key": "shared.orders",
+        "type": "Directory",
+        "name": "shared/orders",
+        "evidence": [
+          {
+            "path": "shared/orders/ContractNames.java",
+            "rule_intent": "source declaration",
+            "marker": "shared-java-contract"
+          }
+        ],
+        "identity": "one normalized directory path"
+      },
+      {
+        "key": "orders.domain.order",
+        "type": "Type",
+        "name": "Order",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/domain/Order.java",
+            "rule_intent": "source declaration",
+            "line": 1
+          }
+        ],
+        "application": "orders",
+        "language": "Java"
+      },
+      {
+        "key": "web.domain.order",
+        "type": "Type",
+        "name": "Order",
+        "evidence": [
+          {
+            "path": "apps/web/src/domain/order.ts",
+            "rule_intent": "source declaration",
+            "line": 1
+          }
+        ],
+        "application": "web",
+        "language": "TypeScript"
+      }
+    ],
+    "optional": [
+      {
+        "name": "framework library types and unresolved call diagnostics",
+        "basis": "detected dependencies; not concrete runtime dispatch"
+      }
+    ],
+    "prohibited": [
+      "merge Java Order and TypeScript Order",
+      "merge commerce.orders and audit.orders",
+      "SourceUnit for schema.proto or YAML/Markdown without adapter",
+      "callable declaration extracted from malformed syntax"
+    ]
+  },
+  "post_merge": {
+    "expected": [
+      {
+        "key": "normalized.orders.events",
+        "identity": {
+          "transport": "Kafka",
+          "topic": "orders.events"
+        },
+        "members": [
+          "orders.events.java",
+          "orders.events.go"
+        ],
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/messaging/MessagingTopics.java",
+            "line": 1,
+            "rule_intent": "Java literal topic"
+          },
+          {
+            "path": "workers/projection/internal/messaging/kafka_consumer.go",
+            "marker": "projection-consume-orders",
+            "rule_intent": "Go literal topic"
+          }
+        ]
+      }
+    ],
+    "requires": "normalized channel identity + transport + declaration/call evidence; matching simple names alone is insufficient"
+  }
+}

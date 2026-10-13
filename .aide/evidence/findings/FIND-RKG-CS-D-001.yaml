@@ -1,0 +1,37 @@
+---
+key: FIND-RKG-CS-D-001
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: advisory
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-045
+captured_at: '2026-10-08'
+disposition: accept
+route: TASK-RKG-045
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [TASK-RKG-045]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-CS-D-001 — TASK-RKG-045 omits AC-RKG-005 without stated reason
+
+## Summary
+
+TASK-RKG-045 lists language, endpoint, JPA, and Kafka ACs but omits AC-RKG-005
+without saying why. REG constructor DI is Type→Type `depends_on`, which is not
+the AC-005 Callable/Endpoint→Callable contract.
+
+## Decision
+
+Operator ACCEPT 2026-10-08. Remediations: state AC-005 out of scope on
+TASK-RKG-045 with that distinction.
+
+## Remediation
+
+- done: AUTHOR stated AC-RKG-005 out of scope on TASK-RKG-045 (revision 2).
+  REVIEWER confirm.

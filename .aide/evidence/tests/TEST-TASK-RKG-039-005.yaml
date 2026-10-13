@@ -1,0 +1,80 @@
+{
+  "key": "TEST-TASK-RKG-039-005",
+  "type": "runtime-smoke-verification",
+  "group": "evidence",
+  "revision": 5,
+  "task": "TASK-RKG-039",
+  "captured_at": "2026-10-07T09:21:52.607126+00:00",
+  "captured_against": {
+    "code_commit": "62cb7afae25d4457a62171a6ae24ef07b46563a3",
+    "review_package": {
+      "path": ".aide/reviewer/packages/RVP-TASK-RKG-039-r3.yaml",
+      "sha256": "7616ea3e5eea6b8fd8e97d17d7dcb35daa2b19cd32d583242d17a575cd64a569"
+    },
+    "current_source_verification": "218 candidate hashes and36 normative pins match frozen r3"
+  },
+  "authorization": {
+    "source": "explicit_user_test_request_and_followup_provider_choice",
+    "provider": "openai_only",
+    "context": "Login endpoint graph from local repo-test/soopi fixture",
+    "requests": "one live factual turn; one zero-model greeting",
+    "cost_and_egress": "user explicitly permitted configured key and context egress to OpenAI after automatic approval review rejected initial both-provider proposal"
+  },
+  "environment": {
+    "backend": "Actual CLI serve --log-level debug on temporary loopback port",
+    "database": "isolated temporary Kuzu database",
+    "ingestion": "static indexing; analyzed repository source not executed",
+    "operator_backend_or_database_modified": false
+  },
+  "checks": {
+    "local_console_and_adapter_regressions": {
+      "passed": 12,
+      "seconds": 4.19,
+      "real_provider_calls": 0
+    },
+    "greeting": {
+      "http_status": 200,
+      "status": "answered",
+      "model_calls": 0
+    },
+    "logging_live_smoke": {
+      "result": "passed",
+      "provider_enabled": true,
+      "events_present": [
+        "model_profile",
+        "provider_request",
+        "provider_http_response",
+        "provider_response",
+        "model_output",
+        "stage_started",
+        "stage_finished",
+        "turn_finished",
+        "http_request"
+      ],
+      "request_and_turn_correlation": true,
+      "prompt_visible_in_ephemeral_terminal_capture": true,
+      "configured_literal_keys_absent": true
+    },
+    "factual_chatbot_live": {
+      "result": "failed",
+      "http_status": 502,
+      "error_code": "llm_malformed_response",
+      "stored_error_code": "llm_malformed_response",
+      "validation_rule": "disconnected_path",
+      "rejection_reason": "invalid_graph_references"
+    }
+  },
+  "interpretation": "Full debug trace works with actual OpenAI. The generated graph path fails existing semantic grounding; this is not an end-to-end chatbot success or a repaired provider answer.",
+  "harness_notes": "Initial temporary harness used an invalid Python-module CLI entrypoint and stopped before any model call. Corrected to installed rkg CLI entrypoint before the one permitted live request.",
+  "cleanup": "Own temporary server terminated and temporary DB removed; operator processes untouched",
+  "not_run": [
+    "live_OpenRouter_user_selected_OpenAI_only",
+    "actual_operator_conversation",
+    "additional_live_retries",
+    "chatbot_path_repair",
+    "human_UAT",
+    "release"
+  ],
+  "privacy": "No raw request/response/source/config/credentials or conversation transcript exported to this record; live terminal capture was ephemeral memory only.",
+  "human_gates": "unchanged pending"
+}

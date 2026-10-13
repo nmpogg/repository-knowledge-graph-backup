@@ -1,0 +1,21 @@
+key: CR-RKG-026
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-08'
+task: TASK-RKG-044
+story: STORY-RKG-028
+change_set: CHG-RKG-2026-011
+source: lifecycle_reconciliation
+request_summary: >-
+  Authorize the existing BullMQ messaging extraction on TASK-RKG-044. Scope
+  is the behavior already stated on STORY-RKG-028.
+authorization_boundary: >-
+  Implement and verify rkg.bullmq against the bullmq-worker oracle. Census
+  evidence does not close deep-support. Do not sign gates.
+record_boundary: >-
+  Records the scope already present on the task and story. No conversation
+  transcript. This request does not create a new product behavior.
+classification: internal
+ai_assisted: true

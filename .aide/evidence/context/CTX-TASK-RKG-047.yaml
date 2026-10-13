@@ -1,0 +1,29 @@
+type: context-snapshot
+key: CTX-TASK-RKG-047
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-047
+revision: 1
+implementation_date: '2026-10-08'
+change_set: CHG-RKG-2026-001
+provenance: flask-code-verify
+captured_against:
+  code_commit: 2d0af7204d89ea3944fbe507bc590744e45a5033
+  artifacts:
+  - key: TASK-RKG-047
+    path: lifecycle/tasks/TASK-RKG-047.md
+  - key: STORY-RKG-025
+    path: lifecycle/stories/STORY-RKG-025.md
+  - key: CMP-RKG-ANALYZER
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: REG-ADAPTER-001
+    path: registry/REG-ADAPTER-001.md
+  - key: CHG-RKG-2026-001
+    path: lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+notes:
+  - rkg.flask registered DETECTED_ONLY.
+  - Story STORY-RKG-025 owns the stack.
+  - Deep-support not closed.
+  - Task stays in_progress.
+  - This lát is pytest verify.

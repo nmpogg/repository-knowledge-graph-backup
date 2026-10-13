@@ -1,0 +1,392 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-025
+revision: 3
+implementation_date: '2026-09-24'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-004
+    revision: 2
+    hash: 43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3
+    path: architecture/adr/ADR-2026-004.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-WEB
+    revision: 8
+    hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+    path: architecture/l2/CMP-RKG-WEB.md
+  - key: EPIC-001-TEAM-RKG
+    revision: 6
+    hash: bc183b55d630509c25e119cb8849c560d3939b51c02b926f41a1565b1bb2b855
+    path: lifecycle/epics/EPIC-001-TEAM-RKG.md
+  - key: FR-RKG-001
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: NFR-RKG-SEC-001
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  - key: NFR-RKG-UX-001
+    revision: 7
+    hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  - key: SCR-RKG-001
+    revision: 8
+    hash: 3ca03923d54d550cb6fe8a56314b714bdd5924d211cc7b0056ad89814e1e97d2
+    path: design/ux/SCR-RKG-001.md
+  - key: STORY-RKG-002
+    revision: 1
+    hash: 41d54707b438113603235ab70566114c396922f2157d174d5c8366b6ee1c9af6
+    path: lifecycle/stories/STORY-RKG-002.md
+  - key: UID-RKG-001
+    revision: 7
+    hash: f55d82b70a237f4cf2f4b21a0e3444e664e176bb48fb376222c1c199b1776a80
+    path: design/ui/UID-RKG-001.md
+  - key: UIS-RKG-001
+    revision: 12
+    hash: 2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b
+    path: design/ui/UIS-RKG-001.md
+  - key: UXF-RKG-001
+    revision: 7
+    hash: 2da20229a1ce5a3222b086bfb15376e0281f3aa30befb5954c4fccb196f390f1
+    path: design/ux/UXF-RKG-001.md
+  implementation_phases:
+  - commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    author_at: '2026-09-24T14:44:38+07:00'
+    committed_at: '2026-09-24T14:44:38+07:00'
+    implementation_date: '2026-09-24'
+    changed_paths:
+    - frontend/src/App.test.tsx
+    - frontend/src/App.tsx
+    - frontend/src/client/mock/fixtures.ts
+    - frontend/src/client/mock/mockClient.ts
+    - frontend/src/client/mockClient.test.ts
+    - frontend/src/components/shell/AppShell.tsx
+    - frontend/src/components/ui/ConfirmDialog.tsx
+    - frontend/src/components/ui/ThemeToggle.tsx
+    - frontend/src/i18n/en.ts
+    - frontend/src/i18n/index.ts
+    - frontend/src/i18n/locale.tsx
+    - frontend/src/i18n/vi.ts
+    - frontend/src/index.css
+    - frontend/src/lib/format.ts
+    - frontend/src/lib/presets.ts
+    - frontend/src/lib/time.ts
+    - frontend/src/pages/conversations/ConversationsPlaceholderPage.tsx
+    - frontend/src/pages/explorer/ExplorerPage.tsx
+    - frontend/src/pages/jobs/JobMonitorPage.tsx
+    - frontend/src/pages/repositories/RepositoryCreatePage.tsx
+    - frontend/src/pages/repositories/RepositoryDetailPage.tsx
+    - frontend/src/pages/repositories/RepositoryEditPage.tsx
+    - frontend/src/pages/repositories/RepositoryListPage.tsx
+    - frontend/src/test/setup.ts
+    - frontend/src/types/api.ts
+  files:
+  - path: frontend/src/App.test.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 81f5a1b237b2c08e9e181337478a4c349b6f7f903b250913bfcd3d9845702f21
+    current_sha256: cfec967b18f4f99400dc8b2eafe67c137af40cfc2b17d166a7fdadb1e33fc0be
+  - path: frontend/src/App.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: ee9828456ef5e85216d45a219084dea3e9da6679c67b522d06f05e64f2c80cf6
+    current_sha256: a78c7f6154622a4ef68e56b516e805b6529d01ad34d80d59c539e67dfdc386cf
+  - path: frontend/src/client/mock/fixtures.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: d3f97ebf7d6e14a4fbed9eadd9b2735f82c2874ea4b0201ed326fb3b086814e4
+    current_sha256: a0cb0414f727d25fe499112b256bc23a1bb1da2168d976fbd73c1d6634ea425f
+  - path: frontend/src/client/mock/mockClient.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 0293a70ce02856b7b3d92c5d5786dff5b18d7860071a66d9be1672a2824bfb38
+    current_sha256: adeb0634780040e59a0a1077ae13ab3117b6b87a988fe586462546b727dbbff4
+  - path: frontend/src/client/mockClient.test.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: a05500438b3df365ebf681e2054a64e9b1d564dd2f21ea1d26e982349304b60c
+    current_sha256: 6e1dbc6daf18f6f00ebec441ed2004f828a3363cd8bb67d91a48573a41286cff
+  - path: frontend/src/components/shell/AppShell.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 8c891d57a349edf180bd9320971c0b24ce718fbd3ffe091920502e232d402c03
+    current_sha256: 8f69f4d3c3eb7b1a7baab0b29f5c54d75839bd6f0bd84ad4a22845dfd8d8f955
+  - path: frontend/src/components/ui/ConfirmDialog.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 06ac9dd69a13631c82f1f51e08f0a02b7abcc351f61783a12c13fcfdf8d79e9b
+    current_sha256: ea9f113e1643c8195a8e2af549bc1f53b6700a8bbde6a298b7ec3ec1eb0cd69b
+  - path: frontend/src/components/ui/ThemeToggle.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 21305e12ae2c489cf0d678f52d6b678303478a5fb19acc0114172dc9b4e17d56
+    current_sha256: 75a8190ca336152edce59f304979022021a72844278edd5d8902867ae58edf40
+  - path: frontend/src/i18n/en.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 7e4857a0523a1bb1c386266aa8621bf1eb8538b831b1a421341f0b751626ab6b
+    current_sha256: 151132f36bfa81133f2cb1191b1a73883faeb103a55f9f6e6a73b16c81f2f2cd
+  - path: frontend/src/i18n/index.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: b6d80ec66a28dd7ad85555d9353631d04ef678ed315e873cf6dc6a70c8ed47d4
+    current_sha256: 340a81e6c7264174bd00e7e32fb57fb0535d3d884405c05fa09ef2b77a965b63
+  - path: frontend/src/i18n/locale.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: af95ed02a1c28af025a54af59eb0d217733e31e3661cd125312d71dfe1d4ca87
+    current_sha256: 64425f227651efb549516bfc3479d0fc47aec3e14ebb518f4ac83d250930bf48
+  - path: frontend/src/i18n/vi.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 25742558ee7bf8b3db2305f72356675dcb05db23c9f0947e4b3185860e347473
+    current_sha256: 013db8db874cb4ac743cba45f3a8ac39c4e533c6b679a9172900dc0566a5e61f
+  - path: frontend/src/index.css
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 36ae6d22d5d7db1097a68f43d9984843afafe55ed93c7e1d3f1a0f2eea223713
+    current_sha256: e0ad8cd42dd72acaace8677df0d9597d1124e0343fd704846e44ea241b9d3aaa
+  - path: frontend/src/lib/format.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 4d23741c2bc6287e1a4dedc6ae23dd59ae8751068470dc75d0f06e8be4382ab2
+    current_sha256: b9276c11874b6ad2b61e1e92f0d5b97e437ff24cc6fbda399b6129a649976e03
+  - path: frontend/src/lib/presets.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: fa1e5f0589eac6b07f09aa8d4064d36d94c028b1ff45eeda53334baaafb8bfe0
+    current_sha256: e1be730faf7634b73a8c7ff900305e7b34f81c0ae30a0038620963a06c464759
+  - path: frontend/src/lib/time.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: c676cf31ffd07405e1a221e92b4f8b5c49cf815cbea463d4328a76ab815cb3b9
+    current_sha256: 64f9fa0eb8d75b2555b2c307880b1d7ffa04af37d9ef93c7a2299d180301d48e
+  - path: frontend/src/pages/conversations/ConversationsPlaceholderPage.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 5abf375e5ea7b8a52ae861c75435e2c1433a810be7a8dd3a5b02190326176d4b
+    current_sha256: null
+  - path: frontend/src/pages/explorer/ExplorerPage.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 3078cba921e8651de7608ed0fc01daa0fe6531ece5a5083fc2cbcac12058d8fc
+    current_sha256: 86a3b006ba3dfe800e536086cfb9e508fdf12b73d1681c40028d4a3ba4ce2740
+  - path: frontend/src/pages/jobs/JobMonitorPage.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 7763b871d6badb9cd8c91c57a5e8644cbbfb5a9c48f2cbd404b87d26c2783e16
+    current_sha256: 636c2f8b3fc435c7b87b47712aae02fe55db7b7644a211eb148d018344f34cce
+  - path: frontend/src/pages/repositories/RepositoryCreatePage.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 24af4bf0fc85121743f0552a137671ef296755834fe6d426b9693851235a8d06
+    current_sha256: 1936584796ae3baacdcc645060f83455ba220f29e32eb54a9d0edcb4d3b65b91
+  - path: frontend/src/pages/repositories/RepositoryDetailPage.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: e6bedc904f2ad824e096f607be5e7d219708d4bd61ed75f65394a52d84136780
+    current_sha256: 93bbb35dd8c106e26ac130b3f91b43578d403f4348aabf8404485f306e2c0216
+  - path: frontend/src/pages/repositories/RepositoryEditPage.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 4023276490a5ca2fc1c5bc68950b02dea6d48b868cabb45120d73f094d0757a5
+    current_sha256: 1d0631d074df6143ac5e484282aebf6ded4f844f4f4af0f54d1eb67704fa67ac
+  - path: frontend/src/pages/repositories/RepositoryListPage.tsx
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 375cd64acae7310e79edff32a2b076213bed605f265bdb66fea7d73d587f4306
+    current_sha256: 657ddb654924f2332112d94cdeeccce558aee8be61f7fb54c1c690d0b60ac06c
+  - path: frontend/src/test/setup.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: 30c33a424b66f751a00970f0a2ba7f68d8ee7b559dd19bcdacd3b76f8d591563
+    current_sha256: 78f312f1a99fd10b9d1faa2cb06b5478101fb49eafb149198b8db0f42d529c97
+  - path: frontend/src/types/api.ts
+    implementation_commit: 5a3f36f86a0eea37e6c490ba567bf58f75e71737
+    implementation_sha256: fda5ba4be068c609b4ae2a021eaf5374cb557ac0525c005e315d25dc4bb84119
+    current_sha256: 4b6eb76fd396753543b395ba82ae33517736a7110caecc8e0d9b4e64e8139d01
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-025
+objective: TASK-RKG-025
+objective_description: Dựng create/update/list/detail/activate/delete UI và guard trên mock contract-shaped fixtures; live
+  integration thuộc task 024.
+requirements:
+- FR-RKG-001
+- AC-RKG-054
+- AC-RKG-066
+- AC-RKG-067
+- AC-RKG-068
+- AC-RKG-069
+- AC-RKG-070
+- AC-RKG-071
+- AC-RKG-072
+design:
+- CMP-RKG-WEB
+- SCR-RKG-001
+- UID-RKG-001
+- UIS-RKG-001
+- UXF-RKG-001
+decisions:
+- ADR-2026-004
+contracts:
+- API-RKG-CORE-v1
+constraints:
+- NFR-RKG-REL-001
+- NFR-RKG-SEC-001
+- NFR-RKG-UX-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+- GATE-RKG-UIUX
+code_scope:
+- frontend/src/App.test.tsx
+- frontend/src/App.tsx
+- frontend/src/client/mock/fixtures.ts
+- frontend/src/client/mock/mockClient.ts
+- frontend/src/client/mockClient.test.ts
+- frontend/src/components/shell/AppShell.tsx
+- frontend/src/components/ui/ConfirmDialog.tsx
+- frontend/src/components/ui/ThemeToggle.tsx
+- frontend/src/i18n/en.ts
+- frontend/src/i18n/index.ts
+- frontend/src/i18n/locale.tsx
+- frontend/src/i18n/vi.ts
+- frontend/src/index.css
+- frontend/src/lib/format.ts
+- frontend/src/lib/presets.ts
+- frontend/src/lib/time.ts
+- frontend/src/pages/conversations/ConversationsPlaceholderPage.tsx
+- frontend/src/pages/explorer/ExplorerPage.tsx
+- frontend/src/pages/jobs/JobMonitorPage.tsx
+- frontend/src/pages/repositories/RepositoryCreatePage.tsx
+- frontend/src/pages/repositories/RepositoryDetailPage.tsx
+- frontend/src/pages/repositories/RepositoryEditPage.tsx
+- frontend/src/pages/repositories/RepositoryListPage.tsx
+- frontend/src/test/setup.ts
+- frontend/src/types/api.ts
+inputs:
+  ADR-2026-004:
+    revision: 2
+    hash: 43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3
+    path: architecture/adr/ADR-2026-004.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-WEB:
+    revision: 8
+    hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+    path: architecture/l2/CMP-RKG-WEB.md
+  EPIC-001-TEAM-RKG:
+    revision: 6
+    hash: bc183b55d630509c25e119cb8849c560d3939b51c02b926f41a1565b1bb2b855
+    path: lifecycle/epics/EPIC-001-TEAM-RKG.md
+  FR-RKG-001:
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  NFR-RKG-REL-001:
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  NFR-RKG-SEC-001:
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  NFR-RKG-UX-001:
+    revision: 7
+    hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  SCR-RKG-001:
+    revision: 8
+    hash: 3ca03923d54d550cb6fe8a56314b714bdd5924d211cc7b0056ad89814e1e97d2
+    path: design/ux/SCR-RKG-001.md
+  STORY-RKG-002:
+    revision: 1
+    hash: 41d54707b438113603235ab70566114c396922f2157d174d5c8366b6ee1c9af6
+    path: lifecycle/stories/STORY-RKG-002.md
+  UID-RKG-001:
+    revision: 7
+    hash: f55d82b70a237f4cf2f4b21a0e3444e664e176bb48fb376222c1c199b1776a80
+    path: design/ui/UID-RKG-001.md
+  UIS-RKG-001:
+    revision: 12
+    hash: 2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b
+    path: design/ui/UIS-RKG-001.md
+  UXF-RKG-001:
+    revision: 7
+    hash: 2da20229a1ce5a3222b086bfb15376e0281f3aa30befb5954c4fccb196f390f1
+    path: design/ux/UXF-RKG-001.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-025
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-025
+    story: STORY-RKG-002
+    captured_at: 2026-09-24
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-025
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-001
+      - key: CMP-RKG-WEB
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-025
+
+    ## objective
+    Màn quản lý repository và snapshot trên mock, gồm conflict và confirm.
+
+    ## requirements
+    - AC-RKG-054
+    - AC-RKG-066
+    - AC-RKG-067
+    - AC-RKG-068
+    - AC-RKG-069
+    - AC-RKG-070
+    - AC-RKG-071
+    - AC-RKG-072
+
+    ## design
+    - CMP-RKG-WEB — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-004
+
+    ## contracts
+    - API-RKG-CORE-v1
+    - UIS-RKG-001
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-UX-001
+    - NFR-RKG-SEC-001
+    - NFR-RKG-REL-001
+    - Token trong design/ui/tokens. Không màu cứng ngoài token.
+    - UXF-RKG-001
+    - SCR-RKG-001
+    - UID-RKG-001
+
+    ## code_scope
+    - frontend/**
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-001-TEAM-RKG

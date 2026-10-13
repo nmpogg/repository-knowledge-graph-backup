@@ -1,0 +1,34 @@
+change_request: CR-RKG-019
+analysis_mode: manual-from-recorded-baseline
+graph_queried: false
+touches:
+- CMP-RKG-CONVERSATION
+- CON-RKG-CONVERSATION-v1
+stale_artifacts: []
+affected_teams:
+- TEAM-RKG
+external_consumers: []
+risk_signals:
+  pii: false
+  financial: false
+tier: T2
+tier_status: proposed
+tier_basis: Recorded request adds a server-selected OpenAI provider beside OpenRouter inside the existing chatbot. One team. No new bounded context and no ADR replacement are stated. This change set did not previously store a tier, and no signer decided this proposal.
+flow: change
+skipped_with_reason:
+- area: ui-contract
+  reason: CR-RKG-019 authorization_boundary excludes a UI contract change.
+- area: live-provider-call
+  reason: CR-RKG-019 authorization_boundary excludes a live provider call.
+- area: operator-configuration
+  reason: CR-RKG-019 authorization_boundary excludes an operator configuration change.
+- area: historic-gate-approval
+  reason: change-set approval_boundary transfers no previous gate approval.
+- area: component-merge-decision
+  reason: change-set gates.component_merge remains pending.
+confidence:
+  graph_coverage: 0.0
+limitations:
+- touches_are_baseline_r2_rows_marked_changed_candidate_pending_gate
+- unchanged_from_round1_rows_are_omitted
+- no_graph_query

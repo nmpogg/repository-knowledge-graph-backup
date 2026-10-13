@@ -1,0 +1,21 @@
+key: CR-RKG-029
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-08'
+task: TASK-RKG-047
+story: STORY-RKG-025
+change_set: CHG-RKG-2026-014
+source: lifecycle_reconciliation
+request_summary: >-
+  Authorize the existing Flask static-route extraction on TASK-RKG-047.
+  Scope is the behavior already stated on STORY-RKG-025.
+authorization_boundary: >-
+  Register rkg.flask as DETECTED_ONLY and verify static routes. Do not
+  promote deep-supported. Do not sign gates. No repo-test oracle is claimed.
+record_boundary: >-
+  Records the scope already present on the task and story. No conversation
+  transcript. This request does not create a new product behavior.
+classification: internal
+ai_assisted: true

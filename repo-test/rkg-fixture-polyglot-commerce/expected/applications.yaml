@@ -1,0 +1,47 @@
+{
+  "scope": "application roots; does not pretend one app_module/app_symbol represents all applications",
+  "exact": [
+    {
+      "key": "web",
+      "root": "apps/web",
+      "language": "TypeScript",
+      "framework": "React",
+      "manifest": "package.json",
+      "lock_or_checksum": "package-lock.json",
+      "entrypoint": "src/main.tsx"
+    },
+    {
+      "key": "orders",
+      "root": "services/orders",
+      "language": "Java",
+      "framework": "Spring Boot",
+      "manifest": "pom.xml",
+      "lock_or_checksum": "pom.sha256",
+      "entrypoint": "src/main/java/com/example/rkgfixture/orders/OrdersApplication.java"
+    },
+    {
+      "key": "email-worker",
+      "root": "workers/email",
+      "language": "TypeScript",
+      "framework": "BullMQ",
+      "manifest": "package.json",
+      "lock_or_checksum": "package-lock.json",
+      "entrypoint": "src/main.ts"
+    },
+    {
+      "key": "projection-worker",
+      "root": "workers/projection",
+      "language": "Go",
+      "framework": "Kafka/pgx worker",
+      "manifest": "go.mod",
+      "lock_or_checksum": "go.sum",
+      "entrypoint": "cmd/order-worker/main.go"
+    }
+  ],
+  "optional": [],
+  "prohibited": [
+    "single implicit application for entire repository",
+    "Node manifest owned by Java adapter",
+    "Go manifest owned by Node adapter"
+  ]
+}

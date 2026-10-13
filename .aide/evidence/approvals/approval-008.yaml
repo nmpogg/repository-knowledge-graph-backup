@@ -1,0 +1,75 @@
+key: approval-008
+type: approval-record
+group: evidence
+scope: system
+system: SYS-RKG
+revision: 1
+status: recorded
+gate: GATE-RKG-ARCHITECTURE
+change_set: CHG-RKG-2026-002
+decision: approved
+approval_extent: tech_lead_signoff_only
+decided_at: '2026-10-06T11:59:50+07:00'
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+covers: &id001
+- key: ADR-2026-007
+  revision: 2
+  status: draft
+  hash: 1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a
+  path: architecture/adr/ADR-2026-007.md
+  role: selected_candidate
+- key: CMP-RKG-CONVERSATION
+  revision: 7
+  status: draft
+  hash: 2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65
+  path: architecture/l2/CMP-RKG-CONVERSATION.md
+  role: selected_candidate
+- key: CMP-RKG-WEB
+  revision: 9
+  status: draft
+  hash: 9127465096842ccdf6addff5649a13839515f088a136d2bdcbbb3e5ccb5b91e6
+  path: architecture/l2/CMP-RKG-WEB.md
+  role: selected_candidate
+- key: TM-RKG
+  revision: 8
+  status: draft
+  hash: c22e337412e5c9d42bccbc5cf5ef76e92767ee130f3b4d8a9de86ea6d6570bb6
+  path: architecture/threat-model/TM-RKG.md
+  role: selected_candidate
+approvers:
+- name: PhongNM
+  role: tech-lead
+  authority_basis: CR-RKG-004 plus explicit Architecture approval CR-RKG-005
+human_presence:
+  mode: interactive
+  evidence_id: CR-RKG-005
+  signer: PhongNM
+captured_against:
+  base_code_commit: 86ecab6546384227d1901e24c8b8fbfc6c0e8527
+  code_tree: 6868e73b8d0b5abdecdd9a64265596d8fe809548
+  baseline:
+    key: BL-CHG-RKG-2026-002-r4
+    path: .aide/lifecycle/change-sets/CHG-RKG-2026-002/baseline/BL-CHG-RKG-2026-002-r4.yaml
+    sha256: 3e1388e1c28dec09511ba595131cb0a2896e9c8120ce8de3d3544ea575bc63a2
+  reviews:
+  - key: REV-RKG-2026-005
+    path: .aide/evidence/reviews/REV-RKG-2026-005.yaml
+    sha256: e4391d66239b894bc493a507cad33bdf7339c86f4581d773b96bc3e5dd1c286b
+  - key: REV-RKG-2026-007
+    path: .aide/evidence/reviews/REV-RKG-2026-007.yaml
+    sha256: 96918a2b09a4e07fbae0522a059a2e477ac8a504cd8c1334aa12237b638b4ce3
+  artifacts: *id001
+  working_tree_documents_not_committed: true
+closes_gate: false
+gate_status: pending
+pending_required_signoffs:
+- architect
+waivers: []
+notes: User Architecture approval recorded for the previously confirmed Tech Lead
+  role. Architect role coverage has not been confirmed and is not inferred from silence.
+  Gate remains pending; no new artifact revision, runtime acceptance, UIUX/Contract
+  closure or release approval is implied.
+classification: internal
+ai_assisted: true

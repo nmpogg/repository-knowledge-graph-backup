@@ -1,0 +1,40 @@
+change_request: CR-RKG-028
+analysis_mode: manual-from-recorded-story-and-cr
+graph_queried: false
+touches:
+- STORY-RKG-024
+- TASK-RKG-046
+- REG-ADAPTER-001
+- AC-RKG-006
+- AC-RKG-007
+- AC-RKG-013
+- AC-RKG-014
+- AC-RKG-015
+- AC-RKG-048
+stale_artifacts: []
+affected_teams:
+- TEAM-RKG
+external_consumers: []
+risk_signals:
+  pii: false
+  financial: false
+tier: T2
+tier_status: proposed
+flow: change
+skipped_with_reason:
+- area: deep-supported
+  reason: CR-RKG-028 authorization_boundary says do not promote deep-supported.
+- area: AC-RKG-005
+  reason: CR-RKG-028 authorization_boundary keeps AC-RKG-005 out of scope.
+- area: other-stacks
+  reason: STORY-RKG-024 excludes TypeScript, Vue, BullMQ, and Java.
+- area: gate-signature
+  reason: CR-RKG-028 authorization_boundary says do not sign gates.
+- area: task-review
+  reason: No REV-TASK record exists for TASK-RKG-046.
+confidence:
+  graph_coverage: 0.0
+limitations:
+- touches_add_REG-ADAPTER-001_only_because_STORY-RKG-024_names_that_draft_entry
+- no_baseline_file_exists_for_this_change_set
+- no_graph_query

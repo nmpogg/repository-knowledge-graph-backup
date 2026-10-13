@@ -1,0 +1,204 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-004
+revision: 3
+implementation_date: '2026-09-24'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-005
+    revision: 1
+    hash: c5ae069dffb8a78df7e72db674f2fe65b4551d8fea24d2ff25e5fde19714e0d6
+    path: architecture/adr/ADR-2026-005.md
+  - key: CMP-RKG-ANALYZER
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: EPIC-002-TEAM-RKG
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  - key: NFR-RKG-EXT-001
+    revision: 3
+    hash: 58fe8493456045b2d475c7ac14bb4a440d2e4f3ade043eae276fed4c1ec27193
+    path: requirements/nfr/NFR-RKG-EXT-001.md
+  - key: TBL-RKG-GRAPH
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+  implementation_phases:
+  - commit: b10116e027f792991f03f7959a114834a33cf72d
+    author_at: '2026-09-24T15:19:00+07:00'
+    committed_at: '2026-09-24T15:19:00+07:00'
+    implementation_date: '2026-09-24'
+    changed_paths:
+    - src/rkg/adapters/__init__.py
+    - src/rkg/adapters/conformance.py
+    - src/rkg/adapters/contracts.py
+    - src/rkg/adapters/registry.py
+    - tests/unit/test_adapter_registry.py
+  - commit: fd729652ec74e5e411466b4d381a0da92ce45dc5
+    author_at: '2026-09-24T15:22:17+07:00'
+    committed_at: '2026-09-24T15:22:17+07:00'
+    implementation_date: '2026-09-24'
+    changed_paths:
+    - tests/conformance/fixture_adapter.py
+    - tests/conformance/test_adapter_conformance.py
+    - tests/fixtures/adapter/sample.synthetic
+  files:
+  - path: src/rkg/adapters/__init__.py
+    implementation_commit: b10116e027f792991f03f7959a114834a33cf72d
+    implementation_sha256: a0087b804dc0536bae5d555524ba81a8e133e6a04b3ec776ae97eb03e01a3731
+    current_sha256: 186bb482f9aa1523ee6ce23cd72070663150d57b9442a95f12f8ef47a9b6c0d3
+  - path: src/rkg/adapters/conformance.py
+    implementation_commit: b10116e027f792991f03f7959a114834a33cf72d
+    implementation_sha256: efd08a1becb9d6725ccebe4b1f6307fc3359e250fae2a0dbc451cab94a8587da
+    current_sha256: e52273f6ece40f34a737502afe50641deeaee5c8b9653078028f7259a7dc67b7
+  - path: src/rkg/adapters/contracts.py
+    implementation_commit: b10116e027f792991f03f7959a114834a33cf72d
+    implementation_sha256: a4f5b7ba50e0e8cb7a2d40a23a03ebce3fdae0c48ae1f91e20fcaf73b085c749
+    current_sha256: 56a4b57ad4f1e0a66a77e166591f43e4f962fdc91274a352e34bfae9f3bb8cac
+  - path: src/rkg/adapters/registry.py
+    implementation_commit: b10116e027f792991f03f7959a114834a33cf72d
+    implementation_sha256: d80c9fa7f19a3882fd166c2c63f46f0d3cd4e297373b2db30c8d97a6cfa19fed
+    current_sha256: f1c93f4cb3c9582934f20aaab7c13bccfeb9b776414752dbbace8d6895c1ea9b
+  - path: tests/unit/test_adapter_registry.py
+    implementation_commit: b10116e027f792991f03f7959a114834a33cf72d
+    implementation_sha256: d9675bebf98a9b9f7ed3cffdf5230f15a9b983ca2fe726b454ca16496e2fe5d0
+    current_sha256: 10f3dd43f3306d8dd22b3f6cad08a08221b59d72864bdf502e4ebeb43de1f8a0
+  - path: tests/conformance/fixture_adapter.py
+    implementation_commit: fd729652ec74e5e411466b4d381a0da92ce45dc5
+    implementation_sha256: 0384cb117204f584ef1f217c05407281d8007b20e1372a345c55a77569e7ae9e
+    current_sha256: 21bfad259cedc08d042ad0027aa03860012cd22911aa2f7fd860acba1453b527
+  - path: tests/conformance/test_adapter_conformance.py
+    implementation_commit: fd729652ec74e5e411466b4d381a0da92ce45dc5
+    implementation_sha256: 17e5c9502b8af8f3d788dd123ffd133f146e7156166b200545c5dde6d0918c6e
+    current_sha256: 5c0cd70088ea5eac10ac878b766ff69aae1750cfd9f78eab0b2156a47550ab55
+  - path: tests/fixtures/adapter/sample.synthetic
+    implementation_commit: fd729652ec74e5e411466b4d381a0da92ce45dc5
+    implementation_sha256: 113e2a268274ea00bb164b18825664e325f2d7c89c9c9fd4cb5e689297d7e508
+    current_sha256: 0f30e83ae99a809e61b604011566dd2f51e5d855fa1b21c5d24a1d9399bc7ee5
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-004
+objective: TASK-RKG-004
+objective_description: Định nghĩa adapter descriptor, version/capabilities, registry và FactBatch; kiểm fixture adapter độc
+  lập qua conformance runner.
+requirements: []
+design:
+- CMP-RKG-ANALYZER
+decisions:
+- ADR-2026-005
+contracts:
+- TBL-RKG-GRAPH
+constraints:
+- NFR-RKG-EXT-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- src/rkg/adapters/__init__.py
+- src/rkg/adapters/conformance.py
+- src/rkg/adapters/contracts.py
+- src/rkg/adapters/registry.py
+- tests/unit/test_adapter_registry.py
+- tests/conformance/fixture_adapter.py
+- tests/conformance/test_adapter_conformance.py
+- tests/fixtures/adapter/sample.synthetic
+inputs:
+  ADR-2026-005:
+    revision: 1
+    hash: c5ae069dffb8a78df7e72db674f2fe65b4551d8fea24d2ff25e5fde19714e0d6
+    path: architecture/adr/ADR-2026-005.md
+  CMP-RKG-ANALYZER:
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  EPIC-002-TEAM-RKG:
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  NFR-RKG-EXT-001:
+    revision: 3
+    hash: 58fe8493456045b2d475c7ac14bb4a440d2e4f3ade043eae276fed4c1ec27193
+    path: requirements/nfr/NFR-RKG-EXT-001.md
+  TBL-RKG-GRAPH:
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-004
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-004
+    epic: EPIC-002-TEAM-RKG
+    captured_at: 2026-09-24
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-004
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: NFR-RKG-EXT-001
+      - key: CMP-RKG-ANALYZER
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-004
+
+    ## objective
+    Khóa contract LanguageAdapter và FrameworkAdapter version hóa, cộng conformance suite, để core không branch theo adapter ID.
+
+    ## requirements
+    - (không có AC riêng — task đi từ epic)
+
+    ## design
+    - CMP-RKG-ANALYZER — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-005
+
+    ## contracts
+    - TBL-RKG-GRAPH
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-EXT-001
+
+    ## code_scope
+    - src/rkg/adapters/contracts.py
+    - src/rkg/adapters/registry.py
+    - src/rkg/adapters/conformance.py
+    - tests/**/*conformance*
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-002-TEAM-RKG

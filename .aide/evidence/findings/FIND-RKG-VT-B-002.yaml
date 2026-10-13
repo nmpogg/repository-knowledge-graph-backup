@@ -1,0 +1,41 @@
+---
+key: FIND-RKG-VT-B-002
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: low
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-043
+story_key: STORY-RKG-027
+captured_at: '2026-10-07'
+disposition: accept
+route: TEST-RKG-VUE-NUXT-001
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [TEST-RKG-VUE-NUXT-001]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-VT-B-002 — OQ block overclaims test_nuxt_framework asserts
+
+## Summary
+
+Navigation (OQ-RKG-007) section claimed `framework_kind=nuxt` and no repository
+`exposes` were asserted in `test_nuxt_framework.py`. That suite asserts
+`kind=navigation` plus Nitro HTTP inventory; `framework_kind=nuxt` is covered by
+census; `exposes==[]` is not asserted there.
+
+## Decision
+
+Operator ACCEPT 2026-10-07. Remediations: soften evidence wording only. Do not
+tighten `test_nuxt_framework.py` this turn. No new extractors.
+
+## Remediation
+
+- done: AUTHOR softened Navigation (OQ-RKG-007) section in TEST-RKG-VUE-NUXT-001
+  — product decision stated; asserts scoped to `test_nuxt_framework.py`
+  (kind+path vs Nitro HTTP); framework_kind via census; exposes not claimed.
+  No test/extractor edits. Disposition ACCEPT unchanged. REVIEWER confirm pending.

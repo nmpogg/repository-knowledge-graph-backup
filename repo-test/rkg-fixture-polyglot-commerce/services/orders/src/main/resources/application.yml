@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: ${ORDERS_DATASOURCE_URL:jdbc:h2:mem:orders;MODE=PostgreSQL;INIT=CREATE SCHEMA IF NOT EXISTS commerce}
+    username: ${ORDERS_DATASOURCE_USERNAME:sa}
+    password: ${ORDERS_DATASOURCE_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  kafka:
+    bootstrap-servers: ${ORDERS_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: order-service
+      auto-offset-reset: earliest
+    listener:
+      auto-startup: false
+orders:
+  enabled: ${ORDERS_ENABLED:true}
+  max-items: ${ORDERS_MAX_ITEMS:50}
+logging:
+  level:
+    root: WARN
+    com.zaxxer.hikari: WARN
+    org.hibernate.orm.connections.pooling: WARN

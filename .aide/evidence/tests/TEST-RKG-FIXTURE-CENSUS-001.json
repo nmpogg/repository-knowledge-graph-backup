@@ -1,0 +1,494 @@
+{
+  "aggregate": {
+    "all_pass": true,
+    "coverage": 1.0,
+    "fixtures": 6,
+    "fn": 0,
+    "fp": 0,
+    "precision": 1.0,
+    "tp": 296
+  },
+  "captured_against": {
+    "artifacts": [
+      {
+        "hash": "779e2f6001bd3aab1c4e04ad961a6e9fa65f28e88bbb677180b90a4c698e18f5",
+        "key": "OBS-RKG-001",
+        "revision": 2
+      }
+    ],
+    "code_commit": "2d0af7204d89ea3944fbe507bc590744e45a5033",
+    "harness": {
+      "census_support_sha256": "c9ee494b179d580fc3707da8bf8615f1560cf7c952bf641b92da8c0bed94c5ef",
+      "platform": "win32",
+      "pytest_result": "12 passed",
+      "python": "3.12.14",
+      "runner": "pytest tests/evaluation/test_*_census.py"
+    },
+    "oracle_files": {
+      "expected_bullmq.json": "d82c648dcf4f51d6cac2e5c8cc6281cd80c5e859136d5c2bd4c86d1e3b40befe",
+      "expected_go.json": "d7686f8b5d3a8491a4b8f461f01bba87cebc5270a12b957d177e21fad19bf80d",
+      "expected_nuxt.json": "f72fd071a54aac0f95ddf4b08d685b8e23ee6523e022985924d79dc8b6eea032",
+      "expected_react_ts.json": "f1a04139668f602907423d38d852cf3a036a1ed1aaede8d78a6b0908b94fd8e1",
+      "expected_soopi.json": "e95d99db955b2c195d57d7810b98a1c69e0bc5eb00897422516cef3cfdbf9904",
+      "expected_spring.json": "62e1d71926907c5c584662203e50dcb4c66f2d53af7b02d21c8a5cc4d65899de"
+    }
+  },
+  "captured_at": "2026-10-07T07:20:40.594037+00:00",
+  "fixtures": [
+    {
+      "allow_unlisted_actual": true,
+      "by_type": {
+        "Callable": {
+          "expected": 13,
+          "fn": 0,
+          "tp": 13
+        },
+        "Configuration": {
+          "expected": 3,
+          "fn": 0,
+          "tp": 3
+        },
+        "MessageChannel": {
+          "expected": 2,
+          "fn": 0,
+          "tp": 2
+        },
+        "calls": {
+          "expected": 4,
+          "fn": 0,
+          "tp": 4
+        },
+        "consumes": {
+          "expected": 3,
+          "fn": 0,
+          "tp": 3
+        },
+        "publishes": {
+          "expected": 2,
+          "fn": 0,
+          "tp": 2
+        }
+      },
+      "coverage": 1.0,
+      "fixture_file_count": 37,
+      "fixture_id": "rkg-fixture-bullmq-worker",
+      "fixture_rel": "repo-test/rkg-fixture-bullmq-worker",
+      "fixture_tree_sha256": "a4fd888e3deb73e194ef70f5947a533b8e464bfc2420e66727d1cb91148620d1",
+      "fn": 0,
+      "fp": 0,
+      "method": "typescript+bullmq",
+      "missing": [],
+      "omissions": [
+        "rule_id is null wherever README does not name a versioned extraction rule",
+        "MessageChannel identities are the static queue names from README",
+        "Scheduled cleanup job must not be converted into an HTTP Endpoint",
+        "Redis URL, payloads, retry bodies, emails, and secrets are not graph facts",
+        "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+      ],
+      "oracle_sha256": "d82c648dcf4f51d6cac2e5c8cc6281cd80c5e859136d5c2bd4c86d1e3b40befe",
+      "outcome": "pass",
+      "precision": 1.0,
+      "prohibited_hits": [],
+      "secret_leaked": false,
+      "tp": 27,
+      "unexpected": []
+    },
+    {
+      "allow_unlisted_actual": true,
+      "by_type": {
+        "Callable": {
+          "expected": 8,
+          "fn": 0,
+          "tp": 8
+        },
+        "Configuration": {
+          "expected": 4,
+          "fn": 0,
+          "tp": 4
+        },
+        "DataResource": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "MessageChannel": {
+          "expected": 2,
+          "fn": 0,
+          "tp": 2
+        },
+        "Type": {
+          "expected": 14,
+          "fn": 0,
+          "tp": 14
+        },
+        "calls": {
+          "expected": 7,
+          "fn": 0,
+          "tp": 7
+        },
+        "consumes": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "publishes": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "reads": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "writes": {
+          "expected": 2,
+          "fn": 0,
+          "tp": 2
+        }
+      },
+      "coverage": 1.0,
+      "fixture_file_count": 31,
+      "fixture_id": "rkg-fixture-go-event-worker",
+      "fixture_rel": "repo-test/rkg-fixture-go-event-worker",
+      "fixture_tree_sha256": "9b820089eb6c653cab715c0616b4c04c872bd43032aa4034f844303108debd67",
+      "fn": 0,
+      "fp": 0,
+      "method": "go+kafka-go+pgx",
+      "missing": [],
+      "omissions": [
+        "rule_id is null wherever README does not name a versioned extraction rule",
+        "Go packages are metadata only; Namespace entities must not be emitted",
+        "implements edges only where README cites explicit binding evidence; do not invent implicit interface targets",
+        "Marker simple name requires package-scoped identity",
+        "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+      ],
+      "oracle_sha256": "d7686f8b5d3a8491a4b8f461f01bba87cebc5270a12b957d177e21fad19bf80d",
+      "outcome": "pass",
+      "precision": 1.0,
+      "prohibited_hits": [],
+      "secret_leaked": false,
+      "tp": 41,
+      "unexpected": []
+    },
+    {
+      "allow_unlisted_actual": true,
+      "by_type": {
+        "Callable": {
+          "expected": 6,
+          "fn": 0,
+          "tp": 6
+        },
+        "Configuration": {
+          "expected": 4,
+          "fn": 0,
+          "tp": 4
+        },
+        "Endpoint": {
+          "expected": 3,
+          "fn": 0,
+          "tp": 3
+        },
+        "ExternalDependency": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "SourceUnit": {
+          "expected": 9,
+          "fn": 0,
+          "tp": 9
+        },
+        "Type": {
+          "expected": 2,
+          "fn": 0,
+          "tp": 2
+        },
+        "calls": {
+          "expected": 2,
+          "fn": 0,
+          "tp": 2
+        },
+        "depends_on": {
+          "expected": 4,
+          "fn": 0,
+          "tp": 4
+        },
+        "handled_by": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "imports": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "navigation_route": {
+          "expected": 4,
+          "fn": 0,
+          "tp": 4
+        }
+      },
+      "coverage": 1.0,
+      "fixture_file_count": 42,
+      "fixture_id": "rkg-fixture-nuxt4",
+      "fixture_rel": "repo-test/rkg-fixture-nuxt4",
+      "fixture_tree_sha256": "69466274f28819f8691aebc1feab2ccc247451ed4a7f318d0c12fb53f8a0e4b5",
+      "fn": 0,
+      "fp": 0,
+      "method": "vue+typescript+nuxt",
+      "missing": [],
+      "omissions": [
+        "rule_id is null wherever README does not name a versioned extraction rule",
+        "UI routes are Endpoint kind=navigation framework_kind=nuxt (OQ-RKG-007)",
+        "Navigation Endpoints emit handled_by \u2192 page SourceUnit and route_signal/outbound_requests from static $fetch/useFetch evidence",
+        "SourceUnit/Callable QNs follow rkg.vue / rkg.typescript path\u2192dots conventions",
+        "Auto-import facts are convention-backed depends_on; analyzers must not invent ES imports",
+        "Generated trees .nuxt/.output/node_modules/dist/coverage are ignored paths",
+        "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+      ],
+      "oracle_sha256": "f72fd071a54aac0f95ddf4b08d685b8e23ee6523e022985924d79dc8b6eea032",
+      "outcome": "pass",
+      "precision": 1.0,
+      "prohibited_hits": [],
+      "secret_leaked": false,
+      "tp": 37,
+      "unexpected": []
+    },
+    {
+      "allow_unlisted_actual": true,
+      "by_type": {
+        "Callable": {
+          "expected": 14,
+          "fn": 0,
+          "tp": 14
+        },
+        "Configuration": {
+          "expected": 2,
+          "fn": 0,
+          "tp": 2
+        },
+        "ExternalDependency": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "calls": {
+          "expected": 4,
+          "fn": 0,
+          "tp": 4
+        },
+        "handled_by": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "imports": {
+          "expected": 6,
+          "fn": 0,
+          "tp": 6
+        },
+        "navigation_route": {
+          "expected": 6,
+          "fn": 0,
+          "tp": 6
+        }
+      },
+      "coverage": 1.0,
+      "fixture_file_count": 43,
+      "fixture_id": "rkg-fixture-react-ts",
+      "fixture_rel": "repo-test/rkg-fixture-react-ts",
+      "fixture_tree_sha256": "1695ce0b4d337894e3cb4331576f1cd15f7dc15914da552579e657c120dcd4c6",
+      "fn": 0,
+      "fp": 0,
+      "method": "typescript+react-router",
+      "missing": [],
+      "omissions": [
+        "rule_id is null wherever README does not name a versioned extraction rule",
+        "TypeScript qualified_name spelling follows REG-ADAPTER-001 draft (path\u2192dots + symbol)",
+        "UI routes reuse Endpoint with kind=navigation (no HTTP method); handled_by links route\u2192page Callable",
+        "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+      ],
+      "oracle_sha256": "f1a04139668f602907423d38d852cf3a036a1ed1aaede8d78a6b0908b94fd8e1",
+      "outcome": "pass",
+      "precision": 1.0,
+      "prohibited_hits": [],
+      "secret_leaked": false,
+      "tp": 34,
+      "unexpected": []
+    },
+    {
+      "allow_unlisted_actual": true,
+      "by_type": {
+        "Callable": {
+          "expected": 7,
+          "fn": 0,
+          "tp": 7
+        },
+        "Configuration": {
+          "expected": 22,
+          "fn": 0,
+          "tp": 22
+        },
+        "DataResource": {
+          "expected": 11,
+          "fn": 0,
+          "tp": 11
+        },
+        "Endpoint": {
+          "expected": 34,
+          "fn": 0,
+          "tp": 34
+        },
+        "Type": {
+          "expected": 11,
+          "fn": 0,
+          "tp": 11
+        },
+        "calls": {
+          "expected": 10,
+          "fn": 0,
+          "tp": 10
+        },
+        "maps_to": {
+          "expected": 11,
+          "fn": 0,
+          "tp": 11
+        }
+      },
+      "coverage": 1.0,
+      "fixture_file_count": 65,
+      "fixture_id": "soopi",
+      "fixture_rel": "repo-test/soopi",
+      "fixture_tree_sha256": "b8e940fe4c06a446acf1a8d1efbd2a22a6b0d568504bd3c16acc427191724f03",
+      "fn": 0,
+      "fp": 0,
+      "method": "python+fastapi+sqlalchemy",
+      "missing": [],
+      "omissions": [
+        "Pilot Python corpus; adapters already deep-supported (python/fastapi/sqlalchemy)",
+        "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP",
+        "rule_id null where docs do not name a versioned extraction rule",
+        "Configuration facts are settings field names only; jwt/momo/vnpay secrets must not appear as values"
+      ],
+      "oracle_sha256": "e95d99db955b2c195d57d7810b98a1c69e0bc5eb00897422516cef3cfdbf9904",
+      "outcome": "pass",
+      "precision": 1.0,
+      "prohibited_hits": [],
+      "secret_leaked": false,
+      "tp": 106,
+      "unexpected": []
+    },
+    {
+      "allow_unlisted_actual": true,
+      "by_type": {
+        "Callable": {
+          "expected": 3,
+          "fn": 0,
+          "tp": 3
+        },
+        "Configuration": {
+          "expected": 7,
+          "fn": 0,
+          "tp": 7
+        },
+        "DataResource": {
+          "expected": 3,
+          "fn": 0,
+          "tp": 3
+        },
+        "Endpoint": {
+          "expected": 6,
+          "fn": 0,
+          "tp": 6
+        },
+        "MessageChannel": {
+          "expected": 2,
+          "fn": 0,
+          "tp": 2
+        },
+        "Type": {
+          "expected": 11,
+          "fn": 0,
+          "tp": 11
+        },
+        "calls": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "consumes": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "depends_on": {
+          "expected": 7,
+          "fn": 0,
+          "tp": 7
+        },
+        "implements": {
+          "expected": 3,
+          "fn": 0,
+          "tp": 3
+        },
+        "inherits_from": {
+          "expected": 2,
+          "fn": 0,
+          "tp": 2
+        },
+        "maps_to": {
+          "expected": 2,
+          "fn": 0,
+          "tp": 2
+        },
+        "publishes": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "reads": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        },
+        "writes": {
+          "expected": 1,
+          "fn": 0,
+          "tp": 1
+        }
+      },
+      "coverage": 1.0,
+      "fixture_file_count": 48,
+      "fixture_id": "rkg-fixture-spring-orders",
+      "fixture_rel": "repo-test/rkg-fixture-spring-orders",
+      "fixture_tree_sha256": "36e363547a60671eaf870ea2c1133456722d2f57063705c1a8d2f1457e9608d2",
+      "fn": 0,
+      "fp": 0,
+      "method": "java+spring+jpa+spring-kafka",
+      "missing": [],
+      "omissions": [
+        "rule_id is null wherever README does not name a versioned extraction rule",
+        "Qualified names use package short forms from README inventory (api/application/domain/...)",
+        "DataResource identities follow README relational:schema.table spelling",
+        "audit.orders must remain distinct from commerce.orders with no application read/write edge",
+        "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+      ],
+      "oracle_sha256": "62e1d71926907c5c584662203e50dcb4c66f2d53af7b02d21c8a5cc4d65899de",
+      "outcome": "pass",
+      "precision": 1.0,
+      "prohibited_hits": [],
+      "secret_leaked": false,
+      "tp": 51,
+      "unexpected": []
+    }
+  ],
+  "group": "evidence",
+  "key": "TEST-RKG-FIXTURE-CENSUS-001",
+  "notes": [
+    "Corpus is repo-test census oracles; sibling pilot_fastapi not used.",
+    "soopi may set allow_unlisted_actual; FP then excludes unlisted actuals.",
+    "Oracle review receipt not recorded; measured only, no KPI waiver or gate close."
+  ]
+}

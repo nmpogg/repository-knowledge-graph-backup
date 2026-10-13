@@ -1,0 +1,10 @@
+**/node_modules/
+**/dist/
+**/target/
+**/coverage/
+**/*.tsbuildinfo
+.venv/
+.benchmark/
+.env
+__pycache__/
+*.pyc

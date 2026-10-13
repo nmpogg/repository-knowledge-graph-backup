@@ -1,0 +1,18 @@
+{
+  "key": "CR-RKG-023",
+  "type": "change-request",
+  "group": "evidence",
+  "revision": 2,
+  "system": "SYS-RKG",
+  "captured_at": "2026-10-07T10:06:30.236332+00:00",
+  "task": "TASK-RKG-041",
+  "story": "STORY-RKG-035",
+  "scope": "Explicit user requests robust natural-language logout calls plus source-location questions without a preselected entity, after prior selected-root tests missed the full flow. Address entity-name/pronoun precedence, honest clarification, location identity rendering, planner guidance and full-flow verification.",
+  "request_summary": "Cover the full question flow on TASK-RKG-041 without a preselected root, including natural logout calls and source-location questions.",
+  "source": "explicit_user_fix_request",
+  "change_set": "CHG-RKG-2026-008",
+  "classification": "internal",
+  "ai_assisted": true,
+  "record_boundary": "Normalized requested behavior; no transcript.",
+  "live_boundary": "OpenAI-only provider retained; automatic approval review rejects new logout context until user confirms fixture-wide scope. Local work continues; no remote call without authorization."
+}

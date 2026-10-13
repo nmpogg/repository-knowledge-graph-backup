@@ -1,0 +1,22 @@
+{
+  "key": "CTX-TASK-RKG-039-r1",
+  "type": "context-snapshot",
+  "group": "evidence",
+  "revision": 1,
+  "task": "TASK-RKG-039",
+  "captured_at": "2026-10-07T08:29:33.367114+00:00",
+  "code_commit": "78b3def22cbd1c760fc05bac26515d9ff76adb6b",
+  "authorization": "CR-RKG-021",
+  "scope": "User explicitly requests verbose terminal debugging, overriding earlier terminal-only content restriction. Add opt-in serve --log-level debug showing actual model request/response and validator details, with configured server keys masked; default info shows operational lifecycle/stages/counters/durations. No debug content in API/storage/generated evidence, no paid live call/operator restart/config change, unchanged grounding/budget/state.",
+  "normative_inputs": [
+    {
+      "path": ".aide/tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+      "sha256": "c4ce0a7f2c38a18aff044852d69905481242abcebee964d79d6e72ccc2ef2584"
+    },
+    {
+      "path": ".aide/requirements/nfr/NFR-RKG-SEC-001.md",
+      "sha256": "ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa"
+    }
+  ],
+  "exception_boundary": "Explicit recent user authorization applies to terminal debug content; normal API/storage/evidence privacy and source execution constraints preserved."
+}

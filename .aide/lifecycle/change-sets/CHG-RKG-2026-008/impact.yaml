@@ -1,0 +1,30 @@
+change_request: CR-RKG-023
+analysis_mode: manual-from-recorded-baseline
+graph_queried: false
+touches: []
+stale_artifacts: []
+affected_teams:
+- TEAM-RKG
+external_consumers: []
+risk_signals:
+  pii: false
+  financial: false
+tier: T2
+tier_status: proposed
+tier_basis: Recorded request covers natural-language entity and source-location questions inside the existing chatbot. One team. No new bounded context and no ADR replacement are stated. This change set did not previously store a tier, and no signer decided this proposal.
+flow: change
+skipped_with_reason:
+- area: provider-change
+  reason: STORY-RKG-035 records that the retained provider stays OpenAI-only.
+- area: preselected-root-as-full-flow
+  reason: CR-RKG-023 scope says selected-root tests do not cover this flow.
+- area: normative-artifact-delta
+  reason: baseline r1 marks every listed artifact unchanged_from_predecessor.
+- area: component-merge-decision
+  reason: change-set gates.component_merge remains pending.
+confidence:
+  graph_coverage: 0.0
+limitations:
+- no_changed_artifact_row_on_the_current_baseline
+- work_items_named_on_the_change_set_are_STORY-RKG-035_and_TASK-RKG-041
+- no_graph_query

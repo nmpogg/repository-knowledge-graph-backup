@@ -1,0 +1,33 @@
+type: context-snapshot
+key: CTX-TASK-RKG-043
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-043
+revision: 1
+implementation_date: '2026-10-07'
+change_set: CHG-RKG-2026-001
+provenance: stack-b-normative-align
+captured_against:
+  code_commit: 2d0af7204d89ea3944fbe507bc590744e45a5033
+  artifacts:
+  - key: TASK-RKG-043
+    path: lifecycle/tasks/TASK-RKG-043.md
+  - key: STORY-RKG-027
+    path: lifecycle/stories/STORY-RKG-027.md
+  - key: CMP-RKG-ANALYZER
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: REG-ADAPTER-001
+    path: registry/REG-ADAPTER-001.md
+  - key: OQ-RKG-007
+    path: lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-007.md
+  - key: CHG-RKG-2026-001
+    path: lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+  - key: FIND-RKG-ST-B-001
+    path: evidence/findings/FIND-RKG-ST-B-001.yaml
+notes:
+  - Vue + Nuxt adapters implemented and registered (`rkg.vue`, `rkg.nuxt`).
+  - Story STORY-RKG-027 owns Stack B Vue / Nuxt scope.
+  - OQ-RKG-007 r3 Hệ quả cites nuxt (`framework_kind=nuxt`); FIND-RKG-ST-B-001 remediated.
+  - Deep-support promotion not closed; task remains in_progress.
+  - Next: verify pytest (conformance + nuxt census); append test evidence.

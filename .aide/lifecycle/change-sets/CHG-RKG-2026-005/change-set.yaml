@@ -1,0 +1,36 @@
+{
+  "key": "CHG-RKG-2026-005",
+  "type": "change-set",
+  "group": "normative",
+  "revision": 5,
+  "status": "draft",
+  "phase": "implementation_complete_independent_review_passed_pending_gate_decision",
+  "change_request": "CR-RKG-020",
+  "tier": "T2",
+  "tier_status": "proposed",
+  "flow": "change",
+  "previous_baseline": "BL-CHG-RKG-2026-004-r2",
+  "tasks": [
+    "TASK-RKG-038"
+  ],
+  "stories": [
+    "STORY-RKG-032"
+  ],
+  "active_task": null,
+  "gates": {
+    "scope": "pending",
+    "architecture": "pending",
+    "ui_ux": "pending",
+    "contract": "pending",
+    "component_merge": "pending"
+  },
+  "approval_boundary": "Implementation repair only, unchanged normative product contracts; no historic approval transferred.",
+  "baseline": "BL-CHG-RKG-2026-005-r1",
+  "verification_evidence": "TEST-TASK-RKG-038-003",
+  "completed_tasks": [
+    "TASK-RKG-038"
+  ],
+  "remaining_tasks": [],
+  "independent_review": "REV-TASK-RKG-038-002",
+  "live_incident_cause": "unverified"
+}

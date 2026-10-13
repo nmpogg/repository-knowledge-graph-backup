@@ -1,0 +1,298 @@
+{
+  "key": "CTX-TASK-RKG-034-r3",
+  "type": "context-snapshot",
+  "group": "evidence",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "captured_at": "2026-10-07T03:25:37.416912+00:00",
+  "objective": "TASK-RKG-034",
+  "requirements": [
+    "FR-RKG-005",
+    "AC-RKG-074",
+    "AC-RKG-077",
+    "AC-RKG-078",
+    "AC-RKG-079",
+    "AC-RKG-080",
+    "AC-RKG-081"
+  ],
+  "captured_against": {
+    "base_code_commit": "86ecab6546384227d1901e24c8b8fbfc6c0e8527",
+    "baseline": {
+      "key": "BL-CHG-RKG-2026-002-r8",
+      "path": ".aide/lifecycle/change-sets/CHG-RKG-2026-002/baseline/BL-CHG-RKG-2026-002-r8.yaml",
+      "sha256": "a2620db609df23ceb548f86c4b41cecc983a9e4d4f25c43322f663521240a61c"
+    },
+    "artifacts": [
+      {
+        "key": "FR-RKG-005",
+        "revision": 9,
+        "status": "approved",
+        "hash": "6f240da74dd108933c85da36bf973106c30b7a6825f2e3b57e67318fa22a78f5",
+        "path": "requirements/fr/FR-RKG-005.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "ADR-2026-007",
+        "revision": 2,
+        "status": "draft",
+        "hash": "1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a",
+        "path": "architecture/adr/ADR-2026-007.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "CMP-RKG-CONVERSATION",
+        "revision": 7,
+        "status": "draft",
+        "hash": "2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65",
+        "path": "architecture/l2/CMP-RKG-CONVERSATION.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "CMP-RKG-WEB",
+        "revision": 9,
+        "status": "draft",
+        "hash": "9127465096842ccdf6addff5649a13839515f088a136d2bdcbbb3e5ccb5b91e6",
+        "path": "architecture/l2/CMP-RKG-WEB.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "TM-RKG",
+        "revision": 8,
+        "status": "draft",
+        "hash": "c22e337412e5c9d42bccbc5cf5ef76e92767ee130f3b4d8a9de86ea6d6570bb6",
+        "path": "architecture/threat-model/TM-RKG.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "UXF-RKG-002",
+        "revision": 5,
+        "status": "draft",
+        "hash": "5e57d4c6d118e1463a96373740105d61371514de12f2f1aa17a303206d8e3add",
+        "path": "design/ux/UXF-RKG-002.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "SCR-RKG-001",
+        "revision": 9,
+        "status": "draft",
+        "hash": "385e3bd7ddb7ff32397580270005574cb6cce2ae47e392e7b137c9a4520876c3",
+        "path": "design/ux/SCR-RKG-001.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "UID-RKG-001",
+        "revision": 8,
+        "status": "draft",
+        "hash": "b5b92b6652c087cadaa0a347de226f9bf72fc2f5ad36eff617e9452b4e3dbc7e",
+        "path": "design/ui/UID-RKG-001.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "CMP-RKG-GRAPH",
+        "revision": 9,
+        "status": "draft",
+        "hash": "7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2",
+        "path": "architecture/l2/CMP-RKG-GRAPH.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "CMP-RKG-TRANSPORT",
+        "revision": 7,
+        "status": "draft",
+        "hash": "6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286",
+        "path": "architecture/l2/CMP-RKG-TRANSPORT.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "NFR-RKG-SEC-001",
+        "revision": 7,
+        "status": "approved",
+        "hash": "ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa",
+        "path": "requirements/nfr/NFR-RKG-SEC-001.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "NFR-RKG-REL-001",
+        "revision": 8,
+        "status": "approved",
+        "hash": "fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b",
+        "path": "requirements/nfr/NFR-RKG-REL-001.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "NFR-RKG-UX-001",
+        "revision": 7,
+        "status": "approved",
+        "hash": "c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3",
+        "path": "requirements/nfr/NFR-RKG-UX-001.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "API-RKG-CORE-v1",
+        "revision": 16,
+        "status": "draft",
+        "hash": "d73b75134b57955ae827baca16408e91b467ded0b027ccea28f58c7e536b77ce",
+        "path": "tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+        "role": "contract_candidate"
+      },
+      {
+        "key": "TBL-RKG-GRAPH",
+        "revision": 13,
+        "status": "draft",
+        "hash": "a624df781b47be8e631dc3e85a1140a555fb5a121012ab6ba929f4c438c305ac",
+        "path": "tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+        "role": "contract_candidate"
+      },
+      {
+        "key": "UIS-RKG-001",
+        "revision": 13,
+        "status": "draft",
+        "hash": "d849542a45c36420e35c7aa48d649884832c334224b7b73cc923de9c34e4851d",
+        "path": "design/ui/UIS-RKG-001.md",
+        "role": "contract_candidate"
+      },
+      {
+        "key": "TOK-RKG-001",
+        "revision": 2,
+        "status": "draft",
+        "hash": "ae71b14d8921b6e64f03641a5787c7b99622fa3f28904a75208eabfb32c8de96",
+        "path": "design/ui/tokens/tokens.json",
+        "role": "reference_only"
+      },
+      {
+        "key": "DDL-RKG-GRAPH",
+        "revision": 13,
+        "status": "draft",
+        "hash": "b912230b0b7039906ae6fd8b9500a69bdcccff06bbc485ed2f494afadc084de4",
+        "path": "tech-specs/RKG-GRAPH/schema/DDL-RKG-GRAPH.cypher",
+        "role": "contract_candidate"
+      },
+      {
+        "key": "MIG-RKG-CHATBOT-v3",
+        "revision": 1,
+        "status": "draft",
+        "hash": "04030c6d33a1780ab8ba5c8247d247b539d28305f9b685aa85485f706798e571",
+        "path": "tech-specs/RKG-GRAPH/schema/MIG-RKG-CHATBOT-v3.cypher",
+        "role": "contract_candidate"
+      },
+      {
+        "key": "CON-RKG-CONVERSATION-v1",
+        "revision": 1,
+        "status": "draft",
+        "hash": "e66334ee24d46d476acd0920ec9344b0fc34bc84a8bdd8ff054cbaafee9620c4",
+        "path": "tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+        "role": "contract_candidate"
+      },
+      {
+        "key": "SCH-RKG-CONVERSATION-v1",
+        "revision": 1,
+        "status": "draft",
+        "hash": "d7991763c99ac815caa5b271045f10d6d0b6743f1b52b82765ddccdbad6cf574",
+        "path": "tech-specs/RKG-TRANSPORT/api/SCH-RKG-CONVERSATION-v1.json",
+        "role": "contract_candidate"
+      },
+      {
+        "key": "SCH-RKG-READ-PLAN-v2",
+        "revision": 1,
+        "status": "draft",
+        "hash": "0908b8a657b6b96a1f848ee4cfd511238ed195b871fb8785e6f4d5c33c5d7336",
+        "path": "tech-specs/RKG-CONVERSATION/llm/SCH-RKG-READ-PLAN-v2.json",
+        "role": "contract_candidate"
+      },
+      {
+        "key": "SCH-RKG-NARRATIVE-v1",
+        "revision": 1,
+        "status": "draft",
+        "hash": "8155b0bdc464a4adae07a48911d684bdf01b3afe7b0cb4a5e1624dc3d5f71394",
+        "path": "tech-specs/RKG-CONVERSATION/llm/SCH-RKG-NARRATIVE-v1.json",
+        "role": "contract_candidate"
+      }
+    ],
+    "code_inputs": [
+      {
+        "path": "frontend/src/types/api.ts",
+        "sha256": "a42cd25507439115b67ea873780c9f9f2614c6da9e391b806eece7d358417144"
+      },
+      {
+        "path": "frontend/src/client/live/liveClient.ts",
+        "sha256": "132f5faa3c8095dd21ee890e2039b1dcadc442842160d0499ea4671ba4e09746"
+      },
+      {
+        "path": "frontend/src/client/live/mapWire.ts",
+        "sha256": "af8ee0f7dd2cf40ed5ab61d2d4ce3415ba756c26e6c79d263a33d518686cca81"
+      },
+      {
+        "path": "frontend/src/client/mock/mockClient.ts",
+        "sha256": "b4f2b279cea19a45196703a972623303b7334dcf4f60b9780cf24027bf6943d6"
+      },
+      {
+        "path": "frontend/src/pages/conversations/ConversationPage.tsx",
+        "sha256": "c42a040f5aa66ced334b829bfe342128e35de4265517025081691f31db7b0fa4"
+      },
+      {
+        "path": "frontend/src/i18n/vi.ts",
+        "sha256": "ea0b152a5007254f08c63956690739d286f3286a78e6007c8d18140363f2500b"
+      },
+      {
+        "path": "frontend/src/i18n/en.ts",
+        "sha256": "bd5d2a34d4b3b5871a893c32635eac2e5b3863cbfda2c4dcffc65f333fb0ba9b"
+      },
+      {
+        "path": "frontend/src/pages/conversations/ConversationPage.test.tsx",
+        "sha256": "fe534721281053964ec2b09660eef70a38297608638b63f08c6c623abbec7d25"
+      },
+      {
+        "path": "frontend/src/client/live/liveClient.test.ts",
+        "sha256": "7e022dc877d6024abdc98657d3f5f800406c79f9b12c91983bb156720db2edfc"
+      },
+      {
+        "path": "frontend/src/client/live/mapWire.test.ts",
+        "sha256": "5928f7a73d4cd30a38df825a8089ac967ae8364831b2c0b5953acb6b10f5a2f9"
+      }
+    ]
+  },
+  "authority": {
+    "baseline": "BL-CHG-RKG-2026-002-r8",
+    "minimum_status": "approved_in_baseline_for_chatbot_subset",
+    "reject_if_stale": true,
+    "approval": "approval-011",
+    "authorization": "CR-RKG-010"
+  },
+  "code_scope": [
+    "frontend/src/types/api.ts",
+    "frontend/src/client/live/liveClient.ts",
+    "frontend/src/client/live/mapWire.ts",
+    "frontend/src/client/mock/mockClient.ts",
+    "frontend/src/pages/conversations/ConversationPage.tsx",
+    "frontend/src/i18n/vi.ts",
+    "frontend/src/i18n/en.ts",
+    "frontend/src/pages/conversations/ConversationPage.test.tsx",
+    "frontend/src/client/live/liveClient.test.ts",
+    "frontend/src/client/live/mapWire.test.ts"
+  ],
+  "applicable_rules": [
+    {
+      "source": "AGENTS.md",
+      "sha256": "e2e13dce396455110db73652508df2fb87d1ddd3644287b19156cbbfd5e36a55"
+    }
+  ],
+  "golden_examples": [
+    "tests/integration/test_conversation_persistence.py",
+    "tests/integration/test_schema_migrate.py"
+  ],
+  "previous_findings": [],
+  "readiness": "TASK033_dependency_done_independent_review_pass",
+  "transaction_boundaries": "Admission pending/revision once; provider outside writes; terminal turn/metadata/state atomic guarded by revision/pin; error/restart preserves committed state.",
+  "rollback": "Test 2\u21923 atomic rollback only in temporary DB; operator rollback restores protected pre-upgrade backup, never drops column or downgrades in place.",
+  "security": "Local-first loopback; no analyzed source execution, operator DB, credentials/provider access or transcript/source/path evidence.",
+  "verification_plan": [
+    "Negotiate backend features; bind metadata/legacy unknown and unavailable history correctly.",
+    "One primary answer with collapsed claims, clear ordered candidates, translated limitations and distinct errors.",
+    "Exact source disclosure with safe identity/path/lines and keyboard/focus behavior, reuse existing Ask."
+  ],
+  "classification": "internal",
+  "ai_assisted": true,
+  "authorization": "CR-RKG-014",
+  "implementation_branch": "fix/chatbot",
+  "dependency_verification": "REV-TASK-RKG-033-001"
+}

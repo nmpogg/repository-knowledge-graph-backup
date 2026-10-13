@@ -1,0 +1,21 @@
+{
+  "key": "CTX-TASK-RKG-037-r1",
+  "type": "context-snapshot",
+  "group": "evidence",
+  "revision": 1,
+  "task": "TASK-RKG-037",
+  "code_commit": "3e0f8f9e060ddba039793bb451fb15c60c2c4c1d",
+  "captured_at": "2026-10-07T07:03:39.350944+00:00",
+  "authorization": "CR-RKG-019",
+  "scope": "Add explicit server-selected OpenAI alongside OpenRouter; preserve existing default, schema/graph validation, privacy and unlimited application budgets. No automatic fallback, UI contract change, live provider call or operator configuration change.",
+  "normative_inputs": [
+    {
+      "path": ".aide/architecture/l2/CMP-RKG-CONVERSATION.md",
+      "sha256": "246cc721bbf7c02e362dd652cd09b49f4839756212fbd31a47352704b6996ef0"
+    },
+    {
+      "path": ".aide/tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+      "sha256": "0c725507e55827a748062a1f4e701b966841e306d4601cbd2a488165cae12579"
+    }
+  ]
+}

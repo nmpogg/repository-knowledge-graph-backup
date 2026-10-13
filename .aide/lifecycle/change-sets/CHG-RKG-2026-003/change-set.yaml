@@ -1,0 +1,31 @@
+key: CHG-RKG-2026-003
+type: change-set
+group: normative
+revision: 4
+label: Bỏ trần budget ứng dụng cho chatbot
+status: draft
+phase: implementation_complete_independent_review_passed_pending_gate_decision
+change_request: CR-RKG-018
+tier: T2
+tier_status: proposed
+flow: change
+previous_baseline: BL-CHG-RKG-2026-002-r8
+tasks:
+- TASK-RKG-036
+stories:
+- STORY-RKG-030
+active_task: null
+gates:
+  scope: pending
+  architecture: pending
+  ui_ux: pending
+  contract: pending
+  component_merge: pending
+approval_boundary: New budget behavior is requested explicitly; no historic gate approval
+  is carried forward.
+baseline: BL-CHG-RKG-2026-003-r1
+verification_evidence: TEST-TASK-RKG-036-003
+completed_tasks:
+- TASK-RKG-036
+remaining_tasks: []
+independent_review: REV-TASK-RKG-036-002

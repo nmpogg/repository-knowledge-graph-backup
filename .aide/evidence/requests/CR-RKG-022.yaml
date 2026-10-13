@@ -1,0 +1,18 @@
+{
+  "key": "CR-RKG-022",
+  "type": "change-request",
+  "group": "evidence",
+  "revision": 2,
+  "system": "SYS-RKG",
+  "captured_at": "2026-10-07T09:30:53.328513+00:00",
+  "task": "TASK-RKG-040",
+  "story": "STORY-RKG-034",
+  "scope": "Explicit user requests repair of live OpenAI disconnected_path failure. Supply deterministic complete path witnesses as model guidance, preserve strict whole-response grounding/schema/state/citations, existing unlimited application budgets and provider selection. Verify independently and with authorized OpenAI-only fixture smoke.",
+  "request_summary": "Repair disconnected narrative paths on TASK-RKG-040 using graph-proven path witnesses and keep strict output validation.",
+  "source": "explicit_user_fix_request",
+  "change_set": "CHG-RKG-2026-007",
+  "authorization_boundary": "Graph-proven guidance and independent verification, including an authorized OpenAI-only fixture smoke. No relaxation of grounding, schema, state, or citations.",
+  "classification": "internal",
+  "ai_assisted": true,
+  "record_boundary": "Normalized requested behavior; no transcript."
+}

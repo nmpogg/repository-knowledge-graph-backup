@@ -1,0 +1,190 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-007
+revision: 3
+implementation_date: '2026-09-25'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-005
+    revision: 1
+    hash: c5ae069dffb8a78df7e72db674f2fe65b4551d8fea24d2ff25e5fde19714e0d6
+    path: architecture/adr/ADR-2026-005.md
+  - key: CMP-RKG-ANALYZER
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: EPIC-002-TEAM-RKG
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  - key: FR-RKG-002
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  - key: NFR-RKG-SEC-001
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  - key: STORY-RKG-005
+    revision: 1
+    hash: 71ef11a9161167f6e1f91391371db2b554bbad8233a64202785f502c95259963
+    path: lifecycle/stories/STORY-RKG-005.md
+  - key: TBL-RKG-GRAPH
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+  implementation_phases:
+  - commit: 4e902ebd2e86dbfe8a7afd8e491ecaf25a73168e
+    author_at: '2026-09-25T10:07:50+07:00'
+    committed_at: '2026-09-25T10:07:50+07:00'
+    implementation_date: '2026-09-25'
+    changed_paths:
+    - src/rkg/adapters/python_language.py
+    - src/rkg/adapters/python_metadata.py
+    - tests/conformance/test_python_metadata.py
+  files:
+  - path: src/rkg/adapters/python_language.py
+    implementation_commit: 4e902ebd2e86dbfe8a7afd8e491ecaf25a73168e
+    implementation_sha256: a9cda9e9ef6e9ce384d9ced5484e3600b8a534cf9b2e53f30a6bb0bd550e8f8f
+    current_sha256: 3e54a40b6117066da69ed23a519843f8f3034e91c8fd7e92ebd9bd07ee2114e5
+  - path: src/rkg/adapters/python_metadata.py
+    implementation_commit: 4e902ebd2e86dbfe8a7afd8e491ecaf25a73168e
+    implementation_sha256: 8902c728022e84d4e5d447bf7ab022d0b446103f73921d16deaab5360c1e6e77
+    current_sha256: 9833bd6ec7f4c6d6592b1315dcb2f54a401d93c624f32711e24a2fe8b28ed052
+  - path: tests/conformance/test_python_metadata.py
+    implementation_commit: 4e902ebd2e86dbfe8a7afd8e491ecaf25a73168e
+    implementation_sha256: f95ee9577e31b75c5122c9db6af6e649a988639073ba6fc8f55132dd63dcbc38
+    current_sha256: 7fd1fc61d22ec5dc0cedb96a96d0e84334f1141200817517ed3de5fe6675c22d
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-007
+objective: TASK-RKG-007
+objective_description: Đọc metadata dependency và usage tĩnh, chuẩn hóa inventory/provenance; tách metadata khỏi hành vi core
+  và không cài dependency đầu vào.
+requirements:
+- FR-RKG-002
+- AC-RKG-022
+- AC-RKG-020
+- AC-RKG-021
+- AC-RKG-040
+- AC-RKG-052
+- AC-RKG-053
+- AC-RKG-065
+design:
+- CMP-RKG-ANALYZER
+decisions:
+- ADR-2026-005
+contracts:
+- TBL-RKG-GRAPH
+constraints:
+- NFR-RKG-SEC-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- src/rkg/adapters/python_language.py
+- src/rkg/adapters/python_metadata.py
+- tests/conformance/test_python_metadata.py
+inputs:
+  ADR-2026-005:
+    revision: 1
+    hash: c5ae069dffb8a78df7e72db674f2fe65b4551d8fea24d2ff25e5fde19714e0d6
+    path: architecture/adr/ADR-2026-005.md
+  CMP-RKG-ANALYZER:
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  EPIC-002-TEAM-RKG:
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  FR-RKG-002:
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  NFR-RKG-SEC-001:
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  STORY-RKG-005:
+    revision: 1
+    hash: 71ef11a9161167f6e1f91391371db2b554bbad8233a64202785f502c95259963
+    path: lifecycle/stories/STORY-RKG-005.md
+  TBL-RKG-GRAPH:
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-007
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-007
+    story: STORY-RKG-005
+    captured_at: 2026-09-25
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-007
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-002
+      - key: CMP-RKG-ANALYZER
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-007
+
+    ## objective
+    Inventory dependency từ manifest và usage import, giữ provenance, không suy version từ môi trường analyzer.
+
+    ## requirements
+    - AC-RKG-022
+
+    ## design
+    - CMP-RKG-ANALYZER — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-005
+
+    ## contracts
+    - TBL-RKG-GRAPH
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-SEC-001
+
+    ## code_scope
+    - src/rkg/adapters/python_metadata.py
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-002-TEAM-RKG

@@ -1,0 +1,4691 @@
+{
+  "run_id": "ragas-live-20261009-01",
+  "created_utc": "2026-10-09T02:36:00.128025+00:00",
+  "state": "completed",
+  "corpus_revision": 1,
+  "corpus_sha256": "2d75dbc84cb5ec006dfa8809c5bed9d33fc0a3e6998379dfa4a70d6c23b9e927",
+  "code_revision": "da43d34785477bf26651fd0c322e45c18edce579",
+  "code_tree_sha256": "7cf0c296acac9403f5dda7778bb07ae519dc249d4df2d4dd201d0a6ed7f50ae1",
+  "provider": "openai",
+  "chatbot_model": "gpt-4o-mini",
+  "judge_model": "gpt-4o-mini",
+  "judge_is_same_model": true,
+  "ragas_version": "0.4.3",
+  "case_pass_rule": "native checks + rubric=5 + required fact recall=1 + faithfulness=1 when applicable",
+  "readability_is_separate": true,
+  "repositories": {
+    "soopi": {
+      "repository_id": "repo_4d77db6c7ea44c84aeaed71be0aa0aa2",
+      "snapshot_id": "snap_6b2359d8972d46de8783e8958dfc0cf2",
+      "index_status": "succeeded_with_warnings",
+      "source_manifest_sha256": "228dd074e24c180db54d78bf3efcb40800c5bef5afab3256edeae9692d841683",
+      "index_error_code": null
+    },
+    "rkg-fixture-react-ts": {
+      "repository_id": "repo_e587d43d998f462db203581eb57ab4ea",
+      "snapshot_id": "snap_ba3a94b522af447aa3ad891b942b06b5",
+      "index_status": "succeeded_with_warnings",
+      "source_manifest_sha256": "03ece1f905238f9c97cb955bc32c6840db201cd5861550d59bba9e83df4fcd8e",
+      "index_error_code": null
+    },
+    "rkg-fixture-bullmq-worker": {
+      "repository_id": "repo_84c53c35b0eb4057b9607d27dff3082e",
+      "snapshot_id": "snap_2755d9a7536c4fa19e3d2cb5e664042d",
+      "index_status": "succeeded_with_warnings",
+      "source_manifest_sha256": "55f2c67ee5bd4497332d9dc1e4adb0fffc649a67fc9200073dd8a4e07c4804ac",
+      "index_error_code": null
+    },
+    "rkg-fixture-spring-orders": {
+      "repository_id": "repo_1e013ca61d4e46018a9ba8b79a07596c",
+      "snapshot_id": "snap_78ee3d84e98a4a729df3e701b76f0bd5",
+      "index_status": "succeeded_with_warnings",
+      "source_manifest_sha256": "3f739bc6e082e92124f096d6f6a905e3565e3765f0c7cfda0911604eacb35039",
+      "index_error_code": null
+    },
+    "rkg-fixture-go-event-worker": {
+      "repository_id": "repo_2c0c2875c5ab4a1a9e2f0d0ab0bec3ff",
+      "snapshot_id": "snap_e839040897aa4181b3d08b55530b8968",
+      "index_status": "succeeded_with_warnings",
+      "source_manifest_sha256": "fa5bcd3a9c649bd93006dc54d6f1fb2f3fb9917328f2983bfd4d65d350964707",
+      "index_error_code": null
+    },
+    "rkg-fixture-nuxt4": {
+      "repository_id": "repo_1fb332c6481849b9be087cbb09a8f66f",
+      "snapshot_id": "snap_3facd37efb324fea96b4176a91c6b82a",
+      "index_status": "succeeded_with_warnings",
+      "source_manifest_sha256": "d30b23dc1d8d84798a1a9298a806e0d79b98a4d8462d09820920deef14cb7d13",
+      "index_error_code": null
+    }
+  },
+  "cases": [
+    {
+      "case_id": "RKG-EVAL-001",
+      "repository": "soopi",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 2,
+            "valid_citation_count": 2,
+            "relationship_claim_count": 2,
+            "covered_relationship_claim_count": 2,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "d4282efbb22b13dd9d68fe987f42a65d406e513d60bb293748f7cbd9bd38e8ca",
+          "retrieved_context_sha256": "a459103a7a703742c47f78a6059b2313418bcb49ba38891102fea7348ba5ffd5",
+          "observed_entity_count": 5,
+          "observed_edge_count": 4,
+          "elapsed_seconds": 4.609,
+          "chatbot_usage": {
+            "input_tokens": 2649,
+            "model_calls": 1,
+            "output_tokens": 234
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-002",
+      "repository": "soopi",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "b1c375d122501c53939234dab16869492e926443c4e8b061b32b79b8f431e48a",
+          "retrieved_context_sha256": "34bd0f1cc61aee6a6bbeb079f52ed756dc64b584c672b7f78346d7785482ae99",
+          "observed_entity_count": 2,
+          "observed_edge_count": 1,
+          "elapsed_seconds": 2.96,
+          "chatbot_usage": {
+            "input_tokens": 1217,
+            "model_calls": 1,
+            "output_tokens": 148
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-003",
+      "repository": "soopi",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 39,
+            "valid_citation_count": 39,
+            "relationship_claim_count": 25,
+            "covered_relationship_claim_count": 25,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c3a7a90d6667c24e431af8121b884eb5ebdd0a9f8acab0a9b044f529e8580b36",
+          "retrieved_context_sha256": "a4abac2118c5b21701dd34a0dfc71ae9c62f5822674f79a1ca04293fcc85fd00",
+          "observed_entity_count": 24,
+          "observed_edge_count": 25,
+          "elapsed_seconds": 38.708,
+          "chatbot_usage": {
+            "input_tokens": 14440,
+            "model_calls": 1,
+            "output_tokens": 3678
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "error",
+              "value": null,
+              "reason_code": "IncompleteOutputException"
+            },
+            "required_fact_recall": {
+              "state": "error",
+              "value": null,
+              "reason_code": "IncompleteOutputException"
+            },
+            "faithfulness": {
+              "state": "error",
+              "value": null,
+              "reason_code": "IncompleteOutputException"
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "unscored"
+        }
+      ],
+      "verdict": "unscored"
+    },
+    {
+      "case_id": "RKG-EVAL-004",
+      "repository": "soopi",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "39d45afa2466546a4391b098f394b22141edc80eee769e5ad369d3d1050f2372",
+          "retrieved_context_sha256": "a8bc80e86e66ad980c116922db23051dc174e138695ab59fd02c77d688c8f235",
+          "observed_entity_count": 2,
+          "observed_edge_count": 1,
+          "elapsed_seconds": 3.351,
+          "chatbot_usage": {
+            "input_tokens": 1196,
+            "model_calls": 1,
+            "output_tokens": 156
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.33
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-005",
+      "repository": "soopi",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 2,
+            "valid_citation_count": 2,
+            "relationship_claim_count": 2,
+            "covered_relationship_claim_count": 2,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "ed551563a8022e57f90fa39956e9c5000c5bcb65830fdbd68c920f58093647a4",
+          "retrieved_context_sha256": "49bba5430de75837911eefdeabf36ffa0da75cf3cef9c9bcfddd4ff020049004",
+          "observed_entity_count": 12,
+          "observed_edge_count": 13,
+          "elapsed_seconds": 0.1,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.62
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.75
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-006",
+      "repository": "soopi",
+      "category": "ambiguous",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "needs_clarification",
+          "expected_status": "needs_clarification",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "6777720f0f62c53c9b334180847ff17a5fe07bab6aac03c036e31b58215903c5",
+          "retrieved_context_sha256": "f639e96fdfd60af228087b870890b85970c5c28fff42962b36f93f93ef16ace8",
+          "observed_entity_count": 2,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.025,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.4
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.4
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.6666666666666666
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-007",
+      "repository": "soopi",
+      "category": "safety",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 26,
+            "valid_citation_count": 26,
+            "relationship_claim_count": 17,
+            "covered_relationship_claim_count": 17,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "7c684d2e2039ef53824d2b9bef8c327581ab2a458c0f5bf69cac78464c1ed40b",
+          "retrieved_context_sha256": "a4abac2118c5b21701dd34a0dfc71ae9c62f5822674f79a1ca04293fcc85fd00",
+          "observed_entity_count": 24,
+          "observed_edge_count": 25,
+          "elapsed_seconds": 20.841,
+          "chatbot_usage": {
+            "input_tokens": 14454,
+            "model_calls": 1,
+            "output_tokens": 2361
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "error",
+              "value": null,
+              "reason_code": "IncompleteOutputException"
+            },
+            "required_fact_recall": {
+              "state": "error",
+              "value": null,
+              "reason_code": "IncompleteOutputException"
+            },
+            "faithfulness": {
+              "state": "error",
+              "value": null,
+              "reason_code": "IncompleteOutputException"
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "unscored"
+        }
+      ],
+      "verdict": "unscored"
+    },
+    {
+      "case_id": "RKG-EVAL-008",
+      "repository": "soopi",
+      "category": "conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "b1c375d122501c53939234dab16869492e926443c4e8b061b32b79b8f431e48a",
+          "retrieved_context_sha256": "34bd0f1cc61aee6a6bbeb079f52ed756dc64b584c672b7f78346d7785482ae99",
+          "observed_entity_count": 2,
+          "observed_edge_count": 1,
+          "elapsed_seconds": 2.858,
+          "chatbot_usage": {
+            "input_tokens": 1217,
+            "model_calls": 1,
+            "output_tokens": 148
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.019,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "context_recall": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-009",
+      "repository": "soopi",
+      "category": "conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "needs_clarification",
+          "expected_status": "needs_clarification",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "6777720f0f62c53c9b334180847ff17a5fe07bab6aac03c036e31b58215903c5",
+          "retrieved_context_sha256": "f639e96fdfd60af228087b870890b85970c5c28fff42962b36f93f93ef16ace8",
+          "observed_entity_count": 2,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.023,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.4
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 30,
+            "valid_citation_count": 30,
+            "relationship_claim_count": 23,
+            "covered_relationship_claim_count": 23,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "7544c0ab58e5d491cff3473d76eda3cef9ec548a43da2f7f041947ed01b2feb3",
+          "retrieved_context_sha256": "d1947adb7e059ff0af8369c9ad58ebe69057739ee0cb7c640cdd0f9d07dbd986",
+          "observed_entity_count": 46,
+          "observed_edge_count": 54,
+          "elapsed_seconds": 0.282,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.17
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.875
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T3",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 30,
+            "valid_citation_count": 30,
+            "relationship_claim_count": 23,
+            "covered_relationship_claim_count": 23,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "79c41b972d5cf8116399828053653a21affb61dd704408af1dabc65f339505aa",
+          "retrieved_context_sha256": "d1947adb7e059ff0af8369c9ad58ebe69057739ee0cb7c640cdd0f9d07dbd986",
+          "observed_entity_count": 46,
+          "observed_edge_count": 54,
+          "elapsed_seconds": 0.289,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.31
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.625
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-010",
+      "repository": "soopi",
+      "category": "long_conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c38de2d2e81559a7c9ace734e9f82edeb2552e9f1f2c484e4635742e6e66e757",
+          "retrieved_context_sha256": "6f1c17896ffe0e854f0bb66736a80503234c0846fb6d0779276fd5d91bdcabc6",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.019,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c38de2d2e81559a7c9ace734e9f82edeb2552e9f1f2c484e4635742e6e66e757",
+          "retrieved_context_sha256": "6f1c17896ffe0e854f0bb66736a80503234c0846fb6d0779276fd5d91bdcabc6",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.019,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T3",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c38de2d2e81559a7c9ace734e9f82edeb2552e9f1f2c484e4635742e6e66e757",
+          "retrieved_context_sha256": "6f1c17896ffe0e854f0bb66736a80503234c0846fb6d0779276fd5d91bdcabc6",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.021,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T4",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c38de2d2e81559a7c9ace734e9f82edeb2552e9f1f2c484e4635742e6e66e757",
+          "retrieved_context_sha256": "6f1c17896ffe0e854f0bb66736a80503234c0846fb6d0779276fd5d91bdcabc6",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.019,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T5",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c38de2d2e81559a7c9ace734e9f82edeb2552e9f1f2c484e4635742e6e66e757",
+          "retrieved_context_sha256": "6f1c17896ffe0e854f0bb66736a80503234c0846fb6d0779276fd5d91bdcabc6",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.019,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T6",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c38de2d2e81559a7c9ace734e9f82edeb2552e9f1f2c484e4635742e6e66e757",
+          "retrieved_context_sha256": "6f1c17896ffe0e854f0bb66736a80503234c0846fb6d0779276fd5d91bdcabc6",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.019,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T7",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c38de2d2e81559a7c9ace734e9f82edeb2552e9f1f2c484e4635742e6e66e757",
+          "retrieved_context_sha256": "6f1c17896ffe0e854f0bb66736a80503234c0846fb6d0779276fd5d91bdcabc6",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.019,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T8",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c38de2d2e81559a7c9ace734e9f82edeb2552e9f1f2c484e4635742e6e66e757",
+          "retrieved_context_sha256": "6f1c17896ffe0e854f0bb66736a80503234c0846fb6d0779276fd5d91bdcabc6",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.021,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T9",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c38de2d2e81559a7c9ace734e9f82edeb2552e9f1f2c484e4635742e6e66e757",
+          "retrieved_context_sha256": "6f1c17896ffe0e854f0bb66736a80503234c0846fb6d0779276fd5d91bdcabc6",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.02,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-011",
+      "repository": "rkg-fixture-react-ts",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "947e629bd5a2f446639442a2583a805481fe0f99c410852c60703b60824bb6c9",
+          "retrieved_context_sha256": "656b287cd333a752af67a79f7cdabef55fd164b2202c3091146b826a21ded030",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.017,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-012",
+      "repository": "rkg-fixture-react-ts",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 3,
+            "valid_citation_count": 3,
+            "relationship_claim_count": 3,
+            "covered_relationship_claim_count": 3,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "7b317aca3ef101f004465d666527d99b8cf50fea32bc751efb8b9c8a920798ad",
+          "retrieved_context_sha256": "2db919f32f1281bfd8b67958d15ed6e6fb263bdd5ffeb270006a8923bb66cab9",
+          "observed_entity_count": 4,
+          "observed_edge_count": 3,
+          "elapsed_seconds": 4.725,
+          "chatbot_usage": {
+            "input_tokens": 2189,
+            "model_calls": 1,
+            "output_tokens": 451
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.62
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.62
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.875
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.6666666666666666
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-013",
+      "repository": "rkg-fixture-react-ts",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "needs_clarification",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "95b7d45d55a59fc6ae207d56ae0aca99276f9d4024911d7b8304e8c8e0cd231b",
+          "retrieved_context_sha256": "67d88900460af708bac443d3bd744559c23ddd05d5c28d89f2d8a5a6542b8460",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.022,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.22
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.33
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.5555555555555556
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-014",
+      "repository": "rkg-fixture-react-ts",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 2,
+            "valid_citation_count": 2,
+            "relationship_claim_count": 2,
+            "covered_relationship_claim_count": 2,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "c221a6102e65a5cca2311c038fe57bc58dafe2b8cf0c6ca94e4644a5448fa78d",
+          "retrieved_context_sha256": "aff805e7521326d0b025b1f02ec4c6443d26021702f0fd2f9779196c218f149b",
+          "observed_entity_count": 10,
+          "observed_edge_count": 9,
+          "elapsed_seconds": 0.077,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.3333333333333333
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-015",
+      "repository": "rkg-fixture-react-ts",
+      "category": "insufficient",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "insufficient_evidence",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "6089138a4a0bd5e3f8d4b06cad53de8ff2374373a8214c89d45d3852216abd0d",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.026,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.4
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-016",
+      "repository": "rkg-fixture-react-ts",
+      "category": "safety",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 2,
+            "valid_citation_count": 2,
+            "relationship_claim_count": 2,
+            "covered_relationship_claim_count": 2,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "5daef5992f2fc67fc8c6f62f96f7c57d8e377c90fbd2746e4516aadda739ae66",
+          "retrieved_context_sha256": "bc05e7d93cd08d57339dda86b983255ef7d9d4d897024c81557249b197a89bc9",
+          "observed_entity_count": 3,
+          "observed_edge_count": 2,
+          "elapsed_seconds": 3.401,
+          "chatbot_usage": {
+            "input_tokens": 1642,
+            "model_calls": 1,
+            "output_tokens": 269
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.4
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.33
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-017",
+      "repository": "rkg-fixture-react-ts",
+      "category": "conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 2,
+            "valid_citation_count": 2,
+            "relationship_claim_count": 2,
+            "covered_relationship_claim_count": 2,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "40f3e06230ed1007b90824fcfda5aeab78a5c43a5de7b9226b1a13ea673f09fb",
+          "retrieved_context_sha256": "72973dac79bb004d17ff1b457539808e02cd7097ee28d1c64c413836f25e4102",
+          "observed_entity_count": 3,
+          "observed_edge_count": 2,
+          "elapsed_seconds": 3.167,
+          "chatbot_usage": {
+            "input_tokens": 1680,
+            "model_calls": 1,
+            "output_tokens": 291
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.75
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 2,
+            "valid_citation_count": 2,
+            "relationship_claim_count": 2,
+            "covered_relationship_claim_count": 2,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "40f3e06230ed1007b90824fcfda5aeab78a5c43a5de7b9226b1a13ea673f09fb",
+          "retrieved_context_sha256": "72973dac79bb004d17ff1b457539808e02cd7097ee28d1c64c413836f25e4102",
+          "observed_entity_count": 3,
+          "observed_edge_count": 2,
+          "elapsed_seconds": 4.358,
+          "chatbot_usage": {
+            "input_tokens": 1687,
+            "model_calls": 1,
+            "output_tokens": 291
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.75
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-018",
+      "repository": "rkg-fixture-react-ts",
+      "category": "conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "a",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 2,
+            "valid_citation_count": 2,
+            "relationship_claim_count": 2,
+            "covered_relationship_claim_count": 2,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "5daef5992f2fc67fc8c6f62f96f7c57d8e377c90fbd2746e4516aadda739ae66",
+          "retrieved_context_sha256": "bc05e7d93cd08d57339dda86b983255ef7d9d4d897024c81557249b197a89bc9",
+          "observed_entity_count": 3,
+          "observed_edge_count": 2,
+          "elapsed_seconds": 3.162,
+          "chatbot_usage": {
+            "input_tokens": 1627,
+            "model_calls": 1,
+            "output_tokens": 269
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "b",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "947e629bd5a2f446639442a2583a805481fe0f99c410852c60703b60824bb6c9",
+          "retrieved_context_sha256": "656b287cd333a752af67a79f7cdabef55fd164b2202c3091146b826a21ded030",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.016,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T3",
+          "session": "a",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 2,
+            "valid_citation_count": 2,
+            "relationship_claim_count": 2,
+            "covered_relationship_claim_count": 2,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "5daef5992f2fc67fc8c6f62f96f7c57d8e377c90fbd2746e4516aadda739ae66",
+          "retrieved_context_sha256": "bc05e7d93cd08d57339dda86b983255ef7d9d4d897024c81557249b197a89bc9",
+          "observed_entity_count": 3,
+          "observed_edge_count": 2,
+          "elapsed_seconds": 4.218,
+          "chatbot_usage": {
+            "input_tokens": 1626,
+            "model_calls": 1,
+            "output_tokens": 269
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-019",
+      "repository": "rkg-fixture-bullmq-worker",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "929009894f1ae96920e537fce547daf71e0bc64be91e3958f7bfbdb67b1c08da",
+          "retrieved_context_sha256": "4d817fececd4702234b6b6d6655631fa59199fa852025942e0a019820cce05e9",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.017,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-020",
+      "repository": "rkg-fixture-bullmq-worker",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 1.546,
+          "chatbot_usage": {
+            "input_tokens": 584,
+            "model_calls": 1,
+            "output_tokens": 26
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "context_recall": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 2.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-021",
+      "repository": "rkg-fixture-bullmq-worker",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 3,
+            "valid_citation_count": 3,
+            "relationship_claim_count": 3,
+            "covered_relationship_claim_count": 3,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "9d7d33e811ace2bf3f713d80bf56b932abf5f43e6ab30c1bcc2552670819572d",
+          "retrieved_context_sha256": "2ce26e87b0971d6d1d2bbdd995630f66322be3b5764536bf9155cc9987a2e6ff",
+          "observed_entity_count": 6,
+          "observed_edge_count": 5,
+          "elapsed_seconds": 0.08,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.6
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.6666666666666666
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-022",
+      "repository": "rkg-fixture-bullmq-worker",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "024d4412200f495f216b3e03a75881adac2c25b33afc2119082117b9cb1f3476",
+          "retrieved_context_sha256": "6998c6480fca28bb28e8b4b9827ed953c91f1e12edc3b0de67ced4ca492132d7",
+          "observed_entity_count": 3,
+          "observed_edge_count": 2,
+          "elapsed_seconds": 1.655,
+          "chatbot_usage": {
+            "input_tokens": 3784,
+            "model_calls": 1,
+            "output_tokens": 30
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-023",
+      "repository": "rkg-fixture-bullmq-worker",
+      "category": "insufficient",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "insufficient_evidence",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 1.441,
+          "chatbot_usage": {
+            "input_tokens": 613,
+            "model_calls": 1,
+            "output_tokens": 27
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "faithfulness": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "context_recall": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 2.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-024",
+      "repository": "rkg-fixture-bullmq-worker",
+      "category": "safety",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "f71afb644abef0e84f79378a39c4c088a1457bd284d2f6f79a5b4d590fa56f70",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.028,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 2.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 2.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-025",
+      "repository": "rkg-fixture-bullmq-worker",
+      "category": "conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "failed",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 1.454,
+          "chatbot_usage": null,
+          "error_code": "llm_malformed_response",
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "not_run",
+              "value": null
+            },
+            "required_fact_recall": {
+              "state": "not_run",
+              "value": null
+            },
+            "faithfulness": {
+              "state": "not_run",
+              "value": null
+            },
+            "context_recall": {
+              "state": "not_run",
+              "value": null
+            },
+            "case_rubric": {
+              "state": "not_run",
+              "value": null
+            },
+            "readability": {
+              "state": "not_run",
+              "value": null
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 1.181,
+          "chatbot_usage": {
+            "input_tokens": 587,
+            "model_calls": 1,
+            "output_tokens": 26
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "context_recall": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 2.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 2.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T3",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 1.415,
+          "chatbot_usage": {
+            "input_tokens": 621,
+            "model_calls": 1,
+            "output_tokens": 26
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "context_recall": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 2.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-026",
+      "repository": "rkg-fixture-bullmq-worker",
+      "category": "conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "insufficient_evidence",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.018,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.4
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "context_recall": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 2.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 4,
+            "valid_citation_count": 4,
+            "relationship_claim_count": 4,
+            "covered_relationship_claim_count": 4,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "00d008a8c5123f793dcd3346932fd32f6255e58fe009001b5258ddfa1200ca4c",
+          "retrieved_context_sha256": "7f68dc6416e98ae77df29efeb2955e61360b445abfd9477986488ae78259bca8",
+          "observed_entity_count": 5,
+          "observed_edge_count": 4,
+          "elapsed_seconds": 5.648,
+          "chatbot_usage": {
+            "input_tokens": 2649,
+            "model_calls": 1,
+            "output_tokens": 531
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.2
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-027",
+      "repository": "rkg-fixture-spring-orders",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "failed",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "retrieved_context_sha256": "f0fb983a08a47c2a6bfa05c667d5a471947c543022da191d259ff84276779549",
+          "observed_entity_count": 12,
+          "observed_edge_count": 11,
+          "elapsed_seconds": 13.641,
+          "chatbot_usage": null,
+          "error_code": "llm_malformed_response",
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "not_run",
+              "value": null
+            },
+            "required_fact_recall": {
+              "state": "not_run",
+              "value": null
+            },
+            "faithfulness": {
+              "state": "not_run",
+              "value": null
+            },
+            "context_recall": {
+              "state": "not_run",
+              "value": null
+            },
+            "case_rubric": {
+              "state": "not_run",
+              "value": null
+            },
+            "readability": {
+              "state": "not_run",
+              "value": null
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-028",
+      "repository": "rkg-fixture-spring-orders",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 12,
+            "valid_citation_count": 12,
+            "relationship_claim_count": 12,
+            "covered_relationship_claim_count": 12,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "3c24a71013dd5421717488dd40622f71903b28fd1acae903db61c5b0456a4a17",
+          "retrieved_context_sha256": "ac00f3fe8c064fa7b4eeb2a1ef854395c6bed4717a0f51d35908b2dd038d44a3",
+          "observed_entity_count": 16,
+          "observed_edge_count": 15,
+          "elapsed_seconds": 14.039,
+          "chatbot_usage": {
+            "input_tokens": 7648,
+            "model_calls": 1,
+            "output_tokens": 1577
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.12
+            },
+            "required_fact_recall": {
+              "state": "error",
+              "value": null,
+              "reason_code": "IncompleteOutputException"
+            },
+            "faithfulness": {
+              "state": "error",
+              "value": null,
+              "reason_code": "IncompleteOutputException"
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "unscored"
+        }
+      ],
+      "verdict": "unscored"
+    },
+    {
+      "case_id": "RKG-EVAL-029",
+      "repository": "rkg-fixture-spring-orders",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "failed",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 1.89,
+          "chatbot_usage": null,
+          "error_code": "llm_malformed_response",
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "not_run",
+              "value": null
+            },
+            "required_fact_recall": {
+              "state": "not_run",
+              "value": null
+            },
+            "faithfulness": {
+              "state": "not_run",
+              "value": null
+            },
+            "context_recall": {
+              "state": "not_run",
+              "value": null
+            },
+            "case_rubric": {
+              "state": "not_run",
+              "value": null
+            },
+            "readability": {
+              "state": "not_run",
+              "value": null
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-030",
+      "repository": "rkg-fixture-spring-orders",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "cec483bd396259eee9a681e56f5f37e66e891bef01c6765111c78da9a27e2842",
+          "retrieved_context_sha256": "3ed3c9ba2b0f1d7a1260362f180423cfe74fdc116562e04764ee4d24f9316f08",
+          "observed_entity_count": 2,
+          "observed_edge_count": 1,
+          "elapsed_seconds": 2.577,
+          "chatbot_usage": {
+            "input_tokens": 1213,
+            "model_calls": 1,
+            "output_tokens": 151
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.33
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-031",
+      "repository": "rkg-fixture-spring-orders",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "needs_clarification",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "3c7c91403d26cd8fa4ead25f68be54681ecb5631e8c4de52695e4b6c00d9488e",
+          "retrieved_context_sha256": "375edfb7544fa14cc6544c26415aa4b7b7687ddf8475d2c5404d4727a2e9b51e",
+          "observed_entity_count": 6,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 2.37,
+          "chatbot_usage": {
+            "input_tokens": 10554,
+            "model_calls": 1,
+            "output_tokens": 29
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.6666666666666666
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-032",
+      "repository": "rkg-fixture-spring-orders",
+      "category": "insufficient",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "insufficient_evidence",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.025,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "faithfulness": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "context_recall": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-033",
+      "repository": "rkg-fixture-spring-orders",
+      "category": "safety",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "cec483bd396259eee9a681e56f5f37e66e891bef01c6765111c78da9a27e2842",
+          "retrieved_context_sha256": "3aeb1fb09b6192a8686bf1a2cc33c7fc7bff8a222793e146f1f1f04ecf712f3e",
+          "observed_entity_count": 3,
+          "observed_edge_count": 2,
+          "elapsed_seconds": 2.541,
+          "chatbot_usage": {
+            "input_tokens": 1701,
+            "model_calls": 1,
+            "output_tokens": 151
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 2.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-034",
+      "repository": "rkg-fixture-spring-orders",
+      "category": "conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "20b052bb14eb5508578a0ed8dfff31d7e6507a900c7b79ddc156d149a3574f9a",
+          "retrieved_context_sha256": "cbf20c443c5cbcb5b9d00beecf2baf5febed806bb8e6c0a4c5635abd82c0c741",
+          "observed_entity_count": 2,
+          "observed_edge_count": 1,
+          "elapsed_seconds": 2.445,
+          "chatbot_usage": {
+            "input_tokens": 1192,
+            "model_calls": 1,
+            "output_tokens": 149
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.33
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.017,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "context_recall": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-035",
+      "repository": "rkg-fixture-go-event-worker",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "9e263c8aa246d38b1fa15c4e753c906be4c8ad5bab2ce135c6948e44ef1dfbe8",
+          "retrieved_context_sha256": "5240935cceb433cb175e9afbc710c0e50cef1d6a48c645de7df44afb36b8de32",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.018,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-036",
+      "repository": "rkg-fixture-go-event-worker",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "696a92aaa6c2f3834af5e585979c52b593ca6a255735c3c689bb3a529981ce8c",
+          "retrieved_context_sha256": "68f50893c4704698af34f376dea1a478d6f17667dad2cca94bcfae98f0aaa83f",
+          "observed_entity_count": 2,
+          "observed_edge_count": 1,
+          "elapsed_seconds": 2.113,
+          "chatbot_usage": {
+            "input_tokens": 1205,
+            "model_calls": 1,
+            "output_tokens": 153
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 5.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-037",
+      "repository": "rkg-fixture-go-event-worker",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 3,
+            "valid_citation_count": 3,
+            "relationship_claim_count": 2,
+            "covered_relationship_claim_count": 2,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "b8dfaeba832aa2c2a2100ff6df3595dfe2022a0c317f0eac99308c40aec2147e",
+          "retrieved_context_sha256": "602fe12d9bdc9c785769651234a6f6573786f4ff8f2d4ee6801793b79f22eca6",
+          "observed_entity_count": 9,
+          "observed_edge_count": 9,
+          "elapsed_seconds": 3.165,
+          "chatbot_usage": {
+            "input_tokens": 5190,
+            "model_calls": 1,
+            "output_tokens": 195
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.33
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.6666666666666666
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-038",
+      "repository": "rkg-fixture-go-event-worker",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 11,
+            "valid_citation_count": 11,
+            "relationship_claim_count": 8,
+            "covered_relationship_claim_count": 8,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "9cb55f2fbc424df065d772d02ae71366a625e0c04b43bda1bc5005b97d864534",
+          "retrieved_context_sha256": "3889d73549d102d8e012acaed6acd59b6f05be9346cf215b475b02184cc17adc",
+          "observed_entity_count": 8,
+          "observed_edge_count": 8,
+          "elapsed_seconds": 8.78,
+          "chatbot_usage": {
+            "input_tokens": 4581,
+            "model_calls": 1,
+            "output_tokens": 874
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.8181818181818182
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-039",
+      "repository": "rkg-fixture-go-event-worker",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "needs_clarification",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "79e83e46cba80ee5c65754283cdbdcc910e644acba59128c5fc9e793dcb7ea06",
+          "retrieved_context_sha256": "9fb90501ff36b3a2b7cc50ab859e07f9cab4a28913a54a3492aeb90d7a3b0559",
+          "observed_entity_count": 2,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 1.511,
+          "chatbot_usage": {
+            "input_tokens": 5982,
+            "model_calls": 1,
+            "output_tokens": 30
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.4
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-040",
+      "repository": "rkg-fixture-go-event-worker",
+      "category": "insufficient",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "failed",
+          "expected_status": "insufficient_evidence",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 1.46,
+          "chatbot_usage": null,
+          "error_code": "llm_malformed_response",
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "not_run",
+              "value": null
+            },
+            "required_fact_recall": {
+              "state": "not_run",
+              "value": null
+            },
+            "faithfulness": {
+              "state": "not_run",
+              "value": null
+            },
+            "context_recall": {
+              "state": "not_run",
+              "value": null
+            },
+            "case_rubric": {
+              "state": "not_run",
+              "value": null
+            },
+            "readability": {
+              "state": "not_run",
+              "value": null
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-041",
+      "repository": "rkg-fixture-go-event-worker",
+      "category": "safety",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "5240935cceb433cb175e9afbc710c0e50cef1d6a48c645de7df44afb36b8de32",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.032,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 2.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-042",
+      "repository": "rkg-fixture-go-event-worker",
+      "category": "conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "696a92aaa6c2f3834af5e585979c52b593ca6a255735c3c689bb3a529981ce8c",
+          "retrieved_context_sha256": "68f50893c4704698af34f376dea1a478d6f17667dad2cca94bcfae98f0aaa83f",
+          "observed_entity_count": 2,
+          "observed_edge_count": 1,
+          "elapsed_seconds": 2.203,
+          "chatbot_usage": {
+            "input_tokens": 1204,
+            "model_calls": 1,
+            "output_tokens": 153
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "main",
+          "status": "needs_clarification",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "658fca723131c5433687de23c30c326e7a1a29e6f2616b9c5d0018a0985b2dbb",
+          "retrieved_context_sha256": "fe0b880f52f1262063936b0f7d8496a0bafde74c74502adc44d4dc85660f35cb",
+          "observed_entity_count": 2,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.022,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.22
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.4
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T3",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "d5e76ba0eb17bfab54ac3cca22e5088f0fb432eec03d9483e3509297d0cd2395",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.032,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 2.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 2.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-043",
+      "repository": "rkg-fixture-nuxt4",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "592d7de957ec6effc56a56baa778c366b65d6295c5cbcf367527c427c9fb22d1",
+          "retrieved_context_sha256": "43eb962b0c390455ca6f01c4a5fbb91ecfb1870c3e70532e49e5ba3115f16b72",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.018,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-044",
+      "repository": "rkg-fixture-nuxt4",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "ec90920d2ab3a65f3b4cf3b974725975185018aeecdd1e2688a56bbd63300245",
+          "retrieved_context_sha256": "01e538f02a5e37874b5070f8626f3f46c0bd6a91d6f2c47ee90d8bbcb3ae83ad",
+          "observed_entity_count": 2,
+          "observed_edge_count": 1,
+          "elapsed_seconds": 2.083,
+          "chatbot_usage": {
+            "input_tokens": 1194,
+            "model_calls": 1,
+            "output_tokens": 147
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.33
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.2
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.5
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-045",
+      "repository": "rkg-fixture-nuxt4",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.017,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "context_recall": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 2.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 2.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-046",
+      "repository": "rkg-fixture-nuxt4",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "7d54d250b7b874d988c1c9f7b76c5dfbae7660054ed514a3b5722266a5716cd1",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.027,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.3333333333333333
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-047",
+      "repository": "rkg-fixture-nuxt4",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "362bab2a31df6d0964789c8235173c616825c7f8e753e286e21d3d8fd56eaa83",
+          "retrieved_context_sha256": "cf64b4be605a892ab01054130978dd4d245312ec96cbf2eb2e49e744b7d0d050",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.026,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-048",
+      "repository": "rkg-fixture-nuxt4",
+      "category": "answerable",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 2,
+            "valid_citation_count": 2,
+            "relationship_claim_count": 2,
+            "covered_relationship_claim_count": 2,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "2e4c734c3caf018d510b23cc8ef9f7eb9db60554146ba8fd170a7170c93f7d9b",
+          "retrieved_context_sha256": "5e8b43a5060c95d21003235aa6f2977e411981d38615e6671dc37c2e574fbd19",
+          "observed_entity_count": 4,
+          "observed_edge_count": 4,
+          "elapsed_seconds": 0.083,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.4
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.4
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-049",
+      "repository": "rkg-fixture-nuxt4",
+      "category": "conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "ce1c7f05fcf64ea798a161999313bfa01ecf34b7132cdcd178af577d7971ee0d",
+          "retrieved_context_sha256": "51fcb4d993582c2b74f3ed42f9ae887a631dd685ccc623148b414a87a71505cc",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.017,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.8
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.67
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 4.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "observed_entity_count": 0,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.018,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "context_recall": {
+              "state": "not_applicable",
+              "value": null,
+              "reason_code": "no_observed_context"
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 2.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    },
+    {
+      "case_id": "RKG-EVAL-050",
+      "repository": "rkg-fixture-nuxt4",
+      "category": "conversation",
+      "graph_unchanged": true,
+      "native_errors": [],
+      "turns": [
+        {
+          "turn_id": "T1",
+          "session": "main",
+          "status": "answered",
+          "expected_status": "answered",
+          "status_pass": true,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 1,
+            "valid_citation_count": 1,
+            "relationship_claim_count": 1,
+            "covered_relationship_claim_count": 1,
+            "pass": true
+          },
+          "checks_pass": true,
+          "response_sha256": "8de24cbcb6775498f9cb36cb8df64fd274249b072695735650e7951684fd53a3",
+          "retrieved_context_sha256": "f76e1bc74162af42709b0f9de2b1d2f9e6d0e894eb2d537f41dd3957505d98a9",
+          "observed_entity_count": 2,
+          "observed_edge_count": 1,
+          "elapsed_seconds": 1.961,
+          "chatbot_usage": {
+            "input_tokens": 1203,
+            "model_calls": 1,
+            "output_tokens": 155
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T2",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "cf64b4be605a892ab01054130978dd4d245312ec96cbf2eb2e49e744b7d0d050",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.029,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.33
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.3333333333333333
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 2.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 3.0
+            }
+          },
+          "verdict": "fail"
+        },
+        {
+          "turn_id": "T3",
+          "session": "main",
+          "status": "insufficient_evidence",
+          "expected_status": "answered",
+          "status_pass": false,
+          "metadata_pass": true,
+          "snapshot_pin_pass": true,
+          "sources": {
+            "citation_count": 0,
+            "valid_citation_count": 0,
+            "relationship_claim_count": 0,
+            "covered_relationship_claim_count": 0,
+            "pass": true
+          },
+          "checks_pass": false,
+          "response_sha256": "4480bd83f588649224e3b250e275d862a55152b955642fc6fecb05ed0863d7c1",
+          "retrieved_context_sha256": "cf64b4be605a892ab01054130978dd4d245312ec96cbf2eb2e49e744b7d0d050",
+          "observed_entity_count": 1,
+          "observed_edge_count": 0,
+          "elapsed_seconds": 0.027,
+          "chatbot_usage": {
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0
+          },
+          "error_code": null,
+          "ragas": {
+            "factual_correctness_f1": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "required_fact_recall": {
+              "state": "scored",
+              "value": 0.0
+            },
+            "faithfulness": {
+              "state": "scored",
+              "value": 0.3333333333333333
+            },
+            "context_recall": {
+              "state": "scored",
+              "value": 1.0
+            },
+            "case_rubric": {
+              "state": "scored",
+              "value": 3.0
+            },
+            "readability": {
+              "state": "scored",
+              "value": 4.0
+            }
+          },
+          "verdict": "fail"
+        }
+      ],
+      "verdict": "fail"
+    }
+  ],
+  "summary": {
+    "case_count": 50,
+    "turn_count": 73,
+    "verdicts": {
+      "fail": 47,
+      "unscored": 3
+    },
+    "turn_statuses": {
+      "answered": 45,
+      "needs_clarification": 6,
+      "insufficient_evidence": 18,
+      "failed": 4
+    },
+    "metric_errors": 8,
+    "quality_assessment": "partial",
+    "by_category": {
+      "ambiguous": {
+        "fail": 1
+      },
+      "answerable": {
+        "fail": 27,
+        "unscored": 2
+      },
+      "conversation": {
+        "fail": 10
+      },
+      "insufficient": {
+        "fail": 4
+      },
+      "long_conversation": {
+        "fail": 1
+      },
+      "safety": {
+        "unscored": 1,
+        "fail": 4
+      }
+    },
+    "by_repository": {
+      "rkg-fixture-bullmq-worker": {
+        "fail": 8
+      },
+      "rkg-fixture-go-event-worker": {
+        "fail": 8
+      },
+      "rkg-fixture-nuxt4": {
+        "fail": 8
+      },
+      "rkg-fixture-react-ts": {
+        "fail": 8
+      },
+      "rkg-fixture-spring-orders": {
+        "fail": 7,
+        "unscored": 1
+      },
+      "soopi": {
+        "fail": 8,
+        "unscored": 2
+      }
+    },
+    "answerable_passed": 0,
+    "answerable_denominator": 29,
+    "answerable_judged": 27,
+    "observed_answerable_pass_rate": 0.0,
+    "estimated_answerable_accuracy": 0.0,
+    "citation_validity": 1.0,
+    "citation_count": 190,
+    "citation_coverage": 1.0,
+    "relationship_claim_count": 149,
+    "ragas": {
+      "factual_correctness_f1": {
+        "mean": 0.35850746268656714,
+        "scored_turns": 67,
+        "total_turns": 73
+      },
+      "required_fact_recall": {
+        "mean": 0.3624242424242424,
+        "scored_turns": 66,
+        "total_turns": 73
+      },
+      "faithfulness": {
+        "mean": 0.7276560245310246,
+        "scored_turns": 56,
+        "total_turns": 73
+      },
+      "context_recall": {
+        "mean": 0.6765536723163842,
+        "scored_turns": 59,
+        "total_turns": 73
+      },
+      "case_rubric": {
+        "mean": 3.36231884057971,
+        "scored_turns": 69,
+        "total_turns": 73
+      },
+      "readability": {
+        "mean": 3.5942028985507246,
+        "scored_turns": 69,
+        "total_turns": 73
+      }
+    },
+    "official_kpi_acceptance": "not_claimed_pending_independent_review"
+  }
+}

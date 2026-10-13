@@ -1,0 +1,5 @@
+// Copy to a .java file only in a dedicated syntax-error corpus; never in the normal Maven source set.
+package fixture.invalid;
+public class SyntaxError {
+    public void broken( {
+}

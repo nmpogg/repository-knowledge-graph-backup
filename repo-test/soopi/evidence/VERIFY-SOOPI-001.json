@@ -1,0 +1,329 @@
+{
+  "key": "VERIFY-SOOPI-001",
+  "checked_at": "2026-10-01T10:00:21.326012+07:00",
+  "revision_kind": "sha256-source-manifest",
+  "code_revision": "c4f552b5e9d34c0bbc9eef6ac8c73a3137cd48365c563f189cfa6495b70ed514",
+  "artifact_revisions": {
+    "FR-SOOPI-001": 1,
+    "CMP-SOOPI-BACKEND": 1,
+    "API-SOOPI-001": 1
+  },
+  "checks": [
+    {
+      "command": "python -m pytest -q --tb=short",
+      "exit_code": 0,
+      "passed": 47
+    },
+    {
+      "command": "ruff check app tests alembic",
+      "exit_code": 0
+    },
+    {
+      "command": "ruff format --check app tests alembic",
+      "exit_code": 0,
+      "files": 53
+    },
+    {
+      "command": "python -m compileall -q app tests alembic",
+      "exit_code": 0
+    }
+  ],
+  "coverage": {
+    "AC-SOOPI-001": [
+      "test_refresh_rotation_and_logout",
+      "test_auth_and_permission_boundaries"
+    ],
+    "AC-SOOPI-002": [
+      "test_full_checkout_and_ownership",
+      "test_foreign_address_with_nonempty_cart_rejected"
+    ],
+    "AC-SOOPI-003": [
+      "test_admin_catalog_and_search",
+      "test_invalid_money_is_rejected"
+    ],
+    "AC-SOOPI-004": [
+      "test_guest_merge_is_atomic_and_consumes_token",
+      "test_merge_excess_stock_keeps_both_carts"
+    ],
+    "AC-SOOPI-005": [
+      "test_checkout_snapshots_and_idempotency",
+      "test_failure_after_stock_reservation_rolls_back"
+    ],
+    "AC-SOOPI-006": [
+      "test_cancel_releases_stock_once",
+      "test_expiry_worker_persists_release_and_is_repeatable",
+      "test_cod_fulfillment_requires_sequential_transitions"
+    ],
+    "AC-SOOPI-007": [
+      "test_callback_success_replay_and_late_failure",
+      "test_late_success_requires_refund_and_does_not_retake_stock",
+      "test_momo_signature_external_vector_and_tamper",
+      "test_vnpay_signature_external_encoding_vector_and_tamper",
+      "test_momo_timeout_keeps_durable_intent_for_retry"
+    ],
+    "AC-SOOPI-008": [
+      "test_initial_migration_matches_models_and_downgrades",
+      "lint",
+      "compileall"
+    ]
+  },
+  "limits": [
+    "Tests use in-memory SQLite and mocked provider HTTP.",
+    "PostgreSQL row-lock concurrency and live MoMo/VNPAY transactions were not executed.",
+    "No application server or external database was started."
+  ],
+  "manifest": [
+    {
+      "path": ".env.example",
+      "sha256": "74664dedc2e2fc4c1d3a2ba9aa35e935af81bf711e53d03e39bab76deee85636"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "c074b2208e4bc47ccbfea548f331e4dd598a97de2b4e1d098b079d7a3a914761"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "7c683aab86d8840c30a3273149e89f17b31870ed1969fd760b60ba351ec8b7d7"
+    },
+    {
+      "path": "README.md",
+      "sha256": "b449f56350921194dcb6767195725e2120237f7e2a1a5011ea046c3d0658ff94"
+    },
+    {
+      "path": "alembic.ini",
+      "sha256": "87eb5f535f51c56b5ab56317cd4936bfc38da5718e3b79089b86469edff5d9c8"
+    },
+    {
+      "path": "alembic/env.py",
+      "sha256": "c4a6689f699084e5636963fda975d80226818006ba339f38fda3f13ffb82d679"
+    },
+    {
+      "path": "alembic/script.py.mako",
+      "sha256": "d7558dcb7ce01d3e44830898336d3027de66e5ffdb1491c0cd27f6159b021902"
+    },
+    {
+      "path": "alembic/versions/0001_initial.py",
+      "sha256": "71aabc22a4a0f234414f55b297a91631709af287b0a12999e302d54eaec5bcfa"
+    },
+    {
+      "path": "app/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/api/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/api/deps.py",
+      "sha256": "41a9ecda7631899c7ae11989a5b32cab82c139e19a912291c2295e898a8210fd"
+    },
+    {
+      "path": "app/api/v1/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/api/v1/endpoints/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/api/v1/endpoints/auth.py",
+      "sha256": "b70f0681f3eb91e6e209375cb4d4a2137cfc4e373d743e2407863846e6a3adc0"
+    },
+    {
+      "path": "app/api/v1/endpoints/cart.py",
+      "sha256": "4008dd249d51fa5f7ffee76231f8392f54dcbb2e73c6131b4f1446303fbd8b29"
+    },
+    {
+      "path": "app/api/v1/endpoints/categories.py",
+      "sha256": "0b298bd6c47451a343f3c88e5f0983b06d5fb4379935acd4bcaaea45f84c19e9"
+    },
+    {
+      "path": "app/api/v1/endpoints/orders.py",
+      "sha256": "8791df90de986a9f465b43d5c7575f57274938b1eddcb3d54063bc1ad979c275"
+    },
+    {
+      "path": "app/api/v1/endpoints/products.py",
+      "sha256": "0c7ed707171ec9de131fa571f437e3b7125c26357e043f902890c06758d862e1"
+    },
+    {
+      "path": "app/api/v1/endpoints/users.py",
+      "sha256": "ca336fd5b07abb5f897e19e71a562aa1a559b4ca656ddeda597b46324c788ee8"
+    },
+    {
+      "path": "app/api/v1/router.py",
+      "sha256": "f2d761799a7486f1f70390c9c7ca4cd1e7c3d12785eb6086eacc96d92a26ad34"
+    },
+    {
+      "path": "app/core/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/core/config.py",
+      "sha256": "fce0e32459ae4040198bafc7b9311d3fb5424edd2723ae426ed6b7dc76dff789"
+    },
+    {
+      "path": "app/core/database.py",
+      "sha256": "3207d746c704323f4e0a81f346b16392631d692d42dd06db27e067b89a2f4faf"
+    },
+    {
+      "path": "app/core/exceptions.py",
+      "sha256": "b0436d6cd28ca551c2f3c3fdd8f97c8ae27394bd7aa6b78f310e741c2ce87608"
+    },
+    {
+      "path": "app/core/security.py",
+      "sha256": "81271ead02c6a54f882ccfcbc10750b7c639bc81d7eba06b463b2b21e6a8f677"
+    },
+    {
+      "path": "app/expire_orders.py",
+      "sha256": "da401b161b5af38c56dddc29d4a936725751a94dc17aab56f52f71ded6755e49"
+    },
+    {
+      "path": "app/main.py",
+      "sha256": "6116ff3608573ff2101ea7b401ed5c5643da47ad8826dbdfa3426b8153353790"
+    },
+    {
+      "path": "app/models/__init__.py",
+      "sha256": "695f83f4ca03c48752ce60435ac76f4d4bbcca69ce43e40b47343ff58052f7b9"
+    },
+    {
+      "path": "app/models/base.py",
+      "sha256": "592f893b66e8ec3073e44075719f5cc5f5f4c866594f4c354f80732c4273baba"
+    },
+    {
+      "path": "app/models/cart.py",
+      "sha256": "444c35b1d8e3fd8c31b31770172894fa91f3ee58035bdbac491fa9eb216adafd"
+    },
+    {
+      "path": "app/models/order.py",
+      "sha256": "edc7b257699874426350988712a512d2dcaeda984ae6b8c4b897accdea0d8b32"
+    },
+    {
+      "path": "app/models/product.py",
+      "sha256": "55d4779958819a8a10187817bbd5727c6a6e44aa2c6af8e62e3503ef68a38806"
+    },
+    {
+      "path": "app/models/user.py",
+      "sha256": "de501d02d02429d33f706b6c907a2addb16cc4896c934d4b52a9c83799f7750f"
+    },
+    {
+      "path": "app/repositories/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/repositories/base.py",
+      "sha256": "d909abd92a67b6c387c0c5efcf655902275a5df2dc7baea590089a4a5d7dbaba"
+    },
+    {
+      "path": "app/repositories/cart_repo.py",
+      "sha256": "4392828481918e6fbf4165a6adafb6e03f7f58c5285f37e0009396c527232f77"
+    },
+    {
+      "path": "app/repositories/order_repo.py",
+      "sha256": "8264cbaf6aeade698473924a53a2932c8b9f27a8cda9e56fe631e4f34a55afd5"
+    },
+    {
+      "path": "app/repositories/payment_repo.py",
+      "sha256": "d0e6be4f1f0b0f85ac71c2a58bcba6271ad06b608c847787a4fafaea2e6bc8c7"
+    },
+    {
+      "path": "app/repositories/product_repo.py",
+      "sha256": "d9037d2e183fb762115c43f7e6664d0f331b345ab0832e2bc6eb7c1b541cbf8a"
+    },
+    {
+      "path": "app/repositories/user_repo.py",
+      "sha256": "1682883a945b9399e29521c809e6970748e13614443c301c45e633f8140d790e"
+    },
+    {
+      "path": "app/schemas/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/schemas/cart.py",
+      "sha256": "a1c17c5f88311978f1553e1b10da487a0f18aabc0326a22beccc17708a304c8e"
+    },
+    {
+      "path": "app/schemas/common.py",
+      "sha256": "e31d5c5fef13b452417a057c98e7c24de6a81ef3758fd640d6bde190d7b84f4a"
+    },
+    {
+      "path": "app/schemas/order.py",
+      "sha256": "ca51b1eaeb8022234a44de0ca4b27b9ab2c223f56154bc6539156f15635cbeff"
+    },
+    {
+      "path": "app/schemas/product.py",
+      "sha256": "0bcfead4f975c087f308cf95b55954b85eb200e076422cd1708cf6e14ddc51b5"
+    },
+    {
+      "path": "app/schemas/user.py",
+      "sha256": "34f30ef63ef21257eb481958320a554aa9089210ae7765e8d88f6916947a142c"
+    },
+    {
+      "path": "app/services/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/services/auth_service.py",
+      "sha256": "66c49eaad715fba9d5475030d12717f326fa79c17a74becd54416ca789aa2162"
+    },
+    {
+      "path": "app/services/cart_service.py",
+      "sha256": "62bca5e6a002f1b73007fb9931bc9867f9f72171f6d44d8547c3a08279779afe"
+    },
+    {
+      "path": "app/services/order_service.py",
+      "sha256": "8beb321ff8cf678d1cfddbcd530060ecf13f4673562c7aaa1492c0a5f0a5bcb1"
+    },
+    {
+      "path": "app/services/payment_service.py",
+      "sha256": "75492d70720115f1f4667ad045559d6775ceed943b4f1dc1658fc45c6ec80865"
+    },
+    {
+      "path": "app/services/product_service.py",
+      "sha256": "4b8174a9c359546053e161f2890d0c40caf978673d9cd00662ccece7fd62b425"
+    },
+    {
+      "path": "app/services/user_service.py",
+      "sha256": "aaeb3206b6f847d177f5d88bce2d16dc9f46429ec875391abdae7dfb5beb12cc"
+    },
+    {
+      "path": "docs/API-SOOPI-001.md",
+      "sha256": "ccf6e6c382ab06b57792b33565c5f221e5fe0abf39f93e1087485572e9681800"
+    },
+    {
+      "path": "docs/CMP-SOOPI-BACKEND.md",
+      "sha256": "4e624d6d2ccf257dac3a1cac589a58229516372319c83c86fdeebf7421addcc6"
+    },
+    {
+      "path": "docs/FR-SOOPI-001.md",
+      "sha256": "45ac7bd81fbdb9fdee9a4ac345a1244304d8d8809e9d748bc02d294d2f833e62"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "75d017bd32464c5860bbada632fe79eb685acf936bb8d5aa02ab31dcdc735552"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "a63d937e8f734784540d2a179faaaf59ac14fcd86cee40815fb7161cbada9458"
+    },
+    {
+      "path": "tests/test_api.py",
+      "sha256": "c32605d3226e06cd59d49c00871fdd6d9e50c3f1dd3157624804cee707b23c2e"
+    },
+    {
+      "path": "tests/test_cart_auth.py",
+      "sha256": "b0ce5478501304970e34e6885f8f8173a9d8ce1296f8b691157d57745e3364bb"
+    },
+    {
+      "path": "tests/test_orders.py",
+      "sha256": "7c7d2ec7b7499aad5e553e2d454af58fd50a77260965f8ad46f626ea46348287"
+    },
+    {
+      "path": "tests/test_payments.py",
+      "sha256": "51cf2c1da0b84fd0573811a7538480d6cb17f6ed384b3bd3faaec55a739f9fc8"
+    },
+    {
+      "path": "tests/test_schema.py",
+      "sha256": "bc1f02b8de613c44da1d6f6867561fefb923a3133ded095312e5eece18f7f0db"
+    }
+  ]
+}

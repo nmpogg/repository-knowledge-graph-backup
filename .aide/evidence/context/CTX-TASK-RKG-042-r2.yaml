@@ -1,0 +1,32 @@
+type: context-snapshot
+key: CTX-TASK-RKG-042-r2
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-042
+revision: 1
+implementation_date: '2026-10-07'
+change_set: CHG-RKG-2026-001
+provenance: stack-a-normative-align
+captured_against:
+  code_commit: 2d0af7204d89ea3944fbe507bc590744e45a5033
+  artifacts:
+  - key: TASK-RKG-042
+    path: lifecycle/tasks/TASK-RKG-042.md
+  - key: STORY-RKG-026
+    path: lifecycle/stories/STORY-RKG-026.md
+  - key: CMP-RKG-ANALYZER
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: REG-ADAPTER-001
+    path: registry/REG-ADAPTER-001.md
+  - key: OQ-RKG-007
+    path: lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-007.md
+  - key: CHG-RKG-2026-001
+    path: lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+  prior_context: CTX-TASK-RKG-042.yaml
+notes:
+  - GREEN adapters registered (`rkg.typescript`, `rkg.react-router`).
+  - Story STORY-RKG-026 owns Stack A TypeScript / React Router scope.
+  - OQ-RKG-007 resolved: navigation Endpoint + framework_kind=react-router.
+  - Deep-support promotion not closed; task remains in_progress.
+  - Next: verify pytest (conformance + react-ts census); append test evidence.

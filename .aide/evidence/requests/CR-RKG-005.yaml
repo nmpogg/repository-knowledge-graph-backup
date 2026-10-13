@@ -1,0 +1,17 @@
+key: CR-RKG-005
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-06T11:59:50+07:00'
+source: explicit_user_architecture_approval
+request: approval nos
+change_set: CHG-RKG-2026-002
+interpreted_gate: GATE-RKG-ARCHITECTURE
+signer:
+  name: PhongNM
+  confirmed_role: tech-lead
+  role_evidence: CR-RKG-004
+  architect_role: awaiting_user_confirmation
+record_boundary: Approval instruction and signer metadata only; no conversation transcript
+  retained.

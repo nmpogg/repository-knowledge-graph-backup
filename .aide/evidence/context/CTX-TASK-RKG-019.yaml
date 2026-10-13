@@ -1,0 +1,245 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-019
+revision: 3
+implementation_date: '2026-09-28'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-003
+    revision: 2
+    hash: 30c9cff4314961830d9bfcc1d13d2fe8e69fe7e25c4329080e6fdf0a25661a6f
+    path: architecture/adr/ADR-2026-003.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-CONVERSATION
+    revision: 6
+    hash: 7b7875f084a579e95582d429950c87a99f2081fb18a4fef734167866f94406f4
+    path: architecture/l2/CMP-RKG-CONVERSATION.md
+  - key: EPIC-004-TEAM-RKG
+    revision: 4
+    hash: 6dc6e7c9d8e07e2b0fe6e17ffd550f2f437a7de0f817e5767e9235f284649240
+    path: lifecycle/epics/EPIC-004-TEAM-RKG.md
+  - key: FR-RKG-005
+    revision: 7
+    hash: a20c3f1aede798ef733273feb7addf00c51866f0a68397df5e7ae69dca280448
+    path: requirements/fr/FR-RKG-005.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: NFR-RKG-SEC-001
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  - key: STORY-RKG-013
+    revision: 2
+    hash: 0b8269c9aa0d08729dda39c42a5d5539496c1e61ec9d9adfae856f75d79225fa
+    path: lifecycle/stories/STORY-RKG-013.md
+  implementation_phases:
+  - commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    author_at: '2026-09-28T10:10:40+07:00'
+    committed_at: '2026-09-28T10:10:40+07:00'
+    implementation_date: '2026-09-28'
+    changed_paths:
+    - pyproject.toml
+    - src/rkg/llm/README.md
+    - src/rkg/llm/__init__.py
+    - src/rkg/llm/data/o200k_base.tiktoken
+    - src/rkg/llm/mock.py
+    - src/rkg/llm/openrouter.py
+    - src/rkg/llm/provider.py
+    - tests/integration/test_openrouter_live.py
+    - tests/unit/test_llm_provider.py
+    - uv.lock
+  files:
+  - path: pyproject.toml
+    implementation_commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    implementation_sha256: 8de81cfd0069726e9602f121c550766ca19ff3f9dcbf1989d0e15f653ef6152c
+    current_sha256: 9cf2132b6a3566f1f2ebd763ed6a9215dd39b244fcc1c743c17a3c8b72ae5a85
+  - path: src/rkg/llm/README.md
+    implementation_commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    implementation_sha256: 8ec58cf2bad6a6c2ee229dac1fb61071f60784fc5e3a658c9dc629086a726e32
+    current_sha256: e05054a11fc9e52bc7e46421a224d75add517238a105578519458cd6dfe3e926
+  - path: src/rkg/llm/__init__.py
+    implementation_commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    implementation_sha256: 04a85cb12bdacd2d185df8960d49c9ce5fbdd5ce57c85376c91660d651f46e4f
+    current_sha256: 04a85cb12bdacd2d185df8960d49c9ce5fbdd5ce57c85376c91660d651f46e4f
+  - path: src/rkg/llm/data/o200k_base.tiktoken
+    implementation_commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    implementation_sha256: 446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d
+    current_sha256: 446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d
+  - path: src/rkg/llm/mock.py
+    implementation_commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    implementation_sha256: bdf28c019d5ef7847e45ef447e836a6d1b02242aa38c01df4acf2dc03f76661a
+    current_sha256: d03e343b1c78ca7cb49c4012e1305e90525258e5655e743fc8f1ead69be161d0
+  - path: src/rkg/llm/openrouter.py
+    implementation_commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    implementation_sha256: 3dd4c8261a847e1b141882aa63a56627b3cfdb1fde171223906a2e4f8c4076d6
+    current_sha256: ba4d215c282f8fa7977579f2fe873a392d4c3f0796a5994effc89fdcf006c758
+  - path: src/rkg/llm/provider.py
+    implementation_commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    implementation_sha256: 8406df1f68a067032abdf46508c0d4795122425ebee88cb6d0d43b59dd285fde
+    current_sha256: 8406df1f68a067032abdf46508c0d4795122425ebee88cb6d0d43b59dd285fde
+  - path: tests/integration/test_openrouter_live.py
+    implementation_commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    implementation_sha256: 44bc31ab870e98c046597320f0bf45ba4240da2ff04860d7480618641ffe443c
+    current_sha256: 4a5b29a05c86ba049fc243608c6cc2348560165f11f9dadbfbb13d24831c0bdf
+  - path: tests/unit/test_llm_provider.py
+    implementation_commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    implementation_sha256: 21fb7a2f802b72b08d031a360fa82979d303e28d1eb0de65384cdeba96539e55
+    current_sha256: 74f799bbd122f1fd32ee7092e20f146a354b94378633d47475b3b257d54f6d34
+  - path: uv.lock
+    implementation_commit: ca850045d9b20b7209a5c61ae9044598c41564d4
+    implementation_sha256: 407bdd6d0a4fd3dd3e84afbd73b9429ab22425383117e25b8586933d0ab7c292
+    current_sha256: 6d8d84d83558626838b6c41374bf9b1c66f4e70a292e5a60a6ea7e25ffda06d4
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-019
+objective: TASK-RKG-019
+objective_description: Implement structured provider protocol/mock và OpenRouter adapter với schema/token/timeout budgets;
+  không trả secret cho browser và tách mock khỏi live evidence.
+requirements:
+- FR-RKG-005
+- AC-RKG-024
+- AC-RKG-025
+- AC-RKG-028
+- AC-RKG-029
+- AC-RKG-032
+- AC-RKG-042
+- AC-RKG-063
+- AC-RKG-064
+design:
+- CMP-RKG-CONVERSATION
+decisions:
+- ADR-2026-003
+contracts:
+- API-RKG-CORE-v1
+constraints:
+- NFR-RKG-REL-001
+- NFR-RKG-SEC-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- pyproject.toml
+- src/rkg/llm/README.md
+- src/rkg/llm/__init__.py
+- src/rkg/llm/data/o200k_base.tiktoken
+- src/rkg/llm/mock.py
+- src/rkg/llm/openrouter.py
+- src/rkg/llm/provider.py
+- tests/integration/test_openrouter_live.py
+- tests/unit/test_llm_provider.py
+- uv.lock
+inputs:
+  ADR-2026-003:
+    revision: 2
+    hash: 30c9cff4314961830d9bfcc1d13d2fe8e69fe7e25c4329080e6fdf0a25661a6f
+    path: architecture/adr/ADR-2026-003.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-CONVERSATION:
+    revision: 6
+    hash: 7b7875f084a579e95582d429950c87a99f2081fb18a4fef734167866f94406f4
+    path: architecture/l2/CMP-RKG-CONVERSATION.md
+  EPIC-004-TEAM-RKG:
+    revision: 4
+    hash: 6dc6e7c9d8e07e2b0fe6e17ffd550f2f437a7de0f817e5767e9235f284649240
+    path: lifecycle/epics/EPIC-004-TEAM-RKG.md
+  FR-RKG-005:
+    revision: 7
+    hash: a20c3f1aede798ef733273feb7addf00c51866f0a68397df5e7ae69dca280448
+    path: requirements/fr/FR-RKG-005.md
+  NFR-RKG-REL-001:
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  NFR-RKG-SEC-001:
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  STORY-RKG-013:
+    revision: 2
+    hash: 0b8269c9aa0d08729dda39c42a5d5539496c1e61ec9d9adfae856f75d79225fa
+    path: lifecycle/stories/STORY-RKG-013.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-019
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-019
+    story: STORY-RKG-013
+    captured_at: 2026-09-28
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-019
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-005
+      - key: CMP-RKG-CONVERSATION
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-019
+
+    ## objective
+    Interface provider và adapter OpenRouter. Secret không vào graph, browser payload hay log.
+
+    ## requirements
+    - AC-RKG-063
+    - AC-RKG-064
+
+    ## design
+    - CMP-RKG-CONVERSATION — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-003
+
+    ## contracts
+    - API-RKG-CORE-v1
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-SEC-001
+    - NFR-RKG-REL-001
+    - Threat model: TM-RKG. Không log secret, absolute path, hay transcript.
+
+    ## code_scope
+    - src/rkg/llm/**
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-004-TEAM-RKG

@@ -1,0 +1,155 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-023
+revision: 3
+implementation_date: '2026-09-28'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-TRANSPORT
+    revision: 7
+    hash: 6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286
+    path: architecture/l2/CMP-RKG-TRANSPORT.md
+  - key: EPIC-005-TEAM-RKG
+    revision: 4
+    hash: 382689f44bb9eda827535bcff74d335243016106f056378f27a15e4cd54dd76c
+    path: lifecycle/epics/EPIC-005-TEAM-RKG.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: PRD-RKG
+    revision: 20
+    hash: 6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc
+    path: product/prd/PRD-RKG.md
+  implementation_phases:
+  - commit: 16208d8a1b93035ac7c705d0b130f0b890d0dbb7
+    author_at: '2026-09-28T17:29:43+07:00'
+    committed_at: '2026-09-28T17:29:43+07:00'
+    implementation_date: '2026-09-28'
+    changed_paths:
+    - README.md
+  files:
+  - path: README.md
+    implementation_commit: 16208d8a1b93035ac7c705d0b130f0b890d0dbb7
+    implementation_sha256: d27760238253d4e71574dc5bde935e19a175619c1a5bf9b7834fa8f7151074b8
+    current_sha256: b05e41a4ed37690fbf80349f3a16d4fa07ed2586027906162377e286d5f5ce30
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-023
+objective: TASK-RKG-023
+objective_description: Ghi setup/index/serve/LLM/history/retention/troubleshooting, chạy regression và chuyển các finding
+  nghiệm thu còn mở trong handoff.
+requirements:
+- PRD-RKG
+design:
+- CMP-RKG-TRANSPORT
+decisions: []
+contracts:
+- API-RKG-CORE-v1
+constraints:
+- NFR-RKG-REL-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- README.md
+inputs:
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-TRANSPORT:
+    revision: 7
+    hash: 6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286
+    path: architecture/l2/CMP-RKG-TRANSPORT.md
+  EPIC-005-TEAM-RKG:
+    revision: 4
+    hash: 382689f44bb9eda827535bcff74d335243016106f056378f27a15e4cd54dd76c
+    path: lifecycle/epics/EPIC-005-TEAM-RKG.md
+  NFR-RKG-REL-001:
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  PRD-RKG:
+    revision: 20
+    hash: 6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc
+    path: product/prd/PRD-RKG.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-023
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-023
+    epic: EPIC-005-TEAM-RKG
+    captured_at: 2026-09-28
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-023
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: PRD-RKG
+      - key: CMP-RKG-TRANSPORT
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-023
+
+    ## objective
+    Runbook vận hành local và regression cuối. Finding KPI và performance còn mở được chuyển nguyên, không đóng hộ.
+
+    ## requirements
+    - (không có AC riêng — task đi từ epic)
+
+    ## design
+    - CMP-RKG-TRANSPORT — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - Không ADR mới trong lát cắt này.
+
+    ## contracts
+    - API-RKG-CORE-v1
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-REL-001
+
+    ## code_scope
+    - README.md
+    - .aide/README.md
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-005-TEAM-RKG

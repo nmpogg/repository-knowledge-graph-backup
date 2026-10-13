@@ -1,0 +1,67 @@
+---
+uid:
+key: approval-001
+type: approval-record
+group: evidence
+scope: system
+system: SYS-RKG
+status: recorded
+revision: 1
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: product-owner
+relations:
+  verifies: [GATE-RKG-SCOPE]
+  derived_from: [CSV-CHG-RKG-2026-001]
+classification: internal
+ai_assisted: true
+gate: GATE-RKG-SCOPE
+change_set: CHG-RKG-2026-001
+decision: approved
+decided_at: 2026-09-21
+approvers:
+  - { role: product-owner, name: PM/Product Owner, decision: approve }
+  - { role: tech-lead, name: Tech Lead, decision: approve }
+  - { role: qa-lead, name: QA Lead, decision: approve }
+assumption: >-
+  Per operator instruction, normative artifact `status:` fields are treated as
+  approved for this gate packaging pass and were NOT rewritten in source files.
+notes: >-
+  Walked GATE-RKG-SCOPE checklist against CSV-CHG-RKG-2026-001. OQ-RKG-001 and
+  OQ-RKG-002 remain open with owners/triggers but do not block FR/PRD baseline.
+captured_against:
+  code_tree: 36a26a74f042a24c620bffe25e52ad6559100ebd
+  artifacts:
+    - { key: PRD-RKG, revision: 7, hash: 6d445597e109 }
+    - { key: FR-RKG-001, revision: 5, hash: 6b855002049a }
+    - { key: FR-RKG-002, revision: 4, hash: 1c0b8863cf2b }
+    - { key: FR-RKG-003, revision: 2, hash: a350fd10641e }
+    - { key: FR-RKG-004, revision: 3, hash: 8e3c2952a0ca }
+    - { key: FR-RKG-005, revision: 5, hash: acfaf7d9e919 }
+    - { key: FR-RKG-006, revision: 4, hash: a43802f958b7 }
+    - { key: FR-RKG-007, revision: 4, hash: e167af701d33 }
+    - { key: FR-RKG-008, revision: 6, hash: 12635c6be661 }
+    - { key: FR-RKG-009, revision: 2, hash: 6965597d0bd0 }
+    - { key: FR-RKG-010, revision: 2, hash: eb1f2dbb9a18 }
+    - { key: FR-RKG-011, revision: 2, hash: 6e8b3b68ef2b }
+    - { key: FR-RKG-012, revision: 3, hash: 5ae18e4cdf4a }
+    - { key: FR-RKG-013, revision: 4, hash: 52da3e719dc7 }
+    - { key: FR-RKG-014, revision: 3, hash: 01fe349a1e8a }
+    - { key: FR-RKG-015, revision: 4, hash: 5c9d7630d14a }
+    - { key: FR-RKG-016, revision: 6, hash: 9873d4c618cb }
+    - { key: FR-RKG-017, revision: 5, hash: 8b0513d32d54 }
+    - { key: FR-RKG-018, revision: 2, hash: a7cec6ff8b54 }
+    - { key: NFR-RKG-PERF-001, revision: 3, hash: c0fce68a4a3a }
+    - { key: NFR-RKG-SEC-001, revision: 5, hash: 4e24fcd568fc }
+    - { key: NFR-RKG-REL-001, revision: 6, hash: 95b68b96814a }
+    - { key: NFR-RKG-UX-001, revision: 5, hash: a69d5fc18fd0 }
+checklist:
+  - { item: problem-persona-scope-explicit, result: pass }
+  - { item: every-fr-has-binary-ac, result: pass }
+  - { item: nfr-fr-links-symmetric, result: pass }
+  - { item: kpi-obs-agree-or-deviation, result: pass }
+  - { item: oq-owner-trigger-blocking-effect, result: pass }
+  - { item: repository-snapshot-lifecycle-explicit, result: pass }
+  - { item: no-impl-before-task-001, result: pass }
+  - { item: named-approvers-recorded, result: pass }
+---

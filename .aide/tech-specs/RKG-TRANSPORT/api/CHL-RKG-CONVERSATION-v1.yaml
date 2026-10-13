@@ -1,0 +1,109 @@
+{
+  "key": "CHL-RKG-CONVERSATION-v1",
+  "type": "contract-change",
+  "group": "normative",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "status": "draft",
+  "change_set": "CHG-RKG-2026-002",
+  "ownership": {
+    "accountable_team": "TEAM-RKG",
+    "accountable_role": "tech-lead"
+  },
+  "relations": {
+    "derived_from": [
+      "API-RKG-CORE-v1",
+      "TBL-RKG-GRAPH",
+      "UIS-RKG-001",
+      "CON-RKG-CONVERSATION-v1"
+    ]
+  },
+  "from": {
+    "API-RKG-CORE-v1": 15,
+    "TBL-RKG-GRAPH": 12,
+    "DDL_RKG_GRAPH_implements_TBL": 12,
+    "UIS-RKG-001": 12
+  },
+  "to": {
+    "API-RKG-CORE-v1": 16,
+    "TBL-RKG-GRAPH": 13,
+    "DDL_RKG_GRAPH_implements_TBL": 13,
+    "UIS-RKG-001": 13
+  },
+  "compatibility": {
+    "wire": "additive_with_capability_negotiation",
+    "breaking_wire_changes_detected": [],
+    "machine_diff": "TEST-RKG-CHATBOT-API-DIFF-001",
+    "machine_diff_scope": "runtime request/query OpenAPI and pinned API-r15 normative response projection; old response OpenAPI untyped",
+    "storage": "requires_SchemaMeta_2_to_3_upgrade; older_binary_cannot_open_version_3",
+    "behavior": "approved language/clarification/narrative usability delta; status/error/default history semantics retained",
+    "runtime_parity": "not_run"
+  },
+  "consumers": [
+    {
+      "producer": "API-RKG-CORE-v1",
+      "consumer_component": "CMP-RKG-WEB",
+      "accountable_team": "TEAM-RKG",
+      "derived_via": [
+        "UIS-RKG-001.relations.constrained_by -> API-RKG-CORE-v1",
+        "UIS-RKG-001.relations.owned_by -> CMP-RKG-WEB"
+      ],
+      "source_path": ".aide/design/ui/UIS-RKG-001.md",
+      "source_sha256": "d849542a45c36420e35c7aa48d649884832c334224b7b73cc923de9c34e4851d",
+      "ack": "required",
+      "state": "pending"
+    },
+    {
+      "producer": "API-RKG-CORE-v1",
+      "consumer_component": "CMP-RKG-CONVERSATION",
+      "accountable_team": "TEAM-RKG",
+      "derived_via": [
+        "CON-RKG-CONVERSATION-v1.relations.constrained_by -> API-RKG-CORE-v1",
+        "CON-RKG-CONVERSATION-v1.relations.owned_by -> CMP-RKG-CONVERSATION"
+      ],
+      "source_path": ".aide/tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+      "source_sha256": "e66334ee24d46d476acd0920ec9344b0fc34bc84a8bdd8ff054cbaafee9620c4",
+      "ack": "required",
+      "state": "pending"
+    },
+    {
+      "producer": "TBL-RKG-GRAPH",
+      "consumer_component": "CMP-RKG-CONVERSATION",
+      "accountable_team": "TEAM-RKG",
+      "derived_via": [
+        "CON-RKG-CONVERSATION-v1.relations.constrained_by -> TBL-RKG-GRAPH",
+        "CON-RKG-CONVERSATION-v1.relations.owned_by -> CMP-RKG-CONVERSATION"
+      ],
+      "source_path": ".aide/tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+      "source_sha256": "e66334ee24d46d476acd0920ec9344b0fc34bc84a8bdd8ff054cbaafee9620c4",
+      "ack": "required",
+      "state": "pending"
+    },
+    {
+      "producer": "TBL-RKG-GRAPH",
+      "consumer_component": "CMP-RKG-TRANSPORT",
+      "accountable_team": "TEAM-RKG",
+      "derived_via": [
+        "API-RKG-CORE-v1.relations.constrained_by -> TBL-RKG-GRAPH",
+        "API-RKG-CORE-v1.relations.owned_by -> CMP-RKG-TRANSPORT"
+      ],
+      "source_path": ".aide/tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+      "source_sha256": "d73b75134b57955ae827baca16408e91b467ded0b027ccea28f58c7e536b77ce",
+      "ack": "required",
+      "state": "pending"
+    }
+  ],
+  "coexistence": {
+    "new_backend_old_UI": "same old fields/routes/statuses; optional additions ignored; actual integration pending",
+    "old_backend_new_UI": "capabilities_404 means legacy requests and unknown coverage/source lookup unavailable; non-404 errors not assumed legacy",
+    "new_backend_new_UI": "negotiate features and provider_enabled then bind metadata/exact sources"
+  },
+  "migration_window": "local stopped-writer maintenance before feature enablement; scheduling/production apply not authorized in this drafting task",
+  "rollback": "restore protected pre-upgrade backup with old binary; no in-place column drop/downgrade; operator decision needed for writes since backup",
+  "signed_higher_level_artifacts": "FR/L2/ADR/UXF/SCR/UID hashes unchanged; effective approvals 007/009/010 remain valid for scoped sections",
+  "independent_contract_review": "not_run",
+  "contract_gate": "pending",
+  "implementation_ready": false,
+  "classification": "internal",
+  "ai_assisted": true
+}

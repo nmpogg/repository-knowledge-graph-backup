@@ -1,0 +1,408 @@
+{
+  "fixture_id": "rkg-fixture-spring-orders",
+  "oracle_source": "repo-test/rkg-fixture-spring-orders/README.md",
+  "notes": [
+    "rule_id is null wherever README does not name a versioned extraction rule",
+    "Qualified names use package short forms from README inventory (api/application/domain/...)",
+    "DataResource identities follow README relational:schema.table spelling",
+    "audit.orders must remain distinct from commerce.orders with no application read/write edge",
+    "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": true
+  },
+  "allowlist": [],
+  "entities": [
+    {
+      "type": "Callable",
+      "qualified_name": "OrdersApplication.main(String[])",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}],
+      "note": "application entrypoint; exact package path adapter-owned"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "api.OrderController",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "api.OrderRequest",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "api.OrderRequest.Item",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "application.OrderService",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "application.DefaultOrderService",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "domain.Order",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "domain.Order.create(String)",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}],
+      "note": "overload identity must stay signature-qualified"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "domain.Order.create(String, List<OrderItem>)",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "persistence.OrderEntity",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "persistence.OrderItemEntity",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "persistence.JpaOrderRepository",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "messaging.KafkaOrderEventPublisher",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "messaging.PaymentEventListener",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "relational:commerce.orders",
+      "required_attributes": {"name": "orders", "namespace": "commerce"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "relational:commerce.order_items",
+      "required_attributes": {"name": "order_items", "namespace": "commerce"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "relational:audit.orders",
+      "required_attributes": {"name": "orders", "namespace": "audit"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}],
+      "note": "identity-only; must not merge with commerce.orders"
+    },
+    {
+      "type": "MessageChannel",
+      "qualified_name": "orders.events",
+      "required_attributes": {"name": "orders.events"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "MessageChannel",
+      "qualified_name": "payments.events",
+      "required_attributes": {"name": "payments.events"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "api.OrderController.create",
+      "required_attributes": {"method": "POST", "path": "/api/orders"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "api.OrderController.get",
+      "required_attributes": {"method": "GET", "path": "/api/orders/{orderId}"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "api.OrderController.list",
+      "required_attributes": {"method": "GET", "path": "/api/orders"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "api.OrderController.updateStatus",
+      "required_attributes": {"method": "PATCH", "path": "/api/orders/{orderId}/status"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "api.OrderController.readiness",
+      "required_attributes": {"method": "GET", "path": "/api/orders/readiness"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "api.OrderController.readiness.head",
+      "required_attributes": {"method": "HEAD", "path": "/api/orders/readiness"},
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:ORDERS_DATASOURCE_URL",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/resources", "start_line": null}],
+      "note": "README also lists spring.datasource.url; key names only"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:ORDERS_DATASOURCE_USERNAME",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/resources", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:ORDERS_DATASOURCE_PASSWORD",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/resources", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:ORDERS_KAFKA_BOOTSTRAP_SERVERS",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/resources", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "spring.kafka.listener.auto-startup",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/resources", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:ORDERS_ENABLED",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/resources", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:ORDERS_MAX_ITEMS",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/resources", "start_line": null}]
+    }
+  ],
+  "edges": [
+    {
+      "type": "inherits_from",
+      "source": "analysiscases.positive.SpecialOrderNotFoundException",
+      "target": "domain.OrderNotFoundException",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "inherits_from",
+      "source": "domain.OrderNotFoundException",
+      "target": "RuntimeException",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "implements",
+      "source": "application.DefaultOrderService",
+      "target": "application.OrderService",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "implements",
+      "source": "persistence.JpaOrderRepository",
+      "target": "application.OrderRepository",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "implements",
+      "source": "messaging.KafkaOrderEventPublisher",
+      "target": "messaging.OrderEventPublisher",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "depends_on",
+      "source": "api.OrderController",
+      "target": "application.OrderService",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "depends_on",
+      "source": "application.DefaultOrderService",
+      "target": "application.OrderRepository",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "depends_on",
+      "source": "application.DefaultOrderService",
+      "target": "messaging.OrderEventPublisher",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "depends_on",
+      "source": "application.DefaultOrderService",
+      "target": "config.OrderProperties",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "depends_on",
+      "source": "persistence.JpaOrderRepository",
+      "target": "persistence.OrderJpaRepository",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "depends_on",
+      "source": "messaging.KafkaOrderEventPublisher",
+      "target": "KafkaTemplate",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}],
+      "note": "KafkaTemplate<String,Object>"
+    },
+    {
+      "type": "depends_on",
+      "source": "messaging.PaymentEventListener",
+      "target": "application.OrderService",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "maps_to",
+      "source": "persistence.OrderEntity",
+      "target": "relational:commerce.orders",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "maps_to",
+      "source": "persistence.OrderItemEntity",
+      "target": "relational:commerce.order_items",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "reads",
+      "source": "persistence.JpaOrderRepository",
+      "target": "relational:commerce.orders",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "writes",
+      "source": "persistence.JpaOrderRepository",
+      "target": "relational:commerce.orders",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "publishes",
+      "source": "messaging.KafkaOrderEventPublisher.publish",
+      "target": "orders.events",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "consumes",
+      "source": "messaging.PaymentEventListener.onPayment",
+      "target": "payments.events",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "messaging.PaymentEventListener.onPayment",
+      "target": "application.OrderService.applyPayment",
+      "rule_id": null,
+      "evidence": [{"file_path": "src/main/java", "start_line": null}]
+    }
+  ],
+  "prohibited": [
+    {
+      "reason": "UnregisteredController must not expose an Endpoint",
+      "entity": {
+        "type": "Endpoint",
+        "qualified_name_contains": "UnregisteredController"
+      }
+    },
+    {
+      "reason": "DynamicPathController must not invent a full endpoint path",
+      "entity": {
+        "type": "Endpoint",
+        "qualified_name_contains": "DynamicPathController"
+      }
+    },
+    {
+      "reason": "DynamicTopicListener must not invent a MessageChannel",
+      "edge": {
+        "type": "consumes",
+        "source_qualified_name_contains": "DynamicTopicListener"
+      }
+    },
+    {
+      "reason": "AmbiguousServices must not resolve DI to an application target",
+      "edge": {
+        "type": "depends_on",
+        "source_qualified_name_contains": "AmbiguousServices"
+      }
+    },
+    {
+      "reason": "audit.orders must not receive application read/write edges",
+      "edge": {
+        "type": "reads",
+        "target": "relational:audit.orders"
+      }
+    },
+    {
+      "reason": "audit.orders must not receive application write edges",
+      "edge": {
+        "type": "writes",
+        "target": "relational:audit.orders"
+      }
+    },
+    {
+      "reason": "secret sentinel must never appear in facts or diagnostics",
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST"
+    }
+  ]
+}

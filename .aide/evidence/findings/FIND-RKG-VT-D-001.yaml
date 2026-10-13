@@ -1,0 +1,44 @@
+---
+key: FIND-RKG-VT-D-001
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: medium
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-045
+story_key: STORY-RKG-029
+captured_at: '2026-10-08'
+disposition: accept
+route: TASK-RKG-045
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [TASK-RKG-045]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-VT-D-001 — TASK-RKG-045 lists AC-003 and AC-035 as under test
+
+## Summary
+
+`TEST-RKG-JAVA-SPRING-001` records that the Java/Spring verify suites do not
+assert import edges (AC-RKG-003) or a syntax-error sibling (AC-RKG-035).
+`TASK-RKG-045` still names both in “Acceptance criteria under test” for
+`test_java_language.py`, `test_spring_stack.py`, and `test_spring_census.py`.
+`STORY-RKG-029` `satisfies` may keep both as an open obligation.
+
+## Decision
+
+Operator ACCEPT 2026-10-08. Remediations: move AC-RKG-003 and AC-RKG-035 out of
+the task’s under-test list for this verify, and state they are not asserted by
+these suites. Do not treat Story `satisfies` as a pass.
+
+## Remediation
+
+- done: AUTHOR removed AC-RKG-003 and AC-RKG-035 from the TASK-RKG-045
+  (revision 6) under-test list. Both remain an open STORY-RKG-029 satisfies
+  obligation and are not asserted by test_java_language.py,
+  test_spring_stack.py, or test_spring_census.py. Disposition ACCEPT
+  unchanged. REVIEWER confirm pending.

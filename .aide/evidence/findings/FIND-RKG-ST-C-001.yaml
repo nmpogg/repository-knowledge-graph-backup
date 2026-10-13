@@ -1,0 +1,37 @@
+---
+key: FIND-RKG-ST-C-001
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: advisory
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-044
+story_key: STORY-RKG-028
+captured_at: '2026-10-07'
+disposition: accept
+route: TASK-RKG-044
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [TASK-RKG-044]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-ST-C-001 — TASK-RKG-044 out-of-scope thiếu React Router
+
+## Summary
+
+STORY-RKG-028 ngoài phạm vi lists Vue/Nuxt/React Router/Java/Go. TASK-RKG-044
+out-of-scope omitted React Router, creating a minor Story↔Task inventory drift.
+
+## Decision
+
+Operator ACCEPT 2026-10-07. Remediations: add React Router to TASK-RKG-044
+out-of-scope to match STORY-RKG-028.
+
+## Remediation
+
+- done: AUTHOR patched TASK-RKG-044 out-of-scope (Vue/Nuxt/React Router/Java/Go);
+  revision 3. REVIEWER confirm.

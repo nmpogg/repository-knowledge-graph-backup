@@ -1,0 +1,54 @@
+---
+uid:
+key: approval-005
+type: approval-record
+group: evidence
+scope: system
+system: SYS-RKG
+status: recorded
+revision: 1
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: architect
+relations:
+  verifies: [GATE-RKG-ARCHITECTURE]
+  derived_from: [AVW-RKG-MVP]
+classification: internal
+ai_assisted: true
+gate: GATE-RKG-ARCHITECTURE
+change_set: CHG-RKG-2026-001
+decision: approved
+decided_at: 2026-09-23
+approvers: []
+notes: >-
+  Human operator directed Architecture Gate closed for the current architecture
+  artifact set. Approver identity intentionally omitted from this record.
+  Decision must not be attributed to tooling.
+captured_against:
+  code_tree: 70638a938be1fa35390f485e989fffa8853fbad4
+  artifacts:
+    - { key: CAP-RKG-001, revision: 6, hash: 8fa7c01e0324 }
+    - { key: CAP-RKG-002, revision: 4, hash: 2d24cb81b439 }
+    - { key: CAP-RKG-003, revision: 4, hash: a6a009d6faec }
+    - { key: CMP-RKG-ANALYZER, revision: 5, hash: ef0787612dda }
+    - { key: CMP-RKG-GRAPH, revision: 4, hash: 07e174fa1388 }
+    - { key: CMP-RKG-TRANSPORT, revision: 4, hash: ff82dacc320a }
+    - { key: CMP-RKG-WEB, revision: 4, hash: e462d0e5cb3c }
+    - { key: CMP-RKG-CONVERSATION, revision: 3, hash: b1cc3c0ac387 }
+    - { key: ADR-2026-001, revision: 3, hash: 5463fafbd566 }
+    - { key: ADR-2026-002, revision: 2, hash: 938b7e0c62aa }
+    - { key: ADR-2026-003, revision: 1, hash: bdf1799c5c2d }
+    - { key: ADR-2026-004, revision: 2, hash: 7995af1efc93 }
+    - { key: ADR-2026-005, revision: 1, hash: 69c7d4e6715a }
+    - { key: TM-RKG, revision: 7, hash: eef95ec649b8 }
+checklist:
+  - { item: l1-covers-frs, result: pass }
+  - { item: l2-boundaries-semantics, result: pass }
+  - { item: adrs-alternatives-tradeoffs, result: pass }
+  - { item: analyzer-adapter-boundary, result: pass }
+  - { item: single-writer-pinned-reader, result: pass }
+  - { item: threat-model-coverage, result: pass }
+  - { item: repository-snapshot-tx-boundaries, result: pass }
+  - { item: diagrams-match-cap-cmp, result: pass }
+  - { item: named-approvers-recorded, result: waived, reason: operator omitted identity from record }
+---

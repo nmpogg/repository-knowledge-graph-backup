@@ -1,0 +1,281 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-014
+revision: 3
+implementation_date: '2026-09-24'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-002
+    revision: 2
+    hash: 56548c57e00c49f1831892fdef2baee80ba1e87a493a6a78e0acbfc5631b1f15
+    path: architecture/adr/ADR-2026-002.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-GRAPH
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  - key: EPIC-002-TEAM-RKG
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  - key: FR-RKG-003
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  - key: FR-RKG-004
+    revision: 6
+    hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+    path: requirements/fr/FR-RKG-004.md
+  - key: NFR-RKG-PERF-001
+    revision: 5
+    hash: b74c5ddabd7d96e4cac9b700a1a54c8eb2d615b1eabeceed1cbfd268962e7d0d
+    path: requirements/nfr/NFR-RKG-PERF-001.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: NFR-RKG-SEC-001
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  - key: STORY-RKG-008
+    revision: 1
+    hash: 2ffc66f4a04d0c5d857de9ec45e932740a721cdea07f3bc9d636da6ba79ebfc1
+    path: lifecycle/stories/STORY-RKG-008.md
+  - key: TBL-RKG-GRAPH
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+  implementation_phases:
+  - commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    author_at: '2026-09-24T17:30:35+07:00'
+    committed_at: '2026-09-24T17:30:35+07:00'
+    implementation_date: '2026-09-24'
+    changed_paths:
+    - src/rkg/domain/README.md
+    - src/rkg/graph/README.md
+    - src/rkg/graph/__init__.py
+    - src/rkg/graph/access.py
+    - src/rkg/graph/context.py
+    - src/rkg/graph/context_build.py
+    - src/rkg/graph/errors.py
+    - src/rkg/graph/search.py
+    - src/rkg/graph/traversal.py
+    - tests/integration/graph_helpers.py
+    - tests/integration/test_graph_reads.py
+  files:
+  - path: src/rkg/domain/README.md
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: 6fe59d9fbfe167bdbe554c882e95dbbd7d0d526a8e3d8a2c51f014d6ab62e741
+    current_sha256: 459cc0291b2cfbf42efb57a33e137373e7c4cbb45a144f4de6ff96af75fb6b23
+  - path: src/rkg/graph/README.md
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: 66415cedd8b752cc80adb678f2148fb51ffeeca38baca7bb80d074a820a8c29a
+    current_sha256: f248d187b2865fe2d4d6c0eee093fd7876163c7b601e0e401e69ae86d0f2106d
+  - path: src/rkg/graph/__init__.py
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: 7a2445c8764385fd6bec56b3d0299e67e28daeff69d96d564d181dab973daad3
+    current_sha256: 7a2445c8764385fd6bec56b3d0299e67e28daeff69d96d564d181dab973daad3
+  - path: src/rkg/graph/access.py
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: c354fcb4789644197b410b5f66ccbed6708bae84ebe6a3c6a37a70ab06732e09
+    current_sha256: 86fb1873e597f0ba3326f50e29f9dd1a4dc79aaa0f0add5233b14115fe6c390d
+  - path: src/rkg/graph/context.py
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: b03451af5b2e02274270309b6da1fb5174a4ee7173be68ecdafa04bc50c79dbb
+    current_sha256: 3cdcbe4e3e38dc347e0c3aba622fda10ee0049198261168fce6980ababf4c839
+  - path: src/rkg/graph/context_build.py
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: 325855ef95889fb0c8b9c4328a84e02241327e423e0378257a75e5b1277d2ee0
+    current_sha256: 164df76961eea425e5e42eec7ef5c46f06e2f12ecbeacc616de2e65e98c103c6
+  - path: src/rkg/graph/errors.py
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: 21f756f5db9008c5137cec5eb3e57e5dc4c45290255c91e61fcd0445bad2c2a9
+    current_sha256: cad1713787cdd529f4c75a880e762a3415e4646c2ee95c38cc6ab3a8749cb145
+  - path: src/rkg/graph/search.py
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: 52c2ba6a34a0e3ce24c53190e69c1ba3342b1815a051a9bf6cf5c112ae38ccae
+    current_sha256: 7a27f5ce7fe88a0a036e7fb9e4680222a6df2f75966f24d15037b1239446cf28
+  - path: src/rkg/graph/traversal.py
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: c0ed5fc4dcdb01748369c0444762a3b1e319aacd728ab57844fd1e53c559f96b
+    current_sha256: 728c4b2cc0cfe2b03853ddfa7e0b640393171ab29ed24f72872ccc846f35adec
+  - path: tests/integration/graph_helpers.py
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: 7c26b81cfc800428e0b732bb54b0c2062158eb6f00a6a39c29c16df22aef0b83
+    current_sha256: 47f93831dcc3c737f7691c4ad383d008fa4a6de90b21f2d325c5545c86793c48
+  - path: tests/integration/test_graph_reads.py
+    implementation_commit: 4399660b46a8362ec9d87652795d023318ea6dbc
+    implementation_sha256: ed832b1f675f89cafcc65edc3d249283757cb272a43db1afc47177e0ee35ca16
+    current_sha256: 22a40a7dc6b6385e047f24d18c2a80fbfcef118964698f299a03394b20c3a1e2
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-014
+objective: TASK-RKG-014
+objective_description: Implement search deterministic, BFS cycle/budget/direction/filter và context serialization/truncation;
+  chỉ đọc snapshot đã pin.
+requirements:
+- FR-RKG-003
+- FR-RKG-004
+- AC-RKG-009
+- AC-RKG-036
+- AC-RKG-060
+- AC-RKG-010
+design:
+- CMP-RKG-GRAPH
+decisions:
+- ADR-2026-002
+contracts:
+- API-RKG-CORE-v1
+- TBL-RKG-GRAPH
+constraints:
+- NFR-RKG-PERF-001
+- NFR-RKG-REL-001
+- NFR-RKG-SEC-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- src/rkg/domain/README.md
+- src/rkg/graph/README.md
+- src/rkg/graph/__init__.py
+- src/rkg/graph/access.py
+- src/rkg/graph/context.py
+- src/rkg/graph/context_build.py
+- src/rkg/graph/errors.py
+- src/rkg/graph/search.py
+- src/rkg/graph/traversal.py
+- tests/integration/graph_helpers.py
+- tests/integration/test_graph_reads.py
+inputs:
+  ADR-2026-002:
+    revision: 2
+    hash: 56548c57e00c49f1831892fdef2baee80ba1e87a493a6a78e0acbfc5631b1f15
+    path: architecture/adr/ADR-2026-002.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-GRAPH:
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  EPIC-002-TEAM-RKG:
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  FR-RKG-003:
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  FR-RKG-004:
+    revision: 6
+    hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+    path: requirements/fr/FR-RKG-004.md
+  NFR-RKG-PERF-001:
+    revision: 5
+    hash: b74c5ddabd7d96e4cac9b700a1a54c8eb2d615b1eabeceed1cbfd268962e7d0d
+    path: requirements/nfr/NFR-RKG-PERF-001.md
+  NFR-RKG-REL-001:
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  NFR-RKG-SEC-001:
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  STORY-RKG-008:
+    revision: 1
+    hash: 2ffc66f4a04d0c5d857de9ec45e932740a721cdea07f3bc9d636da6ba79ebfc1
+    path: lifecycle/stories/STORY-RKG-008.md
+  TBL-RKG-GRAPH:
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-014
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-014
+    story: STORY-RKG-008
+    captured_at: 2026-09-24
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-014
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-003
+      - key: FR-RKG-004
+      - key: CMP-RKG-GRAPH
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-014
+
+    ## objective
+    Đọc snapshot đã pin: search, BFS có visited set, context deterministic trong budget.
+
+    ## requirements
+    - AC-RKG-009
+    - AC-RKG-036
+    - AC-RKG-060
+    - AC-RKG-010
+
+    ## design
+    - CMP-RKG-GRAPH — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-002
+
+    ## contracts
+    - TBL-RKG-GRAPH
+    - API-RKG-CORE-v1
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-PERF-001
+    - NFR-RKG-REL-001
+    - NFR-RKG-SEC-001
+
+    ## code_scope
+    - src/rkg/graph/search.py
+    - src/rkg/graph/traversal.py
+    - src/rkg/graph/context.py
+    - src/rkg/graph/context_build.py
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-002-TEAM-RKG

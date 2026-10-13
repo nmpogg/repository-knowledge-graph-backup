@@ -1,0 +1,4 @@
+# Preserve native wrapper and scanner fixture formatting.
+services/orders/mvnw.cmd text eol=crlf whitespace=cr-at-eol
+workers/projection/.env.example whitespace=-blank-at-eof
+workers/projection/testdata/syntax-error.go.fixture whitespace=-blank-at-eof

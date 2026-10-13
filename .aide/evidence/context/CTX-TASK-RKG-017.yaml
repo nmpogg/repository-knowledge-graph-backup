@@ -1,0 +1,251 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-017
+revision: 3
+implementation_date: '2026-09-24'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-004
+    revision: 2
+    hash: 43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3
+    path: architecture/adr/ADR-2026-004.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-WEB
+    revision: 8
+    hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+    path: architecture/l2/CMP-RKG-WEB.md
+  - key: EPIC-001-TEAM-RKG
+    revision: 6
+    hash: bc183b55d630509c25e119cb8849c560d3939b51c02b926f41a1565b1bb2b855
+    path: lifecycle/epics/EPIC-001-TEAM-RKG.md
+  - key: FR-RKG-001
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  - key: FR-RKG-002
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  - key: FR-RKG-003
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  - key: FR-RKG-004
+    revision: 6
+    hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+    path: requirements/fr/FR-RKG-004.md
+  - key: NFR-RKG-UX-001
+    revision: 7
+    hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  - key: SCR-RKG-001
+    revision: 8
+    hash: 3ca03923d54d550cb6fe8a56314b714bdd5924d211cc7b0056ad89814e1e97d2
+    path: design/ux/SCR-RKG-001.md
+  - key: STORY-RKG-001
+    revision: 1
+    hash: 8e91d961886e31a64ea7acd395c30ffa005d88a319d1096612d160c6f2888e08
+    path: lifecycle/stories/STORY-RKG-001.md
+  - key: UID-RKG-001
+    revision: 7
+    hash: f55d82b70a237f4cf2f4b21a0e3444e664e176bb48fb376222c1c199b1776a80
+    path: design/ui/UID-RKG-001.md
+  - key: UIS-RKG-001
+    revision: 12
+    hash: 2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b
+    path: design/ui/UIS-RKG-001.md
+  - key: UXF-RKG-001
+    revision: 7
+    hash: 2da20229a1ce5a3222b086bfb15376e0281f3aa30befb5954c4fccb196f390f1
+    path: design/ux/UXF-RKG-001.md
+  implementation_phases:
+  - commit: acb4a7fbc062f0ed3fcf05e5a52b5cf82c21ec5b
+    author_at: '2026-09-24T13:50:46+07:00'
+    committed_at: '2026-09-24T13:50:46+07:00'
+    implementation_date: '2026-09-24'
+    changed_paths: []
+  files: []
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-017
+objective: TASK-RKG-017
+objective_description: Dựng onboarding/job/Explorer/evidence/context UI bằng typed mock client, design tokens và loading/empty/error/truncated
+  states; chưa nhận là live backend.
+requirements:
+- FR-RKG-001
+- FR-RKG-002
+- FR-RKG-003
+- FR-RKG-004
+- AC-RKG-027
+- AC-RKG-043
+- AC-RKG-011
+- AC-RKG-018
+- AC-RKG-054
+- AC-RKG-056
+- AC-RKG-057
+- AC-RKG-061
+- AC-RKG-066
+- AC-RKG-068
+design:
+- CMP-RKG-WEB
+- SCR-RKG-001
+- UID-RKG-001
+- UIS-RKG-001
+- UXF-RKG-001
+decisions:
+- ADR-2026-004
+contracts:
+- API-RKG-CORE-v1
+constraints:
+- NFR-RKG-UX-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+- GATE-RKG-UIUX
+code_scope: []
+inputs:
+  ADR-2026-004:
+    revision: 2
+    hash: 43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3
+    path: architecture/adr/ADR-2026-004.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-WEB:
+    revision: 8
+    hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+    path: architecture/l2/CMP-RKG-WEB.md
+  EPIC-001-TEAM-RKG:
+    revision: 6
+    hash: bc183b55d630509c25e119cb8849c560d3939b51c02b926f41a1565b1bb2b855
+    path: lifecycle/epics/EPIC-001-TEAM-RKG.md
+  FR-RKG-001:
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  FR-RKG-002:
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  FR-RKG-003:
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  FR-RKG-004:
+    revision: 6
+    hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+    path: requirements/fr/FR-RKG-004.md
+  NFR-RKG-UX-001:
+    revision: 7
+    hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  SCR-RKG-001:
+    revision: 8
+    hash: 3ca03923d54d550cb6fe8a56314b714bdd5924d211cc7b0056ad89814e1e97d2
+    path: design/ux/SCR-RKG-001.md
+  STORY-RKG-001:
+    revision: 1
+    hash: 8e91d961886e31a64ea7acd395c30ffa005d88a319d1096612d160c6f2888e08
+    path: lifecycle/stories/STORY-RKG-001.md
+  UID-RKG-001:
+    revision: 7
+    hash: f55d82b70a237f4cf2f4b21a0e3444e664e176bb48fb376222c1c199b1776a80
+    path: design/ui/UID-RKG-001.md
+  UIS-RKG-001:
+    revision: 12
+    hash: 2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b
+    path: design/ui/UIS-RKG-001.md
+  UXF-RKG-001:
+    revision: 7
+    hash: 2da20229a1ce5a3222b086bfb15376e0281f3aa30befb5954c4fccb196f390f1
+    path: design/ux/UXF-RKG-001.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-017
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-017
+    story: STORY-RKG-001
+    captured_at: 2026-09-24
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-017
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-001
+      - key: FR-RKG-002
+      - key: FR-RKG-003
+      - key: CMP-RKG-WEB
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-017
+
+    ## objective
+    Dựng luồng onboarding, job và Explorer trên mock client đúng contract, dùng token đã có.
+
+    ## requirements
+    - AC-RKG-027
+    - AC-RKG-043
+    - AC-RKG-011
+    - AC-RKG-018
+    - AC-RKG-056
+    - AC-RKG-057
+
+    ## design
+    - CMP-RKG-WEB — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-004
+
+    ## contracts
+    - API-RKG-CORE-v1
+    - UIS-RKG-001
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-UX-001
+    - Token trong design/ui/tokens. Không màu cứng ngoài token.
+    - UXF-RKG-001
+    - SCR-RKG-001
+    - UID-RKG-001
+
+    ## code_scope
+    - frontend/**
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-001-TEAM-RKG

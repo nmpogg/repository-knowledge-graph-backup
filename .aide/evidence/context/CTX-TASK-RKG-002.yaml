@@ -1,0 +1,266 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-002
+revision: 3
+implementation_date: '2026-09-24'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-001
+    revision: 3
+    hash: ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d
+    path: architecture/adr/ADR-2026-001.md
+  - key: ADR-2026-002
+    revision: 2
+    hash: 56548c57e00c49f1831892fdef2baee80ba1e87a493a6a78e0acbfc5631b1f15
+    path: architecture/adr/ADR-2026-002.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-ANALYZER
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: CMP-RKG-GRAPH
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  - key: EPIC-002-TEAM-RKG
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  - key: FR-RKG-001
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  - key: FR-RKG-002
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  - key: FR-RKG-004
+    revision: 6
+    hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+    path: requirements/fr/FR-RKG-004.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: NFR-RKG-SEC-001
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  - key: TBL-RKG-GRAPH
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+  implementation_phases:
+  - commit: 968a9f62775d4f26d23fb713fb14128fce5b97c1
+    author_at: '2026-09-24T10:27:25+07:00'
+    committed_at: '2026-09-24T10:27:25+07:00'
+    implementation_date: '2026-09-24'
+    changed_paths:
+    - src/rkg/domain/README.md
+    - src/rkg/domain/__init__.py
+    - src/rkg/domain/context.py
+    - src/rkg/domain/ids.py
+    - src/rkg/domain/models.py
+    - src/rkg/domain/validation.py
+    - tests/fixtures/domain/source_structure.json
+    - tests/unit/test_domain_schema.py
+  files:
+  - path: src/rkg/domain/README.md
+    implementation_commit: 968a9f62775d4f26d23fb713fb14128fce5b97c1
+    implementation_sha256: 3c91c15a35d584fb04b23dd2dfa3b36454c4cdd5328a8734791a2e4406f996c7
+    current_sha256: 459cc0291b2cfbf42efb57a33e137373e7c4cbb45a144f4de6ff96af75fb6b23
+  - path: src/rkg/domain/__init__.py
+    implementation_commit: 968a9f62775d4f26d23fb713fb14128fce5b97c1
+    implementation_sha256: 094c05e3332317f29a437ccbc23e99b6fad16c887875f4e393637b89b4e0d825
+    current_sha256: 024dedf5cf4267ec8ee2b76a05eeccc1f64c5129e3bdb40c5b5bcdd132852bd1
+  - path: src/rkg/domain/context.py
+    implementation_commit: 968a9f62775d4f26d23fb713fb14128fce5b97c1
+    implementation_sha256: be33488832fe6c658a1ff08fcfa8fe98528bf1b34222ffba82405b050c982aa9
+    current_sha256: 93fb2e41ddab7220df8ff7022c5336ba346439747ed321d98f4380a27e52d890
+  - path: src/rkg/domain/ids.py
+    implementation_commit: 968a9f62775d4f26d23fb713fb14128fce5b97c1
+    implementation_sha256: 75d9b332fc0cb25e1e9131edb53452aaaa77a5daf3edc397fcf7b952620d619b
+    current_sha256: 2d26bd6257c9cf9e33c519f0ea58fe7896ce097f2987651a1d82e12e118b9714
+  - path: src/rkg/domain/models.py
+    implementation_commit: 968a9f62775d4f26d23fb713fb14128fce5b97c1
+    implementation_sha256: 8bb37e290b0b3249b84dbfc5410f2bb6eb5407e663fc31169c2d214365ad2e51
+    current_sha256: 5ecf9132d533906aecd881818b91b1735f6b3d39fa5fcc50889be0ce11943a36
+  - path: src/rkg/domain/validation.py
+    implementation_commit: 968a9f62775d4f26d23fb713fb14128fce5b97c1
+    implementation_sha256: 6c95dc497aa7c6f42715b1f0e88e4914617f4b59b5e7fad5149f126b51c8aa39
+    current_sha256: efa1d30dbd02ce49a4bf3c97046a7a52fb8d688920c3f74176fd6ee417645e71
+  - path: tests/fixtures/domain/source_structure.json
+    implementation_commit: 968a9f62775d4f26d23fb713fb14128fce5b97c1
+    implementation_sha256: 2816f63466c3d891f44b7a60c178692f4d6405e856631170d96fa1d9ca7cb85d
+    current_sha256: 5430346837326cb1297a33c865c3332b3841f65e26ebde29379fd17e01719b7c
+  - path: tests/unit/test_domain_schema.py
+    implementation_commit: 968a9f62775d4f26d23fb713fb14128fce5b97c1
+    implementation_sha256: e1c1c39f54f91f1ebee9449527fd7fa8c56240bc83830f17fccd3f5471aedb34
+    current_sha256: cc233821830e4fe48dcc43d1e462b0e6d0cafa38ac8d1db2a967ac7d396ed0a2
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-002
+objective: TASK-RKG-002
+objective_description: Định nghĩa DTO bất biến, ID deterministic, validation ownership/evidence và context budgets; chuẩn
+  bị golden fixture cho các task extraction/storage.
+requirements:
+- FR-RKG-001
+- FR-RKG-002
+- FR-RKG-004
+design:
+- CMP-RKG-ANALYZER
+- CMP-RKG-GRAPH
+decisions:
+- ADR-2026-001
+- ADR-2026-002
+contracts:
+- API-RKG-CORE-v1
+- TBL-RKG-GRAPH
+constraints:
+- NFR-RKG-REL-001
+- NFR-RKG-SEC-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- src/rkg/domain/README.md
+- src/rkg/domain/__init__.py
+- src/rkg/domain/context.py
+- src/rkg/domain/ids.py
+- src/rkg/domain/models.py
+- src/rkg/domain/validation.py
+- tests/fixtures/domain/source_structure.json
+- tests/unit/test_domain_schema.py
+inputs:
+  ADR-2026-001:
+    revision: 3
+    hash: ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d
+    path: architecture/adr/ADR-2026-001.md
+  ADR-2026-002:
+    revision: 2
+    hash: 56548c57e00c49f1831892fdef2baee80ba1e87a493a6a78e0acbfc5631b1f15
+    path: architecture/adr/ADR-2026-002.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-ANALYZER:
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  CMP-RKG-GRAPH:
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  EPIC-002-TEAM-RKG:
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  FR-RKG-001:
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  FR-RKG-002:
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  FR-RKG-004:
+    revision: 6
+    hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+    path: requirements/fr/FR-RKG-004.md
+  NFR-RKG-REL-001:
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  NFR-RKG-SEC-001:
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  TBL-RKG-GRAPH:
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-002
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-002
+    epic: EPIC-002-TEAM-RKG
+    captured_at: 2026-09-24
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-002
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-002
+      - key: FR-RKG-004
+      - key: FR-RKG-001
+      - key: CMP-RKG-ANALYZER
+      - key: CMP-RKG-GRAPH
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-002
+
+    ## objective
+    Chốt DTO, ID, validator và golden JSON để các lát cắt extract và context sau dùng chung, trước khi có ingestion hay storage.
+
+    ## requirements
+    - (không có AC riêng — task đi từ epic)
+
+    ## design
+    - CMP-RKG-ANALYZER — gồm transaction boundary, idempotency và concurrency của component này
+    - CMP-RKG-GRAPH — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-001, ADR-2026-002
+
+    ## contracts
+    - TBL-RKG-GRAPH
+    - API-RKG-CORE-v1
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-SEC-001
+    - NFR-RKG-REL-001
+
+    ## code_scope
+    - src/rkg/domain/**
+    - tests/**/test*domain*
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-002-TEAM-RKG

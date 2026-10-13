@@ -1,0 +1,266 @@
+key: CHG-RKG-2026-002
+type: change-set
+group: normative
+scope: lifecycle
+system: SYS-RKG
+revision: 28
+label: Chatbot dễ hỏi và trả lời tự nhiên
+status: draft
+phase: implementation_complete_UAT_pending
+change_request: CR-RKG-002
+objective:
+  description: Cải thiện cách hỏi, câu trả lời và hướng dẫn khôi phục của chatbot,
+    giữ câu trả lời kiểm chứng được bằng graph và citation.
+  satisfies:
+  - GOAL-RKG-003
+affected_systems:
+- SYS-RKG
+affected_teams:
+- TEAM-RKG
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: product-owner
+coordination:
+  mode: independent
+  integration_gate_required: false
+tier: T2
+tier_status: proposed
+tier_reason: Thay đổi hành vi trong grounded conversation hiện có, một team, chưa
+  đề xuất bounded context mới hoặc lật ADR nền tảng.
+flow: change
+baseline: BL-CHG-RKG-2026-002-r8
+gates:
+  scope: pending
+  architecture: pending
+  ui_ux: pending
+  contract: pending
+planning_evidence:
+  context: CTX-CHG-RKG-2026-002-r16
+  plan: PLAN-CHG-RKG-2026-002-r5
+  previous_context: CTX-CHG-RKG-2026-002-r15
+  previous_plan: PLAN-CHG-RKG-2026-002-r4
+implementation_ready: true
+classification: internal
+ai_assisted: true
+authorization: CR-RKG-003
+selected_design:
+  decision: ADR-2026-007
+  option: B
+  fallback: A for validated facts only
+artifacts:
+  requirements:
+  - FR-RKG-005
+  architecture:
+  - CMP-RKG-CONVERSATION
+  - CMP-RKG-WEB
+  - ADR-2026-007
+  - TM-RKG
+  design:
+  - UXF-RKG-002
+  - SCR-RKG-001
+  - UID-RKG-001
+  contracts_candidate:
+  - API-RKG-CORE-v1
+  - TBL-RKG-GRAPH
+  - UIS-RKG-001
+  - DDL-RKG-GRAPH
+  - MIG-RKG-CHATBOT-v3
+  - CON-RKG-CONVERSATION-v1
+  - SCH-RKG-CONVERSATION-v1
+  - OAS-RKG-CONVERSATION-v1
+  - SCH-RKG-READ-PLAN-v2
+  - SCH-RKG-NARRATIVE-v1
+  - CHL-RKG-CONVERSATION-v1
+review_views:
+- LCV-RKG-CHATBOT-001
+- CSV-CHG-RKG-2026-002-r6
+- AVW-RKG-CHATBOT-002-r6
+readiness:
+  content_selected: true
+  independent_review: passed_L2_UI_and_L3
+  gate_signatures:
+    scope: approval-007
+    architecture: approval-009
+    ui_ux: approval-010
+    contract: approval-011
+  ui_mock_walkthrough: reported_complete_CR-RKG-007
+  L3: approved_design_physical_schema_subset
+  implementation_ready: true
+  scope_human_approval: recorded_in_approval-007
+  independent_design_review: passed
+  current_revision_review: passed_L2_UI_and_L3
+  recovery_review_required: []
+  architecture_decision_ready: true
+  architecture_role_coverage:
+    tech-lead: approved_by_PhongNM
+    architect: approved_by_PhongNM
+  architecture_human_approval: recorded_in_approval-009
+  contract_human_approval: recorded_in_approval-011
+scope_approval: approval-007
+previous_baselines:
+- BL-CHG-RKG-2026-002-r1
+- BL-CHG-RKG-2026-002-r2
+- BL-CHG-RKG-2026-002-r3
+- BL-CHG-RKG-2026-002-r4
+- BL-CHG-RKG-2026-002-r5
+- BL-CHG-RKG-2026-002-r6
+- BL-CHG-RKG-2026-002-r7
+approval_authority:
+  name: PhongNM
+  scope_roles:
+  - product-owner
+  - tech-lead
+  - qa-lead
+  role_basis: explicit_user_confirmation
+  approval_scope: chatbot requirement delta only
+  architecture_roles:
+  - tech-lead
+  - architect
+  architecture_role_evidence: CR-RKG-006
+next_step: Prepare TASK-RKG-031 context and plan against the accepted storage branch
+  before downstream implementation.
+advisory_review:
+  original_record: REV-RKG-2026-005
+  recovery_record: REV-RKG-2026-007
+  original_baseline: BL-CHG-RKG-2026-002-r2
+  recovery_baseline: BL-CHG-RKG-2026-002-r3
+  current_revision_review: passed_for_frozen_L2_UI_L3_not_run
+  result: ready_for_architecture_decision
+  blockers: []
+  finding_resolution:
+    id: COMP-CHG002-001
+    status: resolved
+    scope: design_wording_only
+finding_reconciliation: REV-RKG-2026-006
+ui_preview:
+  reuse_existing_Ask: true
+  separate_mock_UI_required: false
+  artifact: UIM-RKG-002
+  path: .aide/generated/ui-mocks/chatbot-002/UIM-RKG-002.md
+  test_evidence: TEST-RKG-CHATBOT-PREVIEW-001
+  component_checks: passed
+  automated_DOM_a11y: passed_contrast_excluded
+  walkthrough: reported_complete_CR-RKG-007
+finding_resolution:
+  id: COMP-CHG002-001
+  status: resolved
+  scope: design_wording_only
+  evidence: REV-RKG-2026-007
+architecture_approval_records:
+- approval-008
+- approval-009
+architecture_approval: approval-009
+ui_ux_approval: approval-010
+ui_ux_authority:
+  name: PhongNM
+  roles:
+  - product-owner
+  - design-owner
+  - qa-lead
+  evidence: CR-RKG-007
+ui_ux_browser_evidence: TEST-RKG-CHATBOT-BROWSER-001
+l3_readiness:
+  baseline: BL-CHG-RKG-2026-002-r8
+  author_evidence:
+  - TEST-RKG-CHATBOT-L3-001
+  - TEST-RKG-CHATBOT-API-DIFF-001
+  independent_review: passed_REV-RKG-2026-008
+  consumer_acknowledgements: recorded_in_approval-011
+  contract_decision_ready: true
+  ready_for_independent_review: false
+  production_runtime: not_run
+  operator_database_migration: not_run
+  implementation_ready: true
+  readiness_meaning: Gate prerequisites satisfied for task decomposition and subsequent
+    implementation; runtime acceptance not implied.
+l3_authorization: CR-RKG-008
+contract_approval: approval-011
+contract_authority:
+  name: PhongNM
+  roles:
+  - tech-lead
+  - qa-lead
+  consumer_role: architect
+  accountable_team: TEAM-RKG
+  evidence: CR-RKG-009
+  role_evidence:
+  - CR-RKG-004
+  - CR-RKG-006
+contract_review: REV-RKG-2026-008
+consumer_acknowledgements:
+  record: approval-011
+  dependencies: 4
+  state: acknowledged
+task_decomposition: recorded_EPIC-006-TEAM-RKG
+review_view_capture_note: LCV-RKG-CHATBOT-001 remains the frozen derived view captured
+  against reviewed r7; normative source pins are unchanged in r8.
+implementation_authorization: CR-RKG-014
+active_task: null
+tasks:
+- TASK-RKG-030
+- TASK-RKG-031
+- TASK-RKG-032
+- TASK-RKG-033
+- TASK-RKG-034
+- TASK-RKG-035
+implementation_progress:
+  active_task: null
+  task_phase: TASK031_035_implementation_complete_component_approved
+  code_branch: fix/chatbot
+  automated_backend_tests_passed: 412
+  remaining_tasks: []
+  independent_code_review: passed_TASK031_035_final_composition
+  component_merge_gate: approved
+  operator_database_migration: not_run
+  review_package: RVP-TASK-RKG-035-r1
+  remaining_findings: []
+  resolved_findings:
+  - FND-TASK-RKG-034-001
+  - FND-TASK-RKG-034-002
+  - FND-TASK-RKG-034-003
+  - FND-TASK-RKG-034-004
+  review_round_limit_reached: true
+  human_gate_decision: approved_TASK031_035
+  automatic_third_review_started: false
+  completed_tasks:
+  - TASK-RKG-030
+  - TASK-RKG-031
+  - TASK-RKG-032
+  - TASK-RKG-033
+  - TASK-RKG-034
+  - TASK-RKG-035
+  component_approval: approval-013
+  accepted_findings: []
+  latest_independent_review: REV-TASK-RKG-034-003
+  latest_task_verification: passed_and_human_component_approved
+  automated_frontend_tests_passed: 86
+  browser_assertion_groups_passed: 33
+  browser_variants: 8
+  remaining_finding_state: none_open_for_TASK031_035
+  task035_review: passed
+  task035_review_evidence: REV-TASK-RKG-035-001
+  readiness_evidence: TEST-RKG-CHATBOT-CLOSURE-001
+  storage_component_acceptance:
+    independent_code_review: REV-RKG-2026-010_needs_revision_preserved_with_human_exception
+    finding_remediation: FIX-TASK-RKG-030-003
+    review_package: RVP-TASK-RKG-030-r3
+    human_gate_decision: approved_with_one_time_review_exception
+    component_approval: approval-012
+    accepted_findings:
+    - FND-TASK-RKG-030-001
+    resolved_findings:
+    - FND-TASK-RKG-030-002
+    - FND-TASK-RKG-030-003
+    review_round_limit_reached: true
+  live_provider_quality: not_run
+  human_UAT: not_run
+  release: not_run
+execution_state: implementation_complete_awaiting_UAT
+pause_evidence: CR-RKG-011
+checkpoint_branch: fix/chatbot
+resume_evidence: CR-RKG-012
+gate_invalidation:
+  cause: CR-RKG-018 / CHG-RKG-2026-003
+  meaning: Current normative revisions changed; signed historical approvals remain
+    bound to baseline r8. Completed task implementation records and historical approval-013
+    are not rewritten.

@@ -1,0 +1,40 @@
+---
+key: FIND-RKG-DS-001
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: minor
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-042
+captured_at: '2026-10-08'
+disposition: accept
+route: REV-RKG-STACK-SUPPORT-001
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [REV-RKG-STACK-SUPPORT-001]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-DS-001 — TASK-RKG-042 withhold line restates the decision
+
+## Summary
+
+The TASK-RKG-042 bullet in `REV-RKG-STACK-SUPPORT-001` says
+`TEST-RKG-TYPESCRIPT-REACT-ROUTER-001` leaves deep-support promotion open.
+That file records focused rows for AC-RKG-003, AC-RKG-006, AC-RKG-007,
+AC-RKG-035, and AC-RKG-048. It does not name an unasserted contract. It also
+does not record a `TEST-RKG-ADAPTER-CONFORMANCE` pass_rate.
+
+## Decision
+
+Operator ACCEPT 2026-10-08. Remediation: replace the circular sentence. Do not
+invent an unasserted AC. State that the verify record does not include a
+`TEST-RKG-ADAPTER-CONFORMANCE` pass_rate.
+
+## Remediation
+
+- done: AUTHOR replaced the TASK-RKG-042 bullet in REV-RKG-STACK-SUPPORT-001
+  revision 2. Disposition ACCEPT unchanged. REVIEWER confirmed 2026-10-08.

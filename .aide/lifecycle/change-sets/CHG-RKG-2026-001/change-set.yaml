@@ -1,0 +1,232 @@
+uid: null
+key: CHG-RKG-2026-001
+label: Repository Knowledge Graph MVP
+type: change-set
+group: normative
+scope: lifecycle
+system: SYS-RKG
+status: draft
+revision: 41
+flow: new-system
+tier: T1
+affected_systems:
+- SYS-RKG
+coordination:
+  mode: independent
+  integration_gate_required: false
+objective: Keep the RKG MVP normative set aligned at phase implementation_verified. Implementation exists and has verification
+  evidence. Scope, architecture, UI/UX and contract gates remain pending. This change set is not approved and is not complete.
+  Revision 25's objective still said the set was being established before implementation; that sentence is historical.
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: product-owner
+artifacts:
+  prd:
+  - PRD-RKG
+  requirements:
+  - FR-RKG-001
+  - FR-RKG-002
+  - FR-RKG-003
+  - FR-RKG-004
+  - FR-RKG-005
+  - NFR-RKG-PERF-001
+  - NFR-RKG-SEC-001
+  - NFR-RKG-REL-001
+  - NFR-RKG-UX-001
+  - NFR-RKG-EXT-001
+  domain:
+  - DOM-RKG-CORE
+  architecture:
+  - CAP-RKG-001
+  - CAP-RKG-002
+  - CAP-RKG-003
+  - CMP-RKG-ANALYZER
+  - CMP-RKG-GRAPH
+  - CMP-RKG-TRANSPORT
+  - CMP-RKG-WEB
+  - CMP-RKG-CONVERSATION
+  - ADR-2026-001
+  - ADR-2026-002
+  - ADR-2026-003
+  - ADR-2026-004
+  - ADR-2026-005
+  - ADR-2026-006
+  - TM-RKG
+  contracts:
+  - API-RKG-CORE-v1
+  - TBL-RKG-GRAPH
+  - DDL-RKG-GRAPH
+  design:
+  - UXF-RKG-001
+  - UXF-RKG-002
+  - UXF-RKG-003
+  - SCR-RKG-001
+  - UID-RKG-001
+  - UIS-RKG-001
+  - TOK-RKG-001
+  observability:
+  - OBS-RKG-001
+  - OBS-RKG-002
+  - OBS-RKG-005
+  policies:
+  - GATE-RKG-SCOPE
+  - GATE-RKG-ARCHITECTURE
+  - GATE-RKG-UIUX
+  - GATE-RKG-CONTRACT
+  - EVAL-RKG-QA-001
+  registries:
+  - REG-TYPE-001
+  - REG-OWNER-001
+  - REG-REPO-001
+  - REG-ADAPTER-001
+  epics:
+  - EPIC-001-TEAM-RKG
+  - EPIC-002-TEAM-RKG
+  - EPIC-003-TEAM-RKG
+  - EPIC-004-TEAM-RKG
+  - EPIC-005-TEAM-RKG
+  stories:
+  - STORY-RKG-001
+  - STORY-RKG-002
+  - STORY-RKG-003
+  - STORY-RKG-004
+  - STORY-RKG-005
+  - STORY-RKG-006
+  - STORY-RKG-007
+  - STORY-RKG-008
+  - STORY-RKG-009
+  - STORY-RKG-010
+  - STORY-RKG-011
+  - STORY-RKG-012
+  - STORY-RKG-013
+  - STORY-RKG-014
+  - STORY-RKG-015
+  - STORY-RKG-016
+  - STORY-RKG-017
+  - STORY-RKG-018
+  - STORY-RKG-019
+  tasks:
+  - TASK-RKG-000
+  - TASK-RKG-001
+  - TASK-RKG-002
+  - TASK-RKG-003
+  - TASK-RKG-004
+  - TASK-RKG-005
+  - TASK-RKG-006
+  - TASK-RKG-007
+  - TASK-RKG-008
+  - TASK-RKG-009
+  - TASK-RKG-010
+  - TASK-RKG-011
+  - TASK-RKG-012
+  - TASK-RKG-013
+  - TASK-RKG-014
+  - TASK-RKG-015
+  - TASK-RKG-016
+  - TASK-RKG-017
+  - TASK-RKG-018
+  - TASK-RKG-019
+  - TASK-RKG-020
+  - TASK-RKG-021
+  - TASK-RKG-022
+  - TASK-RKG-023
+  - TASK-RKG-024
+  - TASK-RKG-025
+  - TASK-RKG-026
+  - TASK-RKG-027
+  - TASK-RKG-028
+  - TASK-RKG-029
+  evidence:
+  - REV-RKG-2026-001
+  - REV-RKG-2026-002
+  - REV-RKG-2026-003
+  - REV-RKG-2026-004
+  - TEST-RKG-WCAG-CONTRAST
+  - approval-001
+  - approval-002
+  - approval-003
+  - approval-004
+  - approval-005
+  - approval-006
+  - TEST-RKG-DIRECTORY-DOCS-001
+  - TEST-RKG-DIRECTORY-IMPLEMENTATION-001
+  - TEST-RKG-FASTAPI-STATIC-002
+  - TEST-RKG-FOCUSED-FLOW-001
+  - TEST-RKG-FOCUSED-FLOW-002
+  - CTX-CURRENT-AUTHORITY
+  - TEST-RKG-TYPESCRIPT-REACT-ROUTER-001
+  - TEST-RKG-VUE-NUXT-001
+  - TEST-RKG-BULLMQ-001
+  - TEST-RKG-JAVA-SPRING-001
+  - TEST-RKG-GO-KAFKA-PGX-001
+  - TEST-RKG-GO-KAFKA-PGX-001-r2
+  - TEST-RKG-FLASK-001
+  - TEST-RKG-FLASK-001-r2
+  - TEST-RKG-FIXTURE-CENSUS-SUMMARY-001
+  derived_views:
+  - CSV-CHG-RKG-2026-001
+  - AVW-RKG-MVP
+  - DGM-RKG-L1
+  - DGM-RKG-L2
+  - UIM-RKG-001
+open_questions:
+- OQ-RKG-006
+resolved_questions:
+- OQ-RKG-001
+- OQ-RKG-002
+- OQ-RKG-003
+- OQ-RKG-004
+- OQ-RKG-005
+- OQ-RKG-007
+gates:
+  scope: pending
+  architecture: pending
+  ui_ux: pending
+  contract: pending
+baseline: BL-CHG-RKG-2026-001
+candidate_baseline: BL-CHG-RKG-2026-001
+baseline_chain:
+- key: BL-CHG-RKG-2026-001
+  revision: 1
+- key: BL-CHG-RKG-2026-001
+  revision: 2
+- key: BL-CHG-RKG-2026-001
+  revision: 3
+current_change:
+  key: ADR-2026-006
+  implementation_task: TASK-RKG-027
+  phase: implementation_verified
+  user_confirmation_required_before_code: false
+  user_confirmation_received: 2026-10-01
+  documentation_verification: TEST-RKG-DIRECTORY-DOCS-001
+  verification: TEST-RKG-DIRECTORY-IMPLEMENTATION-001
+  followup_task: TASK-RKG-029
+  followup_verification: TEST-RKG-FOCUSED-FLOW-002
+  historical_baseline_preserved:
+    key: BL-CHG-RKG-2026-001
+    revision: 1
+  current_baseline:
+    key: BL-CHG-RKG-2026-001
+    revision: 3
+  baseline_note: Historical baseline records are inside revision_history of the canonical file; the current revision is an
+    unapproved candidate.
+adapter_scope:
+  included: false
+  reason: documentation_recovery.task_scope and the current baseline stop at TASK-RKG-029. Each adapter story has its own change set because the stories exclude one another and no shared release slice is recorded.
+  change_sets:
+  - CHG-RKG-2026-009
+  - CHG-RKG-2026-010
+  - CHG-RKG-2026-011
+  - CHG-RKG-2026-012
+  - CHG-RKG-2026-013
+  - CHG-RKG-2026-014
+classification: internal
+ai_assisted: true
+documentation_recovery:
+  record: REV-RKG-2026-004
+  task_scope: bootstrap TASK-RKG-000 and implementation TASK-RKG-001..029; unchanged
+  adds_tasks: false
+  runtime_code_changed: false
+  test_results_rewritten: false
+baseline_note: One baseline file contains the current candidate and exact historical revision records. Existing approvals
+  cover only their explicitly signed revisions.

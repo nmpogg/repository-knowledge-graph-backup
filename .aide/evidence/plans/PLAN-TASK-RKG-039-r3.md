@@ -1,0 +1,5 @@
+# PLAN-TASK-RKG-039-r3 — Bound terminal masking work
+
+After second full review, repair only FND-TASK-RKG-039-002: replace ambiguous regex backtracking with literal configured-key JSON representations bounded by the current console string length. Unchanged representations are visited once; escaping layers grow until the length bound. Preserve nested Unicode/ASCII representations, longest-key masking, complete nonkey DEBUG contents and all engine/API/storage behavior.
+
+An actual offline HTTP-error regression first times out after three seconds on the reviewed code. The repaired code completes the same synthetic 50,022-byte DEBUG body in 0.009 seconds, retaining safe provider error mapping. 127 affected checks and Ruff/diff pass. Previous finding001 remains resolved. Full two-round review limit exhausted: freeze this concrete repair and ask operator to authorize finding002-only independent delta verification, or accept the current repair with author checks. No third full review without authorization.

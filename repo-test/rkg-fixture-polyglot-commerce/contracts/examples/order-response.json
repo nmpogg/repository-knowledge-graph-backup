@@ -1,0 +1,12 @@
+{
+  "id": "order-1",
+  "status": "CREATED",
+  "totalCents": 500,
+  "items": [
+    {
+      "sku": "SKU-1",
+      "quantity": 1,
+      "unitPriceCents": 500
+    }
+  ]
+}

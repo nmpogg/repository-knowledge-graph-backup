@@ -1,0 +1,20 @@
+key: CR-RKG-003
+type: change-request
+group: evidence
+system: SYS-RKG
+captured_at: 2026-10-06
+source: explicit-user-authorization
+request: ok ban chot ho toi luon di
+action: finalize-requirement-content-and-select-design
+scope:
+  change_set: CHG-RKG-2026-002
+  requirements: FR-RKG-005
+  design_option: ADR-2026-007 option B with validated-fact renderer fallback
+interpretation: >-
+  User delegates selection and documentation of the proposed behavior and design.
+  This records authorization to prepare selected artifacts; it is not an exact-hash
+  gate signature, independent review, implementation acceptance or release approval.
+record_boundary: Task authorization only; no conversation transcript retained.
+captured_against:
+  code_commit: 86ecab6546384227d1901e24c8b8fbfc6c0e8527
+  original_request: CR-RKG-002

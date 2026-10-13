@@ -1,0 +1,210 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-008
+revision: 3
+implementation_date: '2026-09-25'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-005
+    revision: 1
+    hash: c5ae069dffb8a78df7e72db674f2fe65b4551d8fea24d2ff25e5fde19714e0d6
+    path: architecture/adr/ADR-2026-005.md
+  - key: CMP-RKG-ANALYZER
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: EPIC-002-TEAM-RKG
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  - key: FR-RKG-002
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  - key: NFR-RKG-EXT-001
+    revision: 3
+    hash: 58fe8493456045b2d475c7ac14bb4a440d2e4f3ade043eae276fed4c1ec27193
+    path: requirements/nfr/NFR-RKG-EXT-001.md
+  - key: STORY-RKG-005
+    revision: 1
+    hash: 71ef11a9161167f6e1f91391371db2b554bbad8233a64202785f502c95259963
+    path: lifecycle/stories/STORY-RKG-005.md
+  implementation_phases:
+  - commit: 51cede902a688529ebcd6ec164af7b3a86d826a0
+    author_at: '2026-09-25T10:33:50+07:00'
+    committed_at: '2026-09-25T10:33:50+07:00'
+    implementation_date: '2026-09-25'
+    changed_paths:
+    - src/rkg/detection/README.md
+    - src/rkg/detection/__init__.py
+    - src/rkg/detection/contracts.py
+    - src/rkg/detection/fastapi.py
+    - src/rkg/detection/python_imports.py
+    - src/rkg/detection/selection.py
+    - tests/unit/test_technology_detection.py
+  files:
+  - path: src/rkg/detection/README.md
+    implementation_commit: 51cede902a688529ebcd6ec164af7b3a86d826a0
+    implementation_sha256: 99a5625e0bea1da89cfafd8382783acccdda4a73f26f549f6590ee957537f2bd
+    current_sha256: 090d740ca5a20a7ca23206ba9e0be1a9ffb68d3452a6ca6dda73dc9f8f50e691
+  - path: src/rkg/detection/__init__.py
+    implementation_commit: 51cede902a688529ebcd6ec164af7b3a86d826a0
+    implementation_sha256: c53b5fd79e964724bd33166473491ee3e5e57d8da4efbfca123290996924724e
+    current_sha256: d6e3123cda9e2a75907ef58dd201d4848ee089ece394f36c5a5ce2e09d96e91d
+  - path: src/rkg/detection/contracts.py
+    implementation_commit: 51cede902a688529ebcd6ec164af7b3a86d826a0
+    implementation_sha256: a6eb64f582066d27f4186c7b79d9d79e34dbb5478fa5edc7d51e405d38fb629b
+    current_sha256: f77ecb09d0f377c7b5a2059e971c3b89bd40dce552124c0f17c1ff081be63958
+  - path: src/rkg/detection/fastapi.py
+    implementation_commit: 51cede902a688529ebcd6ec164af7b3a86d826a0
+    implementation_sha256: b87cc51e6dacc426311f2660a957cc7b7fa9133dadec800f660a410ddd330faa
+    current_sha256: 4f58fe3e0a6453538f8f22e2fa4ed6331af2840f5af3f837d66e2e53e079d5a3
+  - path: src/rkg/detection/python_imports.py
+    implementation_commit: 51cede902a688529ebcd6ec164af7b3a86d826a0
+    implementation_sha256: c58effbc21e83e13ed2237b4088a7a8af1ab7c5c8de9aac7774492345d0ffb0e
+    current_sha256: 161fc5567fd9ec7ad5f639e7ec1506c0c09866a7458cb78a763b86b4840dfd3e
+  - path: src/rkg/detection/selection.py
+    implementation_commit: 51cede902a688529ebcd6ec164af7b3a86d826a0
+    implementation_sha256: a51d76601abb61fdf9e67b66d1a1b3a78235e33ac92192ed24aea64be955f836
+    current_sha256: c1742ffaeae6d6d8b31aa1140762524430630cc8445951b4f6d7c753af04a79b
+  - path: tests/unit/test_technology_detection.py
+    implementation_commit: 51cede902a688529ebcd6ec164af7b3a86d826a0
+    implementation_sha256: dd084dc1424ee9b3dcebcc9f1588277ea3bfadfba6a1048d8b6273e1d6015614
+    current_sha256: af4e0fef3add40b31a47a1fb5f3e0ae2f124ef23551e5542bba8b56fab63ff81
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-008
+objective: TASK-RKG-008
+objective_description: Chọn language/framework adapter từ descriptor, version evidence và application candidates; unsupported
+  hoặc ambiguity phải hiện rõ.
+requirements:
+- FR-RKG-002
+- AC-RKG-022
+- AC-RKG-020
+- AC-RKG-021
+- AC-RKG-040
+- AC-RKG-052
+- AC-RKG-053
+- AC-RKG-065
+design:
+- CMP-RKG-ANALYZER
+decisions:
+- ADR-2026-005
+contracts: []
+constraints:
+- NFR-RKG-EXT-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- src/rkg/detection/README.md
+- src/rkg/detection/__init__.py
+- src/rkg/detection/contracts.py
+- src/rkg/detection/fastapi.py
+- src/rkg/detection/python_imports.py
+- src/rkg/detection/selection.py
+- tests/unit/test_technology_detection.py
+inputs:
+  ADR-2026-005:
+    revision: 1
+    hash: c5ae069dffb8a78df7e72db674f2fe65b4551d8fea24d2ff25e5fde19714e0d6
+    path: architecture/adr/ADR-2026-005.md
+  CMP-RKG-ANALYZER:
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  EPIC-002-TEAM-RKG:
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  FR-RKG-002:
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  NFR-RKG-EXT-001:
+    revision: 3
+    hash: 58fe8493456045b2d475c7ac14bb4a440d2e4f3ade043eae276fed4c1ec27193
+    path: requirements/nfr/NFR-RKG-EXT-001.md
+  STORY-RKG-005:
+    revision: 1
+    hash: 71ef11a9161167f6e1f91391371db2b554bbad8233a64202785f502c95259963
+    path: lifecycle/stories/STORY-RKG-005.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-008
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-008
+    story: STORY-RKG-005
+    captured_at: 2026-09-25
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-008
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-002
+      - key: CMP-RKG-ANALYZER
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-008
+
+    ## objective
+    Detection và chọn app/adapter theo evidence. Không tự chọn khi có nhiều entrypoint.
+
+    ## requirements
+    - AC-RKG-020
+    - AC-RKG-021
+    - AC-RKG-040
+    - AC-RKG-052
+    - AC-RKG-053
+    - AC-RKG-065
+
+    ## design
+    - CMP-RKG-ANALYZER — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-005
+
+    ## contracts
+    - REG-ADAPTER-001
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-EXT-001
+
+    ## code_scope
+    - src/rkg/detection/**
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-002-TEAM-RKG

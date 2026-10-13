@@ -1,0 +1,23 @@
+key: CR-RKG-024
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-08'
+task: TASK-RKG-042
+story: STORY-RKG-026
+change_set: CHG-RKG-2026-009
+source: lifecycle_reconciliation
+request_summary: >-
+  Authorize the existing TypeScript language and React Router framework
+  extraction on TASK-RKG-042. Scope is the behavior already stated on
+  STORY-RKG-026.
+authorization_boundary: >-
+  Implement and verify rkg.typescript and rkg.react-router against the
+  react-ts oracle. Do not promote deep-supported. Do not sign Scope,
+  Architecture, UI/UX, or Contract gates.
+record_boundary: >-
+  Records the scope already present on the task and story. No conversation
+  transcript. This request does not create a new product behavior.
+classification: internal
+ai_assisted: true

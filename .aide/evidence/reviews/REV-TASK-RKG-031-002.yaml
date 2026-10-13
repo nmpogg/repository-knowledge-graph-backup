@@ -1,0 +1,583 @@
+{
+  "key": "REV-TASK-RKG-031-002",
+  "group": "evidence",
+  "type": "independent-code-review",
+  "revision": 1,
+  "task": "TASK-RKG-031",
+  "round": 2,
+  "classification": "internal",
+  "ai_assisted": true,
+  "captured_at": "2026-10-07T03:04:27.342831+00:00",
+  "reviewer": "independent agent review_task031",
+  "scope": "TASK031 language, endpoint resolution, greeting and durable clarification only. Narrative provider profile/rendering belong to TASK032; public API negotiation/history/sources belong to TASK033.",
+  "result": "pass",
+  "component_merge_gate": "pending",
+  "human_signoff": false,
+  "review_package": {
+    "path": ".aide/reviewer/packages/RVP-TASK-RKG-031-r2.yaml",
+    "sha256": "83f4a74adcc8c9d6461d0757e7fdab6bfe14dab9801c6bf48e802b8dd451399b"
+  },
+  "previous_review": {
+    "path": ".aide/evidence/reviews/REV-TASK-RKG-031-001.yaml",
+    "sha256": "8d2b7e4b5ca37e33dcdb4720390528546c3fe2e65aa34b8df6b0baeaebdf35aa"
+  },
+  "captured_against": {
+    "base_commit": "0d902c886fea708ba9ce03b63d69abf50f4e6da2",
+    "baseline": {
+      "key": "BL-CHG-RKG-2026-002-r8",
+      "path": ".aide/lifecycle/change-sets/CHG-RKG-2026-002/baseline/BL-CHG-RKG-2026-002-r8.yaml",
+      "sha256": "a2620db609df23ceb548f86c4b41cecc983a9e4d4f25c43322f663521240a61c"
+    },
+    "normative_artifacts": [
+      {
+        "key": "FR-RKG-005",
+        "revision": 9,
+        "status": "approved",
+        "hash": "6f240da74dd108933c85da36bf973106c30b7a6825f2e3b57e67318fa22a78f5",
+        "path": "requirements/fr/FR-RKG-005.md",
+        "role": "selected_candidate",
+        "actual_sha256": "6f240da74dd108933c85da36bf973106c30b7a6825f2e3b57e67318fa22a78f5",
+        "result": "pass"
+      },
+      {
+        "key": "ADR-2026-007",
+        "revision": 2,
+        "status": "draft",
+        "hash": "1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a",
+        "path": "architecture/adr/ADR-2026-007.md",
+        "role": "selected_candidate",
+        "actual_sha256": "1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a",
+        "result": "pass"
+      },
+      {
+        "key": "CMP-RKG-CONVERSATION",
+        "revision": 7,
+        "status": "draft",
+        "hash": "2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65",
+        "path": "architecture/l2/CMP-RKG-CONVERSATION.md",
+        "role": "selected_candidate",
+        "actual_sha256": "2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65",
+        "result": "pass"
+      },
+      {
+        "key": "CMP-RKG-WEB",
+        "revision": 9,
+        "status": "draft",
+        "hash": "9127465096842ccdf6addff5649a13839515f088a136d2bdcbbb3e5ccb5b91e6",
+        "path": "architecture/l2/CMP-RKG-WEB.md",
+        "role": "selected_candidate",
+        "actual_sha256": "9127465096842ccdf6addff5649a13839515f088a136d2bdcbbb3e5ccb5b91e6",
+        "result": "pass"
+      },
+      {
+        "key": "TM-RKG",
+        "revision": 8,
+        "status": "draft",
+        "hash": "c22e337412e5c9d42bccbc5cf5ef76e92767ee130f3b4d8a9de86ea6d6570bb6",
+        "path": "architecture/threat-model/TM-RKG.md",
+        "role": "selected_candidate",
+        "actual_sha256": "c22e337412e5c9d42bccbc5cf5ef76e92767ee130f3b4d8a9de86ea6d6570bb6",
+        "result": "pass"
+      },
+      {
+        "key": "UXF-RKG-002",
+        "revision": 5,
+        "status": "draft",
+        "hash": "5e57d4c6d118e1463a96373740105d61371514de12f2f1aa17a303206d8e3add",
+        "path": "design/ux/UXF-RKG-002.md",
+        "role": "selected_candidate",
+        "actual_sha256": "5e57d4c6d118e1463a96373740105d61371514de12f2f1aa17a303206d8e3add",
+        "result": "pass"
+      },
+      {
+        "key": "SCR-RKG-001",
+        "revision": 9,
+        "status": "draft",
+        "hash": "385e3bd7ddb7ff32397580270005574cb6cce2ae47e392e7b137c9a4520876c3",
+        "path": "design/ux/SCR-RKG-001.md",
+        "role": "selected_candidate",
+        "actual_sha256": "385e3bd7ddb7ff32397580270005574cb6cce2ae47e392e7b137c9a4520876c3",
+        "result": "pass"
+      },
+      {
+        "key": "UID-RKG-001",
+        "revision": 8,
+        "status": "draft",
+        "hash": "b5b92b6652c087cadaa0a347de226f9bf72fc2f5ad36eff617e9452b4e3dbc7e",
+        "path": "design/ui/UID-RKG-001.md",
+        "role": "selected_candidate",
+        "actual_sha256": "b5b92b6652c087cadaa0a347de226f9bf72fc2f5ad36eff617e9452b4e3dbc7e",
+        "result": "pass"
+      },
+      {
+        "key": "GATE-RKG-SCOPE",
+        "revision": 9,
+        "status": "draft",
+        "hash": "bf7f2fb25f44a09f6ce42a3f937a5e125abe4cf184789b0eb9e9e5f304a2ed17",
+        "path": "policies/gates/GATE-RKG-SCOPE.md",
+        "role": "selected_candidate",
+        "actual_sha256": "bf7f2fb25f44a09f6ce42a3f937a5e125abe4cf184789b0eb9e9e5f304a2ed17",
+        "result": "pass"
+      },
+      {
+        "key": "GATE-RKG-ARCHITECTURE",
+        "revision": 7,
+        "status": "draft",
+        "hash": "4730cff2a9093f0ef76b82a67a3eddb5a55090b9a88cef9cf257893b1b0187d6",
+        "path": "policies/gates/GATE-RKG-ARCHITECTURE.md",
+        "role": "selected_candidate",
+        "actual_sha256": "4730cff2a9093f0ef76b82a67a3eddb5a55090b9a88cef9cf257893b1b0187d6",
+        "result": "pass"
+      },
+      {
+        "key": "GATE-RKG-UIUX",
+        "revision": 9,
+        "status": "draft",
+        "hash": "1a2f9c73ad48d1d450e6d537e3af6596971ff356303c50a96d470679a2215787",
+        "path": "policies/gates/GATE-RKG-UIUX.md",
+        "role": "selected_candidate",
+        "actual_sha256": "1a2f9c73ad48d1d450e6d537e3af6596971ff356303c50a96d470679a2215787",
+        "result": "pass"
+      },
+      {
+        "key": "PRD-RKG",
+        "revision": 20,
+        "status": "draft",
+        "hash": "6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc",
+        "path": "product/prd/PRD-RKG.md",
+        "role": "reference_only",
+        "actual_sha256": "6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc",
+        "result": "pass"
+      },
+      {
+        "key": "DOM-RKG-CORE",
+        "revision": 5,
+        "status": "draft",
+        "hash": "24759954cd15951c3c6fc441d0ba0b88d831f62f86ee1e5b1c15db74318d2ff3",
+        "path": "domain/glossary-core.md",
+        "role": "reference_only",
+        "actual_sha256": "24759954cd15951c3c6fc441d0ba0b88d831f62f86ee1e5b1c15db74318d2ff3",
+        "result": "pass"
+      },
+      {
+        "key": "CAP-RKG-003",
+        "revision": 4,
+        "status": "approved",
+        "hash": "a83f81a79c97a82bb302f0db2a28ade53e32299b390d45a2318ae33839c57c93",
+        "path": "architecture/l1/CAP-RKG-003.md",
+        "role": "reference_only",
+        "actual_sha256": "a83f81a79c97a82bb302f0db2a28ade53e32299b390d45a2318ae33839c57c93",
+        "result": "pass"
+      },
+      {
+        "key": "CMP-RKG-GRAPH",
+        "revision": 9,
+        "status": "draft",
+        "hash": "7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2",
+        "path": "architecture/l2/CMP-RKG-GRAPH.md",
+        "role": "reference_only",
+        "actual_sha256": "7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2",
+        "result": "pass"
+      },
+      {
+        "key": "CMP-RKG-TRANSPORT",
+        "revision": 7,
+        "status": "draft",
+        "hash": "6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286",
+        "path": "architecture/l2/CMP-RKG-TRANSPORT.md",
+        "role": "reference_only",
+        "actual_sha256": "6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286",
+        "result": "pass"
+      },
+      {
+        "key": "ADR-2026-001",
+        "revision": 3,
+        "status": "approved",
+        "hash": "ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d",
+        "path": "architecture/adr/ADR-2026-001.md",
+        "role": "reference_only",
+        "actual_sha256": "ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d",
+        "result": "pass"
+      },
+      {
+        "key": "ADR-2026-004",
+        "revision": 2,
+        "status": "approved",
+        "hash": "43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3",
+        "path": "architecture/adr/ADR-2026-004.md",
+        "role": "reference_only",
+        "actual_sha256": "43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3",
+        "result": "pass"
+      },
+      {
+        "key": "NFR-RKG-SEC-001",
+        "revision": 7,
+        "status": "approved",
+        "hash": "ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa",
+        "path": "requirements/nfr/NFR-RKG-SEC-001.md",
+        "role": "reference_only",
+        "actual_sha256": "ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa",
+        "result": "pass"
+      },
+      {
+        "key": "NFR-RKG-REL-001",
+        "revision": 8,
+        "status": "approved",
+        "hash": "fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b",
+        "path": "requirements/nfr/NFR-RKG-REL-001.md",
+        "role": "reference_only",
+        "actual_sha256": "fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b",
+        "result": "pass"
+      },
+      {
+        "key": "NFR-RKG-UX-001",
+        "revision": 7,
+        "status": "approved",
+        "hash": "c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3",
+        "path": "requirements/nfr/NFR-RKG-UX-001.md",
+        "role": "reference_only",
+        "actual_sha256": "c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3",
+        "result": "pass"
+      },
+      {
+        "key": "API-RKG-CORE-v1",
+        "revision": 16,
+        "status": "draft",
+        "hash": "d73b75134b57955ae827baca16408e91b467ded0b027ccea28f58c7e536b77ce",
+        "path": "tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+        "role": "contract_candidate",
+        "actual_sha256": "d73b75134b57955ae827baca16408e91b467ded0b027ccea28f58c7e536b77ce",
+        "result": "pass"
+      },
+      {
+        "key": "TBL-RKG-GRAPH",
+        "revision": 13,
+        "status": "draft",
+        "hash": "a624df781b47be8e631dc3e85a1140a555fb5a121012ab6ba929f4c438c305ac",
+        "path": "tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+        "role": "contract_candidate",
+        "actual_sha256": "a624df781b47be8e631dc3e85a1140a555fb5a121012ab6ba929f4c438c305ac",
+        "result": "pass"
+      },
+      {
+        "key": "UIS-RKG-001",
+        "revision": 13,
+        "status": "draft",
+        "hash": "d849542a45c36420e35c7aa48d649884832c334224b7b73cc923de9c34e4851d",
+        "path": "design/ui/UIS-RKG-001.md",
+        "role": "contract_candidate",
+        "actual_sha256": "d849542a45c36420e35c7aa48d649884832c334224b7b73cc923de9c34e4851d",
+        "result": "pass"
+      },
+      {
+        "key": "EVAL-RKG-QA-001",
+        "revision": 2,
+        "status": "draft",
+        "hash": "19bba2089b095b0b431d85d843a61a3d5a4488889c269d47439869f11b673720",
+        "path": "policies/eval/EVAL-RKG-QA-001.md",
+        "role": "reference_only",
+        "actual_sha256": "19bba2089b095b0b431d85d843a61a3d5a4488889c269d47439869f11b673720",
+        "result": "pass"
+      },
+      {
+        "key": "OBS-RKG-005",
+        "revision": 3,
+        "status": "draft",
+        "hash": "82acb6483ca288e1952b5f7f354158243ea07ea45cf090a62392787e3c92ef3f",
+        "path": "observability/OBS-RKG-005.md",
+        "role": "reference_only",
+        "actual_sha256": "82acb6483ca288e1952b5f7f354158243ea07ea45cf090a62392787e3c92ef3f",
+        "result": "pass"
+      },
+      {
+        "key": "TOK-RKG-001",
+        "revision": 2,
+        "status": "draft",
+        "hash": "ae71b14d8921b6e64f03641a5787c7b99622fa3f28904a75208eabfb32c8de96",
+        "path": "design/ui/tokens/tokens.json",
+        "role": "reference_only",
+        "actual_sha256": "ae71b14d8921b6e64f03641a5787c7b99622fa3f28904a75208eabfb32c8de96",
+        "result": "pass"
+      },
+      {
+        "key": "DDL-RKG-GRAPH",
+        "revision": 13,
+        "status": "draft",
+        "hash": "b912230b0b7039906ae6fd8b9500a69bdcccff06bbc485ed2f494afadc084de4",
+        "path": "tech-specs/RKG-GRAPH/schema/DDL-RKG-GRAPH.cypher",
+        "role": "contract_candidate",
+        "actual_sha256": "b912230b0b7039906ae6fd8b9500a69bdcccff06bbc485ed2f494afadc084de4",
+        "result": "pass"
+      },
+      {
+        "key": "MIG-RKG-CHATBOT-v3",
+        "revision": 1,
+        "status": "draft",
+        "hash": "04030c6d33a1780ab8ba5c8247d247b539d28305f9b685aa85485f706798e571",
+        "path": "tech-specs/RKG-GRAPH/schema/MIG-RKG-CHATBOT-v3.cypher",
+        "role": "contract_candidate",
+        "actual_sha256": "04030c6d33a1780ab8ba5c8247d247b539d28305f9b685aa85485f706798e571",
+        "result": "pass"
+      },
+      {
+        "key": "CON-RKG-CONVERSATION-v1",
+        "revision": 1,
+        "status": "draft",
+        "hash": "e66334ee24d46d476acd0920ec9344b0fc34bc84a8bdd8ff054cbaafee9620c4",
+        "path": "tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+        "role": "contract_candidate",
+        "actual_sha256": "e66334ee24d46d476acd0920ec9344b0fc34bc84a8bdd8ff054cbaafee9620c4",
+        "result": "pass"
+      },
+      {
+        "key": "SCH-RKG-CONVERSATION-v1",
+        "revision": 1,
+        "status": "draft",
+        "hash": "d7991763c99ac815caa5b271045f10d6d0b6743f1b52b82765ddccdbad6cf574",
+        "path": "tech-specs/RKG-TRANSPORT/api/SCH-RKG-CONVERSATION-v1.json",
+        "role": "contract_candidate",
+        "actual_sha256": "d7991763c99ac815caa5b271045f10d6d0b6743f1b52b82765ddccdbad6cf574",
+        "result": "pass"
+      },
+      {
+        "key": "OAS-RKG-CONVERSATION-v1",
+        "revision": 1,
+        "status": "draft",
+        "hash": "fbf37df09fa390bb5155608424bc0c7ce01b7e88940f2fc3d3a4beac32397a02",
+        "path": "tech-specs/RKG-TRANSPORT/api/OAS-RKG-CONVERSATION-v1.json",
+        "role": "contract_candidate",
+        "actual_sha256": "fbf37df09fa390bb5155608424bc0c7ce01b7e88940f2fc3d3a4beac32397a02",
+        "result": "pass"
+      },
+      {
+        "key": "SCH-RKG-READ-PLAN-v2",
+        "revision": 1,
+        "status": "draft",
+        "hash": "0908b8a657b6b96a1f848ee4cfd511238ed195b871fb8785e6f4d5c33c5d7336",
+        "path": "tech-specs/RKG-CONVERSATION/llm/SCH-RKG-READ-PLAN-v2.json",
+        "role": "contract_candidate",
+        "actual_sha256": "0908b8a657b6b96a1f848ee4cfd511238ed195b871fb8785e6f4d5c33c5d7336",
+        "result": "pass"
+      },
+      {
+        "key": "SCH-RKG-NARRATIVE-v1",
+        "revision": 1,
+        "status": "draft",
+        "hash": "8155b0bdc464a4adae07a48911d684bdf01b3afe7b0cb4a5e1624dc3d5f71394",
+        "path": "tech-specs/RKG-CONVERSATION/llm/SCH-RKG-NARRATIVE-v1.json",
+        "role": "contract_candidate",
+        "actual_sha256": "8155b0bdc464a4adae07a48911d684bdf01b3afe7b0cb4a5e1624dc3d5f71394",
+        "result": "pass"
+      },
+      {
+        "key": "CHL-RKG-CONVERSATION-v1",
+        "revision": 1,
+        "status": "draft",
+        "hash": "3a4539506d1395209c29a1c3adf90a34bf9651c5c338e85080835d5d0010beba",
+        "path": "tech-specs/RKG-TRANSPORT/api/CHL-RKG-CONVERSATION-v1.yaml",
+        "role": "contract_candidate",
+        "actual_sha256": "3a4539506d1395209c29a1c3adf90a34bf9651c5c338e85080835d5d0010beba",
+        "result": "pass"
+      },
+      {
+        "key": "GATE-RKG-CONTRACT",
+        "revision": 9,
+        "status": "draft",
+        "hash": "ec4f6f6b49f1043ca769bfad7d5b96296b04226ac96048d91a3b7f3b1849c919",
+        "path": "policies/gates/GATE-RKG-CONTRACT.md",
+        "role": "contract_gate_policy",
+        "actual_sha256": "ec4f6f6b49f1043ca769bfad7d5b96296b04226ac96048d91a3b7f3b1849c919",
+        "result": "pass"
+      }
+    ],
+    "candidate_files": [
+      {
+        "path": "src/rkg/conversations/grounded.py",
+        "sha256": "a91e8b86842a3f6cac026d73b04526e340d19d2c82077386cf820afb41274f99",
+        "actual_sha256": "a91e8b86842a3f6cac026d73b04526e340d19d2c82077386cf820afb41274f99",
+        "result": "pass"
+      },
+      {
+        "path": "src/rkg/conversations/identity.py",
+        "sha256": "3602308d43fa114ba1c87894d81cb0b688230417bc2b1ce002beb2483424756c",
+        "actual_sha256": "3602308d43fa114ba1c87894d81cb0b688230417bc2b1ce002beb2483424756c",
+        "result": "pass"
+      },
+      {
+        "path": "src/rkg/conversations/service.py",
+        "sha256": "30c1cd287a65e6ee0b79b5c9e9a1b25b5b3a045ca98c7aee6fa21e45e2885b4d",
+        "actual_sha256": "30c1cd287a65e6ee0b79b5c9e9a1b25b5b3a045ca98c7aee6fa21e45e2885b4d",
+        "result": "pass"
+      },
+      {
+        "path": "src/rkg/conversations/language.py",
+        "sha256": "897be3660f31053c8d5a5f3a61f68bc9ddf8cc1b2af7c6dedcf6508022026c81",
+        "actual_sha256": "897be3660f31053c8d5a5f3a61f68bc9ddf8cc1b2af7c6dedcf6508022026c81",
+        "result": "pass"
+      },
+      {
+        "path": "src/rkg/conversations/resolver.py",
+        "sha256": "d4da6e31a0ca4faf4eb8f10b46406745935a6f1e6eb76c381a9ab2acbfb36f96",
+        "actual_sha256": "d4da6e31a0ca4faf4eb8f10b46406745935a6f1e6eb76c381a9ab2acbfb36f96",
+        "result": "pass"
+      },
+      {
+        "path": "src/rkg/graph/search.py",
+        "sha256": "456a2f2b755bc20ebad48dd8e643426326a282de62fce91be2e126657554c7be",
+        "actual_sha256": "456a2f2b755bc20ebad48dd8e643426326a282de62fce91be2e126657554c7be",
+        "result": "pass"
+      },
+      {
+        "path": "src/rkg/llm/openrouter.py",
+        "sha256": "e46c2120122088a08c9c522314e15e40ce45923e2d9636c011e9fd095473f7f1",
+        "actual_sha256": "e46c2120122088a08c9c522314e15e40ce45923e2d9636c011e9fd095473f7f1",
+        "result": "pass"
+      },
+      {
+        "path": "tests/unit/test_conversation_language.py",
+        "sha256": "fecb4d5b87b9034bebe5f2f0f8b709ece566d016c2e37ac97af19239229fe8d6",
+        "actual_sha256": "fecb4d5b87b9034bebe5f2f0f8b709ece566d016c2e37ac97af19239229fe8d6",
+        "result": "pass"
+      },
+      {
+        "path": "tests/integration/test_conversation_resolution.py",
+        "sha256": "ca534f0a9a2a1b693229376ff4b1557ed2834ddd7f5f552752902cf46c01853c",
+        "actual_sha256": "ca534f0a9a2a1b693229376ff4b1557ed2834ddd7f5f552752902cf46c01853c",
+        "result": "pass"
+      }
+    ],
+    "verification_evidence": {
+      "path": ".aide/evidence/tests/TEST-TASK-RKG-031-002.yaml",
+      "sha256": "272aaba32d4236b5e4b712365363b1b93056c63815fc47dd77a479408b9d6b16",
+      "result": "44 targeted tests pass; lint and whitespace pass"
+    }
+  },
+  "checks": {
+    "package_integrity": {
+      "result": "pass",
+      "normative_count": 36,
+      "candidate_count": 9,
+      "baseline": "pass",
+      "verification_evidence": "pass",
+      "previous_review": "pass"
+    },
+    "provided_current_tree_tests": {
+      "result": "pass",
+      "count": 44,
+      "execution": "38 non-HTTP tests plus 6 in-process HTTP tests; HTTP tests use escalation because restricted TestClient stalled in round1; synthetic temporary database and no live provider"
+    },
+    "independent_adversarial_cases": {
+      "result": "pass",
+      "count": 5,
+      "failed": 0,
+      "script_sha256": "6013c717718241c0c829ca3384a988011475236b4720ddf84451dad3e68de3a7",
+      "execution": "Original round1 independent script unchanged; synthetic temporary Kuzu fixture and MockProvider only."
+    },
+    "combined_non_http_and_independent": {
+      "result": "pass",
+      "count": 43,
+      "seconds": 4.07
+    },
+    "http": {
+      "result": "pass",
+      "count": 6,
+      "seconds": 1.98
+    },
+    "fix_inspection": {
+      "result": "pass",
+      "scope": "Language signals, typed lookup precedence and candidate-mode durable resume/legacy guards inspected against pinned contracts."
+    }
+  },
+  "findings": [
+    {
+      "id": "FND-TASK-RKG-031-001",
+      "perspective": "functional-correctness / durable-clarification",
+      "severity": "high",
+      "classification": "bad_code",
+      "location": {
+        "path": "src/rkg/conversations/grounded.py",
+        "line": 344
+      },
+      "summary": "Model candidate mode skips the committed pending-intent resume and legacy restatement guard.",
+      "requirement_refs": [
+        "AC-RKG-077",
+        "CON-RKG-CONVERSATION-v1",
+        "TBL-RKG-GRAPH r13 Commit/replay/recovery",
+        "API-RKG-CORE-v1 r16 Local resolution order"
+      ],
+      "observed": "A synthetic natural-language ordinal not recognized by the local ordinal parser reaches planner candidate mode. With v2 pending intent, terminal resolved_question is the selection wording instead of the stored business question and effective locale falls back to the new submission locale. With legacy pending IDs and no pending intent, the same path commits an answered turn and clears the choices instead of requesting a restatement.",
+      "impact": "A valid schema-bound provider response can discard durable original intent and bypass the legacy no-inferred-intent invariant.",
+      "recommendation": "Route every candidate resolution through one shared committed-selection resume path; legacy pending state must retain candidates and request original-question restatement before retrieval/synthesis.",
+      "verification": {
+        "result": "pass",
+        "independent_cases": 2,
+        "database": "synthetic temporary Kuzu only",
+        "provider": "MockProvider only"
+      },
+      "fingerprint": "c7f17c576441feea8fd3114a2f4c4fb22ea2432ac726c9d2e64b0204cc048b6f",
+      "state": "resolved",
+      "round2_resolution": "Planner candidate mode now checks pending-intent availability and candidate bounds, preserves legacy choices without synthesis, and restores committed question/language/locale/relation/direction/type before synthesis for v2 selections. Original independent v2 and legacy probes both pass."
+    },
+    {
+      "id": "FND-TASK-RKG-031-002",
+      "perspective": "functional-correctness / endpoint-resolution",
+      "severity": "medium",
+      "classification": "bad_code",
+      "location": {
+        "path": "src/rkg/conversations/resolver.py",
+        "line": 29
+      },
+      "summary": "Natural English endpoint questions resolve the entity-kind word as the endpoint name.",
+      "requirement_refs": [
+        "AC-RKG-075",
+        "CMP-RKG-CONVERSATION r7 Internal structure"
+      ],
+      "observed": "A synthetic English question in the common does + endpoint + simple-name form returns Lookup(query=endpoint, entity_type=Endpoint) rather than the supplied name. The regex takes the earlier does match before the endpoint-name match. The exact deterministic lookup therefore searches the wrong entity and cannot reach the intended simple-name endpoint.",
+      "impact": "Users must change natural wording or supply quoting/qualified names to identify an otherwise known endpoint; a same-named endpoint matching the kind word could be selected incorrectly.",
+      "recommendation": "Prefer entity-kind/name parsing before the does fallback, and prevent entity-kind tokens from becoming entity names.",
+      "verification": {
+        "result": "pass",
+        "independent_cases": 1
+      },
+      "fingerprint": "c92b6c3d27fffb690c530c45eb8f64482964304928d996d4e597c48c2dd900db",
+      "state": "resolved",
+      "round2_resolution": "Typed entity-kind/name parsing now precedes the does fallback and preserves the supplied simple endpoint name. Original independent natural-English endpoint probe passes."
+    },
+    {
+      "id": "FND-TASK-RKG-031-003",
+      "perspective": "usability / effective-language",
+      "severity": "medium",
+      "classification": "bad_code",
+      "location": {
+        "path": "src/rkg/conversations/language.py",
+        "line": 15
+      },
+      "summary": "Clearly Vietnamese and English prose outside the narrow keyword lists receives the opposite UI language.",
+      "requirement_refs": [
+        "AC-RKG-074",
+        "CMP-RKG-CONVERSATION r7 Internal structure",
+        "API-RKG-CORE-v1 r16 Effective language"
+      ],
+      "observed": "Synthetic accented Vietnamese explanation wording around a quoted identifier resolves to English when fallback is en. Synthetic clear English listing wording around a quoted identifier resolves to Vietnamese when fallback is vi. Identifier exclusion succeeds but the remaining clear prose is not recognized.",
+      "impact": "Language selection violates the clear-question-language rule and persists an incorrect clarification language for later resume.",
+      "recommendation": "Recognize clear Vietnamese prose after identifier exclusion and broaden conservative English signals; add cases with explicit opposite UI locales.",
+      "verification": {
+        "result": "pass",
+        "independent_cases": 2
+      },
+      "fingerprint": "c1cb342191c88f685ef20b1c8103915f0c8f42358da693f5eb20d7c8ee1e17d8",
+      "state": "resolved",
+      "round2_resolution": "Identifier-stripped prose now recognizes Vietnamese orthographic signals and additional clear Vietnamese/English phrasing. Both original independent opposite-UI-locale language probes pass."
+    }
+  ],
+  "new_findings": [],
+  "not_run": [
+    "live provider",
+    "operator database/migration",
+    "UI walkthrough/UAT/release",
+    "TASK032 narrative schema/topology/rendering acceptance",
+    "TASK033 public API capability/history/citation acceptance"
+  ],
+  "read_boundary": "Pinned normative artifacts, candidate code/tests, referenced current/previous review evidence and task scope only; no author context/plan/diary consulted. TASK032 preparation files excluded.",
+  "gate_note": "All three round1 findings independently resolved for the frozen round2 package. Advisory agent review does not supply human gate signoff; component merge gate remains pending. Maximum two review rounds reached."
+}

@@ -1,0 +1,18 @@
+{
+  "key": "CR-RKG-020",
+  "type": "change-request",
+  "group": "evidence",
+  "revision": 2,
+  "system": "SYS-RKG",
+  "captured_at": "2026-10-07T07:39:37.578587+00:00",
+  "task": "TASK-RKG-038",
+  "story": "STORY-RKG-032",
+  "source": "user_reported_chatbot_failure",
+  "change_set": "CHG-RKG-2026-005",
+  "scope": "Investigate malformed chatbot turns without claiming root cause from generic UI code. Supply existing normative endpoint anchors/path limits and planner sentinel semantics explicitly to model. Add allowlisted stage/reason diagnostics with no prompt/response/config values. Suppress coverage/limit notes for failed/interrupted/pending turns and explain malformed response naturally. Preserve original schemas/grounding/state/idempotency and unlimited defaults; no paid live call or operator DB/config.",
+  "request_summary": "Diagnose malformed turns on TASK-RKG-038 and explain failed responses without inferring a live root cause from generic UI text.",
+  "authorization_boundary": "Allowlisted stage and reason diagnostics only. No prompt, response, or config values in diagnostics. No paid live call or operator database or config change.",
+  "classification": "internal",
+  "ai_assisted": true,
+  "record_boundary": "Normalized requested behavior; no transcript."
+}

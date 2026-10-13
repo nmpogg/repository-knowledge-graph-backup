@@ -1,0 +1,34 @@
+{
+  "key": "DEC-TASK-RKG-039-001",
+  "type": "human-review-limit-disposition",
+  "group": "evidence",
+  "revision": 1,
+  "task": "TASK-RKG-039",
+  "change_set": "CHG-RKG-2026-006",
+  "captured_at": "2026-10-07T09:15:55.593279+00:00",
+  "source": "explicit_user_answer_to_review_limit_choice",
+  "decision": "accept_current_author_repair_with_existing_verification",
+  "procedure": "workflow B.17/B.18; two full reviews exhausted",
+  "captured_against": {
+    "review_package": {
+      "path": ".aide/reviewer/packages/RVP-TASK-RKG-039-r3.yaml",
+      "sha256": "7616ea3e5eea6b8fd8e97d17d7dcb35daa2b19cd32d583242d17a575cd64a569"
+    },
+    "verification": {
+      "path": ".aide/evidence/tests/TEST-TASK-RKG-039-003.yaml",
+      "sha256": "6d698cfe7e0aad457aca38494c55c05a45d769808f7dea38f2df729b83843ed3"
+    },
+    "previous_independent_review": {
+      "path": ".aide/evidence/reviews/REV-TASK-RKG-039-002.yaml",
+      "sha256": "66eec12dc368b51e095e4e7aeb7bb2b8cdb94505a9f0a0dba01b2d8a3fcfee23"
+    }
+  },
+  "finding": {
+    "id": "FND-TASK-RKG-039-002",
+    "fingerprint_sha256": "1a805aa8d21862a397e99b3f82637f28be8673e46658304049a75481ba593272",
+    "disposition": "author_repaired_human_accepted_without_additional_independent_verification"
+  },
+  "independent_review": "No third full review or additional delta review requested/authorized; second review retained unchanged.",
+  "scope": "Accept concrete frozen r3 implementation repair with127 passing author checks; does not grant human gate approval or live-provider acceptance.",
+  "human_gates": "pending"
+}

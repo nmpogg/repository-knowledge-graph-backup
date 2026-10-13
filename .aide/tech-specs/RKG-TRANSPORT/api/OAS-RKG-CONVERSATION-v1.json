@@ -1,0 +1,413 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OAS-RKG-CONVERSATION-v1",
+    "version": "1.0.0",
+    "description": "Candidate additive conversation slice for API-RKG-CORE-v1 revision 16; other API routes are unchanged."
+  },
+  "x-aide": {
+    "key": "OAS-RKG-CONVERSATION-v1",
+    "type": "openapi-contract",
+    "group": "normative",
+    "system": "SYS-RKG",
+    "revision": 1,
+    "status": "draft",
+    "change_set": "CHG-RKG-2026-002",
+    "owned_by": "CMP-RKG-TRANSPORT",
+    "classification": "internal",
+    "ai_assisted": true
+  },
+  "paths": {
+    "/api/v1/conversations/{conversation_id}/turns": {
+      "get": {
+        "operationId": "conversation_history",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversation_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            }
+          },
+          {
+            "in": "query",
+            "name": "include_unavailable",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/HistoryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Local session/Origin/Host invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Generic missing resource/ownership mismatch",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict or busy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Pinned snapshot unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Provider/schema/grounding failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Provider disabled",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Provider timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "conversation_submit",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversation_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "security": [
+          {
+            "LocalSession": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/TurnRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/TurnSubmitResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Local session/Origin/Host invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Generic missing resource/ownership mismatch",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict or busy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Pinned snapshot unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Provider/schema/grounding failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Provider disabled",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Provider timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/conversations/capabilities": {
+      "get": {
+        "operationId": "conversation_capabilities",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/CapabilitiesResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Local session/Origin/Host invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Generic missing resource/ownership mismatch",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/conversations/{conversation_id}/turns/{turn_id}/citations/{citation_index}": {
+      "get": {
+        "operationId": "conversation_citation",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversation_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "turn_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "citation_index",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ExactCitationResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Local session/Origin/Host invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Generic missing resource/ownership mismatch",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Pinned snapshot unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./SCH-RKG-CONVERSATION-v1.json#/$defs/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "LocalSession": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-RKG-Session"
+      }
+    }
+  }
+}

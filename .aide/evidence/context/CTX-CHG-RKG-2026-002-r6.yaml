@@ -1,0 +1,253 @@
+{
+  "key": "CTX-CHG-RKG-2026-002-r6",
+  "type": "context-snapshot",
+  "group": "evidence",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "captured_at": "2026-10-06T11:59:50+07:00",
+  "change_set": "CHG-RKG-2026-002",
+  "previous_context": "CTX-CHG-RKG-2026-002-r5",
+  "stage": "architecture_tech_lead_approved_awaiting_architect_signoff",
+  "captured_against": {
+    "baseline": {
+      "key": "BL-CHG-RKG-2026-002-r4",
+      "sha256": "3e1388e1c28dec09511ba595131cb0a2896e9c8120ce8de3d3544ea575bc63a2"
+    },
+    "approval": {
+      "key": "approval-008",
+      "path": ".aide/evidence/approvals/approval-008.yaml",
+      "sha256": "f158edb9b39c1e8d8aae39e390348f4c70999ce558c996d75f596bf8086cb286"
+    },
+    "base_code_commit": "86ecab6546384227d1901e24c8b8fbfc6c0e8527",
+    "artifacts": [
+      {
+        "key": "FR-RKG-005",
+        "revision": 9,
+        "status": "approved",
+        "hash": "6f240da74dd108933c85da36bf973106c30b7a6825f2e3b57e67318fa22a78f5",
+        "path": "requirements/fr/FR-RKG-005.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "ADR-2026-007",
+        "revision": 2,
+        "status": "draft",
+        "hash": "1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a",
+        "path": "architecture/adr/ADR-2026-007.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "CMP-RKG-CONVERSATION",
+        "revision": 7,
+        "status": "draft",
+        "hash": "2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65",
+        "path": "architecture/l2/CMP-RKG-CONVERSATION.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "CMP-RKG-WEB",
+        "revision": 9,
+        "status": "draft",
+        "hash": "9127465096842ccdf6addff5649a13839515f088a136d2bdcbbb3e5ccb5b91e6",
+        "path": "architecture/l2/CMP-RKG-WEB.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "TM-RKG",
+        "revision": 8,
+        "status": "draft",
+        "hash": "c22e337412e5c9d42bccbc5cf5ef76e92767ee130f3b4d8a9de86ea6d6570bb6",
+        "path": "architecture/threat-model/TM-RKG.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "UXF-RKG-002",
+        "revision": 5,
+        "status": "draft",
+        "hash": "5e57d4c6d118e1463a96373740105d61371514de12f2f1aa17a303206d8e3add",
+        "path": "design/ux/UXF-RKG-002.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "SCR-RKG-001",
+        "revision": 9,
+        "status": "draft",
+        "hash": "385e3bd7ddb7ff32397580270005574cb6cce2ae47e392e7b137c9a4520876c3",
+        "path": "design/ux/SCR-RKG-001.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "UID-RKG-001",
+        "revision": 8,
+        "status": "draft",
+        "hash": "b5b92b6652c087cadaa0a347de226f9bf72fc2f5ad36eff617e9452b4e3dbc7e",
+        "path": "design/ui/UID-RKG-001.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "GATE-RKG-SCOPE",
+        "revision": 9,
+        "status": "draft",
+        "hash": "bf7f2fb25f44a09f6ce42a3f937a5e125abe4cf184789b0eb9e9e5f304a2ed17",
+        "path": "policies/gates/GATE-RKG-SCOPE.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "GATE-RKG-ARCHITECTURE",
+        "revision": 6,
+        "status": "draft",
+        "hash": "28b9cefd31d2573bee4b5be4a8a23c9e649e458ee97605f96972dd53b6d60826",
+        "path": "policies/gates/GATE-RKG-ARCHITECTURE.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "GATE-RKG-UIUX",
+        "revision": 8,
+        "status": "draft",
+        "hash": "9738d79480c08191b7043a58e50001d3bc0e1e7f501631250a9ddab52be86a34",
+        "path": "policies/gates/GATE-RKG-UIUX.md",
+        "role": "selected_candidate"
+      },
+      {
+        "key": "PRD-RKG",
+        "revision": 20,
+        "status": "draft",
+        "hash": "6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc",
+        "path": "product/prd/PRD-RKG.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "DOM-RKG-CORE",
+        "revision": 5,
+        "status": "draft",
+        "hash": "24759954cd15951c3c6fc441d0ba0b88d831f62f86ee1e5b1c15db74318d2ff3",
+        "path": "domain/glossary-core.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "CAP-RKG-003",
+        "revision": 4,
+        "status": "approved",
+        "hash": "a83f81a79c97a82bb302f0db2a28ade53e32299b390d45a2318ae33839c57c93",
+        "path": "architecture/l1/CAP-RKG-003.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "CMP-RKG-GRAPH",
+        "revision": 9,
+        "status": "draft",
+        "hash": "7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2",
+        "path": "architecture/l2/CMP-RKG-GRAPH.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "CMP-RKG-TRANSPORT",
+        "revision": 7,
+        "status": "draft",
+        "hash": "6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286",
+        "path": "architecture/l2/CMP-RKG-TRANSPORT.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "ADR-2026-001",
+        "revision": 3,
+        "status": "approved",
+        "hash": "ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d",
+        "path": "architecture/adr/ADR-2026-001.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "ADR-2026-004",
+        "revision": 2,
+        "status": "approved",
+        "hash": "43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3",
+        "path": "architecture/adr/ADR-2026-004.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "NFR-RKG-SEC-001",
+        "revision": 7,
+        "status": "approved",
+        "hash": "ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa",
+        "path": "requirements/nfr/NFR-RKG-SEC-001.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "NFR-RKG-REL-001",
+        "revision": 8,
+        "status": "approved",
+        "hash": "fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b",
+        "path": "requirements/nfr/NFR-RKG-REL-001.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "NFR-RKG-UX-001",
+        "revision": 7,
+        "status": "approved",
+        "hash": "c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3",
+        "path": "requirements/nfr/NFR-RKG-UX-001.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "API-RKG-CORE-v1",
+        "revision": 15,
+        "status": "draft",
+        "hash": "e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2",
+        "path": "tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "TBL-RKG-GRAPH",
+        "revision": 12,
+        "status": "draft",
+        "hash": "8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf",
+        "path": "tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "UIS-RKG-001",
+        "revision": 12,
+        "status": "draft",
+        "hash": "2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b",
+        "path": "design/ui/UIS-RKG-001.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "EVAL-RKG-QA-001",
+        "revision": 2,
+        "status": "draft",
+        "hash": "19bba2089b095b0b431d85d843a61a3d5a4488889c269d47439869f11b673720",
+        "path": "policies/eval/EVAL-RKG-QA-001.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "OBS-RKG-005",
+        "revision": 3,
+        "status": "draft",
+        "hash": "82acb6483ca288e1952b5f7f354158243ea07ea45cf090a62392787e3c92ef3f",
+        "path": "observability/OBS-RKG-005.md",
+        "role": "reference_only"
+      },
+      {
+        "key": "TOK-RKG-001",
+        "revision": 2,
+        "status": "draft",
+        "hash": "ae71b14d8921b6e64f03641a5787c7b99622fa3f28904a75208eabfb32c8de96",
+        "path": "design/ui/tokens/tokens.json",
+        "role": "reference_only"
+      }
+    ]
+  },
+  "authority": {
+    "scope": "approved",
+    "architecture": "pending",
+    "tech_lead_approval": "recorded",
+    "architect_role": "awaiting_confirmation",
+    "ui_ux": "pending",
+    "contract": "pending",
+    "implementation_ready": false
+  },
+  "notes": "Reviewed artifact bytes remain unchanged. Required Architect metadata is still pending; elapsed time is not confirmation.",
+  "classification": "internal",
+  "ai_assisted": true
+}

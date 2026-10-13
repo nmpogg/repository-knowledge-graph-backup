@@ -1,0 +1,34 @@
+# Dependencies (regenerable via package manager)
+node_modules/
+
+# Frontend Vite build output — keep placeholder only
+frontend/dist/**
+!frontend/dist/.gitkeep
+
+# Python local env / cache
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+*.egg-info/
+
+# Local credentials; keep only the empty template in Git
+.env
+.env.*
+!.env.example
+
+# Python build artifacts at repo root (not frontend/dist)
+/dist/
+
+# Regenerable generated + coverage (reference: docs/reference/agentic-sdlc/)
+# Do NOT ignore all of .aide/generated/ — signed/cited views must stay in Git.
+.aide/generated/traceability/
+coverage/
+htmlcov/
+.coverage
+*.lcov
+.rkg/
+
+# Temporary local workspace for Task 22 live evaluation
+.task22_work/

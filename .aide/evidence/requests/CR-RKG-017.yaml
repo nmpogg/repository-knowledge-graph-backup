@@ -1,0 +1,22 @@
+{
+  "key": "CR-RKG-017",
+  "type": "change-request",
+  "group": "evidence",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "captured_at": "2026-10-07T11:53:53.121794+07:00",
+  "change_set": "CHG-RKG-2026-002",
+  "source": "explicit_interactive_human_approval",
+  "actor": "PhongNM",
+  "scope": "Component Merge approval for TASK-RKG-031 through TASK-RKG-035 and completion of TASK034/035 against the concrete reviewed current candidate.",
+  "candidate": {
+    "code_commit": "02c892324202ca3eda9fdbc58c661a16c79b5608",
+    "decision_head": "6748396546e4ca9394e70c5862e743259a32e941",
+    "readiness": {
+      "path": ".aide/evidence/tests/TEST-RKG-CHATBOT-CLOSURE-001.yaml",
+      "sha256": "ee8fe9b0306251828d427dd7ac3751009015d875118daba88dd06640645e8735"
+    }
+  },
+  "automatic": false,
+  "record_boundary": "Normalized approval intent and persistent signer authority only; no conversation transcript."
+}

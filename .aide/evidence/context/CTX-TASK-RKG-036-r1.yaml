@@ -1,0 +1,45 @@
+{
+  "key": "CTX-TASK-RKG-036-r1",
+  "type": "context-snapshot",
+  "group": "evidence",
+  "revision": 1,
+  "task": "TASK-RKG-036",
+  "captured_at": "2026-10-07T04:59:46.872600+00:00",
+  "code_commit": "9f5de1b502d7bafee7a2123419809d4094511556",
+  "normative_inputs": [
+    {
+      "path": ".aide/requirements/nfr/NFR-RKG-REL-001.md",
+      "sha256": "fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b"
+    },
+    {
+      "path": ".aide/architecture/l2/CMP-RKG-CONVERSATION.md",
+      "sha256": "2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65"
+    },
+    {
+      "path": ".aide/tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+      "sha256": "e66334ee24d46d476acd0920ec9344b0fc34bc84a8bdd8ff054cbaafee9620c4"
+    },
+    {
+      "path": ".aide/tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+      "sha256": "d73b75134b57955ae827baca16408e91b467ded0b027ccea28f58c7e536b77ce"
+    },
+    {
+      "path": ".aide/tech-specs/RKG-TRANSPORT/api/SCH-RKG-CONVERSATION-v1.json",
+      "sha256": "d7991763c99ac815caa5b271045f10d6d0b6743f1b52b82765ddccdbad6cf574"
+    },
+    {
+      "path": ".aide/design/ui/UIS-RKG-001.md",
+      "sha256": "d849542a45c36420e35c7aa48d649884832c334224b7b73cc923de9c34e4851d"
+    },
+    {
+      "path": ".aide/tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+      "sha256": "a624df781b47be8e631dc3e85a1140a555fb5a121012ab6ba929f4c438c305ac"
+    },
+    {
+      "path": ".aide/tech-specs/RKG-GRAPH/schema/DDL-RKG-GRAPH.cypher",
+      "sha256": "b912230b0b7039906ae6fd8b9500a69bdcccff06bbc485ed2f494afadc084de4"
+    }
+  ],
+  "authorization": "CR-RKG-018",
+  "scope": "Remove application-imposed limits for model calls, input tokens, LLM output tokens, graph query count, total turn deadline and user question characters. Keep history/retrieval/narrative/schema/privacy/ownership guards."
+}

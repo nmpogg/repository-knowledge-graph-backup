@@ -1,0 +1,491 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-027
+revision: 3
+implementation_date: '2026-10-01'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-006
+    revision: 2
+    hash: e079bf17f5d00e19d7de943f93cef3418d398773772b2d871c702345b37c3ca3
+    path: architecture/adr/ADR-2026-006.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-ANALYZER
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: CMP-RKG-GRAPH
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  - key: CMP-RKG-WEB
+    revision: 8
+    hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+    path: architecture/l2/CMP-RKG-WEB.md
+  - key: EPIC-002-TEAM-RKG
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  - key: FR-RKG-001
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  - key: FR-RKG-002
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  - key: FR-RKG-003
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: NFR-RKG-UX-001
+    revision: 7
+    hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  - key: STORY-RKG-017
+    revision: 2
+    hash: 41ab61ff7ead7531103e8e170931b9e14e683a1b54244e6493da7ff1525d69cd
+    path: lifecycle/stories/STORY-RKG-017.md
+  - key: TBL-RKG-GRAPH
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+  implementation_phases:
+  - commit: 64739d4e674050f4944baf4aaa609cbcc86acf3b
+    author_at: '2026-10-01T11:21:41+07:00'
+    committed_at: '2026-10-01T11:21:41+07:00'
+    implementation_date: '2026-10-01'
+    changed_paths: []
+  - commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    author_at: '2026-10-01T13:37:27+07:00'
+    committed_at: '2026-10-01T13:37:27+07:00'
+    implementation_date: '2026-10-01'
+    changed_paths:
+    - README.md
+    - frontend/src/client/live/liveRoundtrip.test.ts
+    - frontend/src/client/live/mapWire.test.ts
+    - frontend/src/client/live/mapWire.ts
+    - frontend/src/i18n/en.ts
+    - frontend/src/i18n/vi.ts
+    - frontend/src/index.css
+    - frontend/src/pages/conversations/ConversationPage.tsx
+    - frontend/src/pages/explorer/ExplorerPage.tsx
+    - frontend/src/pages/explorer/SnapshotStructure.test.tsx
+    - frontend/src/pages/explorer/SnapshotStructure.tsx
+    - frontend/src/pages/explorer/structureTree.test.ts
+    - frontend/src/pages/explorer/structureTree.ts
+    - frontend/src/types/api.ts
+    - src/rkg/adapters/aiokafka_messaging.py
+    - src/rkg/adapters/conformance.py
+    - src/rkg/adapters/contracts.py
+    - src/rkg/adapters/fastapi_framework.py
+    - src/rkg/adapters/flask_framework.py
+    - src/rkg/adapters/python_language.py
+    - src/rkg/adapters/sqlalchemy_data.py
+    - src/rkg/api/app.py
+    - src/rkg/api/catalog.py
+    - src/rkg/api/serialize.py
+    - src/rkg/domain/context.py
+    - src/rkg/domain/models.py
+    - src/rkg/domain/validation.py
+    - src/rkg/graph/publish.py
+    - src/rkg/ingestion/local.py
+    - src/rkg/jobs/coordinator.py
+    - src/rkg/jobs/structure.py
+    - src/rkg/storage/_util.py
+    - src/rkg/storage/migrate.py
+    - tests/fixtures/domain/source_structure.json
+    - tests/fixtures/storage/ddl_v1.cypher
+    - tests/integration/test_directory_entities.py
+    - tests/integration/test_index_coordinator.py
+    - tests/integration/test_index_language_partition.py
+    - tests/unit/test_adapter_registry.py
+    - tests/unit/test_directory_structure.py
+    - tests/unit/test_local_source.py
+  files:
+  - path: README.md
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 2ced8bbb35b153605cc29e8d4d9e04c55cb8f3634918641a26e4226f1bf07452
+    current_sha256: b05e41a4ed37690fbf80349f3a16d4fa07ed2586027906162377e286d5f5ce30
+  - path: frontend/src/client/live/liveRoundtrip.test.ts
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 0ae6020829254d15217ac016fdfaf0ac2a91aca3f79a341ee1a640b303e0e61b
+    current_sha256: 9415496f1aca05b7d4bb0ce4bb39fd192867ce915b2621c2768afdc8592104c4
+  - path: frontend/src/client/live/mapWire.test.ts
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: d20a94bc7dad9d8a34eee7695ea273ba20276bd86b96ceedac59c00db07d5a4c
+    current_sha256: 15ffb34c2528042282dab0d193aabc9ac308755bac82269dc331c0b938cab13c
+  - path: frontend/src/client/live/mapWire.ts
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 73f3d821c0e4892ff7e75ae2598d5914dfe2c5e02a378c506c77df10fbf2f910
+    current_sha256: e8005d00e72038d4bc6fa3f02761cc86a619ca01e8cfd7ea3a6f9d81206eb4e1
+  - path: frontend/src/i18n/en.ts
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: adde5afba152905551f1413fde4273dd88679601c05242c84dfe6f109e005486
+    current_sha256: 151132f36bfa81133f2cb1191b1a73883faeb103a55f9f6e6a73b16c81f2f2cd
+  - path: frontend/src/i18n/vi.ts
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: a676933b877269ba78a9104e27999caaca04d05f27305232e27cf6587956dc06
+    current_sha256: 013db8db874cb4ac743cba45f3a8ac39c4e533c6b679a9172900dc0566a5e61f
+  - path: frontend/src/index.css
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: a5792c4a1ccd4344d59e92bd875825773385507ac364f959219f0882a3efd745
+    current_sha256: e0ad8cd42dd72acaace8677df0d9597d1124e0343fd704846e44ea241b9d3aaa
+  - path: frontend/src/pages/conversations/ConversationPage.tsx
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: c42a040f5aa66ced334b829bfe342128e35de4265517025081691f31db7b0fa4
+    current_sha256: 024a43cebbcf383ab8e4bdd5829546cdb4d1714127df47b1d1b835d015768a76
+  - path: frontend/src/pages/explorer/ExplorerPage.tsx
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 0ddc51a8f36fd33e6bce4b617507b7992f22460069472eee9cf85d523c3be4fc
+    current_sha256: 86a3b006ba3dfe800e536086cfb9e508fdf12b73d1681c40028d4a3ba4ce2740
+  - path: frontend/src/pages/explorer/SnapshotStructure.test.tsx
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 725f1500baa8acfac87e9401e60a2c057ebc2d97795356d32670e6ff5ef68d07
+    current_sha256: cac3650cb9135bd9d38e6347f51d31fdfd6fb43717469cc17f8a8e1298e69c1b
+  - path: frontend/src/pages/explorer/SnapshotStructure.tsx
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 34a32a8f7e8ec6be896a207889cadd1a75d44e035191f872d96f63019ac12ec9
+    current_sha256: ab2edf50af94e31ff132b73aa0d3314345d0e87562b9501796880cd9d4dd2fc3
+  - path: frontend/src/pages/explorer/structureTree.test.ts
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: bdfdfa320ddc1c892154fbb26717284e063cc2090d8db1219e361cec0c9b97ed
+    current_sha256: 0f42c564941fa378ea730f85195b96a038ec3a5eea1aee0bd7b028d42df9066f
+  - path: frontend/src/pages/explorer/structureTree.ts
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 9ac614a7be576391e8022cb6050e937e887233559d1ca95b5cb840a7c5dad5c8
+    current_sha256: 5c3738fda8e0252dc287c3f61ca4642f86ea1da4ff0bfd0bcddb961075aafedd
+  - path: frontend/src/types/api.ts
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 3e5f367914d8aedd1300229a412c62a15872e9169909e72e8e650fb8ccc4f093
+    current_sha256: 4b6eb76fd396753543b395ba82ae33517736a7110caecc8e0d9b4e64e8139d01
+  - path: src/rkg/adapters/aiokafka_messaging.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 84db60e03f0290223a1a9be7a0a08c440fb1ee6b16f6b3691f21a82b3b45beb2
+    current_sha256: 84db60e03f0290223a1a9be7a0a08c440fb1ee6b16f6b3691f21a82b3b45beb2
+  - path: src/rkg/adapters/conformance.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 11dca82d68ff9c285c69c4ff4d77dab289794ccdd2caee0f54cb9def85fc8902
+    current_sha256: e52273f6ece40f34a737502afe50641deeaee5c8b9653078028f7259a7dc67b7
+  - path: src/rkg/adapters/contracts.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 5b2f9b3684ddfa8d1f3eb045c7c166324850926b8ed2356e3efe46ce4e90f867
+    current_sha256: 56a4b57ad4f1e0a66a77e166591f43e4f962fdc91274a352e34bfae9f3bb8cac
+  - path: src/rkg/adapters/fastapi_framework.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 5a7011e9957290121f62713a6a91a417c448883704296f5151aa6e42a7da1db9
+    current_sha256: ee847aae1469ba1807c5917c07cbfabefecd26a696671746eb8472397e8abc17
+  - path: src/rkg/adapters/flask_framework.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: f93cc3e1134069cdceb2fec26d4e728fd574b84e2e35b9053d714d8d4f2f5f9d
+    current_sha256: 60f87fa91a7dff56614051e4a4acb7baf99e4c2961f06104c2cf78345726b8b8
+  - path: src/rkg/adapters/python_language.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: b026931eb4eaa695ba0201ac80957801eb22cf3580ab2281ad43032ad53275dc
+    current_sha256: 3e54a40b6117066da69ed23a519843f8f3034e91c8fd7e92ebd9bd07ee2114e5
+  - path: src/rkg/adapters/sqlalchemy_data.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 57f1ddb6a38a94158bc7ff34f20078e4ac026e485320274c65f70964878a1fdf
+    current_sha256: fb0383a59530c5e7f6b8464937d0a280df153f345ea8f96c752d8bcc37be1e51
+  - path: src/rkg/api/app.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: b46e0c733cec6f09210bc8547f1a7dabef92f1e5a9a06a7d88c9e1bec42f6d7c
+    current_sha256: 8eebd57e33a62eceaa71670c22c2a39733c7ba237944fce54cee1ce32412b900
+  - path: src/rkg/api/catalog.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: a97d9c5c7b604e301864ff99d9e8ae3b1ac646a927cf245b5f7a745be27a2e72
+    current_sha256: 3dfd3669681392631021bd4eed8e5ac426bec65482384f83a534d4bd3323d766
+  - path: src/rkg/api/serialize.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 47ee5394004bedb28e4fc46452bb6e6b4ed51c6e9f714b128a21f5b452d9869b
+    current_sha256: 5e57997eceb6d67a3e113687488fbb8c4a6bde3e16315130afa428293da9e52f
+  - path: src/rkg/domain/context.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: cab8df606f075991cb2ce3dc00b01ae16a278fe91552a9f7166a085eb739ad01
+    current_sha256: 93fb2e41ddab7220df8ff7022c5336ba346439747ed321d98f4380a27e52d890
+  - path: src/rkg/domain/models.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 9991c2ae636db2885806f18e662177c70d007e4bbebb208e2320e3bfac880a7a
+    current_sha256: 5ecf9132d533906aecd881818b91b1735f6b3d39fa5fcc50889be0ce11943a36
+  - path: src/rkg/domain/validation.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 2fec29860615a3c918bc3d859b434dfe236c2e2b55eeaa49d8fa7be0be65a2c1
+    current_sha256: efa1d30dbd02ce49a4bf3c97046a7a52fb8d688920c3f74176fd6ee417645e71
+  - path: src/rkg/graph/publish.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 8551d0559622e7a6f824b633b07cfeef700341e9cb2fed789a2c07228d208936
+    current_sha256: ab0ae10bf452fcb652a50622d7136d6bd44371bb2d20280bffd277577c12c728
+  - path: src/rkg/ingestion/local.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 8e8ac5b6eba5bf4a78fe4a448ba2203d651c80591c4a38de5ef395cc7c05da2b
+    current_sha256: 8e8ac5b6eba5bf4a78fe4a448ba2203d651c80591c4a38de5ef395cc7c05da2b
+  - path: src/rkg/jobs/coordinator.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 6c31a226e4ff7ed89db941258fa3c1ad2be4d13e1205e5034b4d555dc8193b0f
+    current_sha256: 3ecb3e8e2a9bdf5ecbb0db98341294fbe8fc41f6f65246555db9d784fd80d2bf
+  - path: src/rkg/jobs/structure.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 0972d05ee48e353768817686aeef081eb62bb1d2561431b64e98638799e09dfe
+    current_sha256: 2bbd927a0c3ce609861033c0ff1be88ef3baefe5edd4f5318b0aba97b0938d8b
+  - path: src/rkg/storage/_util.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 20b7be0e3cd9f3690aebee65d23b6a189338f2caf1b519a0451c4a3b6bc0c703
+    current_sha256: bbc90985b1fce6ec6cf08e21143ff7ba8c406138e8094570711a3eacdea8581d
+  - path: src/rkg/storage/migrate.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: cedece055b7e5271351901dc47948347df17c5e59525c40e0cf2308940b6fd2f
+    current_sha256: 89b7d91bc6dec1c6c8b91b08aa4878222c99ae952f1ce5ef6beda9cc4aa28adc
+  - path: tests/fixtures/domain/source_structure.json
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: c8d01dd1489b1024b68367c21120779e855144e26663ef92bcc822b2dd99564f
+    current_sha256: 5430346837326cb1297a33c865c3332b3841f65e26ebde29379fd17e01719b7c
+  - path: tests/fixtures/storage/ddl_v1.cypher
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 172efd0e4d6cdad4a052e4e5087de7dec21cdd759e96f0cebdcc9f12ae3e6212
+    current_sha256: 789127c880117c9d94cc405cf20f1a68a3e9622a8cbbed1aefb1eadea321dc88
+  - path: tests/integration/test_directory_entities.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: e6059c40ce7b5a35414b822268ceb7bd7fe4808d396dc0a17715a5dbd54e0ddb
+    current_sha256: a0e98e2d9d2f94d54ee74ee0137cf35822872d144576034448f8cbfd8b2357a2
+  - path: tests/integration/test_index_coordinator.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 1bdbf9013af3306dd1f9029cd40a6fb92dce3d2c60e9c7b292c5c4951ffd5ddc
+    current_sha256: 0c7678a6c9bfb39fe2964c0f83050619eb41012b803d0041b4180b912c483595
+  - path: tests/integration/test_index_language_partition.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 0915766135ac4c96ea8125c1853e5b23e7cb3d0ae336a890b1571beaf70e7d8a
+    current_sha256: e82f478aec959e96617600de20ff8c0bdfb0fe7e9eeb70bf0be8ccc29b44dd1d
+  - path: tests/unit/test_adapter_registry.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 61ef79fd097fba6e1fd0e90af1cb2c1e13828af8d797bc12af8d35f585aa88ab
+    current_sha256: 10f3dd43f3306d8dd22b3f6cad08a08221b59d72864bdf502e4ebeb43de1f8a0
+  - path: tests/unit/test_directory_structure.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 7c31fd37ed647c5b081d30f5c54691f94993e969220014810d86f2ba87b13080
+    current_sha256: dc95667dcf031df79a6b81989dfa57d2cf1841e62384b8784c917a6f3202b5e0
+  - path: tests/unit/test_local_source.py
+    implementation_commit: 08fd2d0f7b27f598cf65a9512bf60aa70c9412e2
+    implementation_sha256: 4b7578e40dca596e8d6036eb063ad9eea66ae3b8520b16e8c24211d8a995599a
+    current_sha256: e3dc910d182af9de46f2378d33273aefbf6c41ee93f8e305b97dcc7a0a966243
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-027
+objective: TASK-RKG-027
+objective_description: Chuyển adapter v2, core Directory từ manifest, giữ legacy Namespace reads/pins, migration CONTAINS
+  không phá dữ liệu và đồng bộ API/UI identity.
+requirements:
+- FR-RKG-001
+- FR-RKG-002
+- FR-RKG-003
+- AC-RKG-002
+- AC-RKG-003
+- AC-RKG-007
+- AC-RKG-073
+design:
+- CMP-RKG-ANALYZER
+- CMP-RKG-GRAPH
+- CMP-RKG-WEB
+decisions:
+- ADR-2026-006
+contracts:
+- API-RKG-CORE-v1
+- TBL-RKG-GRAPH
+constraints:
+- NFR-RKG-REL-001
+- NFR-RKG-UX-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- README.md
+- frontend/src/client/live/liveRoundtrip.test.ts
+- frontend/src/client/live/mapWire.test.ts
+- frontend/src/client/live/mapWire.ts
+- frontend/src/i18n/en.ts
+- frontend/src/i18n/vi.ts
+- frontend/src/index.css
+- frontend/src/pages/conversations/ConversationPage.tsx
+- frontend/src/pages/explorer/ExplorerPage.tsx
+- frontend/src/pages/explorer/SnapshotStructure.test.tsx
+- frontend/src/pages/explorer/SnapshotStructure.tsx
+- frontend/src/pages/explorer/structureTree.test.ts
+- frontend/src/pages/explorer/structureTree.ts
+- frontend/src/types/api.ts
+- src/rkg/adapters/aiokafka_messaging.py
+- src/rkg/adapters/conformance.py
+- src/rkg/adapters/contracts.py
+- src/rkg/adapters/fastapi_framework.py
+- src/rkg/adapters/flask_framework.py
+- src/rkg/adapters/python_language.py
+- src/rkg/adapters/sqlalchemy_data.py
+- src/rkg/api/app.py
+- src/rkg/api/catalog.py
+- src/rkg/api/serialize.py
+- src/rkg/domain/context.py
+- src/rkg/domain/models.py
+- src/rkg/domain/validation.py
+- src/rkg/graph/publish.py
+- src/rkg/ingestion/local.py
+- src/rkg/jobs/coordinator.py
+- src/rkg/jobs/structure.py
+- src/rkg/storage/_util.py
+- src/rkg/storage/migrate.py
+- tests/fixtures/domain/source_structure.json
+- tests/fixtures/storage/ddl_v1.cypher
+- tests/integration/test_directory_entities.py
+- tests/integration/test_index_coordinator.py
+- tests/integration/test_index_language_partition.py
+- tests/unit/test_adapter_registry.py
+- tests/unit/test_directory_structure.py
+- tests/unit/test_local_source.py
+inputs:
+  ADR-2026-006:
+    revision: 2
+    hash: e079bf17f5d00e19d7de943f93cef3418d398773772b2d871c702345b37c3ca3
+    path: architecture/adr/ADR-2026-006.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-ANALYZER:
+    revision: 8
+    hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  CMP-RKG-GRAPH:
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  CMP-RKG-WEB:
+    revision: 8
+    hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+    path: architecture/l2/CMP-RKG-WEB.md
+  EPIC-002-TEAM-RKG:
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  FR-RKG-001:
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  FR-RKG-002:
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  FR-RKG-003:
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  NFR-RKG-REL-001:
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  NFR-RKG-UX-001:
+    revision: 7
+    hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  STORY-RKG-017:
+    revision: 2
+    hash: 41ab61ff7ead7531103e8e170931b9e14e683a1b54244e6493da7ff1525d69cd
+    path: lifecycle/stories/STORY-RKG-017.md
+  TBL-RKG-GRAPH:
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-027
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-027
+    story: STORY-RKG-017
+    captured_at: 2026-10-01
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-027
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-001
+      - key: FR-RKG-002
+      - key: FR-RKG-003
+      - key: CMP-RKG-ANALYZER
+      - key: CMP-RKG-GRAPH
+      - key: CMP-RKG-WEB
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-027
+
+    ## objective
+    Directory do core dựng từ SourceUnit. Snapshot mới không emit Namespace. Snapshot cũ giữ ID.
+
+    ## requirements
+    - AC-RKG-002
+    - AC-RKG-003
+    - AC-RKG-007
+    - AC-RKG-073
+
+    ## design
+    - CMP-RKG-ANALYZER — gồm transaction boundary, idempotency và concurrency của component này
+    - CMP-RKG-GRAPH — gồm transaction boundary, idempotency và concurrency của component này
+    - CMP-RKG-WEB — gồm transaction boundary, idempotency và concurrency của component này
+    - Transaction boundary: CONTAINS vật lý mở bằng migration không phá hủy. Publication vẫn một transaction ngắn. Snapshot cũ không bị viết lại.
+    - Rollback: Migration rollback phải đọc lại được snapshot và conversation pin cũ, đã kiểm trước khi nhận xong.
+
+    ## decisions
+    - ADR-2026-006
+
+    ## contracts
+    - TBL-RKG-GRAPH
+    - API-RKG-CORE-v1
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-REL-001
+    - NFR-RKG-UX-001
+
+    ## code_scope
+    - src/rkg/domain/**
+    - src/rkg/adapters/**
+    - src/rkg/storage/migrate.py
+    - src/rkg/jobs/structure.py
+    - frontend/**
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-002-TEAM-RKG

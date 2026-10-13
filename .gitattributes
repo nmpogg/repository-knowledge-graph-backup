@@ -1,0 +1,2 @@
+# Preserve the tokenizer fixture byte-for-byte across Windows checkouts.
+src/rkg/llm/data/o200k_base.tiktoken -text

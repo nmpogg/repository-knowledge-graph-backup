@@ -1,0 +1,34 @@
+change_request: CR-RKG-020
+analysis_mode: manual-from-recorded-baseline
+graph_queried: false
+touches: []
+stale_artifacts: []
+affected_teams:
+- TEAM-RKG
+external_consumers: []
+risk_signals:
+  pii: false
+  financial: false
+tier: T2
+tier_status: proposed
+tier_basis: Recorded request changes diagnosis and failure explanation inside the existing chatbot. One team. No new bounded context and no ADR replacement are stated. This change set did not previously store a tier, and no signer decided this proposal.
+flow: change
+skipped_with_reason:
+- area: live-incident-cause
+  reason: change-set live_incident_cause is unverified. CR scope says not to claim a root cause from generic UI text.
+- area: prompt-response-config-diagnostics
+  reason: CR-RKG-020 authorization_boundary allows only allowlisted stage and reason diagnostics.
+- area: paid-live-call
+  reason: CR-RKG-020 authorization_boundary excludes a paid live call.
+- area: operator-database-or-config
+  reason: CR-RKG-020 authorization_boundary excludes an operator database or config change.
+- area: normative-artifact-delta
+  reason: baseline r1 marks every listed artifact unchanged_from_predecessor.
+- area: component-merge-decision
+  reason: change-set gates.component_merge remains pending.
+confidence:
+  graph_coverage: 0.0
+limitations:
+- no_changed_artifact_row_on_the_current_baseline
+- work_items_named_on_the_change_set_are_STORY-RKG-032_and_TASK-RKG-038
+- no_graph_query

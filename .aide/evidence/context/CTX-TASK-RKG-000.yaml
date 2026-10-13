@@ -1,0 +1,546 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-000
+revision: 3
+implementation_date: '2026-09-15'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: CHG-RKG-2026-001
+    revision: 27
+    hash: 9d23e3fa0ef124db421b04d3477ba372c366dea9feda878746cf371d57fe5b3d
+    path: lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+  - key: PRD-RKG
+    revision: 20
+    hash: 6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc
+    path: product/prd/PRD-RKG.md
+  implementation_phases:
+  - commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    author_at: '2026-09-15T10:38:37+07:00'
+    committed_at: '2026-09-15T10:38:37+07:00'
+    implementation_date: '2026-09-15'
+    changed_paths:
+    - .aide/README.md
+    - .aide/architecture/adr/ADR-2026-001.md
+    - .aide/architecture/l1/CAP-RKG-001.md
+    - .aide/architecture/l1/CAP-RKG-002.md
+    - .aide/architecture/l1/CAP-RKG-003.md
+    - .aide/architecture/l2/CMP-RKG-ANALYZER.md
+    - .aide/architecture/l2/CMP-RKG-CONVERSATION.md
+    - .aide/architecture/l2/CMP-RKG-GRAPH.md
+    - .aide/architecture/l2/CMP-RKG-TRANSPORT.md
+    - .aide/architecture/l2/CMP-RKG-WEB.md
+    - .aide/architecture/threat-model/TM-RKG.md
+    - .aide/design/ui/UID-RKG-001.md
+    - .aide/design/ui/UIS-RKG-001.md
+    - .aide/design/ux/SCR-RKG-001.md
+    - .aide/design/ux/UXF-RKG-001.md
+    - .aide/design/ux/UXF-RKG-002.md
+    - .aide/domain/glossary-core.md
+    - .aide/lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+    - .aide/lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-001.md
+    - .aide/lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-002.md
+    - .aide/lifecycle/epics/EPIC-001-TEAM-RKG.md
+    - .aide/lifecycle/epics/EPIC-002-TEAM-RKG.md
+    - .aide/lifecycle/epics/EPIC-003-TEAM-RKG.md
+    - .aide/lifecycle/epics/EPIC-004-TEAM-RKG.md
+    - .aide/lifecycle/epics/EPIC-005-TEAM-RKG.md
+    - .aide/lifecycle/tasks/TASK-RKG-000.md
+    - .aide/lifecycle/tasks/TASK-RKG-001.md
+    - .aide/lifecycle/tasks/TASK-RKG-002.md
+    - .aide/lifecycle/tasks/TASK-RKG-003.md
+    - .aide/lifecycle/tasks/TASK-RKG-004.md
+    - .aide/lifecycle/tasks/TASK-RKG-005.md
+    - .aide/lifecycle/tasks/TASK-RKG-006.md
+    - .aide/lifecycle/tasks/TASK-RKG-007.md
+    - .aide/lifecycle/tasks/TASK-RKG-008.md
+    - .aide/lifecycle/tasks/TASK-RKG-009.md
+    - .aide/lifecycle/tasks/TASK-RKG-010.md
+    - .aide/lifecycle/tasks/TASK-RKG-011.md
+    - .aide/lifecycle/tasks/TASK-RKG-012.md
+    - .aide/lifecycle/tasks/TASK-RKG-013.md
+    - .aide/lifecycle/tasks/TASK-RKG-014.md
+    - .aide/lifecycle/tasks/TASK-RKG-015.md
+    - .aide/lifecycle/tasks/TASK-RKG-016.md
+    - .aide/lifecycle/tasks/TASK-RKG-017.md
+    - .aide/lifecycle/tasks/TASK-RKG-018.md
+    - .aide/lifecycle/tasks/TASK-RKG-019.md
+    - .aide/lifecycle/tasks/TASK-RKG-020.md
+    - .aide/lifecycle/tasks/TASK-RKG-021.md
+    - .aide/lifecycle/tasks/TASK-RKG-022.md
+    - .aide/lifecycle/tasks/TASK-RKG-023.md
+    - .aide/lifecycle/tasks/TASK-RKG-024.md
+    - .aide/product/prd/PRD-RKG.md
+    - .aide/registry/REG-OWNER-001.md
+    - .aide/registry/REG-REPO-001.md
+    - .aide/registry/REG-TYPE-001.md
+    - .aide/requirements/fr/FR-RKG-001.md
+    - .aide/requirements/fr/FR-RKG-002.md
+    - .aide/requirements/fr/FR-RKG-003.md
+    - .aide/requirements/fr/FR-RKG-004.md
+    - .aide/requirements/fr/FR-RKG-005.md
+    - .aide/requirements/fr/FR-RKG-006.md
+    - .aide/requirements/fr/FR-RKG-007.md
+    - .aide/requirements/fr/FR-RKG-008.md
+    - .aide/requirements/fr/FR-RKG-009.md
+    - .aide/requirements/fr/FR-RKG-010.md
+    - .aide/requirements/fr/FR-RKG-011.md
+    - .aide/requirements/fr/FR-RKG-012.md
+    - .aide/requirements/fr/FR-RKG-013.md
+    - .aide/requirements/fr/FR-RKG-014.md
+    - .aide/requirements/fr/FR-RKG-015.md
+    - .aide/requirements/fr/FR-RKG-016.md
+    - .aide/requirements/fr/FR-RKG-017.md
+    - .aide/requirements/nfr/NFR-RKG-PERF-001.md
+    - .aide/requirements/nfr/NFR-RKG-REL-001.md
+    - .aide/requirements/nfr/NFR-RKG-SEC-001.md
+    - .aide/requirements/nfr/NFR-RKG-UX-001.md
+    - .aide/tech-specs/RKG-CORE/api/API-RKG-CORE-v1.md
+    - .aide/tech-specs/RKG-CORE/schema/TBL-RKG-GRAPH.md
+  files:
+  - path: .aide/README.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 0d5411a7e9046ae7d050b537c5871954caae304e7eab758fd037526bb9caba31
+    current_sha256: d37e0a043fd70ede4d7d759b48968b1f4f704d9e4f3493a8f2c42dc9733252e5
+  - path: .aide/architecture/adr/ADR-2026-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 25a53bb490d0dd9be1890c92da2a231f86309d8e8295026fcd4313e054b4bc2a
+    current_sha256: ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d
+  - path: .aide/architecture/l1/CAP-RKG-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: c0c78f13e60ce45b97f094136c4b62bed3a7bf7e1a5d1e11d385f863ef5e047a
+    current_sha256: 5552acc80b329f74eafe0734745a49ae2d6aeacfa0b2193d946166745ff4cdde
+  - path: .aide/architecture/l1/CAP-RKG-002.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: c8911b733a0db8e9a832e6dc219c1dc27595e792f85923fcd0ada0b989fb1a37
+    current_sha256: 9409d5398e5d6d7438fe3a294669e7b0c679fd797d38c4104c10bf0e0d28bdf7
+  - path: .aide/architecture/l1/CAP-RKG-003.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: f2bd3a5fc5a79c82d65d77c2793e1acb39eb522263617c38914d4abb54081dcf
+    current_sha256: a83f81a79c97a82bb302f0db2a28ade53e32299b390d45a2318ae33839c57c93
+  - path: .aide/architecture/l2/CMP-RKG-ANALYZER.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 5a4ba28dc2c4bd88a1311636714746a6b52b90f1ba480c2dadbb063402c1249d
+    current_sha256: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+  - path: .aide/architecture/l2/CMP-RKG-CONVERSATION.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: f43e96f3330f681ef1462edfc5741fdb3594a155178bed9bb62c42f1a7d5f97f
+    current_sha256: 7b7875f084a579e95582d429950c87a99f2081fb18a4fef734167866f94406f4
+  - path: .aide/architecture/l2/CMP-RKG-GRAPH.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 43029f60becc598a1e69bb9363d664304c037b88970e97d7ea87d854cb6730e2
+    current_sha256: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+  - path: .aide/architecture/l2/CMP-RKG-TRANSPORT.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: f6d96e580d46cbdc585c5fa9a080d4b35e6d5f37a6c58f321deb727712e1bebb
+    current_sha256: 6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286
+  - path: .aide/architecture/l2/CMP-RKG-WEB.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 106aa772b0eb6d1edf68d1c9cace0f039395f1d5808307fc4a25ccbf9ba9ec5a
+    current_sha256: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+  - path: .aide/architecture/threat-model/TM-RKG.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: fc148c0ab92d702dfd94d6ae530047ae139b3b2e9da24e475eab13b6d4cfe64f
+    current_sha256: 6d2f630e241456168fc391001acb6fccb6934eb1432cb316b5821d5b8b112216
+  - path: .aide/design/ui/UID-RKG-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 35ff65d062a2fa2577e4484020c693b4da038e19b89a21c09e6f43c42e6f6337
+    current_sha256: f55d82b70a237f4cf2f4b21a0e3444e664e176bb48fb376222c1c199b1776a80
+  - path: .aide/design/ui/UIS-RKG-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 43c082a4b8287464919d90f3f70204af4ec7d81157bd12968204aeaa42e0a50e
+    current_sha256: 2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b
+  - path: .aide/design/ux/SCR-RKG-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 2ce5220003cd94e67bc34b0d9bd7bee6462ee903b07093027bc1712ce5c0e7c3
+    current_sha256: 3ca03923d54d550cb6fe8a56314b714bdd5924d211cc7b0056ad89814e1e97d2
+  - path: .aide/design/ux/UXF-RKG-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 943b7b9ee96a5e6461df34b6a2f8dc51827f7f90d5250ac801391f0c2652e178
+    current_sha256: 2da20229a1ce5a3222b086bfb15376e0281f3aa30befb5954c4fccb196f390f1
+  - path: .aide/design/ux/UXF-RKG-002.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: ee88f13de2dd9728351d918b3a77d6fb2ec8f653028612b49cf0ffaa60a517d7
+    current_sha256: 12bc6cfa65bee337b256b4b9a51813a777cdf845934180e8d98029b664a02820
+  - path: .aide/domain/glossary-core.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 365090f9c67611f547743ce9bdb80853e61d2697372b5bf742ec719c8a6bcc16
+    current_sha256: 24759954cd15951c3c6fc441d0ba0b88d831f62f86ee1e5b1c15db74318d2ff3
+  - path: .aide/lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 3a077a647b2bf5e0ac553d61e96a40f26a844a62cbe34bdac8674e0228b05c5f
+    current_sha256: 9d23e3fa0ef124db421b04d3477ba372c366dea9feda878746cf371d57fe5b3d
+  - path: .aide/lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 51dbef0c969faff049197c230204f72d6c9a4291d1a40e47d885e01fc7ba8bc3
+    current_sha256: 04d0cbf50292493dc75c3bd1c7617cd89c2ff1ffc2cd2eb33252f6aadbc620c6
+  - path: .aide/lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-002.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 0d72cab2fd54e743f71585eded73668d88efcd1df0df9a0a21a639e5f814dad1
+    current_sha256: a1323950f6e743ffec5681d04fda7d5e5dc38d471f8c807e724c998173af6237
+  - path: .aide/lifecycle/epics/EPIC-001-TEAM-RKG.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 3613a3597286295e7342c0f0c5c3400de45a57c199a453599f6baa5ca04128cf
+    current_sha256: bc183b55d630509c25e119cb8849c560d3939b51c02b926f41a1565b1bb2b855
+  - path: .aide/lifecycle/epics/EPIC-002-TEAM-RKG.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: ef9b2ab072cf567e7517e7118bc11ed281c8eb30c84904dedd69752b6a833830
+    current_sha256: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+  - path: .aide/lifecycle/epics/EPIC-003-TEAM-RKG.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 7717551adb52517335604bb31480d69c4479d799a8b555094f401ecbb6719eb4
+    current_sha256: 64a24ad9ed50680df8de133c8559f83a75e30e193d7f9b47155cd90cadb4a651
+  - path: .aide/lifecycle/epics/EPIC-004-TEAM-RKG.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 78f3676dbca79b1e6b1a0def808e6965ee62a8eb19339f646f8f169d41533d4c
+    current_sha256: 6dc6e7c9d8e07e2b0fe6e17ffd550f2f437a7de0f817e5767e9235f284649240
+  - path: .aide/lifecycle/epics/EPIC-005-TEAM-RKG.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 7cf8b4027c51082c580852572cbdf7233627f1380ca600cd56183af81c110a44
+    current_sha256: 382689f44bb9eda827535bcff74d335243016106f056378f27a15e4cd54dd76c
+  - path: .aide/lifecycle/tasks/TASK-RKG-000.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: a069f6da94ed261d453eda0e66e517c80d4627393e657b7eddf40943acce3760
+    current_sha256: f57023d9cafff5c64f577250cf3dea9dce51d8fae270666bdcdc5f5f973352a2
+  - path: .aide/lifecycle/tasks/TASK-RKG-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 3d797e17a8450a40fed6ff81e7fbe86309c57fbc8de4ebc9481b1bc0d10b4ef8
+    current_sha256: 916162dd57146d9d3e870b2b4f0383763d0043525e795fd59a9b87c5151fb697
+  - path: .aide/lifecycle/tasks/TASK-RKG-002.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: c21cca05e4cda159c57348b9087706e4cb463efb5b7be58cac1808c94e95baf1
+    current_sha256: decdc68d7a9b7524d14996a5fb39e62fc2acb0ee89a9eee0eeb27ba0dd16570a
+  - path: .aide/lifecycle/tasks/TASK-RKG-003.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 1a979f01e6807e2bda939093273a4648a0893e5f8771f9eb870984ca83ab0df1
+    current_sha256: bd5090d34f76835709ca884d79c86eceb38cdc35feb87d27810514943777b508
+  - path: .aide/lifecycle/tasks/TASK-RKG-004.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 15c70220d578b4170f8c8179076030a8e5a586241e3d7b17801f00b3e48ad883
+    current_sha256: f144ad6c78c7c1a7e7b3bfd030a262de2de93609264f2a7f9057b81b1438ae15
+  - path: .aide/lifecycle/tasks/TASK-RKG-005.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 8b0e9b8bdadb974b3b3a4d223da3a71267277a0ba85ac714b3c4bcbbee8b7e27
+    current_sha256: 3bcf4ffc4f14d3892a0acf6a3fd6bc37a2e151a99c16050ed7c3d64675384472
+  - path: .aide/lifecycle/tasks/TASK-RKG-006.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 443c513551bd5278d11b991fff2bbbf912a3495fd73d16a8bc96c5042d03858c
+    current_sha256: dbd67b793a211f12b9e563b569f58dc86bfe7b657f94077328e8a605ab2eeb90
+  - path: .aide/lifecycle/tasks/TASK-RKG-007.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 0681c5da5bf3fcab421a997a6e6a05747943bdfb973d3905113e251573050fd2
+    current_sha256: acda14631df60bdcf1f520e9ada26fa767b12a460752989fb18ecbf96f6e659b
+  - path: .aide/lifecycle/tasks/TASK-RKG-008.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: af79ba56bd7575e39cdf9837189a9008b0946005ae9dcb3a7993c2ec876f2b44
+    current_sha256: 5e390fddbcbaee9d71e5b45af611cf5a986810b33bd50d13f20dc7834161b893
+  - path: .aide/lifecycle/tasks/TASK-RKG-009.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 597282c45e37a1a0b405536fd39db1026eab11ad0d3eac81755da71ffb7e8936
+    current_sha256: 7d0d98c4b9ffa0386fa7f58200324659ac74dd39ad6c7e2e6602a8ac0ff08d83
+  - path: .aide/lifecycle/tasks/TASK-RKG-010.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 98c2ebd8b6dd020e224cdf68ad69acb4c9608ab91b805d186c274b8d04c6e0b8
+    current_sha256: 2f6dc0fef3e6fc267f7601c7a181902d1711c2cd6cde56e7f334118f6beb5654
+  - path: .aide/lifecycle/tasks/TASK-RKG-011.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 3453dec23dc0593fe8bb9426854140de75d72cb17ee1dfc6ee916c0b6000c0ff
+    current_sha256: 8ee7c4ae4f3b23e76510f29b6e39ae029152b4e7372d58241edc0c42f6d689bd
+  - path: .aide/lifecycle/tasks/TASK-RKG-012.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: d1a24c44856fd79f473fb495fe06f1cd9923b0c02a4b2b564c5e187e282e85a0
+    current_sha256: 7ea0f5625dfce43e78e70c2ddc8b0bbe48692dafd569a69556567ffbaca6ae1a
+  - path: .aide/lifecycle/tasks/TASK-RKG-013.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 4165b782841c18c7969e949aa3818aaf4ca167aa863ee92ab8a146f1ca878a13
+    current_sha256: bd8fab9686422328122c0d4d230298914bb1b7db81a6be7e4693b9b94e36ff40
+  - path: .aide/lifecycle/tasks/TASK-RKG-014.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 5e1a8649a003e40267b97c89f5b510591db962b160a22ff098e908c3ebe45359
+    current_sha256: 10bb375798c5faa1a957020bc9430a32abb2fe7411ca4a658dceae366dbd384b
+  - path: .aide/lifecycle/tasks/TASK-RKG-015.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: ef3ca293b2c85461acc88b8df4fd4b598a1c38f7818e5ff144d6af49b8f0be82
+    current_sha256: 9b787e98e1bb5c8b6e59671ba94e67189e3996377131d509dab0d541afe21fe0
+  - path: .aide/lifecycle/tasks/TASK-RKG-016.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 0c50e5ba7dfe8e1f68c2487be90438c3bdb87567f543f2dddf9adad94415a7de
+    current_sha256: 5d8e1daf27b96acc18a69b67870c7e71aae5b2e32e90b2016156ade337ccf96d
+  - path: .aide/lifecycle/tasks/TASK-RKG-017.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 607c4875d303d76d182eb36c9cfede0940f87ab26726e3e36509385bafc1f690
+    current_sha256: 115f2a8d52845e941dd58ed0f2b0f0366c82dcdaf2cf5e0fd1fa3582fb27a941
+  - path: .aide/lifecycle/tasks/TASK-RKG-018.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 1cfa04ae05d1499729c74920d30f9d7034dd2d03f4f19afcf7bafcd296fcdc30
+    current_sha256: 52997f39f94482f230d22cdc7a53e0611d9b48a66f1590d7ad62ed07ec1700d6
+  - path: .aide/lifecycle/tasks/TASK-RKG-019.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 914dfabb3bcdb8705df917465dc78fde8d047ff73f5f49467baa0b3303e315aa
+    current_sha256: ba7a32241cf3fa87b8f92315c2a97ea1e4a6a99622572072e029fac17799b892
+  - path: .aide/lifecycle/tasks/TASK-RKG-020.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 5790b4fe6aaa682cfea0d0c2cc92c29b3a7a585522a49cfcf84ebf6d538a9e37
+    current_sha256: 7a00d72c9fae3397c7a1e189f81e27e2b3840aa2d01fbea6ee7d19e46321a1ab
+  - path: .aide/lifecycle/tasks/TASK-RKG-021.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: a758f179b301fa473a99f1427142b33bf2aaefdf8b86dbd466f982c13975f5a3
+    current_sha256: 66fbef16cfe77740aead439feb23b2eb441be1df61606b32d4ba8656d92f1dda
+  - path: .aide/lifecycle/tasks/TASK-RKG-022.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 8409cf7f0f2ad998f7b84db064bbbb9f8b1284a51c74a0be53d4f1f8fa0a1a14
+    current_sha256: eb0da10120af46cdbe0335589157a7e78d341838abc9645c9a4be7ca07c0c365
+  - path: .aide/lifecycle/tasks/TASK-RKG-023.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 6e2143010227be6da539425490fabd5ca632648bcf1ee5aa60f8674733206bb1
+    current_sha256: 426309846180b624d46d3f8d40b59b808d9a34eba50be25b0d67d44929135f95
+  - path: .aide/lifecycle/tasks/TASK-RKG-024.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 72babb7de0f8c4ae606f21a27a4e0708ae434a8916e0dda123c18ba2246adc14
+    current_sha256: 3fdfa2a7ca99f297b275e3e04850c1f589a8f690953b539fc3ff532f43d85281
+  - path: .aide/product/prd/PRD-RKG.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: dc9c7964b7d0f87795c18eaec966d8a485cabb530b36fd5b0d119de9e2c6de0b
+    current_sha256: 6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc
+  - path: .aide/registry/REG-OWNER-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: bb2b292801974227b7a78520e7b9d1c762fcd90ec4891519b53771d84a9cbbfd
+    current_sha256: c42a9cb3d0f4e9d26f1e1e50c98815c469221169351ad79d0c407a25ce316eb6
+  - path: .aide/registry/REG-REPO-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 7367f2c59e97a91d2a7754d8aecc17de9019dc2f95ea9e6b78907a19ce5ff1f0
+    current_sha256: f251b30e3854ce0af0063661fa20c2b167fee26c96aece0f9b22c2ff24c06fb9
+  - path: .aide/registry/REG-TYPE-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: f914344292dcf38ae3a22672d61b7997bb2446359fc7ac6c1511840fd56746e3
+    current_sha256: 157982c9a8dca995d4507f325a33678c128a7ad24e471d9570eb88c4e5efa299
+  - path: .aide/requirements/fr/FR-RKG-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: d39e65c06985e589f2445db54e23fa330d53fbf1b55b39b08c766c60225d51af
+    current_sha256: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+  - path: .aide/requirements/fr/FR-RKG-002.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: e2d5d5f8e5fb0eb692c0d43facb377b19f626c0e78b444b1dc0e9524682a931d
+    current_sha256: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+  - path: .aide/requirements/fr/FR-RKG-003.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 87e4e9becc863bea774630eafca91fcf8f8d4a553a566d2e20a7c0e26d6f0066
+    current_sha256: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+  - path: .aide/requirements/fr/FR-RKG-004.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: fcde79288e04e5edb491b80a28d18b5dc6334a3a32137f464788a41e503c7b2b
+    current_sha256: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+  - path: .aide/requirements/fr/FR-RKG-005.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: a844bbe194da522c4da8837d87599ad0adf94273c0517ae8c2e9887b0ad0a54d
+    current_sha256: a20c3f1aede798ef733273feb7addf00c51866f0a68397df5e7ae69dca280448
+  - path: .aide/requirements/fr/FR-RKG-006.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 6ef79c080a3dc1d1c69173439b394cdf3bdde9536e485bc162bd2e52e643afb4
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-007.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: ed4a8b30509b59ad33cdf4a40302d23e6b12bd42221cfed7dd3bccd714af5a15
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-008.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 8292220f293234bf9df5d9c661f726f59e76c4a185f8e7d35f9bc57bf3b54d5e
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-009.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: e5943637e7bd44c3c757e6d0f5073f63bd9f9280c27450117ed04c31dffd27bf
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-010.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 52afd275ee411a400c451b87af46a0d72b4124014ee8350f34d0310f35d701d5
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-011.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: ac8a3f8fd6d9449e0aba32322842a1fd152d73b9b283d89544be852661e318d9
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-012.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: f05720d5cff15300cf19b75b03fb1241c04edcfccde19231caed3d76598d4c83
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-013.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 72693d5b087d5aebfe2a464414db0f1f286d9c29723cd8dad25d4578222d5f81
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-014.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 23f9b4a66325a64b9940c2342fc2f488687ef286cdc7054dbd793a6e42e8ba91
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-015.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: cf6df2fa0664dd6ce57fa8b0903fd3285282f53165746f2a54dcfc1dc2fc30d4
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-016.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 59a5822e05123ddfff2ec873579f82c7e6734d09b4a59c4ad6ac2630e81d10f1
+    current_sha256: null
+  - path: .aide/requirements/fr/FR-RKG-017.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 94792dfbb499206e1841334e84fe23c5f1d859a2e38ba4203020276faad1b206
+    current_sha256: null
+  - path: .aide/requirements/nfr/NFR-RKG-PERF-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: fb01d7a5db89059a7cb131d72e4a2cd1d4db42a30b9ff6dc1bb2461e7fc12731
+    current_sha256: b74c5ddabd7d96e4cac9b700a1a54c8eb2d615b1eabeceed1cbfd268962e7d0d
+  - path: .aide/requirements/nfr/NFR-RKG-REL-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 14f5ee579f0f1b7af9af000dc77b038f95b24b824d66d9e350fd781d3266d47d
+    current_sha256: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+  - path: .aide/requirements/nfr/NFR-RKG-SEC-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: e09aca9827aaa65b17f2c1f7c767b0e3dbb73548a2a02a24ac35d33b427e428e
+    current_sha256: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+  - path: .aide/requirements/nfr/NFR-RKG-UX-001.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 01f04fb0c6ecf77de24be2d55b77bd9d834fde7bf17ee919ceffa19687340a5b
+    current_sha256: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+  - path: .aide/tech-specs/RKG-CORE/api/API-RKG-CORE-v1.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 54f6f9c11265d8dec7445cab5719134d570d7f42156ed832ad2b17e96ece98b3
+    current_sha256: null
+  - path: .aide/tech-specs/RKG-CORE/schema/TBL-RKG-GRAPH.md
+    implementation_commit: 799cb6cfd6dac194046d1a184546f39aca9c2071
+    implementation_sha256: 323bdb4d6108a0a6e6ff49508b0acf861fc6e7a124f593dab0a750149614bd32
+    current_sha256: null
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-000
+objective: TASK-RKG-000
+objective_description: Tạo PRD, FR/AC, NFR, domain, kiến trúc, contract, design và backlog từ nguồn đã có; phân biệt normative,
+  derived và evidence.
+requirements:
+- PRD-RKG
+design: []
+decisions: []
+contracts: []
+constraints: []
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- .aide/README.md
+- .aide/architecture/adr/ADR-2026-001.md
+- .aide/architecture/l1/CAP-RKG-001.md
+- .aide/architecture/l1/CAP-RKG-002.md
+- .aide/architecture/l1/CAP-RKG-003.md
+- .aide/architecture/l2/CMP-RKG-ANALYZER.md
+- .aide/architecture/l2/CMP-RKG-CONVERSATION.md
+- .aide/architecture/l2/CMP-RKG-GRAPH.md
+- .aide/architecture/l2/CMP-RKG-TRANSPORT.md
+- .aide/architecture/l2/CMP-RKG-WEB.md
+- .aide/architecture/threat-model/TM-RKG.md
+- .aide/design/ui/UID-RKG-001.md
+- .aide/design/ui/UIS-RKG-001.md
+- .aide/design/ux/SCR-RKG-001.md
+- .aide/design/ux/UXF-RKG-001.md
+- .aide/design/ux/UXF-RKG-002.md
+- .aide/domain/glossary-core.md
+- .aide/lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+- .aide/lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-001.md
+- .aide/lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-002.md
+- .aide/lifecycle/epics/EPIC-001-TEAM-RKG.md
+- .aide/lifecycle/epics/EPIC-002-TEAM-RKG.md
+- .aide/lifecycle/epics/EPIC-003-TEAM-RKG.md
+- .aide/lifecycle/epics/EPIC-004-TEAM-RKG.md
+- .aide/lifecycle/epics/EPIC-005-TEAM-RKG.md
+- .aide/lifecycle/tasks/TASK-RKG-000.md
+- .aide/lifecycle/tasks/TASK-RKG-001.md
+- .aide/lifecycle/tasks/TASK-RKG-002.md
+- .aide/lifecycle/tasks/TASK-RKG-003.md
+- .aide/lifecycle/tasks/TASK-RKG-004.md
+- .aide/lifecycle/tasks/TASK-RKG-005.md
+- .aide/lifecycle/tasks/TASK-RKG-006.md
+- .aide/lifecycle/tasks/TASK-RKG-007.md
+- .aide/lifecycle/tasks/TASK-RKG-008.md
+- .aide/lifecycle/tasks/TASK-RKG-009.md
+- .aide/lifecycle/tasks/TASK-RKG-010.md
+- .aide/lifecycle/tasks/TASK-RKG-011.md
+- .aide/lifecycle/tasks/TASK-RKG-012.md
+- .aide/lifecycle/tasks/TASK-RKG-013.md
+- .aide/lifecycle/tasks/TASK-RKG-014.md
+- .aide/lifecycle/tasks/TASK-RKG-015.md
+- .aide/lifecycle/tasks/TASK-RKG-016.md
+- .aide/lifecycle/tasks/TASK-RKG-017.md
+- .aide/lifecycle/tasks/TASK-RKG-018.md
+- .aide/lifecycle/tasks/TASK-RKG-019.md
+- .aide/lifecycle/tasks/TASK-RKG-020.md
+- .aide/lifecycle/tasks/TASK-RKG-021.md
+- .aide/lifecycle/tasks/TASK-RKG-022.md
+- .aide/lifecycle/tasks/TASK-RKG-023.md
+- .aide/lifecycle/tasks/TASK-RKG-024.md
+- .aide/product/prd/PRD-RKG.md
+- .aide/registry/REG-OWNER-001.md
+- .aide/registry/REG-REPO-001.md
+- .aide/registry/REG-TYPE-001.md
+- .aide/requirements/fr/FR-RKG-001.md
+- .aide/requirements/fr/FR-RKG-002.md
+- .aide/requirements/fr/FR-RKG-003.md
+- .aide/requirements/fr/FR-RKG-004.md
+- .aide/requirements/fr/FR-RKG-005.md
+- .aide/requirements/fr/FR-RKG-006.md
+- .aide/requirements/fr/FR-RKG-007.md
+- .aide/requirements/fr/FR-RKG-008.md
+- .aide/requirements/fr/FR-RKG-009.md
+- .aide/requirements/fr/FR-RKG-010.md
+- .aide/requirements/fr/FR-RKG-011.md
+- .aide/requirements/fr/FR-RKG-012.md
+- .aide/requirements/fr/FR-RKG-013.md
+- .aide/requirements/fr/FR-RKG-014.md
+- .aide/requirements/fr/FR-RKG-015.md
+- .aide/requirements/fr/FR-RKG-016.md
+- .aide/requirements/fr/FR-RKG-017.md
+- .aide/requirements/nfr/NFR-RKG-PERF-001.md
+- .aide/requirements/nfr/NFR-RKG-REL-001.md
+- .aide/requirements/nfr/NFR-RKG-SEC-001.md
+- .aide/requirements/nfr/NFR-RKG-UX-001.md
+- .aide/tech-specs/RKG-CORE/api/API-RKG-CORE-v1.md
+- .aide/tech-specs/RKG-CORE/schema/TBL-RKG-GRAPH.md
+inputs:
+  CHG-RKG-2026-001:
+    revision: 27
+    hash: 9d23e3fa0ef124db421b04d3477ba372c366dea9feda878746cf371d57fe5b3d
+    path: lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+  PRD-RKG:
+    revision: 20
+    hash: 6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc
+    path: product/prd/PRD-RKG.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-000
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    captured_at: 2026-09-15
+    task_key: TASK-RKG-000
+    inputs:
+    - workflows.md
+    - docs/RULES.md
+    - docs/SPEC.md
+    - docs/ARCHITECTURE.md
+    - docs/TASK.md
+    - docs/PLAN.md
+    - docs/EXISTING_PRODUCT.md
+    - docs/project-3.8-mvp.md
+    constraints:
+    - documentation_only
+    - preserve_existing_docs
+    - no_false_gate_approval
+    - no_implementation_claims
+  record: ''
+parent:
+- CHG-RKG-2026-001

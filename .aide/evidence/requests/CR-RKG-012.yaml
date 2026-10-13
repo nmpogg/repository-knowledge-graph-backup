@@ -1,0 +1,16 @@
+{
+  "key": "CR-RKG-012",
+  "group": "evidence",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "captured_at": "2026-10-06T17:07:25+07:00",
+  "classification": "internal",
+  "ai_assisted": true,
+  "type": "change-request",
+  "change_set": "CHG-RKG-2026-002",
+  "source": "explicit_user_resume_instruction",
+  "request_summary": "Resume TASK030 to correct the three bad_code blockers in REV-RKG-2026-009 and prepare independent re-review.",
+  "revokes_pause": "CR-RKG-011",
+  "scope": "Only FND-TASK-RKG-030-001/002/003 and affected storage invariants; no downstream implementation or gate signing.",
+  "record_boundary": "Normalized instruction only; no conversation transcript."
+}

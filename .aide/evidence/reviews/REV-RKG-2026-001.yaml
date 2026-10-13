@@ -1,0 +1,59 @@
+uid: null
+key: REV-RKG-2026-001
+type: review-evidence
+group: evidence
+scope: system
+system: SYS-RKG
+status: completed
+revision: 1
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+relations:
+  reviews:
+  - CHG-RKG-2026-001
+classification: internal
+ai_assisted: true
+record: |-
+  # Consolidated review disposition — 2026-09-18
+
+  ## Inputs
+
+  - `.aide/reviewer/v1/REVIEWS_GEMINI.md`
+  - `.aide/reviewer/v1/REVIEWS_SONNET.md`
+  - `.aide/reviewer/v1/REVIEWS_GROK.md`
+
+  These source reports are preserved verbatim under `.aide/reviewer/v1/`; this
+  append-only evidence records the disposition, not a copy of their prose.
+
+  ## Accepted and addressed
+
+  - Added missing testable AC for search/paging, index single-writer, CPython parse
+    diagnostics, scan report/benchmark, app/adapter selection, local session boundary,
+    Q&A injection, retention/410/delete guard, conversation accessibility and remote
+    index→Q&A integration.
+  - Reconciled operational logs with redacted conversation persistence and moved history
+    limits into NFR.
+  - Reconciled pilot sample rules and Q&A corpus with `docs/SPEC.md`.
+  - Added Kùzu/React ADRs, physical DDL draft, single-worker rule, threat rows, design
+    tokens, preset semantics, gate policies, Q&A rubric, epic completion criteria and
+    derived architecture diagrams.
+  - Corrected relationship-table count from the prose implication of 11 to the 13 edge
+    types actually listed by the normative schema.
+
+  ## Deliberately not auto-completed
+
+  - Scope/Architecture/UI-UX/Contract approvals and baseline remain pending because they
+    require named human reviewers and append-only approval evidence.
+  - LLM provider/model/tokenizer and pilot repository remain open decisions.
+  - DDL execution, contrast measurement, tests, benchmark and pilot results wait for the
+    appropriate implementation/evidence phase.
+
+  ## Recommendations not adopted as MVP scope
+
+  - SSE/WebSocket/token streaming: API v1 explicitly keeps bounded polling/blocking;
+    adding streaming would change retry/ordering semantics and needs a versioned change.
+  - Delete individual turns: history is immutable at turn level; MVP deletes a complete
+    conversation with a pending-turn guard.
+  - A separate context-export UX flow was not added because UXF-RKG-001 already includes
+    export as step 8 and UIS/SCR define its behavior/state.

@@ -1,0 +1,130 @@
+key: approval-009
+type: approval-record
+group: evidence
+scope: system
+system: SYS-RKG
+revision: 1
+status: recorded
+classification: internal
+ai_assisted: true
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: architect
+relations:
+  verifies:
+  - GATE-RKG-ARCHITECTURE
+  derived_from:
+  - AVW-RKG-CHATBOT-002-r5
+gate: GATE-RKG-ARCHITECTURE
+change_set: CHG-RKG-2026-002
+decision: approved
+decided_at: '2026-10-06T12:06:52+07:00'
+completes: approval-008
+approval_scope: Reviewed chatbot architecture delta; full ADR-2026-007 and named chatbot-specific
+  CMP/TM sections only.
+covers: &id001
+- key: ADR-2026-007
+  revision: 2
+  status: draft
+  hash: 1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a
+  path: architecture/adr/ADR-2026-007.md
+  role: selected_candidate
+  approved_sections:
+  - all design content
+  effective_approval: approved_in_baseline
+- key: CMP-RKG-CONVERSATION
+  revision: 7
+  status: draft
+  hash: 2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65
+  path: architecture/l2/CMP-RKG-CONVERSATION.md
+  role: selected_candidate
+  approved_sections:
+  - Conversational answer design — CHG-RKG-2026-002
+  effective_approval: approved_in_baseline
+- key: CMP-RKG-WEB
+  revision: 9
+  status: draft
+  hash: 9127465096842ccdf6addff5649a13839515f088a136d2bdcbbb3e5ccb5b91e6
+  path: architecture/l2/CMP-RKG-WEB.md
+  role: selected_candidate
+  approved_sections:
+  - Conversational presentation — CHG-RKG-2026-002
+  effective_approval: approved_in_baseline
+- key: TM-RKG
+  revision: 8
+  status: draft
+  hash: c22e337412e5c9d42bccbc5cf5ef76e92767ee130f3b4d8a9de86ea6d6570bb6
+  path: architecture/threat-model/TM-RKG.md
+  role: selected_candidate
+  approved_sections:
+  - Structured conversational explanation risks — CHG-RKG-2026-002
+  effective_approval: approved_in_baseline
+approvers:
+- name: PhongNM
+  role: tech-lead
+  authority_basis: CR-RKG-004 and CR-RKG-005
+- name: PhongNM
+  role: architect
+  authority_basis: explicit_user_confirmation CR-RKG-006
+human_presence:
+  mode: interactive
+  evidence_ids:
+  - CR-RKG-005
+  - CR-RKG-006
+  signer: PhongNM
+captured_against:
+  base_code_commit: 86ecab6546384227d1901e24c8b8fbfc6c0e8527
+  code_tree: 6868e73b8d0b5abdecdd9a64265596d8fe809548
+  working_tree_documents_not_committed: true
+  artifact_snapshot: exact_hashes_of_frozen_reviewed_design
+  architecture_manifest_sha256: ab92b7e59408d7def48f782709028baa9b0da715811c19be1b5c25970772f6e0
+  baseline:
+    key: BL-CHG-RKG-2026-002-r5
+    path: .aide/lifecycle/change-sets/CHG-RKG-2026-002/baseline/BL-CHG-RKG-2026-002-r5.yaml
+    sha256: 60c98aa306cc9f7c39bdb402c455c951d65d5024def0236b16f98d4e7083df90
+  artifacts: *id001
+  independent_reviews:
+  - key: REV-RKG-2026-005
+    path: .aide/evidence/reviews/REV-RKG-2026-005.yaml
+    sha256: e4391d66239b894bc493a507cad33bdf7339c86f4581d773b96bc3e5dd1c286b
+  - key: REV-RKG-2026-007
+    path: .aide/evidence/reviews/REV-RKG-2026-007.yaml
+    sha256: 96918a2b09a4e07fbae0522a059a2e477ac8a504cd8c1334aa12237b638b4ce3
+  views:
+  - key: AVW-RKG-CHATBOT-002-r5
+    path: .aide/generated/architecture-views/AVW-RKG-CHATBOT-002-r5.md
+    sha256: 86c8c8c59a2f81f598ab0b855c9aeb60f14ceaaab62459fd7ae6be5baf886680
+  - key: CSV-CHG-RKG-2026-002-r5
+    path: .aide/generated/change-set-views/CSV-CHG-RKG-2026-002-r5.md
+    sha256: 02ed038fe5aade2ae0cdf9bf3d8ab640489ff7e3fdcda4a1be40075950eceeda
+checklist:
+- item: exact_current_design_hashes_match_independent_review
+  result: pass
+- item: security_operability_completeness_advisory_review
+  result: pass
+  evidence: REV-RKG-2026-005
+- item: one_recovery_review_for_ADR_wording
+  result: pass
+  evidence: REV-RKG-2026-007
+- item: COMP-CHG002-001_resolved_no_design_blocker
+  result: pass
+  evidence: REV-RKG-2026-007
+- item: named_TechLead_and_Architect_authority
+  result: pass
+  evidence: CR-RKG-004/005/006
+- item: human_architecture_decision_option_B
+  result: pass
+  evidence: CR-RKG-005/006
+closes_gate: true
+gate_effect:
+  CHG-RKG-2026-002.scope: approved
+  CHG-RKG-2026-002.architecture: approved
+  CHG-RKG-2026-002.ui_ux: pending
+  CHG-RKG-2026-002.contract: pending
+  CHG-RKG-2026-001: unchanged
+waivers: []
+notes: Decision belongs to PhongNM. Frozen design bytes were not rewritten to promote
+  shared source draft metadata; signed baseline explicitly approves the chatbot sections.
+  This does not approve unrelated full-MVP sections, UIUX, future L3 contracts/migrations,
+  runtime quality, UAT or release. Base Git commit is code provenance; current document
+  hashes are the signed snapshot.

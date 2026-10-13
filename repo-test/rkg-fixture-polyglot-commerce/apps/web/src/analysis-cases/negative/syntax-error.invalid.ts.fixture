@@ -1,0 +1,2 @@
+// Copy to syntax-error.ts only in a dedicated syntax-error corpus branch.
+export const deliberatelyBroken = ({

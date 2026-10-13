@@ -1,0 +1,352 @@
+{
+  "allowlist": {
+    "allowed_prefixes": [
+      "src/rkg/adapters/",
+      "tests/conformance/",
+      "tests/fixtures/adapter/"
+    ],
+    "disallowed_files": [],
+    "passed": true
+  },
+  "base_revision": "adcf43816acefc63d615f2c9f90cda18dbea054d",
+  "captured_at": "2026-09-28",
+  "changed_files": [
+    "tests/conformance/fixture_adapter.py",
+    "tests/conformance/test_adapter_conformance.py",
+    "tests/fixtures/adapter/sample.synthetic"
+  ],
+  "comparison_revision": "b10116e027f792991f03f7959a114834a33cf72d",
+  "contract_case_results": {
+    "rkg.conformance.fixture.framework": {
+      "contract_version": "passed",
+      "detect_entrypoint": "passed",
+      "detection_deterministic": "passed",
+      "detection_evidence_order": "passed",
+      "extract_deterministic": "passed",
+      "extract_entrypoint": "passed",
+      "extract_fact_batch": "passed",
+      "no_source_execution": "passed",
+      "resolve_deterministic": "passed",
+      "resolve_entrypoint": "passed",
+      "resolve_fact_batch": "passed"
+    },
+    "rkg.conformance.fixture.language": {
+      "contract_version": "passed",
+      "detect_entrypoint": "passed",
+      "detection_deterministic": "passed",
+      "detection_evidence_order": "passed",
+      "extract_deterministic": "passed",
+      "extract_entrypoint": "passed",
+      "extract_fact_batch": "passed",
+      "no_source_execution": "passed",
+      "parse_deterministic": "passed",
+      "parse_entrypoint": "passed",
+      "parsed_units_boundary_order": "passed",
+      "resolve_deterministic": "passed",
+      "resolve_entrypoint": "passed",
+      "resolve_fact_batch": "passed"
+    }
+  },
+  "contract_version": "rkg.adapter/v1",
+  "current_pytest": {
+    "all_conformance": "36 passed",
+    "focused": "2 passed",
+    "full_suite": "134 passed, 4 skipped"
+  },
+  "fixture_files_changed_since_fixture_revision": [],
+  "fixture_revision": "fd729652ec74e5e411466b4d381a0da92ce45dc5",
+  "group": "evidence",
+  "key": "TEST-RKG-ADAPTER-CONFORMANCE-r3",
+  "limitations": [
+    "Historical comparison and fixture commits remain the extension proof; current tree reruns unchanged fixture and static check."
+  ],
+  "pass_rate": 1.0,
+  "passed_contract_tests": 25,
+  "static_check": {
+    "forbidden_exact_strings": [
+      "rkg.conformance.fixture.framework",
+      "rkg.conformance.fixture.language",
+      "synthetic",
+      "synthetic-web"
+    ],
+    "matches": [],
+    "passed": true,
+    "scope": "src/rkg/**/*.py excluding adapters"
+  },
+  "task_key": "TASK-RKG-022",
+  "total_contract_tests": 25,
+  "type": "test-evidence",
+  "working_tree_sha256": {
+    "src/rkg/conversations/grounded.py": "302aef99c7098f5068f556ab50c56ae841792d595df9032f265960c4b8e65528",
+    "src/rkg/graph/context.py": "8fdd692f6f167b40ad72f4f3add5822adf301a5041c1d5c45fdb7313c50ded37"
+  },
+  "evidence_revision": 3,
+  "revision_history": [
+    {
+      "revision": 1,
+      "report": {
+        "key": "TEST-RKG-ADAPTER-CONFORMANCE",
+        "type": "test-evidence",
+        "group": "evidence",
+        "captured_at": "2026-09-24",
+        "task": {
+          "key": "TASK-RKG-004",
+          "revision": 3
+        },
+        "requirement": {
+          "key": "NFR-RKG-EXT-001",
+          "revision": 3
+        },
+        "registry": {
+          "key": "REG-ADAPTER-001",
+          "revision": 2
+        },
+        "contract_version": "rkg.adapter/v1",
+        "comparison_revision": "b10116e027f792991f03f7959a114834a33cf72d",
+        "fixture_revision": "fd729652ec74e5e411466b4d381a0da92ce45dc5",
+        "changed_files": [
+          "tests/conformance/fixture_adapter.py",
+          "tests/conformance/test_adapter_conformance.py",
+          "tests/fixtures/adapter/sample.synthetic"
+        ],
+        "allowlist": {
+          "allowed_prefixes": [
+            "src/rkg/adapters/",
+            "tests/conformance/",
+            "tests/fixtures/adapter/"
+          ],
+          "disallowed_files": [],
+          "passed": true
+        },
+        "static_check": {
+          "scope": "src/rkg/**/*.py excluding src/rkg/adapters/",
+          "forbidden_exact_strings": [
+            "rkg.conformance.fixture.language",
+            "rkg.conformance.fixture.framework",
+            "synthetic",
+            "synthetic-web"
+          ],
+          "matches": [],
+          "passed": true
+        },
+        "contract_case_results": {
+          "rkg.conformance.fixture.language": {
+            "contract_version": "passed",
+            "detect_entrypoint": "passed",
+            "detection_evidence_order": "passed",
+            "detection_deterministic": "passed",
+            "parse_entrypoint": "passed",
+            "parsed_units_boundary_order": "passed",
+            "parse_deterministic": "passed",
+            "extract_entrypoint": "passed",
+            "extract_fact_batch": "passed",
+            "extract_deterministic": "passed",
+            "resolve_entrypoint": "passed",
+            "resolve_fact_batch": "passed",
+            "resolve_deterministic": "passed",
+            "no_source_execution": "passed"
+          },
+          "rkg.conformance.fixture.framework": {
+            "contract_version": "passed",
+            "detect_entrypoint": "passed",
+            "detection_evidence_order": "passed",
+            "detection_deterministic": "passed",
+            "extract_entrypoint": "passed",
+            "extract_fact_batch": "passed",
+            "extract_deterministic": "passed",
+            "resolve_entrypoint": "passed",
+            "resolve_fact_batch": "passed",
+            "resolve_deterministic": "passed",
+            "no_source_execution": "passed"
+          }
+        },
+        "passed_contract_tests": 25,
+        "total_contract_tests": 25,
+        "pass_rate": 1.0,
+        "pytest_cases": {
+          "test_fixture_adapter_contract_and_registry": "passed",
+          "test_core_has_no_fixture_specific_dispatch": "passed"
+        },
+        "verification": {
+          "pytest_command": ".venv/Scripts/python.exe -m pytest -q",
+          "pytest_result": "28 passed, 1 skipped",
+          "ruff_command": ".venv/Scripts/ruff.exe check src tests",
+          "ruff_result": "All checks passed"
+        },
+        "limitations": [
+          "The fixture proves the extension boundary; production Python and framework adapters are separate tasks.",
+          "One existing symlink test is skipped because this Windows host cannot create a symlink.",
+          "Verification used Python 3.12.5; the repository pin is 3.12.14."
+        ]
+      }
+    },
+    {
+      "revision": 2,
+      "report": {
+        "allowlist": {
+          "allowed_prefixes": [
+            "src/rkg/adapters/",
+            "tests/conformance/",
+            "tests/fixtures/adapter/"
+          ],
+          "disallowed_files": [],
+          "passed": true
+        },
+        "captured_at": "2026-09-28",
+        "changed_files": [
+          "tests/conformance/fixture_adapter.py",
+          "tests/conformance/test_adapter_conformance.py",
+          "tests/fixtures/adapter/sample.synthetic"
+        ],
+        "comparison_revision": "b10116e027f792991f03f7959a114834a33cf72d",
+        "contract_case_results": {
+          "rkg.conformance.fixture.framework": {
+            "contract_version": "passed",
+            "detect_entrypoint": "passed",
+            "detection_deterministic": "passed",
+            "detection_evidence_order": "passed",
+            "extract_deterministic": "passed",
+            "extract_entrypoint": "passed",
+            "extract_fact_batch": "passed",
+            "no_source_execution": "passed",
+            "resolve_deterministic": "passed",
+            "resolve_entrypoint": "passed",
+            "resolve_fact_batch": "passed"
+          },
+          "rkg.conformance.fixture.language": {
+            "contract_version": "passed",
+            "detect_entrypoint": "passed",
+            "detection_deterministic": "passed",
+            "detection_evidence_order": "passed",
+            "extract_deterministic": "passed",
+            "extract_entrypoint": "passed",
+            "extract_fact_batch": "passed",
+            "no_source_execution": "passed",
+            "parse_deterministic": "passed",
+            "parse_entrypoint": "passed",
+            "parsed_units_boundary_order": "passed",
+            "resolve_deterministic": "passed",
+            "resolve_entrypoint": "passed",
+            "resolve_fact_batch": "passed"
+          }
+        },
+        "contract_version": "rkg.adapter/v1",
+        "current_base_revision": "adcf43816acefc63d615f2c9f90cda18dbea054d",
+        "current_context_sha256": "8fdd692f6f167b40ad72f4f3add5822adf301a5041c1d5c45fdb7313c50ded37",
+        "current_pytest": {
+          "all_conformance": "36 passed",
+          "focused": "2 passed"
+        },
+        "fixture_files_changed_since_fixture_revision": [],
+        "fixture_revision": "fd729652ec74e5e411466b4d381a0da92ce45dc5",
+        "group": "evidence",
+        "key": "TEST-RKG-ADAPTER-CONFORMANCE-r2",
+        "limitations": [
+          "Historical comparison and fixture commits remain the NFR-RKG-EXT-001 extension proof; current task reruns the unchanged fixture and static check."
+        ],
+        "pass_rate": 1.0,
+        "passed_contract_tests": 25,
+        "static_check": {
+          "forbidden_exact_strings": [
+            "rkg.conformance.fixture.framework",
+            "rkg.conformance.fixture.language",
+            "synthetic",
+            "synthetic-web"
+          ],
+          "matches": [],
+          "passed": true,
+          "scope": "src/rkg/**/*.py excluding adapters"
+        },
+        "task_key": "TASK-RKG-022",
+        "total_contract_tests": 25,
+        "type": "test-evidence"
+      }
+    },
+    {
+      "revision": 3,
+      "report": {
+        "allowlist": {
+          "allowed_prefixes": [
+            "src/rkg/adapters/",
+            "tests/conformance/",
+            "tests/fixtures/adapter/"
+          ],
+          "disallowed_files": [],
+          "passed": true
+        },
+        "base_revision": "adcf43816acefc63d615f2c9f90cda18dbea054d",
+        "captured_at": "2026-09-28",
+        "changed_files": [
+          "tests/conformance/fixture_adapter.py",
+          "tests/conformance/test_adapter_conformance.py",
+          "tests/fixtures/adapter/sample.synthetic"
+        ],
+        "comparison_revision": "b10116e027f792991f03f7959a114834a33cf72d",
+        "contract_case_results": {
+          "rkg.conformance.fixture.framework": {
+            "contract_version": "passed",
+            "detect_entrypoint": "passed",
+            "detection_deterministic": "passed",
+            "detection_evidence_order": "passed",
+            "extract_deterministic": "passed",
+            "extract_entrypoint": "passed",
+            "extract_fact_batch": "passed",
+            "no_source_execution": "passed",
+            "resolve_deterministic": "passed",
+            "resolve_entrypoint": "passed",
+            "resolve_fact_batch": "passed"
+          },
+          "rkg.conformance.fixture.language": {
+            "contract_version": "passed",
+            "detect_entrypoint": "passed",
+            "detection_deterministic": "passed",
+            "detection_evidence_order": "passed",
+            "extract_deterministic": "passed",
+            "extract_entrypoint": "passed",
+            "extract_fact_batch": "passed",
+            "no_source_execution": "passed",
+            "parse_deterministic": "passed",
+            "parse_entrypoint": "passed",
+            "parsed_units_boundary_order": "passed",
+            "resolve_deterministic": "passed",
+            "resolve_entrypoint": "passed",
+            "resolve_fact_batch": "passed"
+          }
+        },
+        "contract_version": "rkg.adapter/v1",
+        "current_pytest": {
+          "all_conformance": "36 passed",
+          "focused": "2 passed",
+          "full_suite": "134 passed, 4 skipped"
+        },
+        "fixture_files_changed_since_fixture_revision": [],
+        "fixture_revision": "fd729652ec74e5e411466b4d381a0da92ce45dc5",
+        "group": "evidence",
+        "key": "TEST-RKG-ADAPTER-CONFORMANCE-r3",
+        "limitations": [
+          "Historical comparison and fixture commits remain the extension proof; current tree reruns unchanged fixture and static check."
+        ],
+        "pass_rate": 1.0,
+        "passed_contract_tests": 25,
+        "static_check": {
+          "forbidden_exact_strings": [
+            "rkg.conformance.fixture.framework",
+            "rkg.conformance.fixture.language",
+            "synthetic",
+            "synthetic-web"
+          ],
+          "matches": [],
+          "passed": true,
+          "scope": "src/rkg/**/*.py excluding adapters"
+        },
+        "task_key": "TASK-RKG-022",
+        "total_contract_tests": 25,
+        "type": "test-evidence",
+        "working_tree_sha256": {
+          "src/rkg/conversations/grounded.py": "302aef99c7098f5068f556ab50c56ae841792d595df9032f265960c4b8e65528",
+          "src/rkg/graph/context.py": "8fdd692f6f167b40ad72f4f3add5822adf301a5041c1d5c45fdb7313c50ded37"
+        }
+      }
+    }
+  ]
+}

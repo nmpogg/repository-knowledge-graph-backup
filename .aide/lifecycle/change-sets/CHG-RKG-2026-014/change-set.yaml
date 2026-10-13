@@ -1,0 +1,50 @@
+key: CHG-RKG-2026-014
+label: Flask static route extraction
+type: change-set
+group: normative
+scope: lifecycle
+system: SYS-RKG
+status: draft
+revision: 1
+phase: verified_deep_support_withheld
+change_request: CR-RKG-029
+tier: T2
+tier_status: proposed
+tier_basis: Recorded request registers rkg.flask as detected-only and verifies static routes. One team. No new bounded context and no ADR replacement are stated. No signer decided this proposal.
+flow: change
+objective:
+  description: Verify Flask static routes on STORY-RKG-025. Deep support stays withheld. No repo-test oracle is claimed.
+  satisfies:
+  - AC-RKG-004
+  - AC-RKG-005
+  - AC-RKG-006
+  - AC-RKG-048
+affected_systems:
+- SYS-RKG
+affected_teams:
+- TEAM-RKG
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+coordination:
+  mode: independent
+  integration_gate_required: false
+stories:
+- STORY-RKG-025
+tasks:
+- TASK-RKG-047
+gates:
+  scope: pending
+  architecture: pending
+  ui_ux: pending
+  contract: pending
+  component_merge: pending
+baseline: not_recorded
+task_review: not_recorded
+deep_support: withheld
+verification_evidence: TEST-RKG-FLASK-001
+stack_support_review: REV-RKG-STACK-SUPPORT-001
+release_slice: separate
+release_slice_reason: The Flask request is a separate authorization and claims no repo-test oracle. No shared adapter release is recorded.
+classification: internal
+ai_assisted: true

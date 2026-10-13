@@ -1,0 +1,102 @@
+{
+  "kind": "current_evaluation_status",
+  "branch": "fix/chatbot-evaluation-90",
+  "target_pass_rate": 0.9,
+  "state": "completed_numeric_target_passed_pending_review",
+  "latest_attempt": {
+    "report": "evaluation/results/ragas-live-20261012-02.json",
+    "sha256": "11836254c3026c4c179864d033d3dbdb0b7f18d8059d41f99b9f2fda39e40372",
+    "quality_assessment": "available",
+    "accuracy": 0.9310344827586207,
+    "overall_pass_rate": 0.94,
+    "code_revision": "0ee79ab0bb7d93444038ee6923606b4a742f2c55",
+    "code_tree_sha256": "b3ddb0a3090669e6b8a8f3076291fabab032a61caaa0f3ea8ae9ac6a5ee47aef"
+  },
+  "last_valid_run": {
+    "report": "evaluation/results/ragas-live-20261012-02.json",
+    "sha256": "11836254c3026c4c179864d033d3dbdb0b7f18d8059d41f99b9f2fda39e40372",
+    "passed_cases": 47,
+    "total_cases": 50,
+    "answerable_passed": 27,
+    "answerable_total": 29
+  },
+  "calibration": {
+    "report": "evaluation/results/calibration-20261012-03.json",
+    "sha256": "c8f8864bc68583c3ea19e870383fce7594d8c5c285e4c8e4a440021f0747f4ad",
+    "model": "gpt-4.1",
+    "passed": 7,
+    "total": 7
+  },
+  "runner_target_assessment": {
+    "minimum_pass_rate": 0.9,
+    "overall_pass_rate": 0.94,
+    "answerable_pass_rate": 0.9310344827586207,
+    "state": "passed"
+  },
+  "acceptance": "not_claimed_pending_independent_review",
+  "remaining_failures": [
+    {
+      "case_id": "RKG-EVAL-014",
+      "repository": "rkg-fixture-react-ts",
+      "category": "answerable",
+      "turns": [
+        {
+          "turn_id": "T1",
+          "verdict": "fail",
+          "native_checks_passed": true,
+          "missing_or_incorrect_required_facts": [
+            "T1-F1",
+            "T1-F2"
+          ],
+          "unsupported_repository_assertion": true,
+          "forbidden_assertion": false
+        }
+      ]
+    },
+    {
+      "case_id": "RKG-EVAL-021",
+      "repository": "rkg-fixture-bullmq-worker",
+      "category": "answerable",
+      "turns": [
+        {
+          "turn_id": "T1",
+          "verdict": "fail",
+          "native_checks_passed": true,
+          "missing_or_incorrect_required_facts": [
+            "T1-F1"
+          ],
+          "unsupported_repository_assertion": true,
+          "forbidden_assertion": true
+        }
+      ]
+    },
+    {
+      "case_id": "RKG-EVAL-034",
+      "repository": "rkg-fixture-spring-orders",
+      "category": "conversation",
+      "turns": [
+        {
+          "turn_id": "T1",
+          "verdict": "fail",
+          "native_checks_passed": true,
+          "missing_or_incorrect_required_facts": [
+            "T1-F1"
+          ],
+          "unsupported_repository_assertion": false,
+          "forbidden_assertion": false
+        },
+        {
+          "turn_id": "T2",
+          "verdict": "fail",
+          "native_checks_passed": true,
+          "missing_or_incorrect_required_facts": [
+            "T2-F1"
+          ],
+          "unsupported_repository_assertion": false,
+          "forbidden_assertion": false
+        }
+      ]
+    }
+  ],
+  "required_next_step": "Independently review corpus and live judgments; resolve the 3 failed cases, including the remaining conversation and unsupported assertions, before claiming full acceptance."
+}

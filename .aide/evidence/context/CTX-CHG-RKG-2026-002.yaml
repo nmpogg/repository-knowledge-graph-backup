@@ -1,0 +1,296 @@
+{
+  "key": "CTX-CHG-RKG-2026-002",
+  "type": "context-snapshot",
+  "group": "evidence",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "captured_at": "2026-10-06",
+  "stage": "intake-survey-not-task-context",
+  "change_set": "CHG-RKG-2026-002",
+  "captured_against": {
+    "code_commit": "86ecab6546384227d1901e24c8b8fbfc6c0e8527",
+    "code_tree": "6868e73b8d0b5abdecdd9a64265596d8fe809548",
+    "artifacts": [
+      {
+        "path": ".aide/requirements/fr/FR-RKG-005.md",
+        "sha256": "a20c3f1aede798ef733273feb7addf00c51866f0a68397df5e7ae69dca280448",
+        "key": "FR-RKG-005",
+        "revision": 7,
+        "status": "approved"
+      },
+      {
+        "path": ".aide/requirements/nfr/NFR-RKG-REL-001.md",
+        "sha256": "fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b",
+        "key": "NFR-RKG-REL-001",
+        "revision": 8,
+        "status": "approved"
+      },
+      {
+        "path": ".aide/requirements/nfr/NFR-RKG-SEC-001.md",
+        "sha256": "ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa",
+        "key": "NFR-RKG-SEC-001",
+        "revision": 7,
+        "status": "approved"
+      },
+      {
+        "path": ".aide/requirements/nfr/NFR-RKG-UX-001.md",
+        "sha256": "c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3",
+        "key": "NFR-RKG-UX-001",
+        "revision": 7,
+        "status": "approved"
+      },
+      {
+        "path": ".aide/architecture/l1/CAP-RKG-003.md",
+        "sha256": "a83f81a79c97a82bb302f0db2a28ade53e32299b390d45a2318ae33839c57c93",
+        "key": "CAP-RKG-003",
+        "revision": 4,
+        "status": "approved"
+      },
+      {
+        "path": ".aide/architecture/l2/CMP-RKG-CONVERSATION.md",
+        "sha256": "869edbf1550b3143e13286e60c598eec22f1b560c44f2c77a79435c6e1fb7cdf",
+        "key": "CMP-RKG-CONVERSATION",
+        "revision": 6,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/architecture/l2/CMP-RKG-WEB.md",
+        "sha256": "92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c",
+        "key": "CMP-RKG-WEB",
+        "revision": 8,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/architecture/l2/CMP-RKG-GRAPH.md",
+        "sha256": "7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2",
+        "key": "CMP-RKG-GRAPH",
+        "revision": 9,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/architecture/threat-model/TM-RKG.md",
+        "sha256": "6d2f630e241456168fc391001acb6fccb6934eb1432cb316b5821d5b8b112216",
+        "key": "TM-RKG",
+        "revision": 7,
+        "status": "approved"
+      },
+      {
+        "path": ".aide/tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+        "sha256": "e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2",
+        "key": "API-RKG-CORE-v1",
+        "revision": 15,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+        "sha256": "8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf",
+        "key": "TBL-RKG-GRAPH",
+        "revision": 12,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/design/ux/UXF-RKG-002.md",
+        "sha256": "12bc6cfa65bee337b256b4b9a51813a777cdf845934180e8d98029b664a02820",
+        "key": "UXF-RKG-002",
+        "revision": 4,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/design/ux/SCR-RKG-001.md",
+        "sha256": "3ca03923d54d550cb6fe8a56314b714bdd5924d211cc7b0056ad89814e1e97d2",
+        "key": "SCR-RKG-001",
+        "revision": 8,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/design/ui/UID-RKG-001.md",
+        "sha256": "f55d82b70a237f4cf2f4b21a0e3444e664e176bb48fb376222c1c199b1776a80",
+        "key": "UID-RKG-001",
+        "revision": 7,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/design/ui/UIS-RKG-001.md",
+        "sha256": "2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b",
+        "key": "UIS-RKG-001",
+        "revision": 12,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/observability/OBS-RKG-005.md",
+        "sha256": "82acb6483ca288e1952b5f7f354158243ea07ea45cf090a62392787e3c92ef3f",
+        "key": "OBS-RKG-005",
+        "revision": 3,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/policies/eval/EVAL-RKG-QA-001.md",
+        "sha256": "19bba2089b095b0b431d85d843a61a3d5a4488889c269d47439869f11b673720",
+        "key": "EVAL-RKG-QA-001",
+        "revision": 2,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/policies/gates/GATE-RKG-SCOPE.md",
+        "sha256": "61a00846d3d4ed5b7c0206c15cc6e3ac57db1804285ec48b760eb3c0c2bb339c",
+        "key": "GATE-RKG-SCOPE",
+        "revision": 7,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/policies/gates/GATE-RKG-ARCHITECTURE.md",
+        "sha256": "6fb80c373d17e6e5716966d203286995cd29ad5f55315e225827957893d1e9fe",
+        "key": "GATE-RKG-ARCHITECTURE",
+        "revision": 5,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/policies/gates/GATE-RKG-UIUX.md",
+        "sha256": "3942ab10e05f0df69854f4fa90ab6f106209ce5946b02c4a28a41d3ff4d1a8fd",
+        "key": "GATE-RKG-UIUX",
+        "revision": 7,
+        "status": "draft"
+      },
+      {
+        "path": ".aide/policies/gates/GATE-RKG-CONTRACT.md",
+        "sha256": "7f44db7544890ef8464b897c75f5bc5e1af6bc8962c8cc255c3348c37d9c0e20",
+        "key": "GATE-RKG-CONTRACT",
+        "revision": 8,
+        "status": "draft"
+      }
+    ],
+    "code_files": [
+      {
+        "path": "src/rkg/conversations/grounded.py",
+        "sha256": "3b0efbbea60e11709c7048f36720a115a4c9d02b7c601efb2572384f4f85a65a"
+      },
+      {
+        "path": "src/rkg/conversations/service.py",
+        "sha256": "7cae91efc9dc28256575870577c41276bec0d33dbe64b079df10cc9a9b5dde37"
+      },
+      {
+        "path": "src/rkg/graph/context.py",
+        "sha256": "5fe587702ab64b174b90ef2ad56c296b479002059b61321fcdf22133b686d462"
+      },
+      {
+        "path": "src/rkg/graph/search.py",
+        "sha256": "52c2ba6a34a0e3ce24c53190e69c1ba3342b1815a051a9bf6cf5c112ae38ccae"
+      },
+      {
+        "path": "src/rkg/api/conversations.py",
+        "sha256": "8ed7cf1f9860c327f67b5dd8b3eafa26c3f1e0628e75320078521b07d32d33db"
+      },
+      {
+        "path": "src/rkg/llm/provider.py",
+        "sha256": "8406df1f68a067032abdf46508c0d4795122425ebee88cb6d0d43b59dd285fde"
+      },
+      {
+        "path": "frontend/src/pages/conversations/ConversationPage.tsx",
+        "sha256": "c42a040f5aa66ced334b829bfe342128e35de4265517025081691f31db7b0fa4"
+      },
+      {
+        "path": "frontend/src/pages/conversations/ConversationPage.test.tsx",
+        "sha256": "fe534721281053964ec2b09660eef70a38297608638b63f08c6c623abbec7d25"
+      },
+      {
+        "path": "frontend/src/i18n/vi.ts",
+        "sha256": "ea0b152a5007254f08c63956690739d286f3286a78e6007c8d18140363f2500b"
+      },
+      {
+        "path": "frontend/src/i18n/en.ts",
+        "sha256": "bd5d2a34d4b3b5871a893c32635eac2e5b3863cbfda2c4dcffc65f333fb0ba9b"
+      },
+      {
+        "path": "frontend/src/client/live/mapWire.ts",
+        "sha256": "af8ee0f7dd2cf40ed5ab61d2d4ce3415ba756c26e6c79d263a33d518686cca81"
+      },
+      {
+        "path": "frontend/src/client/mock/mockClient.ts",
+        "sha256": "b4f2b279cea19a45196703a972623303b7334dcf4f60b9780cf24027bf6943d6"
+      },
+      {
+        "path": "frontend/src/types/api.ts",
+        "sha256": "a42cd25507439115b67ea873780c9f9f2614c6da9e391b806eece7d358417144"
+      },
+      {
+        "path": "frontend/src/index.css",
+        "sha256": "f9b81ff813b267946bf5b9a89fe36356d28ec18bb18af3bbeef1d2f3ee424c3e"
+      },
+      {
+        "path": ".aide/design/ui/tokens/tokens.json",
+        "sha256": "ae71b14d8921b6e64f03641a5787c7b99622fa3f28904a75208eabfb32c8de96"
+      }
+    ],
+    "process_reference": {
+      "path": "docs/reference/agentic-sdlc/agentic-sdlc-workflow-reference.md",
+      "sha256": "6b73c7836e0924761492634f946e209277afa14229faa7e0b93ab9e2b847d1e7"
+    }
+  },
+  "authority": {
+    "normative_root": ".aide/",
+    "baseline": null,
+    "implementation_ready": false,
+    "reject_if_stale": true,
+    "closes_gates": false,
+    "note": "Survey input revisions are pinned but are not an approved baseline for this change."
+  },
+  "intake_analysis": {
+    "flow": "change",
+    "tier": "T2",
+    "tier_status": "proposed",
+    "graph_revision": null,
+    "external_consumers": "not_verified",
+    "confidence": {
+      "graph_coverage": null,
+      "basis": "Manual current-tree survey; no metadata-graph generator was run."
+    },
+    "affected_components": [
+      "CMP-RKG-CONVERSATION",
+      "CMP-RKG-WEB",
+      "CMP-RKG-TRANSPORT"
+    ],
+    "conditional_components": [
+      "CMP-RKG-GRAPH"
+    ],
+    "stale_artifacts_if_revised": [
+      "FR-RKG-005",
+      "CMP-RKG-CONVERSATION",
+      "CMP-RKG-WEB",
+      "UXF-RKG-002",
+      "SCR-RKG-001",
+      "UID-RKG-001",
+      "UIS-RKG-001",
+      "API-RKG-CORE-v1"
+    ],
+    "skipped_with_reason": [
+      {
+        "area": "PRD goals and KPI",
+        "reason": "Improves existing grounded conversation capability; no goal/KPI change proposed."
+      },
+      {
+        "area": "Analyzer and adapter schemas",
+        "reason": "No extraction change proposed; endpoint QA uses existing indexed graph."
+      },
+      {
+        "area": "Physical DDL",
+        "reason": "No migration authorized; revisit only if contract requires new persisted fields."
+      },
+      {
+        "area": "Release/deployment",
+        "reason": "Current request is plan-first; readiness and review precede implementation."
+      }
+    ],
+    "impact_artifact": "No derived impact.yaml created manually. This is author survey evidence, not generated impact.",
+    "previous_findings": {
+      "status": "not_verified",
+      "note": "No finding records discovered under .aide/evidence/findings in the survey; broader gate/evidence review remains required."
+    }
+  },
+  "verification_status": {
+    "runtime_tests": "not_run",
+    "live_provider": "not_run",
+    "browser_uat": "not_run"
+  },
+  "classification": "internal",
+  "ai_assisted": true
+}

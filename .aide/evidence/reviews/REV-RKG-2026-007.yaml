@@ -1,0 +1,286 @@
+{
+  "key": "REV-RKG-2026-007",
+  "type": "review-record",
+  "group": "evidence",
+  "scope": "system",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "status": "completed",
+  "review_class": "advisory",
+  "review_mode": "independent_delta_recovery",
+  "pass_count": 1,
+  "created_at": "2026-10-06",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "change_set": "CHG-RKG-2026-002",
+  "classification": "internal",
+  "ai_assisted": true,
+  "non_normative": true,
+  "ownership": {
+    "accountable_team": "TEAM-RKG",
+    "accountable_role": "tech-lead"
+  },
+  "relations": {
+    "reviews": [
+      "ADR-2026-007",
+      "CHG-RKG-2026-002"
+    ],
+    "follows_up": [
+      "REV-RKG-2026-005",
+      "COMP-CHG002-001"
+    ]
+  },
+  "review_scope": "Chỉ ADR-2026-007 revision 1→2: greeting dùng ngôn ngữ hiệu lực của language resolver thay wording theo locale. FR AC074/078 và CMP language/greeting là reference. Không review semantic toàn baseline.",
+  "captured_against": {
+    "hash_method": "sha256-file-bytes",
+    "baseline": "BL-CHG-RKG-2026-002-r3",
+    "baseline_path": ".aide/lifecycle/change-sets/CHG-RKG-2026-002/baseline/BL-CHG-RKG-2026-002-r3.yaml",
+    "baseline_revision": 1,
+    "baseline_sha256": "051a382ed452463cc891ce4183b4891116ccecd7ec345d4f1de0ac0bb328d1a5",
+    "artifacts": [
+      {
+        "key": "FR-RKG-005",
+        "revision": 9,
+        "path": ".aide/requirements/fr/FR-RKG-005.md",
+        "sha256": "6f240da74dd108933c85da36bf973106c30b7a6825f2e3b57e67318fa22a78f5",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "ADR-2026-007",
+        "revision": 2,
+        "path": ".aide/architecture/adr/ADR-2026-007.md",
+        "sha256": "1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "CMP-RKG-CONVERSATION",
+        "revision": 7,
+        "path": ".aide/architecture/l2/CMP-RKG-CONVERSATION.md",
+        "sha256": "2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      }
+    ],
+    "original_review": {
+      "key": "REV-RKG-2026-005",
+      "revision": 1,
+      "path": ".aide/evidence/reviews/REV-RKG-2026-005.yaml",
+      "sha256": "e4391d66239b894bc493a507cad33bdf7339c86f4581d773b96bc3e5dd1c286b",
+      "reviewed_baseline": "BL-CHG-RKG-2026-002-r2",
+      "baseline_sha256": "3cf69ea1258789a8f3ed3fba07759ac860b0cff81078f74ec3643ba9e3f03bdf",
+      "finding_id": "COMP-CHG002-001",
+      "adr_revision": 1,
+      "adr_sha256": "c699b29aa4c36c4be71c40b9f179731213f2f53e77d811a06e9307a2be68144c"
+    },
+    "policy_inputs": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "e2e13dce396455110db73652508df2fb87d1ddd3644287b19156cbbfd5e36a55"
+      },
+      {
+        "path": "docs/reference/agentic-sdlc/agentic-sdlc-workflow-reference.md",
+        "sha256": "6b73c7836e0924761492634f946e209277afa14229faa7e0b93ab9e2b847d1e7"
+      }
+    ]
+  },
+  "freeze_handling": {
+    "policy_anchor": "agentic-sdlc-workflow-reference.md B.17:794",
+    "status": "passed",
+    "recovery_review_count": 1,
+    "note": "Normative artifact đã review thay revision/hash nên thực hiện một recovery review riêng cho delta. Review005 tiếp tục là snapshot r2; record mới liên kết r3, không viết lại lịch sử. Không dùng lời tác giả hoặc author test evidence làm bằng chứng."
+  },
+  "reviewer": {
+    "agent_task": "greeting_recovery",
+    "role": "independent-design-reviewer",
+    "history_forked": false,
+    "semantic_inputs": "ADR r2; FR AC074/078; CMP language/greeting; review005 finding/snapshot; BL r3; AGENTS và review/freeze policy.",
+    "result": "ready_for_architecture_decision"
+  },
+  "delta_evidence": {
+    "status": "passed",
+    "old_revision": 1,
+    "new_revision": 2,
+    "reconstructed_r1_sha256": "c699b29aa4c36c4be71c40b9f179731213f2f53e77d811a06e9307a2be68144c",
+    "captured_r1_sha256": "c699b29aa4c36c4be71c40b9f179731213f2f53e77d811a06e9307a2be68144c",
+    "reconstruction_hash_match": true,
+    "method": "Tái dựng r1 trong memory bằng revert revision và wording greeting với original line wraps; SHA-256 toàn file bằng captured r1. Không lưu raw artifact/diff vào evidence.",
+    "changed_anchors": [
+      "ADR frontmatter revision: line 9",
+      "ADR Ngôn ngữ, greeting và clarification: lines 79–81"
+    ],
+    "remaining_manifest_pins_unchanged_from_original_review": 26
+  },
+  "checks": [
+    {
+      "id": "input_revision_sha256",
+      "status": "passed",
+      "kind": "static_design_review",
+      "basis": "ADR r2, FR r9 và CMP r7 khớp manifest r3. 27/27 manifest pins được đối chiếu file bytes/revision, không mở rộng semantic review ra ngoài delta."
+    },
+    {
+      "id": "original_reference_integrity",
+      "status": "passed",
+      "kind": "static_design_review",
+      "basis": "FR/CMP và policy hashes giữ nguyên so với captured snapshot review005; review005 được pin bằng SHA-256 mới trong record này."
+    },
+    {
+      "id": "Q01_exact_delta_reconstruction",
+      "status": "passed",
+      "kind": "static_design_review",
+      "basis": "Revert in memory revision 2→1 và greeting paragraph wording/line wrap; SHA-256 khớp r1 captured trong review005. Chỉ revision và wording/wrap greeting thay đổi; câu greeting kèm câu hỏi nghiệp vụ giữ nguyên nội dung."
+    },
+    {
+      "id": "Q02_language_precedence",
+      "status": "passed",
+      "kind": "static_design_review",
+      "basis": "ADR r2:74–80; FR r9 AC074:182–186; CMP r7:79–81. Dấu hiệu Việt/Anh rõ của câu nhập ưu tiên; ambiguous dùng UI locale; thiếu locale mặc định vi; identifier/method/path không là language signal. Greeting dùng language resolver result."
+    },
+    {
+      "id": "Q03_greeting_focus_pending_budgets_guards",
+      "status": "passed",
+      "kind": "static_design_review",
+      "basis": "ADR r2:79–86; FR r9 AC078:214–218; CMP r7:131–134,162–163. Greeting giữ focus/pending, zero graph/model calls; greeting kèm domain question vẫn Q&A; provider disabled/timeout và snapshot/session guards không bị bypass."
+    },
+    {
+      "id": "Q04_new_behavior_conflict_blockers",
+      "status": "passed",
+      "kind": "static_design_review",
+      "basis": "Exact-byte reconstruction và đối chiếu ADR/AC/CMP chứng minh đây là làm rõ invariant hiện hữu; không phát hiện hành vi mới, mâu thuẫn hoặc blocker trong delta."
+    },
+    {
+      "id": "Q05_finding_resolution_architecture_readiness",
+      "status": "passed",
+      "kind": "static_design_review",
+      "basis": "Ambiguity của COMP-CHG002-001 đã loại bỏ ở ADR r2:79–80. Finding resolved ở mức thiết kế; ready_for_architecture_decision, không phải approval."
+    },
+    {
+      "id": "review_independence_single_recovery",
+      "status": "passed",
+      "kind": "static_design_review",
+      "basis": "Một reviewer agent riêng, không fork lịch sử hội thoại; chỉ package delta được phép. Không đọc plan/diary/author reconciliation/author test evidence hoặc review006. Không lặp panel. Reviewer tự tái dựng r1 và xác minh hash."
+    },
+    {
+      "id": "runtime_greeting",
+      "status": "not_run",
+      "kind": "runtime_verification",
+      "basis": "Ngoài phạm vi; không execute repository source hoặc implementation tests. Không tuyên bố runtime greeting đúng."
+    },
+    {
+      "id": "live_provider",
+      "status": "not_run",
+      "kind": "runtime_verification",
+      "basis": "Ngoài phạm vi; không gọi LLM/provider."
+    },
+    {
+      "id": "ui_walkthrough",
+      "status": "not_run",
+      "kind": "runtime_verification",
+      "basis": "Ngoài phạm vi; không chạy UI preview/browser/device/keyboard walkthrough."
+    },
+    {
+      "id": "full_panel_repeat",
+      "status": "not_run",
+      "kind": "out_of_scope",
+      "basis": "Không lặp toàn bộ Security/Operability/Completeness panel; chỉ recovery delta review độc lập."
+    },
+    {
+      "id": "gate_approval",
+      "status": "not_run",
+      "kind": "authority_action",
+      "basis": "Không tạo approval hoặc đóng gate; Architecture/UIUX/Contract vẫn pending."
+    }
+  ],
+  "findings": [
+    {
+      "id": "COMP-CHG002-001",
+      "finding_key": {
+        "rule_id": "effective_language_before_ui_locale",
+        "location_anchor": "ADR-2026-007#ngon-ngu-greeting-va-clarification:L79",
+        "fingerprint": "greeting-locale-wording-can-bypass-resolved-language"
+      },
+      "reviewer_role": "completeness",
+      "attribution": [
+        "completeness"
+      ],
+      "severity": "low",
+      "blocker": false,
+      "classification": "optional_improvement",
+      "status": "resolved",
+      "route": "bad_spec",
+      "locations": [
+        {
+          "artifact": "ADR-2026-007",
+          "revision": 1,
+          "path": ".aide/architecture/adr/ADR-2026-007.md",
+          "section": "Ngôn ngữ, greeting và clarification",
+          "lines": [
+            74,
+            75,
+            76,
+            77,
+            79,
+            80
+          ]
+        }
+      ],
+      "related": [
+        "AC-RKG-074",
+        "AC-RKG-078",
+        "NFR-RKG-UX-001"
+      ],
+      "invariant": "Ngôn ngữ câu nhập rõ được ưu tiên; UI locale chỉ là fallback; greeting giữ focus/pending và không có graph/model calls.",
+      "issue": "Greeting ghi hướng dẫn “theo locale”, có thể bị hiểu là UI locale, trong khi resolver trước đó ưu tiên ngôn ngữ câu nhập.",
+      "scenario": "UI tiếng Anh, nhập lời chào Việt có dấu hoặc không dấu rõ: resolver chọn vi nhưng renderer hiểu riêng “theo locale” có thể trả hướng dẫn en.",
+      "proposed_resolution": "Đổi wording thành “theo ngôn ngữ hiệu lực đã xác định bởi language resolver”; UI chrome vẫn theo UI locale. Đề xuất chuyển người quyết định; pass này không sửa artifact.",
+      "verification_after_fix": "Kiểm tra invariant thống nhất giữa ADR/CMP/AC; sau triển khai dùng fixtures greeting vi/en/Việt không dấu với UI locale đối nghịch, assert reply language, zero graph/model calls và giữ focus/pending. Review lại exact revision/hash đã sửa.",
+      "blocker_rationale": "Resolver và AC đã quy định precedence; đây là wording ambiguity, không phải thiếu invariant kiến trúc."
+    }
+  ],
+  "finding_resolution": {
+    "finding_id": "COMP-CHG002-001",
+    "previous_status": "open",
+    "current_status": "resolved",
+    "reviewer_role": "completeness",
+    "attribution": [
+      "completeness"
+    ],
+    "finding_key": {
+      "rule_id": "effective_language_before_ui_locale",
+      "location_anchor": "ADR-2026-007#ngon-ngu-greeting-va-clarification:L79",
+      "fingerprint": "greeting-locale-wording-can-bypass-resolved-language"
+    },
+    "status": "passed",
+    "resolution_scope": "spec_wording_only",
+    "artifact": "ADR-2026-007",
+    "revision": 2,
+    "sha256": "1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a",
+    "section": "Ngôn ngữ, greeting và clarification",
+    "lines": [
+      79,
+      80
+    ],
+    "basis": "Greeting tham chiếu rõ ngôn ngữ hiệu lực đã xác định bởi language resolver, thống nhất AC074/078 và CMP; loại bỏ cách hiểu UI locale luôn thắng.",
+    "runtime_verification": "not_run",
+    "historical_record_updated": false
+  },
+  "new_findings": [],
+  "blockers": [],
+  "conclusion": {
+    "result": "ready_for_architecture_decision",
+    "finding_disposition": "COMP-CHG002-001 resolved ở mức wording/spec; giữ nguyên ID/attribution/fingerprint trong record mới.",
+    "statement": "Có thể đưa candidate hiện tại ra Architecture Gate dựa trên review005 cho các pins không đổi và recovery review này cho ADR r2. Không có blocker trong delta. Các checklist còn mở và sign-off exact revisions/hashes vẫn thuộc người có thẩm quyền.",
+    "architecture_gate": "pending",
+    "ui_ux_gate": "pending",
+    "contract_gate": "pending",
+    "runtime_claim": false
+  },
+  "preservation": {
+    "status": "passed",
+    "only_new_evidence_record_written": true,
+    "normative_or_code_modified": false,
+    "historical_evidence_modified": false,
+    "gate_or_approval_modified": false,
+    "forbidden_evidence_content": "Không chứa transcript, runtime prompt/response, raw source, credentials, config values hoặc absolute host paths."
+  }
+}

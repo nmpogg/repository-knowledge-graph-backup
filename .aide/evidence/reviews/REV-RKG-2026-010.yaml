@@ -1,0 +1,1407 @@
+{
+  "key": "REV-RKG-2026-010",
+  "type": "review-record",
+  "group": "evidence",
+  "scope": "component",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "status": "completed",
+  "created_at": "2026-10-06",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "review_class": "adversarial",
+  "review_round": 2,
+  "pass_count": 1,
+  "task": "TASK-RKG-030",
+  "change_set": "CHG-RKG-2026-002",
+  "classification": "internal",
+  "non_normative": true,
+  "ai_assisted": true,
+  "perspectives": [
+    "Security",
+    "Operability",
+    "Completeness"
+  ],
+  "relations": {
+    "reviews": [
+      "TASK-RKG-030",
+      "RVP-TASK-RKG-030-r2"
+    ],
+    "follows_up": [
+      "REV-RKG-2026-009"
+    ]
+  },
+  "captured_against": {
+    "candidate_kind": "frozen_worktree",
+    "branch": "feat/chatbot-storage-revision",
+    "head_commit": "b91d8b7223cc968350fdf5b9ce7feb67506a2dbf",
+    "base_commit": "b91d8b7223cc968350fdf5b9ce7feb67506a2dbf",
+    "candidate_is_checkpoint_commit": false,
+    "worktree_resolution": "git worktree list branch association; absolute host path deliberately omitted",
+    "package": {
+      "key": "RVP-TASK-RKG-030-r2",
+      "revision": 1,
+      "path": ".aide/reviewer/packages/RVP-TASK-RKG-030-r2.yaml",
+      "sha256": "202ba78f56d3d9e8b76de1c47a3b8551007002d070c87622e81d1e5ac052b30e"
+    },
+    "baseline": {
+      "key": "BL-CHG-RKG-2026-002-r8",
+      "path": ".aide/lifecycle/change-sets/CHG-RKG-2026-002/baseline/BL-CHG-RKG-2026-002-r8.yaml",
+      "sha256": "a2620db609df23ceb548f86c4b41cecc983a9e4d4f25c43322f663521240a61c"
+    },
+    "normative_artifacts": [
+      {
+        "key": "FR-RKG-005",
+        "path": ".aide/requirements/fr/FR-RKG-005.md",
+        "revision": 9,
+        "sha256": "6f240da74dd108933c85da36bf973106c30b7a6825f2e3b57e67318fa22a78f5",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "ADR-2026-007",
+        "path": ".aide/architecture/adr/ADR-2026-007.md",
+        "revision": 2,
+        "sha256": "1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "CMP-RKG-CONVERSATION",
+        "path": ".aide/architecture/l2/CMP-RKG-CONVERSATION.md",
+        "revision": 7,
+        "sha256": "2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "CMP-RKG-WEB",
+        "path": ".aide/architecture/l2/CMP-RKG-WEB.md",
+        "revision": 9,
+        "sha256": "9127465096842ccdf6addff5649a13839515f088a136d2bdcbbb3e5ccb5b91e6",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "TM-RKG",
+        "path": ".aide/architecture/threat-model/TM-RKG.md",
+        "revision": 8,
+        "sha256": "c22e337412e5c9d42bccbc5cf5ef76e92767ee130f3b4d8a9de86ea6d6570bb6",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "UXF-RKG-002",
+        "path": ".aide/design/ux/UXF-RKG-002.md",
+        "revision": 5,
+        "sha256": "5e57d4c6d118e1463a96373740105d61371514de12f2f1aa17a303206d8e3add",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "SCR-RKG-001",
+        "path": ".aide/design/ux/SCR-RKG-001.md",
+        "revision": 9,
+        "sha256": "385e3bd7ddb7ff32397580270005574cb6cce2ae47e392e7b137c9a4520876c3",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "UID-RKG-001",
+        "path": ".aide/design/ui/UID-RKG-001.md",
+        "revision": 8,
+        "sha256": "b5b92b6652c087cadaa0a347de226f9bf72fc2f5ad36eff617e9452b4e3dbc7e",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "GATE-RKG-SCOPE",
+        "path": ".aide/policies/gates/GATE-RKG-SCOPE.md",
+        "revision": 9,
+        "sha256": "bf7f2fb25f44a09f6ce42a3f937a5e125abe4cf184789b0eb9e9e5f304a2ed17",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "GATE-RKG-ARCHITECTURE",
+        "path": ".aide/policies/gates/GATE-RKG-ARCHITECTURE.md",
+        "revision": 7,
+        "sha256": "4730cff2a9093f0ef76b82a67a3eddb5a55090b9a88cef9cf257893b1b0187d6",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "GATE-RKG-UIUX",
+        "path": ".aide/policies/gates/GATE-RKG-UIUX.md",
+        "revision": 9,
+        "sha256": "1a2f9c73ad48d1d450e6d537e3af6596971ff356303c50a96d470679a2215787",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "PRD-RKG",
+        "path": ".aide/product/prd/PRD-RKG.md",
+        "revision": 20,
+        "sha256": "6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "DOM-RKG-CORE",
+        "path": ".aide/domain/glossary-core.md",
+        "revision": 5,
+        "sha256": "24759954cd15951c3c6fc441d0ba0b88d831f62f86ee1e5b1c15db74318d2ff3",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "CAP-RKG-003",
+        "path": ".aide/architecture/l1/CAP-RKG-003.md",
+        "revision": 4,
+        "sha256": "a83f81a79c97a82bb302f0db2a28ade53e32299b390d45a2318ae33839c57c93",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "CMP-RKG-GRAPH",
+        "path": ".aide/architecture/l2/CMP-RKG-GRAPH.md",
+        "revision": 9,
+        "sha256": "7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "CMP-RKG-TRANSPORT",
+        "path": ".aide/architecture/l2/CMP-RKG-TRANSPORT.md",
+        "revision": 7,
+        "sha256": "6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "ADR-2026-001",
+        "path": ".aide/architecture/adr/ADR-2026-001.md",
+        "revision": 3,
+        "sha256": "ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "ADR-2026-004",
+        "path": ".aide/architecture/adr/ADR-2026-004.md",
+        "revision": 2,
+        "sha256": "43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "NFR-RKG-SEC-001",
+        "path": ".aide/requirements/nfr/NFR-RKG-SEC-001.md",
+        "revision": 7,
+        "sha256": "ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "NFR-RKG-REL-001",
+        "path": ".aide/requirements/nfr/NFR-RKG-REL-001.md",
+        "revision": 8,
+        "sha256": "fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "NFR-RKG-UX-001",
+        "path": ".aide/requirements/nfr/NFR-RKG-UX-001.md",
+        "revision": 7,
+        "sha256": "c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "API-RKG-CORE-v1",
+        "path": ".aide/tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+        "revision": 16,
+        "sha256": "d73b75134b57955ae827baca16408e91b467ded0b027ccea28f58c7e536b77ce",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "TBL-RKG-GRAPH",
+        "path": ".aide/tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+        "revision": 13,
+        "sha256": "a624df781b47be8e631dc3e85a1140a555fb5a121012ab6ba929f4c438c305ac",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "UIS-RKG-001",
+        "path": ".aide/design/ui/UIS-RKG-001.md",
+        "revision": 13,
+        "sha256": "d849542a45c36420e35c7aa48d649884832c334224b7b73cc923de9c34e4851d",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "EVAL-RKG-QA-001",
+        "path": ".aide/policies/eval/EVAL-RKG-QA-001.md",
+        "revision": 2,
+        "sha256": "19bba2089b095b0b431d85d843a61a3d5a4488889c269d47439869f11b673720",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "OBS-RKG-005",
+        "path": ".aide/observability/OBS-RKG-005.md",
+        "revision": 3,
+        "sha256": "82acb6483ca288e1952b5f7f354158243ea07ea45cf090a62392787e3c92ef3f",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "TOK-RKG-001",
+        "path": ".aide/design/ui/tokens/tokens.json",
+        "revision": 2,
+        "sha256": "ae71b14d8921b6e64f03641a5787c7b99622fa3f28904a75208eabfb32c8de96",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "DDL-RKG-GRAPH",
+        "path": ".aide/tech-specs/RKG-GRAPH/schema/DDL-RKG-GRAPH.cypher",
+        "revision": 13,
+        "sha256": "b912230b0b7039906ae6fd8b9500a69bdcccff06bbc485ed2f494afadc084de4",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "MIG-RKG-CHATBOT-v3",
+        "path": ".aide/tech-specs/RKG-GRAPH/schema/MIG-RKG-CHATBOT-v3.cypher",
+        "revision": 1,
+        "sha256": "04030c6d33a1780ab8ba5c8247d247b539d28305f9b685aa85485f706798e571",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "CON-RKG-CONVERSATION-v1",
+        "path": ".aide/tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+        "revision": 1,
+        "sha256": "e66334ee24d46d476acd0920ec9344b0fc34bc84a8bdd8ff054cbaafee9620c4",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "SCH-RKG-CONVERSATION-v1",
+        "path": ".aide/tech-specs/RKG-TRANSPORT/api/SCH-RKG-CONVERSATION-v1.json",
+        "revision": 1,
+        "sha256": "d7991763c99ac815caa5b271045f10d6d0b6743f1b52b82765ddccdbad6cf574",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "OAS-RKG-CONVERSATION-v1",
+        "path": ".aide/tech-specs/RKG-TRANSPORT/api/OAS-RKG-CONVERSATION-v1.json",
+        "revision": 1,
+        "sha256": "fbf37df09fa390bb5155608424bc0c7ce01b7e88940f2fc3d3a4beac32397a02",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "SCH-RKG-READ-PLAN-v2",
+        "path": ".aide/tech-specs/RKG-CONVERSATION/llm/SCH-RKG-READ-PLAN-v2.json",
+        "revision": 1,
+        "sha256": "0908b8a657b6b96a1f848ee4cfd511238ed195b871fb8785e6f4d5c33c5d7336",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "SCH-RKG-NARRATIVE-v1",
+        "path": ".aide/tech-specs/RKG-CONVERSATION/llm/SCH-RKG-NARRATIVE-v1.json",
+        "revision": 1,
+        "sha256": "8155b0bdc464a4adae07a48911d684bdf01b3afe7b0cb4a5e1624dc3d5f71394",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "CHL-RKG-CONVERSATION-v1",
+        "path": ".aide/tech-specs/RKG-TRANSPORT/api/CHL-RKG-CONVERSATION-v1.yaml",
+        "revision": 1,
+        "sha256": "3a4539506d1395209c29a1c3adf90a34bf9651c5c338e85080835d5d0010beba",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      },
+      {
+        "key": "GATE-RKG-CONTRACT",
+        "path": ".aide/policies/gates/GATE-RKG-CONTRACT.md",
+        "revision": 9,
+        "sha256": "ec4f6f6b49f1043ca769bfad7d5b96296b04226ac96048d91a3b7f3b1849c919",
+        "revision_check": "passed",
+        "hash_check": "passed"
+      }
+    ],
+    "candidate_files": [
+      {
+        "path": "src/rkg/conversations/service.py",
+        "sha256": "75064aa1dfa8eccaa6d004402b8f5b2f2fcb2b9f54fcf8dc5acff74cbbcca6fc",
+        "hash_check": "passed"
+      },
+      {
+        "path": "src/rkg/storage/_util.py",
+        "sha256": "19030940f691533e19ac9cfae499661d1324d03e142e1eabff0fff53586271dc",
+        "hash_check": "passed"
+      },
+      {
+        "path": "src/rkg/storage/conversation_json.py",
+        "sha256": "ea2b5d35f647bdfff25442390acc77d7c6036972b1f741abcc8bd736e04890b1",
+        "hash_check": "passed"
+      },
+      {
+        "path": "src/rkg/storage/conversations.py",
+        "sha256": "3b0157b31a5da7defa9383edaf625cf81f156a7d866bff3499f61dbe100077cc",
+        "hash_check": "passed"
+      },
+      {
+        "path": "src/rkg/storage/migrate.py",
+        "sha256": "6904cfb4177eee67fb020043eb2026ba555a7651b6a8617737d5c78a8a57878c",
+        "hash_check": "passed"
+      },
+      {
+        "path": "src/rkg/storage/records.py",
+        "sha256": "afbcf1c771081db5c74cf0bcc7a7d4587fff0a88d960177b88251603a85ef19b",
+        "hash_check": "passed"
+      },
+      {
+        "path": "src/rkg/storage/turns.py",
+        "sha256": "ed9a3deb7da165e8daa98b8bafd8779ec28d0d45021078f90dbe88e0d7bc51b0",
+        "hash_check": "passed"
+      },
+      {
+        "path": "tests/integration/test_chatbot_storage.py",
+        "sha256": "f5cacdc6a76571613f9655fc760294413e868994dc065a110d3938a1305ee036",
+        "hash_check": "passed"
+      },
+      {
+        "path": "tests/integration/test_directory_entities.py",
+        "sha256": "c4eb3aa0b3cfcdb89e132e7f038b7c60fe51160098bcc82df7b5249e9cdc24bf",
+        "hash_check": "passed"
+      },
+      {
+        "path": "tests/unit/test_chatbot_metadata.py",
+        "sha256": "13a182cb531de77b38c4fd3e7c2787f5aba46b10ca584f69569e993312da79ee",
+        "hash_check": "passed"
+      }
+    ],
+    "changed_candidate_files_since_checkpoint": [
+      "src/rkg/conversations/service.py",
+      "src/rkg/storage/conversation_json.py",
+      "src/rkg/storage/migrate.py",
+      "tests/integration/test_chatbot_storage.py",
+      "tests/unit/test_chatbot_metadata.py"
+    ],
+    "previous_review": {
+      "key": "REV-RKG-2026-009",
+      "path": ".aide/evidence/reviews/REV-RKG-2026-009.yaml",
+      "sha256": "2406124d1d19cac8fbd11011faa3e552bddd471db3030353078952e413dc77fa"
+    },
+    "task": {
+      "key": "TASK-RKG-030",
+      "revision": 5,
+      "path": ".aide/lifecycle/tasks/TASK-RKG-030.md",
+      "sha256": "be3d92941b6b7939c2ff50bedd927274f3d4a86843941320fb7ba46f194fc52a"
+    },
+    "hash_method": "sha256-file-bytes",
+    "before_and_after_match": true
+  },
+  "independence": {
+    "author_plans_context_diaries_test_evidence_approval_remediation_rationale_read": false,
+    "author_test_results_assumed": false,
+    "author_checker_used": false,
+    "candidate_tests_rerun": true,
+    "previous_review_used_for": "Finding identity, exact original triggers and captured snapshot only; resolution conclusions require new independent fixtures.",
+    "one_reviewer_three_perspectives": true
+  },
+  "checks": [
+    {
+      "id": "candidate_worktree_identity",
+      "status": "passed",
+      "kind": "identity",
+      "basis": "git worktree list xác định feat/chatbot-storage-revision; HEAD là checkpoint b91d8b7 nhưng candidate là frozen uncommitted file bytes, không lấy fix/chatbot làm candidate."
+    },
+    {
+      "id": "baseline_and_all_pins",
+      "status": "passed",
+      "kind": "identity",
+      "basis": "Package baseline SHA, toàn36 normative revisions/hashes,10 candidate code/test hashes và review009 SHA khớp trước/sau execution; package artifact list bằng baseline artifact list."
+    },
+    {
+      "id": "delta_scope",
+      "status": "passed",
+      "kind": "scope",
+      "basis": "Đối chiếu với b91d8b7: đúng5 candidate files thay đổi;7 storage/service files và3 candidate test files là scope. Không đọc author remediation rationale hoặc mở rộng TASK031–035."
+    },
+    {
+      "id": "finding_identity_preserved",
+      "status": "passed",
+      "kind": "identity",
+      "basis": "Giữ nguyên ID, rule_id/location_anchor/fingerprint, perspective/additional attribution và original severity; lịch sử được lưu nguyên, status disposition trong record mới."
+    },
+    {
+      "id": "fresh_schema3",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "migration0_all_legacy_rows_relations_preserved",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "upgrade0_to3_and_noop",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "migration1_all_legacy_rows_relations_preserved",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "upgrade1_to3_and_noop",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "migration2_all_legacy_rows_relations_preserved",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "upgrade2_to3_and_noop",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "migration_fault_rollback",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "reject_missing_old_column",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "reject_extra_schema_meta_row",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "reject_factual_answer_coverage_not_applicable",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "reject_factual_answer_coverage_unknown",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "reject_clarification_facts",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "greeting_preserves_pending_despite_clear",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "provider_context_deepcopy_preserves_committed_state",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "idempotent_replay_stored_metadata_no_provider",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "metadata_unknown_field_rejected_before_redaction",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "restart_recovery_retains_state",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "future_metadata_unknown_no_backfill",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "terminal_turn_metadata_state_atomic_rollback",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "terminal_revision_guard",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "terminal_snapshot_guard",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "pending_intent_order_reject_before_redaction",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "pending_intent_unknown_reject_before_redaction",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "replace_original_intent_candidate_order",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "valid_answer_clear_pending",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "metadata_utf8_limit",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "state_utf8_limit",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Reviewer-authored fixture chạy trực tiếp candidate storage/service code trên disposable DB Kuzu0.11.3, dùng synthetic sentinels; không author helper/result."
+    },
+    {
+      "id": "physical_missing_table_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_extra_table_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_wrong_table_kind_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_missing_column_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_extra_column_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_wrong_column_type_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_wrong_primary_key_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_wrong_column_default_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_missing_relationship_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_wrong_relationship_connection_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_wrong_relationship_property_refusal_unchanged",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "physical_wrong_relationship_multiplicity_refusal_unchanged",
+      "status": "failed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "schema_meta_missing_current",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "schema_meta_extra_row",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "schema_meta_wrong_id",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "schema_meta_null_version",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "schema_meta_future_version",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "schema_meta_partial2_column",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "schema_meta_partial3_missing",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "schema_meta_partial3_type",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "greeting_clear_persist_reload_replay",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "greeting_replace_persist_reload_replay",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "greeting_focus_persist_reload_replay",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "greeting_payload_persist_reload_replay",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "greeting_candidates_persist_reload_replay",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "greeting_omitted_persist_reload_replay",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "greeting_preserve_persist_reload_replay",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "greeting_samefocus_persist_reload_replay",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "clarification_claims_fail_before_persistence",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "clarification_citations_fail_before_persistence",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "clarification_valid_guidance",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "insufficient_claims_fail_before_persistence",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "insufficient_citations_fail_before_persistence",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "insufficient_valid_guidance",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "complete_valid_persistence",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "partial_valid_persistence",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "legacy_valid_persistence",
+      "status": "passed",
+      "kind": "independent_fixture",
+      "basis": "Physical matrix kiểm tra refusal trước mọiwrite và equality schema/rows/version/applied_at; service matrix kiểm persistence/reopen/replay/state. Failed multiplicity case ghi trong001."
+    },
+    {
+      "id": "cardinality_behavior_comparison",
+      "status": "failed",
+      "kind": "independent_fixture",
+      "basis": "Hai disposable DB khác nhau duy nhất CALLS multiplicity: cả hai được nâng3, nhưng chỉ canonical DB ghi được callee thứhai. Xác nhận tác động thực tế của incomplete shape check."
+    },
+    {
+      "id": "candidate_storage_regression",
+      "status": "passed",
+      "kind": "regression_execution",
+      "basis": "Reviewer independently reran candidate tests/unit/test_chatbot_metadata.py và tests/integration/test_chatbot_storage.py:70 passed in7.19s. Không dùng pass count thay proof; independent multiplicity case vẫn failed."
+    },
+    {
+      "id": "end_to_end_TASK031_035_AC_acceptance",
+      "status": "not_run",
+      "kind": "out_of_scope",
+      "basis": "Resolver/narrative/HTTP/UI và fullAC077/080 ngoài storage scope; không xem thiếu implementation là defect."
+    },
+    {
+      "id": "live_provider_UI_operator_database",
+      "status": "not_run",
+      "kind": "out_of_scope",
+      "basis": "Không provider thật, UI walkthrough, operator DB/credentials/config access hoặc execution của analyzed repository."
+    },
+    {
+      "id": "human_gate_approval",
+      "status": "not_run",
+      "kind": "human_action",
+      "basis": "Component Merge Gate giữ pending; người có thẩm quyền quyết định, không tự ký."
+    }
+  ],
+  "findings": [
+    {
+      "id": "FND-TASK-RKG-030-001",
+      "finding_key": {
+        "rule_id": "reject_unexpected_prior_physical_shape",
+        "location_anchor": "src/rkg/storage/migrate.py:163",
+        "fingerprint": "metadata-only-preflight-accepts-missing-legacy-column-and-non-singleton-schema-meta"
+      },
+      "perspective": "Operability",
+      "severity": "high",
+      "classification": "bad_code",
+      "blocker": true,
+      "status": "open",
+      "sources": [
+        {
+          "file": "src/rkg/storage/migrate.py",
+          "sha256": "6904cfb4177eee67fb020043eb2026ba555a7651b6a8617737d5c78a8a57878c",
+          "candidate_package": "RVP-TASK-RKG-030-r2",
+          "working_tree_candidate": true,
+          "lines": [
+            224,
+            225,
+            226,
+            227,
+            228,
+            229,
+            230,
+            232,
+            233,
+            234,
+            235,
+            236,
+            238,
+            239,
+            240,
+            241,
+            242
+          ]
+        }
+      ],
+      "normative_basis": [
+        {
+          "key": "TBL-RKG-GRAPH",
+          "revision": 13,
+          "sha256": "a624df781b47be8e631dc3e85a1140a555fb5a121012ab6ba929f4c438c305ac",
+          "path": ".aide/tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+          "lines": [
+            29,
+            30,
+            31,
+            413,
+            414,
+            415,
+            416
+          ]
+        },
+        {
+          "key": "MIG-RKG-CHATBOT-v3",
+          "revision": 1,
+          "sha256": "04030c6d33a1780ab8ba5c8247d247b539d28305f9b685aa85485f706798e571",
+          "path": ".aide/tech-specs/RKG-GRAPH/schema/MIG-RKG-CHATBOT-v3.cypher",
+          "lines": [
+            3,
+            4,
+            5
+          ]
+        }
+      ],
+      "issue": "Physical preflight kiểm tra bảng/cột/default/PK/connections và singleton, nhưng không kiểm tra relationship multiplicity; do đó chưa validate toàn shape được DDL/TBL cho phép.",
+      "trigger": "DB version2 đúng các bảng/cột/PK và current singleton, nhưng physical CALLS được tạo với MANY_ONE thay default cardinality của canonical DDL.",
+      "observed": "Migration chấp nhận DB sai multiplicity, thực hiện 4 transaction/write operations và nâng SchemaMeta thành3. Canonical fixture cho một Callable thêm callee thứ hai; fixture MANY_ONE bị engine từ chối thao tác đó sau khi migration đã pass.",
+      "impact": "Schema không tương thích được đóng dấu hợp lệ/version3; fan-out calls hợp lệ không ghi được, có thể làm publication/re-index thất bại và loại khả năng mở DB bằng binary2. Chưa đáp ứng yêu cầu refusal không ghi cho unexpected physical shapes.",
+      "minimal_change": "Thêm expected/actual relationship multiplicity vào preflight trước mọi migration write và vào validation của version3 no-op; áp dụng cho toàn bộ relationship tables, giữ canonical DDL cardinality. Không ALTER âm thầm để sửa DB sai shape.",
+      "verify_after_fix": "Wrong MANY_ONE/ONE_MANY/ONE_ONE shape phải bị từ chối với schema/data/version/applied_at không đổi; canonical fan-out callable→nhiều callee và valid0/1/2 upgrades/version3 no-op/rollback vẫn pass. Đây là khuyến nghị cho người quyết định; review vòng2 không sửa code.",
+      "independent_checks": [
+        "physical_wrong_relationship_multiplicity_refusal_unchanged",
+        "cardinality_behavior_comparison"
+      ],
+      "historical_sources": [
+        {
+          "file": "src/rkg/storage/migrate.py",
+          "sha256": "5d40ad577616695b35c3033224b635108e4a057eefdcd600206d887133163866",
+          "commit": "b91d8b7223cc968350fdf5b9ce7feb67506a2dbf",
+          "lines": [
+            163,
+            164,
+            165,
+            166,
+            167,
+            196,
+            197,
+            198,
+            199,
+            200,
+            201,
+            203,
+            204,
+            205,
+            212,
+            213,
+            214
+          ]
+        }
+      ],
+      "historical_status": "open",
+      "historical_blocker": true,
+      "prior_trigger_result": "passed: missing old column and extra SchemaMeta row now refused before writes; table/property/type/PK/default/connection checks independently pass.",
+      "resolution": "partially_resolved",
+      "prior_issue": "Migration preflight chỉ kiểm tra cột metadata và row mang id current; không kiểm tra shape cũ được hỗ trợ hoặc singleton của toàn SchemaMeta.",
+      "prior_trigger": "DB khai version2, chưa có cột metadata, nhưng thiếu Turn.usage_json; hoặc có thêm một SchemaMeta row bên cạnh current/2.",
+      "prior_observed": "Cả hai DB fixture sai shape đều được migrate thành version3 và ghi cột/version mới thay vì từ chối trước ghi.",
+      "additional_normative_basis": [
+        {
+          "key": "DDL-RKG-GRAPH",
+          "revision": 13,
+          "sha256": "b912230b0b7039906ae6fd8b9500a69bdcccff06bbc485ed2f494afadc084de4",
+          "path": ".aide/tech-specs/RKG-GRAPH/schema/DDL-RKG-GRAPH.cypher",
+          "lines": [
+            168
+          ]
+        },
+        {
+          "key": "TBL-RKG-GRAPH",
+          "revision": 13,
+          "sha256": "a624df781b47be8e631dc3e85a1140a555fb5a121012ab6ba929f4c438c305ac",
+          "path": ".aide/tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+          "lines": [
+            71,
+            380,
+            413,
+            414,
+            415,
+            416
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FND-TASK-RKG-030-002",
+      "finding_key": {
+        "rule_id": "durable_metadata_semantic_consistency",
+        "location_anchor": "src/rkg/storage/conversation_json.py:85",
+        "fingerprint": "factual-answer-nonfactual-coverage-and-clarification-facts-accepted"
+      },
+      "perspective": "Completeness",
+      "additional_perspectives": [
+        "Security"
+      ],
+      "severity": "medium",
+      "classification": "bad_code",
+      "blocker": false,
+      "status": "resolved",
+      "sources": [
+        {
+          "file": "src/rkg/storage/conversation_json.py",
+          "sha256": "ea2b5d35f647bdfff25442390acc77d7c6036972b1f741abcc8bd736e04890b1",
+          "candidate_package": "RVP-TASK-RKG-030-r2",
+          "working_tree_candidate": true,
+          "lines": [
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ]
+        }
+      ],
+      "normative_basis": [
+        {
+          "key": "API-RKG-CORE-v1",
+          "revision": 16,
+          "sha256": "d73b75134b57955ae827baca16408e91b467ded0b027ccea28f58c7e536b77ce",
+          "path": ".aide/tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+          "lines": [
+            355,
+            356,
+            357,
+            358,
+            376,
+            377,
+            378,
+            379,
+            380,
+            381,
+            382,
+            446,
+            447
+          ]
+        },
+        {
+          "key": "TBL-RKG-GRAPH",
+          "revision": 13,
+          "sha256": "a624df781b47be8e631dc3e85a1140a555fb5a121012ab6ba929f4c438c305ac",
+          "path": ".aide/tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+          "lines": [
+            424,
+            425,
+            426
+          ]
+        }
+      ],
+      "issue": "Schema hợp lệ chưa được kiểm tra đủ consistency tại durable boundary: factual answer có thể mang coverage not_applicable/unknown dù subject/flags đều đã biết; has_facts chỉ được cấm cho greeting, chưa cấm cho clarification/insufficient.",
+      "trigger": "ProviderResult answered chứa factual claims với metadata kind=answer, resolved subject, flags=false, limits rỗng nhưng coverage=not_applicable hoặc unknown; hoặc needs_clarification chứa claims và metadata clarification hợp lệ.",
+      "observed": "Ba ca đều finalize thành terminal success và persist metadata/claims, không fail-closed.",
+      "impact": "Durable records mang trạng thái coverage/kind không đúng hợp đồng; reload/replay tiếp tục trả sai classification và clarification có thể mang factual claims bị cấm. Đây là thiếu storage validation, không phải resolver/narrative chưa triển khai.",
+      "minimal_change": "Hoàn thiện kind/coverage/has_facts consistency cho metadata v1: factual answer không được dùng coverage dành cho chưa đánh giá/guidance; clarification/insufficient cũng phải không có claims/citations. Validate trước redaction và trước terminal writes, giữ metadata None cho compatibility legacy.",
+      "verify_after_fix": "Các ProviderResult nêu trên phải thành failed llm_malformed_response, không lưu answer/metadata/claims hoặc thay committed pending/focus; valid complete/partial/guidance/legacy records và replay vẫn pass.",
+      "independent_checks": [
+        "reject_factual_answer_coverage_not_applicable",
+        "reject_factual_answer_coverage_unknown",
+        "clarification_claims_fail_before_persistence",
+        "clarification_citations_fail_before_persistence",
+        "insufficient_claims_fail_before_persistence",
+        "insufficient_citations_fail_before_persistence",
+        "complete_valid_persistence",
+        "partial_valid_persistence",
+        "legacy_valid_persistence",
+        "idempotent_replay_stored_metadata_no_provider"
+      ],
+      "historical_sources": [
+        {
+          "file": "src/rkg/storage/conversation_json.py",
+          "sha256": "1641e517e42772874a866128cdc761ad0864d92def60519dfd55acd363a74e3b",
+          "commit": "b91d8b7223cc968350fdf5b9ce7feb67506a2dbf",
+          "lines": [
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ]
+        }
+      ],
+      "historical_status": "open",
+      "historical_blocker": true,
+      "resolution": "independently_verified",
+      "resolution_evidence": "Factual answer coverage unknown/not_applicable fail trước terminal persistence; clarification/insufficient claims và citations đều fail, committed state không đổi. Complete/partial/guidance/legacy lưu đúng; replay/metadata regression pass."
+    },
+    {
+      "id": "FND-TASK-RKG-030-003",
+      "finding_key": {
+        "rule_id": "greeting_cannot_clear_committed_pending_intent",
+        "location_anchor": "src/rkg/conversations/service.py:497",
+        "fingerprint": "greeting-kind-allows-clear-and-focus-change-through-state-action"
+      },
+      "perspective": "Completeness",
+      "additional_perspectives": [
+        "Operability"
+      ],
+      "severity": "medium",
+      "classification": "bad_code",
+      "blocker": false,
+      "status": "resolved",
+      "sources": [
+        {
+          "file": "src/rkg/conversations/service.py",
+          "sha256": "75064aa1dfa8eccaa6d004402b8f5b2f2fcb2b9f54fcf8dc5acff74cbbcca6fc",
+          "candidate_package": "RVP-TASK-RKG-030-r2",
+          "working_tree_candidate": true,
+          "lines": [
+            473,
+            474,
+            475,
+            476,
+            477,
+            478,
+            479,
+            480,
+            481,
+            482,
+            483,
+            484,
+            485,
+            486,
+            487,
+            488
+          ]
+        }
+      ],
+      "normative_basis": [
+        {
+          "key": "API-RKG-CORE-v1",
+          "revision": 16,
+          "sha256": "d73b75134b57955ae827baca16408e91b467ded0b027ccea28f58c7e536b77ce",
+          "path": ".aide/tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+          "lines": [
+            338,
+            339,
+            340
+          ]
+        },
+        {
+          "key": "TBL-RKG-GRAPH",
+          "revision": 13,
+          "sha256": "a624df781b47be8e631dc3e85a1140a555fb5a121012ab6ba929f4c438c305ac",
+          "path": ".aide/tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+          "lines": [
+            459,
+            460,
+            461
+          ]
+        },
+        {
+          "key": "CON-RKG-CONVERSATION-v1",
+          "revision": 1,
+          "sha256": "e66334ee24d46d476acd0920ec9344b0fc34bc84a8bdd8ff054cbaafee9620c4",
+          "path": ".aide/tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+          "lines": [
+            35,
+            36,
+            37
+          ]
+        },
+        {
+          "key": "CMP-RKG-CONVERSATION",
+          "revision": 7,
+          "sha256": "2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65",
+          "path": ".aide/architecture/l2/CMP-RKG-CONVERSATION.md",
+          "lines": [
+            161,
+            162,
+            163
+          ]
+        }
+      ],
+      "issue": "State transition kiểm tra clear theo status, nhưng không ràng buộc với metadata.kind=greeting; answered bao gồm cả factual answer và greeting.",
+      "trigger": "Conversation có committed original pending intent/candidates/focus; ProviderResult answered mang metadata greeting hợp lệ, pending_intent_update=clear và focus_entity_id khác.",
+      "observed": "Turn greeting được ghi answered; committed pending intent/candidates bị xóa và focus đổi. Ca preserve đúng thì pass, nhưng inconsistent clear không bị từ chối.",
+      "impact": "Lời chào phá clarification đang chờ ngay tại persistence boundary. Có thể tái hiện trực tiếp bằng DTO/service hiện có mà không cần language resolver hoặc HTTP/UI tương lai.",
+      "minimal_change": "Ràng buộc transition với kind: metadata v1 greeting chỉ được preserve focus/pending; reject clear/replace hoặc focus-changing input không tương thích trước finalize. Giữ hành vi legacy metadata-absent trong phạm vi compatibility đã định.",
+      "verify_after_fix": "Greeting+clear phải fail-closed hoặc không thay committed state theo rule đã chọn; greeting preserve, invalid ordinal preserve, clarification replace và successful factual selection clear vẫn pass sau reload/replay.",
+      "independent_checks": [
+        "greeting_clear_persist_reload_replay",
+        "greeting_replace_persist_reload_replay",
+        "greeting_focus_persist_reload_replay",
+        "greeting_payload_persist_reload_replay",
+        "greeting_candidates_persist_reload_replay",
+        "greeting_omitted_persist_reload_replay",
+        "greeting_preserve_persist_reload_replay",
+        "greeting_samefocus_persist_reload_replay"
+      ],
+      "historical_sources": [
+        {
+          "file": "src/rkg/conversations/service.py",
+          "sha256": "aa63539b549c7b270e3309f78151c898d37ab3db9e55f62f77897e303a969816",
+          "commit": "b91d8b7223cc968350fdf5b9ce7feb67506a2dbf",
+          "lines": [
+            473,
+            474,
+            475,
+            476,
+            477,
+            479,
+            480,
+            497,
+            498,
+            499,
+            500,
+            501,
+            506,
+            507,
+            508,
+            509,
+            510,
+            511
+          ]
+        }
+      ],
+      "historical_status": "open",
+      "historical_blocker": true,
+      "resolution": "independently_verified",
+      "resolution_evidence": "Greeting clear/replace/focus-changing/pending-intent payload/candidate payload fail và giữ committed state; omitted/preserve/same-focus input preserve. Cả invalid và valid paths giữ đúng metadata/state sau reopen và same-key replay."
+    }
+  ],
+  "new_findings": [],
+  "unresolved_blockers": [
+    "FND-TASK-RKG-030-001"
+  ],
+  "resolved_findings": [
+    "FND-TASK-RKG-030-002",
+    "FND-TASK-RKG-030-003"
+  ],
+  "fixture_summary": {
+    "kuzu_version": "0.11.3",
+    "isolation": "New temporary databases only,64MiB buffer/two threads, synthetic sentinel rows. No user DB, real provider or analyzed source execution. Candidate application code executed only for bounded storage verification.",
+    "harness_sha256": {
+      "round1_trigger_and_regression": "6466ac39e4f82897ca6efac2045000812ee2cea78a0fea08a13df4525248c415",
+      "physical_metadata_greeting_matrix": "50d1f1fc096d3cee99847a88f656bd155976405ce637c3173fc19b71089a94ab",
+      "cardinality_behavior_comparison": "cdf6f6ed7d13a2c4505a6d9d032f45fc51ad59144caa8ebcbab981baf761a41c"
+    },
+    "physical_tests": "Populated valid0/1/2→3 preserve every old node/relationship value except intended SchemaMeta migration updates; version3 replay no-op and applied_at unchanged; injected2→3 rollback; full invalid table/property/type/PK/default/connection/meta matrix with zero writes/equality checks. Multiplicity remains unvalidated.",
+    "service_tests": "Invalid factual coverage/nonfactual facts fail before terminal writes; valid guidance/complete/partial/legacy; greeting invalid state updates fail, omitted/preserve retained through reopen/replay; atomicity/guards/redaction UTF8 bounds/recovery/deepcopy regression.",
+    "independent_results": {
+      "base_regressions": {
+        "fresh_schema3": "passed",
+        "migration0_all_legacy_rows_relations_preserved": "passed",
+        "upgrade0_to3_and_noop": "passed",
+        "migration1_all_legacy_rows_relations_preserved": "passed",
+        "upgrade1_to3_and_noop": "passed",
+        "migration2_all_legacy_rows_relations_preserved": "passed",
+        "upgrade2_to3_and_noop": "passed",
+        "migration_fault_rollback": "passed",
+        "reject_missing_old_column": "passed",
+        "reject_extra_schema_meta_row": "passed",
+        "reject_factual_answer_coverage_not_applicable": "passed",
+        "reject_factual_answer_coverage_unknown": "passed",
+        "reject_clarification_facts": "passed",
+        "greeting_preserves_pending_despite_clear": "passed",
+        "provider_context_deepcopy_preserves_committed_state": "passed",
+        "idempotent_replay_stored_metadata_no_provider": "passed",
+        "metadata_unknown_field_rejected_before_redaction": "passed",
+        "restart_recovery_retains_state": "passed",
+        "future_metadata_unknown_no_backfill": "passed",
+        "terminal_turn_metadata_state_atomic_rollback": "passed",
+        "terminal_revision_guard": "passed",
+        "terminal_snapshot_guard": "passed",
+        "pending_intent_order_reject_before_redaction": "passed",
+        "pending_intent_unknown_reject_before_redaction": "passed",
+        "replace_original_intent_candidate_order": "passed",
+        "valid_answer_clear_pending": "passed",
+        "metadata_utf8_limit": "passed",
+        "state_utf8_limit": "passed"
+      },
+      "matrix": {
+        "checks": {
+          "physical_missing_table_refusal_unchanged": "passed",
+          "physical_extra_table_refusal_unchanged": "passed",
+          "physical_wrong_table_kind_refusal_unchanged": "passed",
+          "physical_missing_column_refusal_unchanged": "passed",
+          "physical_extra_column_refusal_unchanged": "passed",
+          "physical_wrong_column_type_refusal_unchanged": "passed",
+          "physical_wrong_primary_key_refusal_unchanged": "passed",
+          "physical_wrong_column_default_refusal_unchanged": "passed",
+          "physical_missing_relationship_refusal_unchanged": "passed",
+          "physical_wrong_relationship_connection_refusal_unchanged": "passed",
+          "physical_wrong_relationship_property_refusal_unchanged": "passed",
+          "physical_wrong_relationship_multiplicity_refusal_unchanged": "failed",
+          "schema_meta_missing_current": "passed",
+          "schema_meta_extra_row": "passed",
+          "schema_meta_wrong_id": "passed",
+          "schema_meta_null_version": "passed",
+          "schema_meta_future_version": "passed",
+          "schema_meta_partial2_column": "passed",
+          "schema_meta_partial3_missing": "passed",
+          "schema_meta_partial3_type": "passed",
+          "greeting_clear_persist_reload_replay": "passed",
+          "greeting_replace_persist_reload_replay": "passed",
+          "greeting_focus_persist_reload_replay": "passed",
+          "greeting_payload_persist_reload_replay": "passed",
+          "greeting_candidates_persist_reload_replay": "passed",
+          "greeting_omitted_persist_reload_replay": "passed",
+          "greeting_preserve_persist_reload_replay": "passed",
+          "greeting_samefocus_persist_reload_replay": "passed",
+          "clarification_claims_fail_before_persistence": "passed",
+          "clarification_citations_fail_before_persistence": "passed",
+          "clarification_valid_guidance": "passed",
+          "insufficient_claims_fail_before_persistence": "passed",
+          "insufficient_citations_fail_before_persistence": "passed",
+          "insufficient_valid_guidance": "passed",
+          "complete_valid_persistence": "passed",
+          "partial_valid_persistence": "passed",
+          "legacy_valid_persistence": "passed"
+        },
+        "observations": [
+          {
+            "case": "wrong_relationship_multiplicity",
+            "refused": false,
+            "writes_count": 4
+          }
+        ]
+      },
+      "cardinality": {
+        "canonical": {
+          "migration_accepted": true,
+          "second_callee_insert_succeeded": true,
+          "version_after_migration": 3
+        },
+        "wrong_multiplicity": {
+          "migration_accepted": true,
+          "second_callee_insert_succeeded": false,
+          "version_after_migration": 3
+        }
+      }
+    },
+    "payloads_transcripts_raw_rows_source_recorded": false,
+    "limits": "Cardinality counterexample tested MANY_ONE against canonical default. Suggested ONE_MANY/ONE_ONE negative variants are future fix verification, not claimed executed here."
+  },
+  "conclusion": {
+    "result": "needs_revision",
+    "statement": "001 partially resolved but remains a bad_code blocker because wrong relationship multiplicity is accepted and stamped3. 002/003 resolved by new independent persistence fixtures. All70 candidate tests passing do not dispose of the uncovered multiplicity counterexample.",
+    "component_merge_gate": "pending",
+    "task_status_or_execution_state_modified": false,
+    "checkpoint_fix_chatbot_modified": false,
+    "human_signature_created": false,
+    "review_workflow": "This is adversarial round2. Unresolved finding forwarded to gate authority; no automatic implementation or further review loop started."
+  },
+  "safety": {
+    "only_new_review_record_written": true,
+    "code_spec_task_gate_approval_history_changed": false,
+    "operator_database_accessed": false,
+    "env_credentials_read": false,
+    "live_provider_called": false,
+    "analyzed_source_executed": false,
+    "forbidden_content": "No transcript/raw source/credentials/config values/absolute host paths included."
+  }
+}

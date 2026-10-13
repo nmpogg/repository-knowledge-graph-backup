@@ -1,0 +1,1289 @@
+{
+  "key": "TEST-RKG-KPI002-A3-002",
+  "type": "test-evidence",
+  "role": "A3",
+  "seed": 220026,
+  "edge_id_lock_sha256": "5093255910c0c223fc80751f723efce06db6b78e12e0f659ab669ac9252bec77",
+  "samples": [
+    {
+      "group": "imports",
+      "edge_id": "edge_f7bd85aa12964b0f1882b23443db3b4d437e9f3dba937e7d006b23e9f43409e3",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 10
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_c1031122c0029f72091bcb32c4e9fc9a7eba5c40887ee49eb6a87ac8205ec57b",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.Base into pilot.domains.orders.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_7fba40d9c277f2d7c4172788183fc4a6ac7faafccc082d22f93c7e417829de30",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.Base into pilot.domains.delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_4599456159f1c041d15c4d9bb4aa41846023e4143370c9875aeb06d141016a3b",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.returns.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 10
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_faae4ed1b8cc9f2cb0ba825932df0f3dd1614dc30dd049fb1dadcd08ae62909c",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.orders.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 10
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_1d4f16996acf16d96c79eb88799c32a0acede1462d4321342d26ef2bbbc5add4",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.Base into pilot.domains.payments.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_7b9bcfd53934a6bbcff6a1b5809b634344aba44f032eaea8d04ba5596d1a676b",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_0fe2b6ad4df827ec9511216ccc663326c0d49678b2e5dc570a50b4b637cfbf78",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 10
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_468faef1ec7c00c0881076504027ff63de5ba68c4a8db80f42ed780c45ed8221",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.Base into pilot.domains.billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_cff63690239756993942132b6dddd1507762d67dc09b87580e192c6a111ab8d2",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 10
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_2c51bb56299ff114c4f54a1454d24cf659c951c3fdedef15e9a19ba1b60bb3c1",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.Base into pilot.domains.accounts.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_3f75bffa2b628dec69759cc7a34d77e1a8f889ee67d8dc8004f198ca6c8ff2a8",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.audit.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 10
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_79673a23663cded9fb23623762f067930db6500185f60469946b1222b759156a",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 10
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_ce357d5f3d898a31be171f0807e20e4d0aa3c347cb909057de2da7ee93743d30",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.Base into pilot.domains.shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_114bf75d12b5e61390cfea20984e163a6b921583b00752f469722a7f0382ac05",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.audit.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_72fb5aec9478096ae7d22d5a9d07998edd962b076306c947bd3db29d5ae5e906",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.Base into pilot.domains.notifications.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_2baa16d3d0f5478c51503dcdcfeae99c25cd2698922a6a92399a6b5ba14aa85c",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.notifications.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 10
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_c2f805b10c1e47f9b4d01250f9a93575734b2f6af9d4ec74663622ca70ba153b",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.Base into pilot.domains.loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_9e7a5904d332db2cae2ef769889792624c52ce60aa8bb62079cf0018b5d4961c",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_da5fbaa1d8a55997eba5018d34201500152238b0f8ca6aa99bd9ff3123a4b9f3",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.catalog.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_febaa09bbf6b1bc17fc93fcc44fa3a665ad964fd7a5c8b1f60ade8f1a2469345",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.returns.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_e5d813169327f2710ddf1ee57e590e55137563cc92119dd24fb899b1968f3eee",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 10
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_942362a228615ff56f32bb0fcd7bcdee2a55920391009308351e024063bd3189",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.payments.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_b54f15a51c8c053a8f377ac1298a7cfc996ffed5a292d72e87b35e98a3ed3c41",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_d3a9da3cd339081338edb950d1fdec95511d8343e011778178e32ff4a2c8644a",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_51e38354e0c3ef70d620d87a6c336b088301aa8873b5e5085941b9479e51fe2e",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.notifications.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_dbe2ed76734a7b9fd6d0106f061d59b931e74befc48f69049eadfdd518dbabf9",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.accounts.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 10
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_14069a5cd5cf43440ca55e528dcdc8e24a0014373570ce112664803c7ad825fa",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_4497b1193622b038591cbcf389c00e45c50665007b326680e5d072ebbc5d0b4f",
+      "label": "FP",
+      "reason": "Line 11 imports a sibling helper and does not import pilot.db.get_session into pilot.domains.accounts.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 11
+    },
+    {
+      "group": "imports",
+      "edge_id": "edge_c0835f934930d1982ef3e058346ea059278901ea334789228047d2d3da0eac83",
+      "label": "FP",
+      "reason": "Line 10 is blank and does not import pilot.contracts.CatalogPort into pilot.domains.payments.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 10
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_aa89a83e40d60c889902f37e5cd8f3b8690a06dec1cf0aa6098908dc8dc04408",
+      "label": "FP",
+      "reason": "Line 75 is blank and does not show count_inventory calling read_inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 75
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_e49acbcca2c4d789b4cfc141038717e8db0082671629f30dc9870b450ed73a02",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_inventory_name calling validate_inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_f6412f971b68bcb1d276c99c377f767e89466b37f292f998468a7b3987e5ab74",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_notification_name calling normalize_notification.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_7d733c8bbf5facba0159b335200194534dd79334db1d6cd8da94b41103e33f5b",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_loyalty_name calling normalize_loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_68c624b87b9e16eacc7414c2d523b5aa54e911104456ec2685a98155c99bda04",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_delivery_name calling validate_delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_384de4bfb6904e497211385d3d7d306f5d235c0548506c528806f3840c2d576a",
+      "label": "FP",
+      "reason": "Line 75 is blank and does not show count_notification calling read_notification.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 75
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_e6f27d64ce5f3cc12a036adb21d5896e6c63253a8370a10ad86e65bddeca6e57",
+      "label": "FP",
+      "reason": "Line 87 is blank and does not show show_payment calling display_payment.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 87
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_2f2e4a0c3b669568b2b60f33e2ea7bd13be5161a1cfaab7ba9affe4a9736e3b5",
+      "label": "FP",
+      "reason": "Line 87 is blank and does not show show_delivery calling display_delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 87
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_a2aa3a2cc066930b6ae33990ce3051e599431f672c15f4825a14de08c3e1f131",
+      "label": "FP",
+      "reason": "Line 87 is blank and does not show show_shipping calling display_shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 87
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_02816b99974f12d7dac447feac6ebfb986b9b37df7cd1c63e4c409ca75c8352b",
+      "label": "FP",
+      "reason": "Line 87 is blank and does not show show_catalog calling display_catalog.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 87
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_76df57b4fcadca12365bc7c99bc7944c97f8a7be96f848342a88dea9ae32f017",
+      "label": "FP",
+      "reason": "Line 87 is blank and does not show show_audit calling display_audit.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 87
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_cdde4a950820cd61e8fa9149685421d02e42c0be89e73d6141539ecbf58acf19",
+      "label": "FP",
+      "reason": "Line 75 is blank and does not show count_delivery calling read_delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 75
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_58d6a1d4a4de815d3bccec74b1a20e050849f5050dc0fc55e239756fd1d34b3a",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_account_name calling validate_account.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_613a9c9e578c23787089b34c97729c7f61dd0429c7644877a79b13b3355fff7b",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_audit_name calling normalize_audit.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_9f0e4bddb6438214db26610ecd33a6942e1fd2394464a11b28db55fc9f7a1db8",
+      "label": "FP",
+      "reason": "Line 87 is blank and does not show show_return calling display_return.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 87
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_7b91b71c98c202b5ca862990d914fae677f5540d9472390b348ef0955b89fd4c",
+      "label": "FP",
+      "reason": "Line 75 is blank and does not show count_account calling read_account.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 75
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_03cb83e5aa6699bdf141490181af35522006df2e987797197e3d06d592db9c96",
+      "label": "FP",
+      "reason": "Line 87 is blank and does not show show_inventory calling display_inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 87
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_5c931f1ed082139d6180d21c7ec1af26c334cf0fe5dbab00530e7f4810e41e5a",
+      "label": "FP",
+      "reason": "Line 87 is blank and does not show show_order calling display_order.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 87
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_229fd6b6ef82a2b10c974f711816f560f3e5fe86619afc2eb1729f8906e7d3c7",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_payment_name calling validate_payment.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_3009abd91970db8ecfdeb21c1dd03d2af958bae76073663784991f273ef34982",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_billing_name calling normalize_billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_ff6748bb0c311def5bf2a3ec28fb2391a3d2d2556066acfa301ef08d888fd9f3",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_return_name calling normalize_return.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_bb529c58f269d3ec21953140db8701171f0cfba6760dbc21deeb4892cc631b4f",
+      "label": "FP",
+      "reason": "Line 75 is blank and does not show count_order calling read_order.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 75
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_8ea74e5c9972820e239f9ba18d5e9cb7693663ff5ee6508daae75fade6cf3cd4",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_order_name calling normalize_order.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_69789386c420856a27aa92cc2bde37b97a8e6d72d703667287816a41446a3daf",
+      "label": "FP",
+      "reason": "Line 75 is blank and does not show count_audit calling read_audit.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 75
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_5eb7d5a185dbbe6453c5b403517ee16081603b7ca09788f4ef54a4848516350c",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_inventory_name calling normalize_inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_8232d7b32bb2f61c25621cf62da8fe7d8f51694e09827cbd98e98aa8373861d8",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_return_name calling validate_return.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_d5ac3e038d75f0362b5c4c23cf86341cec2c1af2c08b7152403e3cb02bf46dbf",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_delivery_name calling normalize_delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_a677556b3ba7be314c815165a66a15d40e95258b026a3c4a372770262fe4670a",
+      "label": "FP",
+      "reason": "Line 75 is blank and does not show count_loyalty calling read_loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 75
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_d905d5a1b2c214737a1d270180dd4927088bf8e6efbd85fd451d59c7680753d3",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_billing_name calling validate_billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 50
+    },
+    {
+      "group": "calls",
+      "edge_id": "edge_1841cd358f9d465a41800a2a63ae740b79f469c3b9437d72455ac307f1b37435",
+      "label": "FP",
+      "reason": "Line 50 is blank and does not show get_loyalty_name calling validate_loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 50
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_9677c179c4c942557551b43583cd1a4821c6c11c7906444fd44d3d1575af08d1",
+      "label": "FP",
+      "reason": "Line 82 is blank and does not inject pilot.domains.notifications.get_notification_catalog into show_notification.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 82
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_cfd17eaefdf043656d718ed26f0f93857af7279979ed313fb5d6d9ea9f427b5b",
+      "label": "FP",
+      "reason": "Line 49 is blank and does not inject pilot.domains.billing.get_billing_scope into get_billing_name.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 49
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_f431bab6f580e51e03073dc2caed24365c4f0be26dd71dfd5f81a3bad9594f4b",
+      "label": "FP",
+      "reason": "Line 82 is blank and does not inject pilot.domains.billing.get_billing_catalog into show_billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 82
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_61c9ed7cb3b593e25c9c7fb3af553904a27b67a942f5f6b4dbb0998aef278430",
+      "label": "FP",
+      "reason": "Line 49 is blank and does not inject pilot.domains.notifications.get_notification_scope into get_notification_name.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 49
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_41ecfd01cc6df0920fd9feeaa586640e24b8ea6b5b88fa07b6e759e473f77df2",
+      "label": "FP",
+      "reason": "Line 74 is blank and does not inject pilot.db.get_session into count_order.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 74
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_3258dd2d7fcf19926f7637bdca02d8a50623260e88750ac6dc898a9d02c7d6c0",
+      "label": "FP",
+      "reason": "Line 49 is blank and does not inject pilot.domains.orders.get_order_scope into get_order_name.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 49
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_d1e8111b8b78b85254bbe9f05eb8a1634fae21380d31ff5f3a8c3c5f916b27ea",
+      "label": "FP",
+      "reason": "Line 74 is blank and does not inject pilot.db.get_session into count_return.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 74
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_1f26e42a8c6ae8cbf5da501844e4d23b003eaed05656fe0f2018f261717968db",
+      "label": "FP",
+      "reason": "Line 49 is blank and does not inject pilot.domains.audit.get_audit_scope into get_audit_name.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 49
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_8293d163ea044db29f569600aebbc2c2c177136eaeeb72b86d825558b2bd03d5",
+      "label": "FP",
+      "reason": "Line 82 is blank and does not inject pilot.domains.payments.get_payment_catalog into show_payment.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 82
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_062bc87980fc20cb66334dd050415f40a00c411bd3969ea79feb6af78f0adf1f",
+      "label": "FP",
+      "reason": "Line 74 is blank and does not inject pilot.db.get_session into count_delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 74
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_5cc7702e3a618f597e8d508d105c64151977a8c95196131b4a3f5135b31f1e32",
+      "label": "FP",
+      "reason": "Line 49 is blank and does not inject pilot.domains.returns.get_return_scope into get_return_name.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 49
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_ab8610d251314a772b9b06b28152f20b5bd48ee39bf60071b3b2ff1d69d56b87",
+      "label": "FP",
+      "reason": "Line 49 is blank and does not inject pilot.domains.shipping.get_shipping_scope into get_shipping_name.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 49
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_3849d0203984939beaedba27be6da2aca00fad7d2804200fd8bf100f054ed4bf",
+      "label": "FP",
+      "reason": "Line 81 returns a bound value and does not inject get_shipping_name into show_shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 81
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_40156bd99704053c37519f5923463f08b7a773bc205fa2f3bdfeeda95df14eb6",
+      "label": "FP",
+      "reason": "Line 82 is blank and does not inject pilot.domains.audit.get_audit_catalog into show_audit.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 82
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_7910e32520bb2e07af5e1449f923b9e2ac8c431696fe6647ef8b09b0097b3eb1",
+      "label": "FP",
+      "reason": "Line 49 is blank and does not inject pilot.domains.inventory.get_inventory_scope into get_inventory_name.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 49
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_5d62cac68a11a75a0ffd98f9a1d11b56357552d297c2e717c65fd322cf912918",
+      "label": "FP",
+      "reason": "Line 81 returns a bound value and does not inject get_loyalty_name into show_loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 81
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_067d4ff6366bade8cb913cb0f5a9e72e4919b7264ebf217d0effc89323c7aea7",
+      "label": "FP",
+      "reason": "Line 82 is blank and does not inject pilot.domains.catalog.get_catalog_catalog into show_catalog.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 82
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_3be77129f820dc542fc6623aab4452802ebb36c2869c9dd74984fd3be70321e3",
+      "label": "FP",
+      "reason": "Line 74 is blank and does not inject pilot.db.get_session into count_account.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 74
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_18ae684324245b207f99b63a9bec73c02479e58f643ca46a26360e4c3c48165b",
+      "label": "FP",
+      "reason": "Line 81 returns a bound value and does not inject get_catalog_name into show_catalog.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 81
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_287994561852ffa7301ee1a2c470084eede93c5a56142bd1d17c8cc3c3d6d501",
+      "label": "FP",
+      "reason": "Line 74 is blank and does not inject pilot.db.get_session into count_shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 74
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_f61d5378f5ff4f2c81abe12bc41ad2e12ba89a04731bd453ac0873d89a8f0cc6",
+      "label": "FP",
+      "reason": "Line 82 is blank and does not inject pilot.domains.returns.get_return_catalog into show_return.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 82
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_a5de619820fe314ad074198e08bc26e4a7a4fdbc4cc202377e82d40962c548a4",
+      "label": "FP",
+      "reason": "Line 81 returns a bound value and does not inject get_return_name into show_return.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 81
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_6f925980a7833685226b71908b2158feb13eebc1e656ceacd6287c9943ac1358",
+      "label": "FP",
+      "reason": "Line 49 is blank and does not inject pilot.domains.payments.get_payment_scope into get_payment_name.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 49
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_48b8692f6805647ef783ec4e406eb476738261c83886fcb0dc8a823ee2a4246a",
+      "label": "FP",
+      "reason": "Line 82 is blank and does not inject pilot.domains.orders.get_order_catalog into show_order.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 82
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_3fb13c8a5507e66116dffa8b97a9b12e2aa5cd28df95c407a3f50856eebda9e9",
+      "label": "FP",
+      "reason": "Line 74 is blank and does not inject pilot.db.get_session into count_billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 74
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_630310c8577594b8c26c06a9a429dedc2b4f48118c2da36a67e3c33cf491f7d0",
+      "label": "FP",
+      "reason": "Line 81 returns a bound value and does not inject get_audit_name into show_audit.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 81
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_af47dc4b36415b766672373ebc4bc5687c0d9b688b87c0b521fa17de09dac998",
+      "label": "FP",
+      "reason": "Line 81 returns a bound value and does not inject get_notification_name into show_notification.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 81
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_903275c3d607695ee20d3b3c6c6923421116a1bee3f80809992b7b2b8eba60cf",
+      "label": "FP",
+      "reason": "Line 74 is blank and does not inject pilot.db.get_session into count_notification.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 74
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_b67ca8463dec60ab813e0b1814ed6f131012fd44e0d995ee8a53af2072197c6c",
+      "label": "FP",
+      "reason": "Line 82 is blank and does not inject pilot.domains.inventory.get_inventory_catalog into show_inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 82
+    },
+    {
+      "group": "di",
+      "edge_id": "edge_141ca734db418ced097254ade6304487459658beb74465fc245ce31ea244bc0c",
+      "label": "FP",
+      "reason": "Line 74 is blank and does not inject pilot.db.get_session into count_payment.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 74
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_9d9979044020cbce09c772c96e2e83f8d7a5940fd9cb840d1113ac18cceca324",
+      "label": "FP",
+      "reason": "Line 17 sets the table on the Record class and does not map pilot.domains.shipping.Shipping to sqlalchemy::shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_fa8ecd571c13d131267344b1c134e6777e94bb212f217227e8b9d456cec828fc",
+      "label": "FP",
+      "reason": "Line 17 sets the table on the Record class and does not map pilot.domains.orders.Order to sqlalchemy::orders.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_6c15c7f82bbf9db4b436c682ab958472cd17cda9b139c7940d1c3359f6ae9d2a",
+      "label": "FP",
+      "reason": "Line 17 sets the table on the Record class and does not map pilot.domains.audit.Audit to sqlalchemy::audit.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_4c82b0b92756898033f9a4227649cbf9560028d65a77f4fa2634b3c29a4d1d17",
+      "label": "FP",
+      "reason": "Line 17 sets the table on the Record class and does not map pilot.domains.notifications.Notification to sqlalchemy::notifications.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_42659e2fd0a20ae1262c2582b6cd83be554da61026a65f981756f9bc1c1f0b22",
+      "label": "FP",
+      "reason": "Line 17 sets the table on the Record class and does not map pilot.domains.billing.Billing to sqlalchemy::billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_934147f64d261ef3ea38f9af1c86433433b93fb8fa79a512ee47c40e24fbaf91",
+      "label": "FP",
+      "reason": "Line 17 sets the table on the Record class and does not map pilot.domains.delivery.Delivery to sqlalchemy::delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_1017bd574635263a9956d9e2b18d5ca1a1ca7b2b6fc54e931c8d05ea4f7da960",
+      "label": "FP",
+      "reason": "Line 17 sets the table on the Record class and does not map pilot.domains.loyalty.Loyalty to sqlalchemy::loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_4a42c3809fc9e283091eae3d405ecca9ac84bdee4865a821b9d283b7a0abb4c9",
+      "label": "FP",
+      "reason": "Line 17 sets the table on the Record class and does not map pilot.domains.accounts.Account to sqlalchemy::accounts.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_aedb5200f5a4fda0b0715db1640b7c4803171266a3b3cfeba09584533c59d09a",
+      "label": "FP",
+      "reason": "Line 17 sets the table on the Record class and does not map pilot.domains.returns.Return to sqlalchemy::returns.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 17
+    },
+    {
+      "group": "db_maps_to",
+      "edge_id": "edge_1d846a70913cab983c3d14836e0d0c95a1959fb16669638cf8b1295aed95dac8",
+      "label": "FP",
+      "reason": "Line 17 sets the table on the Record class and does not map pilot.domains.inventory.Inventory to sqlalchemy::inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 17
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_de4a2d880047d11f2ab97190b899e1590b93539d7a1e4877c4869966b632ac21",
+      "label": "FP",
+      "reason": "Line 54 is blank and does not select sqlalchemy::billing from read_billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 54
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_ee56b885ee1ea078d5de1bfe119bef786f0f6a94b38d12ac6fb44ffd44955e1c",
+      "label": "FP",
+      "reason": "Line 54 is blank and does not select sqlalchemy::inventory from read_inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 54
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_b8a229d40f32e51181174cee265a2acba4620d255acfdc66c933a10e9c811a3a",
+      "label": "FP",
+      "reason": "Line 54 is blank and does not select sqlalchemy::accounts from read_account.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 54
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_b2807e816deb556f4750949ea567075d014c5532dfac3bcb3a935940f9555e56",
+      "label": "FP",
+      "reason": "Line 54 is blank and does not select sqlalchemy::returns from read_return.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 54
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_7fedfffed417e4898568cc4cc19f5273578db9297f7360566672380d00a4c6bf",
+      "label": "FP",
+      "reason": "Line 54 is blank and does not select sqlalchemy::catalog from read_catalog.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 54
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_c58d107399951c1f577d336ce4d372c052807843ae59a725a57ab166a6037334",
+      "label": "FP",
+      "reason": "Line 54 is blank and does not select sqlalchemy::payments from read_payment.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 54
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_6970d429d2411ede012fa5a743845d289f0ce36b9be73e2ff6bfa1fe5e23bbdc",
+      "label": "FP",
+      "reason": "Line 54 is blank and does not select sqlalchemy::loyalty from read_loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 54
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_960ea343f8d68a5274d179a1a557a46b8e8bc1d98667d9f85acd2caeff3b630f",
+      "label": "FP",
+      "reason": "Line 54 is blank and does not select sqlalchemy::orders from read_order.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 54
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_e722271b70f1cb3ec5d5a1e3fa45ad9fb4305bec0550cd9397a65357723f0c6e",
+      "label": "FP",
+      "reason": "Line 54 is blank and does not select sqlalchemy::shipping from read_shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 54
+    },
+    {
+      "group": "db_reads",
+      "edge_id": "edge_6bd015e1a0d83b14d546696a0577c134c674b30a7e75a9d679f5e8316e5c1443",
+      "label": "FP",
+      "reason": "Line 54 is blank and does not select sqlalchemy::notifications from read_notification.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 54
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_c2032ea6daab4d57636219b5520d159f4fdc056f8cef4c3738bb7d94a92b1a56",
+      "label": "FP",
+      "reason": "Line 59 defines a show function and does not add a row for sqlalchemy::returns from write_return.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 59
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_eb8d07954a3a66e99450a7c614deed876380a47bfba97a7d10bb2b2614aa148b",
+      "label": "FP",
+      "reason": "Line 59 defines a show function and does not add a row for sqlalchemy::inventory from write_inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 59
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_76b1b1371243a2118ef8830358db20ddd5ed8a3420869f8dbc2eb16aad100581",
+      "label": "FP",
+      "reason": "Line 59 defines a show function and does not add a row for sqlalchemy::audit from write_audit.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 59
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_67e1ddb5991a1b478ba8f8e3560fd173397c6d67741b6fb80fd95abd53f927cd",
+      "label": "FP",
+      "reason": "Line 59 defines a show function and does not add a row for sqlalchemy::notifications from write_notification.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 59
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_5534bcef95a849bdbd4012020d2410548b56773eaf46654aa9299cab3131ad31",
+      "label": "FP",
+      "reason": "Line 59 defines a show function and does not add a row for sqlalchemy::delivery from write_delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 59
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_9c29f9296e4ee53fb0a1495c102cd2d9b4b369e6c31401be402a354739c4c973",
+      "label": "FP",
+      "reason": "Line 59 defines a show function and does not add a row for sqlalchemy::shipping from write_shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 59
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_01a7bb318736142df27f4689931e311e1d483548a903217fd8d935021cf8672b",
+      "label": "FP",
+      "reason": "Line 59 defines a show function and does not add a row for sqlalchemy::payments from write_payment.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 59
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_63457511a201485209f2ed08a07ec51d0cc422073d96d42052abcbd610479fe3",
+      "label": "FP",
+      "reason": "Line 59 defines a show function and does not add a row for sqlalchemy::orders from write_order.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 59
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_daeb0dafe2002b0bc49d0a67452f3e0ecb960416e5f378406dc6c830f479006f",
+      "label": "FP",
+      "reason": "Line 59 defines a show function and does not add a row for sqlalchemy::loyalty from write_loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 59
+    },
+    {
+      "group": "db_writes",
+      "edge_id": "edge_33890524edbebb11ae4ae23bbc57f769478dcaab05f30b923c92b407dc353fea",
+      "label": "FP",
+      "reason": "Line 59 defines a show function and does not add a row for sqlalchemy::billing from write_billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 59
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_a43a5e2dc9a537f84a34990ba38f0e5062794696a666453a0fd7500991b1f7a4",
+      "label": "FP",
+      "reason": "Line 64 normalizes a value and does not publish aiokafka::loyalty.changed from publish_loyalty.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 64
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_a76be80431d0fa8c976a56b0b0447df4b60ec0fb88ca5a5649d614bb434887d8",
+      "label": "FP",
+      "reason": "Line 64 normalizes a value and does not publish aiokafka::catalog.changed from publish_catalog.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 64
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_6e59b01ba75ab61de0e5e9810bf11f0ddaba519abb15348eebb4ec81c6e27768",
+      "label": "FP",
+      "reason": "Line 64 normalizes a value and does not publish aiokafka::orders.changed from publish_order.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 64
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_608658cc5612df65c1eb5876eecd035d88661699c0fdef100135381f6876ae2d",
+      "label": "FP",
+      "reason": "Line 64 normalizes a value and does not publish aiokafka::shipping.changed from publish_shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 64
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_49d2a332d7d11e1a832df1c97b8157eb05b6aab42952f25d570c0454eb8d4ceb",
+      "label": "FP",
+      "reason": "Line 64 normalizes a value and does not publish aiokafka::accounts.changed from publish_account.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 64
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_8f10258b2eda298af6e141d898544d5364c27555c4771db99213ef409d4b5944",
+      "label": "FP",
+      "reason": "Line 64 normalizes a value and does not publish aiokafka::inventory.changed from publish_inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 64
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_2385c02ac3fc9f2270dc66c135fc0317e465670298647f50791b2217dab2f3e3",
+      "label": "FP",
+      "reason": "Line 64 normalizes a value and does not publish aiokafka::notifications.changed from publish_notification.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 64
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_50af15e300868ebe894858e949c2d75d8bdd3924d1b59f62e54f28a3f7641f64",
+      "label": "FP",
+      "reason": "Line 64 normalizes a value and does not publish aiokafka::billing.changed from publish_billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 64
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_a62083421be059efb7644c037b2af438f08b671baa24679737afc3ba4262e2d2",
+      "label": "FP",
+      "reason": "Line 64 normalizes a value and does not publish aiokafka::delivery.changed from publish_delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 64
+    },
+    {
+      "group": "event_publishes",
+      "edge_id": "edge_30e244459100feebd794f15915c84394e606d57ac432cc82fe4e0e634b0d6995",
+      "label": "FP",
+      "reason": "Line 64 normalizes a value and does not publish aiokafka::audit.changed from publish_audit.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 64
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_a91f4915e76dfe773f8bea367e92f73c26f1c15ef2fc21e130e734709fc510c7",
+      "label": "FP",
+      "reason": "The cited lines do not subscribe aiokafka::delivery.changed from subscribe_delivery.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 68
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_dd3062e90dda33f9282e406517438706fd6fbf68b870553515b55fee8b46b9cd",
+      "label": "FP",
+      "reason": "The cited lines do not subscribe aiokafka::inventory.changed from subscribe_inventory.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 69
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_5a796c57701b0e91bb5b7aa84dadf5742e69b1f8f1dec92b8efe645ece6475b5",
+      "label": "FP",
+      "reason": "The cited lines do not subscribe aiokafka::accounts.changed from subscribe_account.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 69
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_4eb3d2641d6c421ecef1a06cec64a8c19bb47d639c0aba7bca5cc1bce5ea8eb7",
+      "label": "FP",
+      "reason": "The cited lines do not subscribe aiokafka::payments.changed from subscribe_payment.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 68
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_165ce2469f7545d24ed2e559617346dc6a534b9ecdc0270634f95fe8fb7da190",
+      "label": "FP",
+      "reason": "The cited lines do not subscribe aiokafka::orders.changed from subscribe_order.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 68
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_7166e48f4f64cc0bfa797d0541e0d2f76c8d571ac5ff48b5adfc6a5c0583609a",
+      "label": "FP",
+      "reason": "The cited lines do not subscribe aiokafka::billing.changed from subscribe_billing.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 69
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_042c805cb022947df75c27e4305d24b71abb8af4b748302ee6191c3243f23c57",
+      "label": "FP",
+      "reason": "The cited lines do not subscribe aiokafka::catalog.changed from subscribe_catalog.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 69
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_35d9684be5fa1b356313cdc68db0f4365f9ea5bc41f3246ac5cb013afc2f338b",
+      "label": "FP",
+      "reason": "The cited lines do not subscribe aiokafka::notifications.changed from subscribe_notification.",
+      "relative_path": "pilot/domains/notifications.py",
+      "line": 68
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_c58f0f797259ac1fd8ae1bb003ef6ee299596945b802ea57170aec6eb5b3c5af",
+      "label": "FP",
+      "reason": "The cited lines do not subscribe aiokafka::shipping.changed from subscribe_shipping.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 68
+    },
+    {
+      "group": "event_consumes",
+      "edge_id": "edge_0f1b9713c52d1343db0686e1fc69266e0c82057ff219710fbe3c652a3c63088c",
+      "label": "FP",
+      "reason": "The cited lines do not subscribe aiokafka::returns.changed from subscribe_return.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 68
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_bb3e5d50eeefb7fe8a16bd96bcf9a12f8f1843fd48c660d396f102e2ca67ae0f",
+      "label": "FP",
+      "reason": "Line 46 is blank and does not read environment:PILOT_CATALOG_SCOPE from get_catalog_scope.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 46
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_c6bca78021ce4ce0f6d6bab6220d4b0c90d6f533668f5dfbbbd1bc9651a93467",
+      "label": "FP",
+      "reason": "Line 46 is blank and does not read environment:PILOT_LOYALTY_SCOPE from get_loyalty_scope.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 46
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_85a12361fc5ce7ab066ebac278a4bb2a5e418fde741eda289e93db00f8990c9b",
+      "label": "FP",
+      "reason": "Line 46 is blank and does not read environment:PILOT_PAYMENTS_SCOPE from get_payment_scope.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 46
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_7defc5c5410da114bdad32c5c00ac10e2a5837ba11004e4c2db3eea6d3a862a2",
+      "label": "FP",
+      "reason": "Line 46 is blank and does not read environment:PILOT_RETURNS_SCOPE from get_return_scope.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 46
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_5e26d6f5d2fc86cbc00af68467a1cd6464b83d8d164e24abee383f293150fb56",
+      "label": "FP",
+      "reason": "Line 46 is blank and does not read environment:PILOT_ACCOUNTS_SCOPE from get_account_scope.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 46
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_9d8b36c3b3616dc6badc11a3111db97f321f27dc716a5695fff9ae98bc0df76a",
+      "label": "FP",
+      "reason": "Line 46 is blank and does not read environment:PILOT_SHIPPING_SCOPE from get_shipping_scope.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 46
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_0e82d053bb2d5d48b64fe03d95106703d73395cffe754f1c08be273a1a443510",
+      "label": "FP",
+      "reason": "Line 46 is blank and does not read environment:PILOT_INVENTORY_SCOPE from get_inventory_scope.",
+      "relative_path": "pilot/domains/inventory.py",
+      "line": 46
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_7c23e29ef456ae4b59d298a2151d21ece380ee15e69cc1baf7fd93920248f8d3",
+      "label": "FP",
+      "reason": "Line 46 is blank and does not read environment:PILOT_ORDERS_SCOPE from get_order_scope.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 46
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_c40c2418ae57aaff03eb518a714c6f011f1c6f44bd2dcf062235c6d71083c28f",
+      "label": "FP",
+      "reason": "Line 46 is blank and does not read environment:PILOT_DELIVERY_SCOPE from get_delivery_scope.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 46
+    },
+    {
+      "group": "config",
+      "edge_id": "edge_294b24e9df36364f6190c77609f14d7115576ab81343944d9ef5b1b3c191c809",
+      "label": "FP",
+      "reason": "Line 46 is blank and does not read environment:PILOT_AUDIT_SCOPE from get_audit_scope.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 46
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_a129da9ad8b58cdc170a005d0f903d64ce9cf4a55f054a8c9d854144aab24cb6",
+      "label": "FP",
+      "reason": "Line 22 is an abstract method and does not show ReturnCatalog implementing pilot.contracts.CatalogPort.",
+      "relative_path": "pilot/domains/returns.py",
+      "line": 22
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_dc8252bc2740c3e590dca56221504e03466cff12800b643f2cbb18fbd7fc0bff",
+      "label": "FP",
+      "reason": "Line 22 is an abstract method and does not show BillingCatalog implementing pilot.contracts.CatalogPort.",
+      "relative_path": "pilot/domains/billing.py",
+      "line": 22
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_592439dcb83f17663312524c0dbc39db15a69976e26ad2f086ff1c9b4d93fd34",
+      "label": "FP",
+      "reason": "Line 22 is an abstract method and does not show AccountCatalog implementing pilot.contracts.CatalogPort.",
+      "relative_path": "pilot/domains/accounts.py",
+      "line": 22
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_3e2289e71a31dd71428b97ed7d3596a6f832dbce08b03270e12452d4da384128",
+      "label": "FP",
+      "reason": "Line 22 is an abstract method and does not show OrderCatalog implementing pilot.contracts.CatalogPort.",
+      "relative_path": "pilot/domains/orders.py",
+      "line": 22
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_1d4f4c29ce5cff3da7eba67e63b36f850b23a317028c4d8fb641a94d28624d2c",
+      "label": "FP",
+      "reason": "Line 22 is an abstract method and does not show CatalogCatalog implementing pilot.contracts.CatalogPort.",
+      "relative_path": "pilot/domains/catalog.py",
+      "line": 22
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_98c423be97c830ea170b4f91b9a0ec6a11f664828cbff6404ea85471e07df6f0",
+      "label": "FP",
+      "reason": "Line 22 is an abstract method and does not show ShippingCatalog implementing pilot.contracts.CatalogPort.",
+      "relative_path": "pilot/domains/shipping.py",
+      "line": 22
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_19aabf56b843b0d69a7256c734ae408383022cc35ba1ca14f37f07991701a39c",
+      "label": "FP",
+      "reason": "Line 22 is an abstract method and does not show PaymentCatalog implementing pilot.contracts.CatalogPort.",
+      "relative_path": "pilot/domains/payments.py",
+      "line": 22
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_368017f981ac6b9cee949e9c7c8d6a0666b0bea362196c8137cc7bc6cc9fbafa",
+      "label": "FP",
+      "reason": "Line 22 is an abstract method and does not show DeliveryCatalog implementing pilot.contracts.CatalogPort.",
+      "relative_path": "pilot/domains/delivery.py",
+      "line": 22
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_b724ba379018e47836a691f5b78a96e7fae92c61dc1747a415b6d6e5808db9a5",
+      "label": "FP",
+      "reason": "Line 22 is an abstract method and does not show AuditCatalog implementing pilot.contracts.CatalogPort.",
+      "relative_path": "pilot/domains/audit.py",
+      "line": 22
+    },
+    {
+      "group": "implements",
+      "edge_id": "edge_1d050fdd93b3d00e6ff9607fe7f7e08bccbd48eeb984724d14b462112a47bdc0",
+      "label": "FP",
+      "reason": "Line 22 is an abstract method and does not show LoyaltyCatalog implementing pilot.contracts.CatalogPort.",
+      "relative_path": "pilot/domains/loyalty.py",
+      "line": 22
+    }
+  ]
+}

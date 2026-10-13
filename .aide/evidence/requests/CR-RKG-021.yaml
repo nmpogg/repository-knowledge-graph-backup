@@ -1,0 +1,18 @@
+{
+  "key": "CR-RKG-021",
+  "type": "change-request",
+  "group": "evidence",
+  "revision": 2,
+  "system": "SYS-RKG",
+  "captured_at": "2026-10-07T08:29:33.367114+00:00",
+  "task": "TASK-RKG-039",
+  "story": "STORY-RKG-033",
+  "source": "explicit_user_terminal_debug_instruction",
+  "change_set": "CHG-RKG-2026-006",
+  "request_summary": "Enable opt-in verbose terminal debugging on TASK-RKG-039, with configured keys masked and no debug content in API, storage, or evidence.",
+  "classification": "internal",
+  "ai_assisted": true,
+  "record_boundary": "Normalized requested behavior; no transcript.",
+  "scope": "User explicitly requests verbose terminal debugging, overriding earlier terminal-only content restriction. Add opt-in serve --log-level debug showing actual model request/response and validator details, with configured server keys masked; default info shows operational lifecycle/stages/counters/durations. No debug content in API/storage/generated evidence, no paid live call/operator restart/config change, unchanged grounding/budget/state.",
+  "authorization_boundary": "Terminal opt-in detail only; known configured keys masked; no raw-content evidence artifacts."
+}

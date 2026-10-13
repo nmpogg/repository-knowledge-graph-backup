@@ -1,0 +1,14 @@
+key: CR-RKG-002
+type: change-request
+group: evidence
+system: SYS-RKG
+captured_at: 2026-10-06
+source: explicit-user-requirement
+request: >-
+  toi cam giac chatbot dang hoi kho dung, va cach no tra ve response cung lam user kho hieu, toi muon no tra loi bang ngon ngu tu nhien, de hieu hon
+execution_constraint: >-
+  ban hay lam theo dung quy trinh trong docs/reference/agentic-sdlc/agentic-sdlc-workflow-reference.md, ban se la nguoi viet plan truoc
+record_boundary: Requirement and execution constraint only; no conversation transcript, runtime responses, source or configuration values retained.
+captured_against:
+  code_commit: 86ecab6546384227d1901e24c8b8fbfc6c0e8527
+  process_reference: docs/reference/agentic-sdlc/agentic-sdlc-workflow-reference.md

@@ -1,0 +1,351 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-024
+revision: 3
+implementation_date: '2026-09-28'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-004
+    revision: 2
+    hash: 43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3
+    path: architecture/adr/ADR-2026-004.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-TRANSPORT
+    revision: 7
+    hash: 6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286
+    path: architecture/l2/CMP-RKG-TRANSPORT.md
+  - key: CMP-RKG-WEB
+    revision: 8
+    hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+    path: architecture/l2/CMP-RKG-WEB.md
+  - key: EPIC-003-TEAM-RKG
+    revision: 8
+    hash: 64a24ad9ed50680df8de133c8559f83a75e30e193d7f9b47155cd90cadb4a651
+    path: lifecycle/epics/EPIC-003-TEAM-RKG.md
+  - key: FR-RKG-001
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  - key: FR-RKG-002
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  - key: FR-RKG-003
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: NFR-RKG-UX-001
+    revision: 7
+    hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  - key: SCR-RKG-001
+    revision: 8
+    hash: 3ca03923d54d550cb6fe8a56314b714bdd5924d211cc7b0056ad89814e1e97d2
+    path: design/ux/SCR-RKG-001.md
+  - key: STORY-RKG-011
+    revision: 1
+    hash: 55e1b9648c80b3dd03109f483636dd5df5f7eb1ee7a9ab08a302c8dd99447985
+    path: lifecycle/stories/STORY-RKG-011.md
+  - key: UID-RKG-001
+    revision: 7
+    hash: f55d82b70a237f4cf2f4b21a0e3444e664e176bb48fb376222c1c199b1776a80
+    path: design/ui/UID-RKG-001.md
+  - key: UIS-RKG-001
+    revision: 12
+    hash: 2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b
+    path: design/ui/UIS-RKG-001.md
+  - key: UXF-RKG-001
+    revision: 7
+    hash: 2da20229a1ce5a3222b086bfb15376e0281f3aa30befb5954c4fccb196f390f1
+    path: design/ux/UXF-RKG-001.md
+  implementation_phases:
+  - commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    author_at: '2026-09-28T10:23:08+07:00'
+    committed_at: '2026-09-28T10:23:08+07:00'
+    implementation_date: '2026-09-28'
+    changed_paths:
+    - frontend/src/client/index.ts
+    - frontend/src/client/live/liveClient.test.ts
+    - frontend/src/client/live/liveClient.ts
+    - frontend/src/client/live/liveRoundtrip.test.ts
+    - frontend/src/client/live/mapWire.test.ts
+    - frontend/src/client/live/mapWire.ts
+    - frontend/src/index.css
+    - frontend/src/pages/explorer/ExplorerPage.tsx
+    - frontend/src/pages/repositories/RepositoryCreatePage.tsx
+    - frontend/src/types/api.ts
+    - frontend/src/vite-env.d.ts
+    - src/rkg/api/README.md
+    - src/rkg/api/__init__.py
+    - src/rkg/api/app.py
+    - tests/integration/test_core_api.py
+  files:
+  - path: frontend/src/client/index.ts
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: e9d331881d321336e2d34d6c48f0ae828aa98ce645df3bb5738758a957205d1e
+    current_sha256: a47f3b338dbc929bceb5e245cbb4d804209e0bac63c632d4876de8983dfcf9ea
+  - path: frontend/src/client/live/liveClient.test.ts
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: f7c5c85cfabe55ca62d70e9e7e136dd7d770f3e880681ec711d2aa1bc2d0ed65
+    current_sha256: dc2727f9147e9530ec2b8677dc7fb4368a71961c5c3f3796b41c8b41b2ed2a1e
+  - path: frontend/src/client/live/liveClient.ts
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: 847f8163e3b256d10f204ee52164fd412b814f80d137ca53e384fd70cf496752
+    current_sha256: 972f139551befaceeb9723f9feee8264660a871e4ddd408f14ec78020d085955
+  - path: frontend/src/client/live/liveRoundtrip.test.ts
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: 5272b95622927daeff93dda907305e9c0de3bd57ee71f1e3725f4dbcefe09928
+    current_sha256: 9415496f1aca05b7d4bb0ce4bb39fd192867ce915b2621c2768afdc8592104c4
+  - path: frontend/src/client/live/mapWire.test.ts
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: 2f4f283600f68ad5897319cd69978c81c4a82914cafe37fa339ec1b4d0f91f49
+    current_sha256: 15ffb34c2528042282dab0d193aabc9ac308755bac82269dc331c0b938cab13c
+  - path: frontend/src/client/live/mapWire.ts
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: 4281172c689694c865254a6323a3f8a9d1f1115b2b036ac3a4a9eeefe978d472
+    current_sha256: e8005d00e72038d4bc6fa3f02761cc86a619ca01e8cfd7ea3a6f9d81206eb4e1
+  - path: frontend/src/index.css
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: 7ca407a25310dd994b41894721d284486ca7281006ec238d5d601ec8ffdc3439
+    current_sha256: e0ad8cd42dd72acaace8677df0d9597d1124e0343fd704846e44ea241b9d3aaa
+  - path: frontend/src/pages/explorer/ExplorerPage.tsx
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: c6165d5ac8267e17d5cda6dd1b0f63122f20441c3d0d605170fc867c42a1c7f6
+    current_sha256: 86a3b006ba3dfe800e536086cfb9e508fdf12b73d1681c40028d4a3ba4ce2740
+  - path: frontend/src/pages/repositories/RepositoryCreatePage.tsx
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: 7f285da5a0ad46df8ebccd2d62d88f4438316553acb4effa431d6c3da98f6bf5
+    current_sha256: 1936584796ae3baacdcc645060f83455ba220f29e32eb54a9d0edcb4d3b65b91
+  - path: frontend/src/types/api.ts
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: 8ce281ede18331073b63a8aab9b0ce8557a31ccfcb842e5df273781c25ccda38
+    current_sha256: 4b6eb76fd396753543b395ba82ae33517736a7110caecc8e0d9b4e64e8139d01
+  - path: frontend/src/vite-env.d.ts
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: 1ea698d380e7e726062421cd80006b4a2baac21444ffc43c0904b19b79013a65
+    current_sha256: 77ccd859ab092566bcb9194a33ac35c43315283d244c508870c4f9a3b815f784
+  - path: src/rkg/api/README.md
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: de2abe2566124528b942c529bd7772c434d4fe498bcb6870676bf4d581c59b70
+    current_sha256: 0a4926b5e2c408d690d9ec3090b6e5d964495ad44a56d14bf3bf6817a5a83b47
+  - path: src/rkg/api/__init__.py
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: fc8518ace1783d45ecbd27e95fef3afae6e6cf08816accd4f77befb4a9e3ae41
+    current_sha256: 55ab052563ff1daf4b6c491b54ad4ed295c4267ffcfac9ce8ef46336471d4da9
+  - path: src/rkg/api/app.py
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: 4f71aa18050781887ae1ca0cf43a951dd511a9d067aa0b3829b5c7dbf153ade4
+    current_sha256: 8eebd57e33a62eceaa71670c22c2a39733c7ba237944fce54cee1ce32412b900
+  - path: tests/integration/test_core_api.py
+    implementation_commit: 9557874b42a5aeca69e6f36e860382a99481d342
+    implementation_sha256: dc7eb93389893f4cd0cc1e2aca67986c84d6a0a4c7812a39d1d7ba7937625907
+    current_sha256: ca49654802311116d6cfe42fc7073a78aadb3072b1c873d49e737a20e9ea9944
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-024
+objective: TASK-RKG-024
+objective_description: Nối typed client đến API thật, map wire DTO, session/errors/polling và snapshot ownership; bảo đảm
+  live/mock không lệch contract.
+requirements:
+- FR-RKG-001
+- FR-RKG-002
+- FR-RKG-003
+- AC-RKG-011
+- AC-RKG-018
+- AC-RKG-027
+- AC-RKG-054
+- AC-RKG-056
+- AC-RKG-057
+- AC-RKG-061
+design:
+- CMP-RKG-TRANSPORT
+- CMP-RKG-WEB
+- SCR-RKG-001
+- UID-RKG-001
+- UIS-RKG-001
+- UXF-RKG-001
+decisions:
+- ADR-2026-004
+contracts:
+- API-RKG-CORE-v1
+constraints:
+- NFR-RKG-REL-001
+- NFR-RKG-UX-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+- GATE-RKG-UIUX
+code_scope:
+- frontend/src/client/index.ts
+- frontend/src/client/live/liveClient.test.ts
+- frontend/src/client/live/liveClient.ts
+- frontend/src/client/live/liveRoundtrip.test.ts
+- frontend/src/client/live/mapWire.test.ts
+- frontend/src/client/live/mapWire.ts
+- frontend/src/index.css
+- frontend/src/pages/explorer/ExplorerPage.tsx
+- frontend/src/pages/repositories/RepositoryCreatePage.tsx
+- frontend/src/types/api.ts
+- frontend/src/vite-env.d.ts
+- src/rkg/api/README.md
+- src/rkg/api/__init__.py
+- src/rkg/api/app.py
+- tests/integration/test_core_api.py
+inputs:
+  ADR-2026-004:
+    revision: 2
+    hash: 43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3
+    path: architecture/adr/ADR-2026-004.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-TRANSPORT:
+    revision: 7
+    hash: 6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286
+    path: architecture/l2/CMP-RKG-TRANSPORT.md
+  CMP-RKG-WEB:
+    revision: 8
+    hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+    path: architecture/l2/CMP-RKG-WEB.md
+  EPIC-003-TEAM-RKG:
+    revision: 8
+    hash: 64a24ad9ed50680df8de133c8559f83a75e30e193d7f9b47155cd90cadb4a651
+    path: lifecycle/epics/EPIC-003-TEAM-RKG.md
+  FR-RKG-001:
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  FR-RKG-002:
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  FR-RKG-003:
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  NFR-RKG-REL-001:
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  NFR-RKG-UX-001:
+    revision: 7
+    hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  SCR-RKG-001:
+    revision: 8
+    hash: 3ca03923d54d550cb6fe8a56314b714bdd5924d211cc7b0056ad89814e1e97d2
+    path: design/ux/SCR-RKG-001.md
+  STORY-RKG-011:
+    revision: 1
+    hash: 55e1b9648c80b3dd03109f483636dd5df5f7eb1ee7a9ab08a302c8dd99447985
+    path: lifecycle/stories/STORY-RKG-011.md
+  UID-RKG-001:
+    revision: 7
+    hash: f55d82b70a237f4cf2f4b21a0e3444e664e176bb48fb376222c1c199b1776a80
+    path: design/ui/UID-RKG-001.md
+  UIS-RKG-001:
+    revision: 12
+    hash: 2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b
+    path: design/ui/UIS-RKG-001.md
+  UXF-RKG-001:
+    revision: 7
+    hash: 2da20229a1ce5a3222b086bfb15376e0281f3aa30befb5954c4fccb196f390f1
+    path: design/ux/UXF-RKG-001.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-024
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-024
+    story: STORY-RKG-011
+    captured_at: 2026-09-28
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-024
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-001
+      - key: FR-RKG-002
+      - key: FR-RKG-003
+      - key: CMP-RKG-WEB
+      - key: CMP-RKG-TRANSPORT
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-024
+
+    ## objective
+    Đổi client mock sang `/api/v1` mà giữ hành vi màn hình đã nghiệm thu trên mock.
+
+    ## requirements
+    - AC-RKG-011
+    - AC-RKG-018
+    - AC-RKG-027
+    - AC-RKG-054
+    - AC-RKG-056
+    - AC-RKG-057
+    - AC-RKG-061
+
+    ## design
+    - CMP-RKG-WEB — gồm transaction boundary, idempotency và concurrency của component này
+    - CMP-RKG-TRANSPORT — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-004
+
+    ## contracts
+    - API-RKG-CORE-v1
+    - UIS-RKG-001
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-UX-001
+    - NFR-RKG-REL-001
+    - Token trong design/ui/tokens. Không màu cứng ngoài token.
+    - UXF-RKG-001
+    - SCR-RKG-001
+    - UID-RKG-001
+
+    ## code_scope
+    - frontend/**
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-003-TEAM-RKG

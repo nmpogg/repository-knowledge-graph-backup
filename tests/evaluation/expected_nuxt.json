@@ -1,0 +1,332 @@
+{
+  "fixture_id": "rkg-fixture-nuxt4",
+  "oracle_source": "repo-test/rkg-fixture-nuxt4/README.md",
+  "notes": [
+    "rule_id is null wherever README does not name a versioned extraction rule",
+    "UI routes are Endpoint kind=navigation framework_kind=nuxt (OQ-RKG-007)",
+    "Navigation Endpoints emit handled_by → page SourceUnit and route_signal/outbound_requests from static $fetch/useFetch evidence",
+    "SourceUnit/Callable QNs follow rkg.vue / rkg.typescript path→dots conventions",
+    "Auto-import facts are convention-backed depends_on; analyzers must not invent ES imports",
+    "Generated trees .nuxt/.output/node_modules/dist/coverage are ignored paths",
+    "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": true
+  },
+  "allowlist": [],
+  "entities": [
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.app",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/app.vue", "start_line": null}]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.layouts.default",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/layouts/default.vue", "start_line": null}]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.components.OrderCard",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/components/OrderCard.vue", "start_line": null}]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.components.OrderStatusBadge",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/components/OrderStatusBadge.vue", "start_line": null}]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.components.ConnectionState.client",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/components/ConnectionState.client.vue", "start_line": null}]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.pages.index",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/index.vue", "start_line": null}]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.pages.orders.index",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/orders/index.vue", "start_line": null}]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.pages.orders.[orderId]",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/orders/[orderId].vue", "start_line": null}]
+    },
+    {
+      "type": "SourceUnit",
+      "qualified_name": "app.pages.account.profile",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/account/profile.vue", "start_line": null}]
+    },
+    {
+      "type": "navigation_route",
+      "semantic_kind": "navigation_route",
+      "qualified_name": "/",
+      "required_attributes": {"kind": "navigation", "path": "/"},
+      "framework_kind": "nuxt",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/index.vue", "start_line": null}],
+      "note": "UI route; not Nitro HTTP Endpoint"
+    },
+    {
+      "type": "navigation_route",
+      "semantic_kind": "navigation_route",
+      "qualified_name": "/orders",
+      "required_attributes": {
+        "kind": "navigation",
+        "path": "/orders",
+        "route_signal": "outbound_http"
+      },
+      "framework_kind": "nuxt",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/orders/index.vue", "start_line": null}],
+      "note": "outbound_requests includes GET /api/orders from useOrders($fetch default); dynamic cancel path not invented"
+    },
+    {
+      "type": "navigation_route",
+      "semantic_kind": "navigation_route",
+      "qualified_name": "/orders/:orderId",
+      "required_attributes": {"kind": "navigation", "path": "/orders/:orderId"},
+      "framework_kind": "nuxt",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/orders/[orderId].vue", "start_line": null}]
+    },
+    {
+      "type": "navigation_route",
+      "semantic_kind": "navigation_route",
+      "qualified_name": "/account/profile",
+      "required_attributes": {"kind": "navigation", "path": "/account/profile"},
+      "framework_kind": "nuxt",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/account/profile.vue", "start_line": null}]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "server.api.orders.index.get",
+      "required_attributes": {"method": "GET", "path": "/api/orders"},
+      "rule_id": null,
+      "evidence": [{"file_path": "server/api/orders/index.get.ts", "start_line": null}]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "server.api.orders.[orderId].get",
+      "required_attributes": {"method": "GET", "path": "/api/orders/:orderId"},
+      "rule_id": null,
+      "evidence": [{"file_path": "server/api/orders/[orderId].get.ts", "start_line": null}]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "server.api.orders.[orderId].cancel.post",
+      "required_attributes": {"method": "POST", "path": "/api/orders/:orderId/cancel"},
+      "rule_id": null,
+      "evidence": [{"file_path": "server/api/orders/[orderId]/cancel.post.ts", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "shared.types.order.Order",
+      "rule_id": null,
+      "evidence": [{"file_path": "shared/types/order.ts", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "shared.types.order.OrderStatus",
+      "rule_id": null,
+      "evidence": [{"file_path": "shared/types/order.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.composables.useOrders.useOrders",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/composables/useOrders.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "server.repositories.orderRepository.OrderRepository.findAll",
+      "rule_id": null,
+      "evidence": [{"file_path": "server/repositories/orderRepository.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "server.repositories.orderRepository.OrderRepository.findById",
+      "rule_id": null,
+      "evidence": [{"file_path": "server/repositories/orderRepository.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "server.repositories.orderRepository.OrderRepository.cancel",
+      "rule_id": null,
+      "evidence": [{"file_path": "server/repositories/orderRepository.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "server.services.orderService.fetchInventoryStatus",
+      "rule_id": null,
+      "evidence": [{"file_path": "server/services/orderService.ts", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.middleware.account.hasAccountAccess",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/middleware/account.ts", "start_line": null}]
+    },
+    {
+      "type": "ExternalDependency",
+      "qualified_name": "https://inventory.example.test",
+      "required_attributes": {"kind": "http_service", "origin": "https://inventory.example.test"},
+      "rule_id": null,
+      "evidence": [{"file_path": "server/services/orderService.ts", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "runtime:inventoryApiBase",
+      "rule_id": null,
+      "evidence": [{"file_path": "nuxt.config.ts", "start_line": null}],
+      "note": "server-only; env override NUXT_INVENTORY_API_BASE; value not stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "runtime:inventoryApiKey",
+      "rule_id": null,
+      "evidence": [{"file_path": "nuxt.config.ts", "start_line": null}],
+      "note": "server-only placeholder; env NUXT_INVENTORY_API_KEY"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "runtime:public.apiBase",
+      "rule_id": null,
+      "evidence": [{"file_path": "nuxt.config.ts", "start_line": null}],
+      "note": "public; env NUXT_PUBLIC_API_BASE"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "runtime:public.portalName",
+      "rule_id": null,
+      "evidence": [{"file_path": "nuxt.config.ts", "start_line": null}],
+      "note": "public; env NUXT_PUBLIC_PORTAL_NAME"
+    }
+  ],
+  "edges": [
+    {
+      "type": "handled_by",
+      "source": "navigation:/orders",
+      "target": "app.pages.orders.index.setup",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/orders/index.vue", "start_line": null}],
+      "note": "navigation Endpoint → page setup Callable (schema handled_by → Callable)"
+    },
+    {
+      "type": "depends_on",
+      "source": "app.pages.orders.index",
+      "target": "app.composables.useOrders.useOrders",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/orders/index.vue", "start_line": null}],
+      "note": "convention auto-import of useOrders"
+    },
+    {
+      "type": "depends_on",
+      "source": "app.pages.orders.index",
+      "target": "app.components.OrderCard",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/pages/orders/index.vue", "start_line": null}],
+      "note": "component auto-import"
+    },
+    {
+      "type": "imports",
+      "source": "app.components.OrderCard",
+      "target": "app.components.OrderStatusBadge",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/components/OrderCard.vue", "start_line": null}],
+      "note": "explicit ES import for comparison with auto-imports"
+    },
+    {
+      "type": "calls",
+      "source": "server.api.orders.index.get.createListOrdersHandler",
+      "target": "server.services.orderService.OrderService.listOrders",
+      "rule_id": null,
+      "evidence": [{"file_path": "server/api/orders/index.get.ts", "start_line": null}],
+      "note": "Nitro handler factory -> OrderService method"
+    },
+    {
+      "type": "calls",
+      "source": "server.services.orderService.OrderService.listOrders",
+      "target": "server.repositories.orderRepository.OrderRepository.findAll",
+      "rule_id": null,
+      "evidence": [{"file_path": "server/services/orderService.ts", "start_line": null}]
+    },
+    {
+      "type": "depends_on",
+      "source": "server.services.orderService.fetchInventoryStatus",
+      "target": "https://inventory.example.test",
+      "rule_id": null,
+      "evidence": [{"file_path": "server/services/orderService.ts", "start_line": null}],
+      "note": "static external URL via injected fetcher"
+    },
+    {
+      "type": "depends_on",
+      "source": "app.layouts.default",
+      "target": "runtime:public.portalName",
+      "rule_id": null,
+      "evidence": [{"file_path": "app/layouts/default.vue", "start_line": null}],
+      "note": "useRuntimeConfig -> public.portalName"
+    }
+  ],
+  "prohibited": [
+    {
+      "reason": "dynamic UI route must not invent a navigation path",
+      "entity": {
+        "type": "navigation_route",
+        "qualified_name_contains": "dynamic"
+      }
+    },
+    {
+      "reason": "dynamic outbound URL must not invent an ExternalDependency",
+      "edge": {
+        "type": "calls",
+        "source_qualified_name_contains": "dynamic-outbound-url"
+      }
+    },
+    {
+      "reason": "runtime-server-route outside server/api is not a Nitro Endpoint",
+      "entity": {
+        "type": "Endpoint",
+        "qualified_name_contains": "runtime-server-route"
+      }
+    },
+    {
+      "reason": "shadowed local $fetch is not HTTP technology",
+      "entity": {
+        "type": "ExternalDependency",
+        "qualified_name_contains": "shadowed"
+      }
+    },
+    {
+      "reason": "duplicate useSummary simple names must not be guessed as one auto-import",
+      "edge": {
+        "type": "depends_on",
+        "target_qualified_name_contains": "useSummary"
+      }
+    },
+    {
+      "reason": "generated .nuxt tree must not contribute SourceUnit facts",
+      "entity": {
+        "type": "SourceUnit",
+        "qualified_name_contains": ".nuxt"
+      }
+    },
+    {
+      "reason": "secret sentinel must never appear in facts or diagnostics",
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST"
+    }
+  ]
+}

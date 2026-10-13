@@ -1,0 +1,22 @@
+key: CR-RKG-028
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-08'
+task: TASK-RKG-046
+story: STORY-RKG-024
+change_set: CHG-RKG-2026-013
+source: lifecycle_reconciliation
+request_summary: >-
+  Authorize the existing Go, kafka-go, and pgx extraction on TASK-RKG-046.
+  Scope is the behavior already stated on STORY-RKG-024.
+authorization_boundary: >-
+  Implement and verify rkg.go, rkg.kafka-go, and rkg.pgx against the
+  go-event-worker oracle. AC-RKG-005 stays out of scope. Do not promote
+  deep-supported. Do not sign gates.
+record_boundary: >-
+  Records the scope already present on the task and story. No conversation
+  transcript. This request does not create a new product behavior.
+classification: internal
+ai_assisted: true

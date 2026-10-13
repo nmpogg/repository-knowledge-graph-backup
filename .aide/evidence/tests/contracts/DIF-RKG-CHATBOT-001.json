@@ -1,0 +1,132 @@
+{
+  "key": "DIF-RKG-CHATBOT-001",
+  "type": "contract-diff",
+  "group": "evidence",
+  "revision": 1,
+  "captured_at": "2026-10-06T15:31:41+07:00",
+  "classification": "wire_additive_with_capability_negotiation",
+  "breaking_wire_changes_detected": [],
+  "comparison": "current runtime request/query OpenAPI plus API-r15 normative response-field/limit projection",
+  "retained_legacy_POST_fields": [
+    "answer",
+    "candidate_entities",
+    "citations",
+    "claims",
+    "context_turn_ids",
+    "conversation_id",
+    "error_code",
+    "history_truncated",
+    "limitations",
+    "question",
+    "repository_id",
+    "resolved_question",
+    "retrieval_truncated",
+    "revision",
+    "schema_version",
+    "sequence",
+    "snapshot_id",
+    "status",
+    "turn_id",
+    "usage"
+  ],
+  "new_paths": [
+    "/api/v1/conversations/capabilities",
+    "/api/v1/conversations/{conversation_id}/turns/{turn_id}/citations/{citation_index}"
+  ],
+  "new_optional_request_fields": [
+    "ui_locale"
+  ],
+  "new_optional_query_fields": [
+    "include_unavailable=false"
+  ],
+  "new_optional_response_fields": [
+    "response_metadata",
+    "citation_indexes",
+    "citation.edge_id",
+    "snapshot_available"
+  ],
+  "default_locale_fingerprint_compatibility": "passed",
+  "counterpart_acknowledgements": "pending_Contract_Gate",
+  "database_compatibility": "SchemaMeta v3 requires coordinated backend upgrade; old v2 binary refuses v3",
+  "limits": [
+    "Deployed OpenAPI response schemas are untyped; this is not a full oasdiff equivalence proof.",
+    "No HTTP runtime parity, new-server/old-client integration, or live provider quality tested.",
+    "Old extra-forbid server rejects new request fields; negotiation/backend-first rollout is mandatory.",
+    "All unchanged routes outside the conversation slice remain on their current contract."
+  ],
+  "source_hashes": {
+    "tools/check_chatbot_api_compatibility.py": "5dbd780240b642932160622d712e11b7fd33d6d891a49b38c0a4055cf1f149b0",
+    ".aide/tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md": "d73b75134b57955ae827baca16408e91b467ded0b027ccea28f58c7e536b77ce",
+    ".aide/tech-specs/RKG-TRANSPORT/api/SCH-RKG-CONVERSATION-v1.json": "d7991763c99ac815caa5b271045f10d6d0b6743f1b52b82765ddccdbad6cf574",
+    ".aide/tech-specs/RKG-TRANSPORT/api/OAS-RKG-CONVERSATION-v1.json": "fbf37df09fa390bb5155608424bc0c7ce01b7e88940f2fc3d3a4beac32397a02"
+  },
+  "deployed_input_snapshot": {
+    "TurnCreate": {
+      "additionalProperties": false,
+      "properties": {
+        "question": {
+          "title": "Question",
+          "type": "string"
+        },
+        "client_request_id": {
+          "title": "Client Request Id",
+          "type": "string"
+        },
+        "expected_revision": {
+          "title": "Expected Revision",
+          "type": "integer"
+        },
+        "root_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Root Id"
+        }
+      },
+      "required": [
+        "question",
+        "client_request_id",
+        "expected_revision"
+      ],
+      "title": "TurnCreate",
+      "type": "object"
+    },
+    "history_parameters": [
+      {
+        "name": "conversation_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "title": "Conversation Id"
+        }
+      },
+      {
+        "name": "offset",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "default": 0,
+          "title": "Offset"
+        }
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "default": 20,
+          "title": "Limit"
+        }
+      }
+    ]
+  }
+}

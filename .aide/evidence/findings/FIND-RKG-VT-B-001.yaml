@@ -1,0 +1,41 @@
+---
+key: FIND-RKG-VT-B-001
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: medium
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-043
+story_key: STORY-RKG-027
+captured_at: '2026-10-07'
+disposition: accept
+route: TEST-RKG-VUE-NUXT-001
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [TEST-RKG-VUE-NUXT-001]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-VT-B-001 — AC table mis-map in TEST-RKG-VUE-NUXT-001
+
+## Summary
+
+Contract ID column in `TEST-RKG-VUE-NUXT-001` mis-assigns focused evidence relative
+to FR-RKG-002: syntax isolation must map to AC-035; same-SFC calls to AC-048;
+edge evidence to AC-007; secret sentinel to NFR-RKG-SEC-001 (not AC-048);
+`runtimeConfig` is Configuration framework evidence, not AC-048.
+
+## Decision
+
+Operator ACCEPT 2026-10-07. Remediations: rewrite AC / contract table in
+`TEST-RKG-VUE-NUXT-001` to match FR-RKG-002 mapping above.
+
+## Remediation
+
+- done: AUTHOR patched TEST-RKG-VUE-NUXT-001 Contract ID table to FR-RKG-002
+  mapping (AC-035 syntax isolation; AC-048 same-SFC calls; AC-007 edge evidence;
+  NFR-RKG-SEC-001 secret sentinel; REG-ADAPTER-001 / rkg.nuxt Configuration for
+  runtimeConfig). Disposition ACCEPT unchanged. REVIEWER confirm pending.

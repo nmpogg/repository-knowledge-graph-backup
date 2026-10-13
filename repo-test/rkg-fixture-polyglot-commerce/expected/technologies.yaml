@@ -1,0 +1,86 @@
+{
+  "exact": [
+    {
+      "application": "web",
+      "language": "TypeScript",
+      "framework": "React",
+      "version": "19.3.0",
+      "evidence": [
+        {
+          "path": "apps/web/package.json",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "application": "orders",
+      "language": "Java",
+      "framework": "Spring Boot",
+      "version": "3.5.16",
+      "evidence": [
+        {
+          "path": "services/orders/pom.xml",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "application": "email-worker",
+      "language": "TypeScript",
+      "framework": "BullMQ",
+      "version": "6.3.11",
+      "evidence": [
+        {
+          "path": "workers/email/package.json",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "application": "projection-worker",
+      "language": "Go",
+      "dependencies": {
+        "kafka-go": "0.4.51",
+        "pgx/v5": "5.11.0"
+      },
+      "evidence": [
+        {
+          "path": "workers/projection/go.mod",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    }
+  ],
+  "detected_only": [
+    {
+      "name": "Python",
+      "role": "offline verification tooling; not an application root",
+      "evidence": [
+        {
+          "path": "scripts/verify-contracts.py",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "name": "Vite",
+      "role": "web build tool",
+      "evidence": [
+        {
+          "path": "apps/web/vite.config.ts",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    }
+  ],
+  "prohibited": [
+    "Nuxt without source or manifest evidence",
+    "Markdown/YAML/OpenAPI as language SourceUnit without a corresponding adapter"
+  ]
+}

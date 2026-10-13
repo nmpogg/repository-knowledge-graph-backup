@@ -1,0 +1,248 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-020
+revision: 3
+implementation_date: '2026-09-28'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-003
+    revision: 2
+    hash: 30c9cff4314961830d9bfcc1d13d2fe8e69fe7e25c4329080e6fdf0a25661a6f
+    path: architecture/adr/ADR-2026-003.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-CONVERSATION
+    revision: 6
+    hash: 7b7875f084a579e95582d429950c87a99f2081fb18a4fef734167866f94406f4
+    path: architecture/l2/CMP-RKG-CONVERSATION.md
+  - key: CMP-RKG-GRAPH
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  - key: EPIC-004-TEAM-RKG
+    revision: 4
+    hash: 6dc6e7c9d8e07e2b0fe6e17ffd550f2f437a7de0f817e5767e9235f284649240
+    path: lifecycle/epics/EPIC-004-TEAM-RKG.md
+  - key: FR-RKG-005
+    revision: 7
+    hash: a20c3f1aede798ef733273feb7addf00c51866f0a68397df5e7ae69dca280448
+    path: requirements/fr/FR-RKG-005.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: NFR-RKG-SEC-001
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  - key: STORY-RKG-013
+    revision: 2
+    hash: 0b8269c9aa0d08729dda39c42a5d5539496c1e61ec9d9adfae856f75d79225fa
+    path: lifecycle/stories/STORY-RKG-013.md
+  implementation_phases:
+  - commit: 1f4b7475dd3bd6c8b1dd58cb561cdeea6d89718b
+    author_at: '2026-09-28T11:08:28+07:00'
+    committed_at: '2026-09-28T11:08:28+07:00'
+    implementation_date: '2026-09-28'
+    changed_paths:
+    - src/rkg/conversations/README.md
+    - src/rkg/conversations/__init__.py
+    - src/rkg/conversations/grounded.py
+    - src/rkg/conversations/service.py
+    - tests/integration/graph_helpers.py
+    - tests/integration/test_grounded_qa.py
+    - tests/integration/test_grounded_qa_live.py
+  - commit: 249684a6d6a069008c90d4553ff6ee6ee9e9b922
+    author_at: '2026-09-28T16:45:29+07:00'
+    committed_at: '2026-09-28T16:45:29+07:00'
+    implementation_date: '2026-09-28'
+    changed_paths:
+    - src/rkg/conversations/grounded.py
+    - tests/integration/test_grounded_qa.py
+  files:
+  - path: src/rkg/conversations/README.md
+    implementation_commit: 1f4b7475dd3bd6c8b1dd58cb561cdeea6d89718b
+    implementation_sha256: 4a4fd662f8f26a9143912257217fd59ba85c5a1edd061b2b61d09661f8fc7408
+    current_sha256: adf38c4220f53e0b60bf4af62d641fd8e262e49e93a8327a971b09a71ab0227f
+  - path: src/rkg/conversations/__init__.py
+    implementation_commit: 1f4b7475dd3bd6c8b1dd58cb561cdeea6d89718b
+    implementation_sha256: 6561ecbf1cbee81d895eb1ef70b54fa5c678d8a08a3cc55fcfe1e600e8613b2b
+    current_sha256: a2b8fbd222f540db126d8b66f7b95669796e815d9147f83a4c03f8469145d0c8
+  - path: src/rkg/conversations/grounded.py
+    implementation_commit: 249684a6d6a069008c90d4553ff6ee6ee9e9b922
+    implementation_sha256: 3b0efbbea60e11709c7048f36720a115a4c9d02b7c601efb2572384f4f85a65a
+    current_sha256: 3b0efbbea60e11709c7048f36720a115a4c9d02b7c601efb2572384f4f85a65a
+  - path: src/rkg/conversations/service.py
+    implementation_commit: 1f4b7475dd3bd6c8b1dd58cb561cdeea6d89718b
+    implementation_sha256: aff1ad9b7e8311c6f12ca4a889479fa5f0f75fbab9818f54519365e4ef59aa71
+    current_sha256: 7cae91efc9dc28256575870577c41276bec0d33dbe64b079df10cc9a9b5dde37
+  - path: tests/integration/graph_helpers.py
+    implementation_commit: 1f4b7475dd3bd6c8b1dd58cb561cdeea6d89718b
+    implementation_sha256: c0c56251ab5e51ed1c405e47bc542b3dec570f3d47cc1f6bd9fecd42c34645f5
+    current_sha256: 47f93831dcc3c737f7691c4ad383d008fa4a6de90b21f2d325c5545c86793c48
+  - path: tests/integration/test_grounded_qa.py
+    implementation_commit: 249684a6d6a069008c90d4553ff6ee6ee9e9b922
+    implementation_sha256: 03848e51ac95676788a6cd21ee88bd6e2b6e97ba9270054278605163d699c1ca
+    current_sha256: af17e9ffe7f65a2cfe4679fe1395862a19207602732d60aa640c4e84ce87c607
+  - path: tests/integration/test_grounded_qa_live.py
+    implementation_commit: 1f4b7475dd3bd6c8b1dd58cb561cdeea6d89718b
+    implementation_sha256: 939fa9497870f832c6d38a8742759f5c8d19ada3f35187acbbb2896733371c6b
+    current_sha256: 3ea30132422231601d9cfd491ceb1c8cbca3c2c3ee3b307a9ffc370196d43fa2
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-020
+objective: TASK-RKG-020
+objective_description: Điều phối bounded history/focus/clarification, provider planning, read-only retrieval allowlist và
+  citation validation; dùng output budget trong NFR.
+requirements:
+- FR-RKG-005
+- AC-RKG-024
+- AC-RKG-025
+- AC-RKG-028
+- AC-RKG-029
+- AC-RKG-032
+- AC-RKG-042
+- AC-RKG-063
+- AC-RKG-064
+design:
+- CMP-RKG-CONVERSATION
+- CMP-RKG-GRAPH
+decisions:
+- ADR-2026-003
+contracts:
+- API-RKG-CORE-v1
+constraints:
+- NFR-RKG-REL-001
+- NFR-RKG-SEC-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- src/rkg/conversations/README.md
+- src/rkg/conversations/__init__.py
+- src/rkg/conversations/grounded.py
+- src/rkg/conversations/service.py
+- tests/integration/graph_helpers.py
+- tests/integration/test_grounded_qa.py
+- tests/integration/test_grounded_qa_live.py
+inputs:
+  ADR-2026-003:
+    revision: 2
+    hash: 30c9cff4314961830d9bfcc1d13d2fe8e69fe7e25c4329080e6fdf0a25661a6f
+    path: architecture/adr/ADR-2026-003.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-CONVERSATION:
+    revision: 6
+    hash: 7b7875f084a579e95582d429950c87a99f2081fb18a4fef734167866f94406f4
+    path: architecture/l2/CMP-RKG-CONVERSATION.md
+  CMP-RKG-GRAPH:
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  EPIC-004-TEAM-RKG:
+    revision: 4
+    hash: 6dc6e7c9d8e07e2b0fe6e17ffd550f2f437a7de0f817e5767e9235f284649240
+    path: lifecycle/epics/EPIC-004-TEAM-RKG.md
+  FR-RKG-005:
+    revision: 7
+    hash: a20c3f1aede798ef733273feb7addf00c51866f0a68397df5e7ae69dca280448
+    path: requirements/fr/FR-RKG-005.md
+  NFR-RKG-REL-001:
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  NFR-RKG-SEC-001:
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  STORY-RKG-013:
+    revision: 2
+    hash: 0b8269c9aa0d08729dda39c42a5d5539496c1e61ec9d9adfae856f75d79225fa
+    path: lifecycle/stories/STORY-RKG-013.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-020
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-020
+    story: STORY-RKG-013
+    captured_at: 2026-09-28
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-020
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-005
+      - key: CMP-RKG-CONVERSATION
+      - key: CMP-RKG-GRAPH
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-020
+
+    ## objective
+    Trả lời bám context đã pin, citation thuộc context, follow-up dùng focus.
+
+    ## requirements
+    - AC-RKG-024
+    - AC-RKG-025
+    - AC-RKG-028
+    - AC-RKG-029
+    - AC-RKG-042
+
+    ## design
+    - CMP-RKG-CONVERSATION — gồm transaction boundary, idempotency và concurrency của component này
+    - CMP-RKG-GRAPH — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-003
+
+    ## contracts
+    - API-RKG-CORE-v1
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-SEC-001
+    - NFR-RKG-REL-001
+
+    ## code_scope
+    - src/rkg/conversations/grounded.py
+    - src/rkg/conversations/service.py
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-004-TEAM-RKG

@@ -1,0 +1,538 @@
+{
+  "key": "REV-RKG-2026-005",
+  "type": "review-record",
+  "group": "evidence",
+  "scope": "system",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "status": "completed",
+  "review_class": "advisory",
+  "pass_count": 1,
+  "created_at": "2026-10-06",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "change_set": "CHG-RKG-2026-002",
+  "classification": "internal",
+  "ai_assisted": true,
+  "non_normative": true,
+  "ownership": {
+    "accountable_team": "TEAM-RKG",
+    "accountable_role": "tech-lead"
+  },
+  "relations": {
+    "reviews": [
+      "CHG-RKG-2026-002",
+      "ADR-2026-007",
+      "FR-RKG-005"
+    ]
+  },
+  "captured_against": {
+    "baseline": "BL-CHG-RKG-2026-002-r2",
+    "baseline_path": ".aide/lifecycle/change-sets/CHG-RKG-2026-002/baseline/BL-CHG-RKG-2026-002-r2.yaml",
+    "baseline_sha256": "3cf69ea1258789a8f3ed3fba07759ac860b0cff81078f74ec3643ba9e3f03bdf",
+    "hash_method": "sha256-file-bytes",
+    "code_commit": "86ecab6546384227d1901e24c8b8fbfc6c0e8527",
+    "code_tree": "6868e73b8d0b5abdecdd9a64265596d8fe809548",
+    "working_tree_dirty": true,
+    "capture_note": "Git commit/tree mô tả baseline code; artifact hashes mô tả working tree candidate thực tế. Không suy candidate design đã nằm trong commit hoặc đã triển khai.",
+    "artifacts": [
+      {
+        "key": "FR-RKG-005",
+        "revision": 9,
+        "path": ".aide/requirements/fr/FR-RKG-005.md",
+        "sha256": "6f240da74dd108933c85da36bf973106c30b7a6825f2e3b57e67318fa22a78f5",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "ADR-2026-007",
+        "revision": 1,
+        "path": ".aide/architecture/adr/ADR-2026-007.md",
+        "sha256": "c699b29aa4c36c4be71c40b9f179731213f2f53e77d811a06e9307a2be68144c",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "CMP-RKG-CONVERSATION",
+        "revision": 7,
+        "path": ".aide/architecture/l2/CMP-RKG-CONVERSATION.md",
+        "sha256": "2b2bc1bb8c3cc17cc2349d5c3be07b828efd89cbc24660cfba2c44635adffa65",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "CMP-RKG-WEB",
+        "revision": 9,
+        "path": ".aide/architecture/l2/CMP-RKG-WEB.md",
+        "sha256": "9127465096842ccdf6addff5649a13839515f088a136d2bdcbbb3e5ccb5b91e6",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "TM-RKG",
+        "revision": 8,
+        "path": ".aide/architecture/threat-model/TM-RKG.md",
+        "sha256": "c22e337412e5c9d42bccbc5cf5ef76e92767ee130f3b4d8a9de86ea6d6570bb6",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "UXF-RKG-002",
+        "revision": 5,
+        "path": ".aide/design/ux/UXF-RKG-002.md",
+        "sha256": "5e57d4c6d118e1463a96373740105d61371514de12f2f1aa17a303206d8e3add",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "SCR-RKG-001",
+        "revision": 9,
+        "path": ".aide/design/ux/SCR-RKG-001.md",
+        "sha256": "385e3bd7ddb7ff32397580270005574cb6cce2ae47e392e7b137c9a4520876c3",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "UID-RKG-001",
+        "revision": 8,
+        "path": ".aide/design/ui/UID-RKG-001.md",
+        "sha256": "b5b92b6652c087cadaa0a347de226f9bf72fc2f5ad36eff617e9452b4e3dbc7e",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "GATE-RKG-SCOPE",
+        "revision": 9,
+        "path": ".aide/policies/gates/GATE-RKG-SCOPE.md",
+        "sha256": "bf7f2fb25f44a09f6ce42a3f937a5e125abe4cf184789b0eb9e9e5f304a2ed17",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "GATE-RKG-ARCHITECTURE",
+        "revision": 6,
+        "path": ".aide/policies/gates/GATE-RKG-ARCHITECTURE.md",
+        "sha256": "28b9cefd31d2573bee4b5be4a8a23c9e649e458ee97605f96972dd53b6d60826",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "GATE-RKG-UIUX",
+        "revision": 8,
+        "path": ".aide/policies/gates/GATE-RKG-UIUX.md",
+        "sha256": "9738d79480c08191b7043a58e50001d3bc0e1e7f501631250a9ddab52be86a34",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "PRD-RKG",
+        "revision": 20,
+        "path": ".aide/product/prd/PRD-RKG.md",
+        "sha256": "6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "DOM-RKG-CORE",
+        "revision": 5,
+        "path": ".aide/domain/glossary-core.md",
+        "sha256": "24759954cd15951c3c6fc441d0ba0b88d831f62f86ee1e5b1c15db74318d2ff3",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "CAP-RKG-003",
+        "revision": 4,
+        "path": ".aide/architecture/l1/CAP-RKG-003.md",
+        "sha256": "a83f81a79c97a82bb302f0db2a28ade53e32299b390d45a2318ae33839c57c93",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "CMP-RKG-GRAPH",
+        "revision": 9,
+        "path": ".aide/architecture/l2/CMP-RKG-GRAPH.md",
+        "sha256": "7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "CMP-RKG-TRANSPORT",
+        "revision": 7,
+        "path": ".aide/architecture/l2/CMP-RKG-TRANSPORT.md",
+        "sha256": "6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "ADR-2026-001",
+        "revision": 3,
+        "path": ".aide/architecture/adr/ADR-2026-001.md",
+        "sha256": "ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "ADR-2026-004",
+        "revision": 2,
+        "path": ".aide/architecture/adr/ADR-2026-004.md",
+        "sha256": "43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "NFR-RKG-SEC-001",
+        "revision": 7,
+        "path": ".aide/requirements/nfr/NFR-RKG-SEC-001.md",
+        "sha256": "ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "NFR-RKG-REL-001",
+        "revision": 8,
+        "path": ".aide/requirements/nfr/NFR-RKG-REL-001.md",
+        "sha256": "fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "NFR-RKG-UX-001",
+        "revision": 7,
+        "path": ".aide/requirements/nfr/NFR-RKG-UX-001.md",
+        "sha256": "c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "API-RKG-CORE-v1",
+        "revision": 15,
+        "path": ".aide/tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+        "sha256": "e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "TBL-RKG-GRAPH",
+        "revision": 12,
+        "path": ".aide/tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+        "sha256": "8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "UIS-RKG-001",
+        "revision": 12,
+        "path": ".aide/design/ui/UIS-RKG-001.md",
+        "sha256": "2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "EVAL-RKG-QA-001",
+        "revision": 2,
+        "path": ".aide/policies/eval/EVAL-RKG-QA-001.md",
+        "sha256": "19bba2089b095b0b431d85d843a61a3d5a4488889c269d47439869f11b673720",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "OBS-RKG-005",
+        "revision": 3,
+        "path": ".aide/observability/OBS-RKG-005.md",
+        "sha256": "82acb6483ca288e1952b5f7f354158243ea07ea45cf090a62392787e3c92ef3f",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      },
+      {
+        "key": "TOK-RKG-001",
+        "revision": 2,
+        "path": ".aide/design/ui/tokens/tokens.json",
+        "sha256": "ae71b14d8921b6e64f03641a5787c7b99622fa3f28904a75208eabfb32c8de96",
+        "hash_check": "passed",
+        "revision_check": "passed"
+      }
+    ],
+    "review_policy_inputs": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "e2e13dce396455110db73652508df2fb87d1ddd3644287b19156cbbfd5e36a55"
+      },
+      {
+        "path": "docs/reference/agentic-sdlc/agentic-sdlc-workflow-reference.md",
+        "sha256": "6b73c7836e0924761492634f946e209277afa14229faa7e0b93ab9e2b847d1e7"
+      }
+    ],
+    "limited_code_inspection": [
+      {
+        "path": "frontend/src/pages/conversations/ConversationPage.tsx",
+        "sha256": "c42a040f5aa66ced334b829bfe342128e35de4265517025081691f31db7b0fa4"
+      }
+    ]
+  },
+  "review_scope": "Thiết kế cải thiện chatbot trước triển khai; FR005 AC074…081 cùng invariant cũ liên quan, ADR/L2/TM/UX cấp 1–3; API/TBL/UIS là reference hiện tại. Không audit toàn frontend hoặc toàn MVP.",
+  "independence": {
+    "status": "passed",
+    "separate_reviewer_agents": [
+      "security",
+      "operability",
+      "completeness"
+    ],
+    "conversation_history_shared": false,
+    "author_plan_diary_explanation_shared": false,
+    "cross_reviewer_results_before_completion": false,
+    "note": "Reviewer đọc trực tiếp normative package; rationale trong normative ADR không bị thay bằng lời giải thích thêm của tác giả. Không đọc historical evidence để chứng minh candidate."
+  },
+  "reviewer_results": [
+    {
+      "role": "security",
+      "status": "passed",
+      "findings": [],
+      "blockers": [],
+      "conclusion": "Không có defect Security đủ căn cứ; grounded reference renderer, exact pinned citation và fail-closed có invariant rõ."
+    },
+    {
+      "role": "operability",
+      "status": "passed",
+      "findings": [],
+      "blockers": [],
+      "conclusion": "Không có defect Operability đủ căn cứ; budgets/transaction/replay/concurrency/recovery/persistence/legacy đủ ở architecture."
+    },
+    {
+      "role": "completeness",
+      "status": "passed",
+      "findings": [
+        "COMP-CHG002-001"
+      ],
+      "blockers": [],
+      "conclusion": "Coverage đủ cho architecture decision; một optional wording improvement về greeting effective language."
+    }
+  ],
+  "checks": [
+    {
+      "id": "baseline_before_and_after",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "27/27 file-byte SHA-256 và revision khớp manifest r2; TOK dùng meta.revision."
+    },
+    {
+      "id": "reviewer_independence",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "Ba agent riêng với fork_turns=none; không nhận lịch sử hội thoại, plan, diary, evidence test/review, generated views hoặc kết quả của nhau. Tổng hợp chỉ sau khi cả ba hoàn tất."
+    },
+    {
+      "id": "Q01_entity_resolution",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "FR005 r9 AC075; CMP-CONVERSATION r7:82–87,140: exact method/path, Endpoint intent, clarification khi collision/uncertainty."
+    },
+    {
+      "id": "Q02_retrieval_direction",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "ADR007 r1:58–66; CMP-CONVERSATION r7:88–95: handled_by→handler trước calls, incoming caller/outgoing callee, connector tách khỏi calls và direct/indirect."
+    },
+    {
+      "id": "Q03_grounding_renderer",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "ADR007 r1:52–66,100–103; TM r8 bảng Structured conversational explanation risks: reference-only model output, backend validate topology/evidence rồi render; citation hợp lệ không chứng minh prose tùy ý."
+    },
+    {
+      "id": "Q04_fail_closed",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "ADR007 r1:68–70; CMP-CONVERSATION r7:141–143: schema/ID/direction/path sai bị reject; fallback không hợp thức hóa output sai hoặc thêm provider call."
+    },
+    {
+      "id": "Q05_clarification_continuity",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "ADR007 r1:83–92; CMP-CONVERSATION r7:96–98,144–163: original redacted question/intent, locale và ordered candidates persistent/atomic, ordinal resumes original intent; committed state giữ qua restart."
+    },
+    {
+      "id": "Q06_language_greeting_invariant",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "FR005 r9 AC074/078; CMP-CONVERSATION r7:79–81,131–134,162–163: vi/en/Việt không dấu, ambiguous→UI locale, absent→vi; greeting giữ focus/pending và không graph/model calls. Wording exception được ghi riêng COMP-CHG002-001."
+    },
+    {
+      "id": "greeting_wording_consistency",
+      "status": "failed",
+      "kind": "design_static_review",
+      "basis": "ADR007 r1:79 dùng “theo locale” trong khi :74–77 quy định ngôn ngữ câu nhập ưu tiên; COMP-CHG002-001 low/optional."
+    },
+    {
+      "id": "Q07_operations",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "NFR-REL r8:34–37; CMP-CONVERSATION r7:150–169; TBL r12 Conversation constraints: pending/finalize atomic, network ngoài transaction, semantic replay equality, one pending turn, revision guard/recovery, bounded model/query/token/timeout."
+    },
+    {
+      "id": "Q08_persistence_legacy",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "ADR007 r1:89–96; CMP-CONVERSATION r7:96–98,152–163; CMP-WEB r9:88–92,104–107: answer/citations/locale/limitations atomic, intent/order persistent; legacy absent unknown, no rewrite/backfill; wire/schema/migration chốt L3."
+    },
+    {
+      "id": "Q09_exact_citation",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "FR005 r9 AC081; CMP-WEB r9:109–113; UID r8:184–187; TBL r12:192–198: exact evidence ID/pinned snapshot/provenance; unavailable thay vì substitute target-entity evidence; filesystem provenance không giả physical line."
+    },
+    {
+      "id": "Q10_answer_presentation",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "CMP-WEB r9:94–107; UXF r5 Conversation usability; SCR r9 Conversation workspace refinement; UID r8:175–189: one primary answer, collapsed claims/details, insufficient một lần, plain-language partial/error/history unknown."
+    },
+    {
+      "id": "Q11_verification_intent",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "FR005 r9 AC074…081 given/when/then + validated_by; ADR007 r1:98–104, TM r8 planned verification, EVAL r2 corpus/rubric/live-quality distinction. Đủ intent ở giai đoạn thiết kế; chưa chứng minh implementation/readability bằng spec."
+    },
+    {
+      "id": "injection_privacy",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "FR005 r9 AC041/042/064; SEC r7 normative requirements; TM r8; CMP-WEB r9:112–113: allowlist/schema, redaction/minimization, ownership, escape/sanitize, không execution/graph fact writes/forbidden log data."
+    },
+    {
+      "id": "existing_ask_reuse",
+      "status": "passed",
+      "kind": "design_static_review",
+      "basis": "Đọc tĩnh duy nhất ConversationPage.tsx: composer/transcript/candidates/source controls và dialog hiện có có thể tái sử dụng. Các hành vi cũ ở vùng citation/claims là phần triển khai tương lai, không phải bug của candidate design."
+    },
+    {
+      "id": "runtime_behavior_tests",
+      "status": "not_run",
+      "kind": "execution_verification",
+      "basis": "Không chạy repository source hoặc implementation tests trong advisory pass."
+    },
+    {
+      "id": "contract_schema_ddl_migration",
+      "status": "not_run",
+      "kind": "execution_verification",
+      "basis": "Chưa chốt L3/API/TBL/UIS mới; DDL/migration/compatibility cần evidence sau prerequisite gates và trước Contract approval."
+    },
+    {
+      "id": "restart_crash_concurrency_tests",
+      "status": "not_run",
+      "kind": "execution_verification",
+      "basis": "Review invariant tĩnh; chưa execute recovery/replay/concurrency fixtures."
+    },
+    {
+      "id": "security_fixture_execution",
+      "status": "not_run",
+      "kind": "execution_verification",
+      "basis": "Review safety intent tĩnh; chưa execute injection/redaction/citation negative fixtures."
+    },
+    {
+      "id": "ui_preview_walkthrough",
+      "status": "not_run",
+      "kind": "execution_verification",
+      "basis": "Không khởi chạy source. Readability, keyboard/focus, narrow widths, locale dài và exact citation flow cần preview trên Ask/component hiện có; không xây mock riêng."
+    },
+    {
+      "id": "live_provider_quality",
+      "status": "not_run",
+      "kind": "execution_verification",
+      "basis": "Không gọi live LLM/provider; quality acceptance không suy từ schema/static review."
+    }
+  ],
+  "findings": [
+    {
+      "id": "COMP-CHG002-001",
+      "finding_key": {
+        "rule_id": "effective_language_before_ui_locale",
+        "location_anchor": "ADR-2026-007#ngon-ngu-greeting-va-clarification:L79",
+        "fingerprint": "greeting-locale-wording-can-bypass-resolved-language"
+      },
+      "reviewer_role": "completeness",
+      "attribution": [
+        "completeness"
+      ],
+      "severity": "low",
+      "blocker": false,
+      "classification": "optional_improvement",
+      "status": "open",
+      "route": "bad_spec",
+      "locations": [
+        {
+          "artifact": "ADR-2026-007",
+          "revision": 1,
+          "path": ".aide/architecture/adr/ADR-2026-007.md",
+          "section": "Ngôn ngữ, greeting và clarification",
+          "lines": [
+            74,
+            75,
+            76,
+            77,
+            79,
+            80
+          ]
+        }
+      ],
+      "related": [
+        "AC-RKG-074",
+        "AC-RKG-078",
+        "NFR-RKG-UX-001"
+      ],
+      "invariant": "Ngôn ngữ câu nhập rõ được ưu tiên; UI locale chỉ là fallback; greeting giữ focus/pending và không có graph/model calls.",
+      "issue": "Greeting ghi hướng dẫn “theo locale”, có thể bị hiểu là UI locale, trong khi resolver trước đó ưu tiên ngôn ngữ câu nhập.",
+      "scenario": "UI tiếng Anh, nhập lời chào Việt có dấu hoặc không dấu rõ: resolver chọn vi nhưng renderer hiểu riêng “theo locale” có thể trả hướng dẫn en.",
+      "proposed_resolution": "Đổi wording thành “theo ngôn ngữ hiệu lực đã xác định bởi language resolver”; UI chrome vẫn theo UI locale. Đề xuất chuyển người quyết định; pass này không sửa artifact.",
+      "verification_after_fix": "Kiểm tra invariant thống nhất giữa ADR/CMP/AC; sau triển khai dùng fixtures greeting vi/en/Việt không dấu với UI locale đối nghịch, assert reply language, zero graph/model calls và giữ focus/pending. Review lại exact revision/hash đã sửa.",
+      "blocker_rationale": "Resolver và AC đã quy định precedence; đây là wording ambiguity, không phải thiếu invariant kiến trúc."
+    }
+  ],
+  "consolidation": {
+    "duplicate_findings": [],
+    "attribution_preserved": true,
+    "disagreements": [
+      {
+        "topic": "Greeting wording",
+        "reviewers": [
+          "security",
+          "operability",
+          "completeness"
+        ],
+        "description": "Completeness ghi một ambiguity low; Security/Operability không ghi finding. Không có bất đồng về invariant language resolver hoặc mức Architecture blocker.",
+        "coordinator_disposition": "Giữ COMP-CHG002-001 và attribution completeness; không nâng severity hoặc quy thành runtime defect."
+      }
+    ],
+    "blockers_before_architecture_gate": []
+  },
+  "conclusion": {
+    "architecture_gate_submission_ready": true,
+    "advisory_result": "ready_for_authorized_architecture_decision",
+    "architecture_gate_status": "pending",
+    "ui_ux_gate_status": "pending",
+    "contract_gate_status": "pending",
+    "scope_state": "scope-approved theo manifest approval-007; không ký lại scope trong review này",
+    "statement": "Có thể đưa delta CHG-RKG-2026-002 ra Architecture Gate. Không phát hiện blocker thiết kế trong pass này. Đây là advisory findings cho người quyết định, không đóng gate hoặc giả approval; checklist còn mở của gate và exact-revision/hash sign-off vẫn cần người có thẩm quyền.",
+    "optional_before_implementation": [
+      "COMP-CHG002-001: thống nhất wording greeting với effective language."
+    ],
+    "valid_l3_deferrals": [
+      "Reference narrative schema field/enum và compatibility chi tiết; không thêm free-form factual answer hoặc nới validator.",
+      "API payload locale/selection/citations/limitation/history và semantic replay equality cụ thể.",
+      "Fit JSON columns/migration/persistence layout của pending intent/order/locale/limitations, legacy unknown; execution DDL đúng TBL revision trước Contract approval.",
+      "UIS binding và mock/live types theo contracts mới sau prerequisite gates."
+    ],
+    "ui_preview_work": [
+      "Preview trên Ask/component hiện có: một answer chính/collapsed details, clarification bằng nút/số, mixed UI/question locales, partial/error/unknown history, exact evidence/unavailable, keyboard/focus và long identifiers ở narrow widths.",
+      "Synthetic content an toàn, không transcript/raw source/config/host path; human walkthrough cho readability trước UI/UX approval."
+    ],
+    "implementation_state": "Thiết kế mới chưa triển khai; khác biệt UI/code hiện tại không bị ghi là bug."
+  },
+  "safety_scope": {
+    "code_or_normative_artifacts_modified": false,
+    "historical_evidence_modified": false,
+    "repository_source_executed": false,
+    "live_provider_called": false,
+    "gates_closed_or_approvals_simulated": false,
+    "evidence_content": "Chỉ metadata/hash, kết quả review tĩnh và finding scenario; không transcript/prompt/runtime response/raw source/credentials/config values/absolute host paths."
+  }
+}

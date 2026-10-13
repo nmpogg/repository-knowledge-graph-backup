@@ -1,0 +1,306 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-018
+revision: 3
+implementation_date: '2026-09-25'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-003
+    revision: 2
+    hash: 30c9cff4314961830d9bfcc1d13d2fe8e69fe7e25c4329080e6fdf0a25661a6f
+    path: architecture/adr/ADR-2026-003.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-CONVERSATION
+    revision: 6
+    hash: 7b7875f084a579e95582d429950c87a99f2081fb18a4fef734167866f94406f4
+    path: architecture/l2/CMP-RKG-CONVERSATION.md
+  - key: CMP-RKG-GRAPH
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  - key: EPIC-004-TEAM-RKG
+    revision: 4
+    hash: 6dc6e7c9d8e07e2b0fe6e17ffd550f2f437a7de0f817e5767e9235f284649240
+    path: lifecycle/epics/EPIC-004-TEAM-RKG.md
+  - key: FR-RKG-005
+    revision: 7
+    hash: a20c3f1aede798ef733273feb7addf00c51866f0a68397df5e7ae69dca280448
+    path: requirements/fr/FR-RKG-005.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: NFR-RKG-SEC-001
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  - key: STORY-RKG-012
+    revision: 2
+    hash: 67b409445c2331e6e0ddbb0b7ff0057004bc0ca4d1f0897ba4fe665a21155e3e
+    path: lifecycle/stories/STORY-RKG-012.md
+  - key: TBL-RKG-GRAPH
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+  implementation_phases:
+  - commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    author_at: '2026-09-25T10:28:39+07:00'
+    committed_at: '2026-09-25T10:28:39+07:00'
+    implementation_date: '2026-09-25'
+    changed_paths:
+    - src/rkg/conversations/README.md
+    - src/rkg/conversations/__init__.py
+    - src/rkg/conversations/identity.py
+    - src/rkg/conversations/redaction.py
+    - src/rkg/conversations/service.py
+    - src/rkg/storage/README.md
+    - src/rkg/storage/__init__.py
+    - src/rkg/storage/connection.py
+    - src/rkg/storage/conversations.py
+    - src/rkg/storage/errors.py
+    - src/rkg/storage/oplog.py
+    - src/rkg/storage/records.py
+    - src/rkg/storage/snapshots.py
+    - src/rkg/storage/turns.py
+    - tests/integration/test_conversation_persistence.py
+    - tests/unit/test_conversation_redaction.py
+  files:
+  - path: src/rkg/conversations/README.md
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: e455f9777c455b797b7868dbb00ff81952fa602f64dc873e5f6fa91491fd1ca5
+    current_sha256: adf38c4220f53e0b60bf4af62d641fd8e262e49e93a8327a971b09a71ab0227f
+  - path: src/rkg/conversations/__init__.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: c86dc41cc91ae15d3d0ce4bad89ba15054308d98a37878f4d49a233414233983
+    current_sha256: a2b8fbd222f540db126d8b66f7b95669796e815d9147f83a4c03f8469145d0c8
+  - path: src/rkg/conversations/identity.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: f533aa6613545364226fd23170c5869bbe439f39934c8d2417054c250e94b0f2
+    current_sha256: 124415659436442bbf83f014535097f4c8b0894f9d09a1f6e27cb263a4e5ceb9
+  - path: src/rkg/conversations/redaction.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: 57920bb7c4aa7ad3d81571c7d9adbec588a60cf8ffde70328e0ccc30107ef492
+    current_sha256: 158127e52527b2a870263fa771f548138192d0800542144b61c1110aba436335
+  - path: src/rkg/conversations/service.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: eebccffffa18f46ce6c36d479c4fc4dd4e71ea338c21aa5b527e25ab004b3bc5
+    current_sha256: 7cae91efc9dc28256575870577c41276bec0d33dbe64b079df10cc9a9b5dde37
+  - path: src/rkg/storage/README.md
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: fc11be292fc3671ff3ef5f942e0e619df301aecdb70a67a3fb41e79fdfef3255
+    current_sha256: 6681a7fd5909279b78474b1c23db3bb83918f699f0e81dbfd0a2bfb01bd4819f
+  - path: src/rkg/storage/__init__.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: 69b508e57309f0971a300ffa82764ba56af405985efbd04a6866e4e3e962f105
+    current_sha256: 69b508e57309f0971a300ffa82764ba56af405985efbd04a6866e4e3e962f105
+  - path: src/rkg/storage/connection.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: 53d8a5c0424cda3003e97dd7fa11b40c3606e73d662a626a5f32d547bd153244
+    current_sha256: ec3707f0e33d98a3092522a3fd2f0d1b558a9c7b1310be3b522f66b4ecffadd6
+  - path: src/rkg/storage/conversations.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: d31bd107e630d159bf02e4a0e642e844c28a7647147df048c1c878484f88f352
+    current_sha256: 3955716cfdad3ae8f2911c4bd680bc0b6a899bd76ad9af2690b36d350382ee7c
+  - path: src/rkg/storage/errors.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: bed461d26499dcbef802bd5446b055ce4028cf88fc3b4f2a1b36a5fc743b3065
+    current_sha256: 5465d846751fbc8f5537453d9c9cdc3acd59612ade1a32acdcefecc15338ee7b
+  - path: src/rkg/storage/oplog.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: 2558041ec550032984ec3c5348ea66847f9d05ba4d1f2cfad95d177d79e7d632
+    current_sha256: aab0d0fc03fb5fcbbeeba7ab06147769de2f98f575be8e61bca3a72a9cda9a00
+  - path: src/rkg/storage/records.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: ec7c4cb2f858c12482e050aa7e82ee624cc0da043b4b4b8a063a414a42781922
+    current_sha256: ab7171acb19caaa7fe1d6bec0b95fd41d5e24731b5e8bacf5a8e31b98e623d0c
+  - path: src/rkg/storage/snapshots.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: 06bc7c5b7861e486a8f174ab385deb0dedd00dff585ea9cd1d5006d58d1b76e8
+    current_sha256: 06bc7c5b7861e486a8f174ab385deb0dedd00dff585ea9cd1d5006d58d1b76e8
+  - path: src/rkg/storage/turns.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: 5977de6d98864d96530360e7e39cda18a2a8a5dfe88acd43c7491afaf1e95472
+    current_sha256: 02e7f2231a9f7efaeef891948ca758e3caaba66a51c0ca46e3a859b0a1526ac3
+  - path: tests/integration/test_conversation_persistence.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: a6e9fd7a727f7a6919fdfb2405901963cf96a5e1d0ebf307ce947b0cef24e02b
+    current_sha256: 28c8ef1d15608390dd5f093e19696068dc07098f7e5f7a8ee68e274771264754
+  - path: tests/unit/test_conversation_redaction.py
+    implementation_commit: 4847c3d94a3b5c3375991fd41107ff0b8634ce8c
+    implementation_sha256: b9b2c68bd92dd38743ecb38447cb403798c6a9ed218cd0230e21ffcc2b96b979
+    current_sha256: fc09e35ef2dbe6805a10b7c9c7b7156262486d44a0d5a2a3864884336b100b01
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-018
+objective: TASK-RKG-018
+objective_description: Persist conversation/turn, pin snapshot, enforce revision/client_request_id/idempotency/redaction;
+  recover pending turn sau restart và chặn deletion khi busy.
+requirements:
+- FR-RKG-005
+- AC-RKG-030
+- AC-RKG-031
+- AC-RKG-033
+- AC-RKG-044
+- AC-RKG-045
+design:
+- CMP-RKG-CONVERSATION
+- CMP-RKG-GRAPH
+decisions:
+- ADR-2026-003
+contracts:
+- API-RKG-CORE-v1
+- TBL-RKG-GRAPH
+constraints:
+- NFR-RKG-REL-001
+- NFR-RKG-SEC-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- src/rkg/conversations/README.md
+- src/rkg/conversations/__init__.py
+- src/rkg/conversations/identity.py
+- src/rkg/conversations/redaction.py
+- src/rkg/conversations/service.py
+- src/rkg/storage/README.md
+- src/rkg/storage/__init__.py
+- src/rkg/storage/connection.py
+- src/rkg/storage/conversations.py
+- src/rkg/storage/errors.py
+- src/rkg/storage/oplog.py
+- src/rkg/storage/records.py
+- src/rkg/storage/snapshots.py
+- src/rkg/storage/turns.py
+- tests/integration/test_conversation_persistence.py
+- tests/unit/test_conversation_redaction.py
+inputs:
+  ADR-2026-003:
+    revision: 2
+    hash: 30c9cff4314961830d9bfcc1d13d2fe8e69fe7e25c4329080e6fdf0a25661a6f
+    path: architecture/adr/ADR-2026-003.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-CONVERSATION:
+    revision: 6
+    hash: 7b7875f084a579e95582d429950c87a99f2081fb18a4fef734167866f94406f4
+    path: architecture/l2/CMP-RKG-CONVERSATION.md
+  CMP-RKG-GRAPH:
+    revision: 9
+    hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  EPIC-004-TEAM-RKG:
+    revision: 4
+    hash: 6dc6e7c9d8e07e2b0fe6e17ffd550f2f437a7de0f817e5767e9235f284649240
+    path: lifecycle/epics/EPIC-004-TEAM-RKG.md
+  FR-RKG-005:
+    revision: 7
+    hash: a20c3f1aede798ef733273feb7addf00c51866f0a68397df5e7ae69dca280448
+    path: requirements/fr/FR-RKG-005.md
+  NFR-RKG-REL-001:
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  NFR-RKG-SEC-001:
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  STORY-RKG-012:
+    revision: 2
+    hash: 67b409445c2331e6e0ddbb0b7ff0057004bc0ca4d1f0897ba4fe665a21155e3e
+    path: lifecycle/stories/STORY-RKG-012.md
+  TBL-RKG-GRAPH:
+    revision: 12
+    hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-018
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-018
+    story: STORY-RKG-012
+    captured_at: 2026-09-25
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-018
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-005
+      - key: CMP-RKG-CONVERSATION
+      - key: CMP-RKG-GRAPH
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-018
+
+    ## objective
+    Lưu conversation trên cùng DB, pin snapshot, idempotency theo client_request_id.
+
+    ## requirements
+    - AC-RKG-030
+    - AC-RKG-031
+    - AC-RKG-032
+    - AC-RKG-033
+    - AC-RKG-044
+    - AC-RKG-045
+
+    ## design
+    - CMP-RKG-CONVERSATION — gồm transaction boundary, idempotency và concurrency của component này
+    - CMP-RKG-GRAPH — gồm transaction boundary, idempotency và concurrency của component này
+    - Transaction boundary: Commit pending rồi nhả transaction trước provider. Finalize là transaction khác với revision guard. Xóa tôn trọng reference.
+    - Rollback: Turn pending recovery thành failed/interrupted, không đổi focus đã commit. Không migration phá snapshot cũ.
+
+    ## decisions
+    - ADR-2026-003
+
+    ## contracts
+    - TBL-RKG-GRAPH
+    - API-RKG-CORE-v1
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-REL-001
+    - NFR-RKG-SEC-001
+
+    ## code_scope
+    - src/rkg/conversations/**
+    - src/rkg/storage/conversations.py
+    - src/rkg/storage/turns.py
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-004-TEAM-RKG

@@ -1,0 +1,21 @@
+key: CR-RKG-025
+type: change-request
+group: evidence
+system: SYS-RKG
+revision: 1
+captured_at: '2026-10-08'
+task: TASK-RKG-043
+story: STORY-RKG-027
+change_set: CHG-RKG-2026-010
+source: lifecycle_reconciliation
+request_summary: >-
+  Authorize the existing Vue language and Nuxt framework extraction on
+  TASK-RKG-043. Scope is the behavior already stated on STORY-RKG-027.
+authorization_boundary: >-
+  Implement and verify rkg.vue and rkg.nuxt against the nuxt4 oracle. Do not
+  promote deep-supported. Do not sign gates.
+record_boundary: >-
+  Records the scope already present on the task and story. No conversation
+  transcript. This request does not create a new product behavior.
+classification: internal
+ai_assisted: true

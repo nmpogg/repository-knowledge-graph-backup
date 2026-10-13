@@ -1,0 +1,35 @@
+{
+  "key": "CHG-RKG-2026-006",
+  "type": "change-set",
+  "group": "normative",
+  "revision": 6,
+  "status": "draft",
+  "phase": "implementation_author_verified_human_accepted_review_limit_exception_pending_gate",
+  "change_request": "CR-RKG-021",
+  "tier": "T2",
+  "tier_status": "proposed",
+  "flow": "change",
+  "previous_baseline": "BL-CHG-RKG-2026-005-r1",
+  "tasks": [
+    "TASK-RKG-039"
+  ],
+  "stories": [
+    "STORY-RKG-033"
+  ],
+  "active_task": null,
+  "gates": {
+    "scope": "pending",
+    "architecture": "pending",
+    "ui_ux": "pending",
+    "contract": "pending",
+    "component_merge": "pending"
+  },
+  "approval_boundary": "Explicit opt-in terminal diagnostic authorization; no historical signed records or product contracts revised.",
+  "baseline": "BL-CHG-RKG-2026-006-r1",
+  "verification_evidence": "TEST-TASK-RKG-039-004",
+  "completed_tasks": [
+    "TASK-RKG-039"
+  ],
+  "review_record": "REV-TASK-RKG-039-002",
+  "review_limit_disposition": "DEC-TASK-RKG-039-001"
+}

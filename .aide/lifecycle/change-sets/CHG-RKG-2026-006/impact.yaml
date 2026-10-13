@@ -1,0 +1,30 @@
+change_request: CR-RKG-021
+analysis_mode: manual-from-recorded-baseline
+graph_queried: false
+touches: []
+stale_artifacts: []
+affected_teams:
+- TEAM-RKG
+external_consumers: []
+risk_signals:
+  pii: false
+  financial: false
+tier: T2
+tier_status: proposed
+tier_basis: Recorded request adds opt-in terminal debugging inside the existing chatbot. One team. No new bounded context and no ADR replacement are stated. This change set did not previously store a tier, and no signer decided this proposal.
+flow: change
+skipped_with_reason:
+- area: api-storage-evidence-debug-content
+  reason: CR-RKG-021 scope keeps debug content out of API, storage, and generated evidence.
+- area: paid-live-call-and-operator-restart
+  reason: CR-RKG-021 scope excludes a paid live call, operator restart, and config change.
+- area: normative-artifact-delta
+  reason: baseline r1 marks every listed artifact unchanged_from_predecessor.
+- area: component-merge-decision
+  reason: change-set gates.component_merge remains pending.
+confidence:
+  graph_coverage: 0.0
+limitations:
+- no_changed_artifact_row_on_the_current_baseline
+- work_items_named_on_the_change_set_are_STORY-RKG-033_and_TASK-RKG-039
+- no_graph_query

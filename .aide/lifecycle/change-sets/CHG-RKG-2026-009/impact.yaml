@@ -1,0 +1,39 @@
+change_request: CR-RKG-024
+analysis_mode: manual-from-recorded-story-and-cr
+graph_queried: false
+touches:
+- STORY-RKG-026
+- TASK-RKG-042
+- AC-RKG-003
+- AC-RKG-006
+- AC-RKG-007
+- AC-RKG-035
+- AC-RKG-048
+stale_artifacts: []
+affected_teams:
+- TEAM-RKG
+external_consumers: []
+risk_signals:
+  pii: false
+  financial: false
+tier: T2
+tier_status: proposed
+flow: change
+skipped_with_reason:
+- area: deep-supported
+  reason: CR-RKG-024 authorization_boundary says do not promote deep-supported.
+- area: gate-signature
+  reason: CR-RKG-024 authorization_boundary says do not sign Scope, Architecture, UI/UX, or Contract gates.
+- area: other-stacks
+  reason: STORY-RKG-026 excludes Nuxt, BullMQ, Java, and Go.
+- area: live-eval
+  reason: STORY-RKG-026 excludes live eval and KPI.
+- area: task-review
+  reason: No REV-TASK record exists for TASK-RKG-042.
+confidence:
+  graph_coverage: 0.0
+limitations:
+- touches_are_the_story_task_and_satisfies_list
+- no_component_key_is_named_on_the_story_or_cr
+- no_baseline_file_exists_for_this_change_set
+- no_graph_query

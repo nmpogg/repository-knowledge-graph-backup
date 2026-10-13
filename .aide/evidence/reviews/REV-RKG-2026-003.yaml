@@ -1,0 +1,55 @@
+uid: null
+key: REV-RKG-2026-003
+type: review-evidence
+group: evidence
+scope: system
+system: SYS-RKG
+status: completed
+revision: 1
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+relations:
+  reviews:
+  - CHG-RKG-2026-001
+  - FR-RKG-018
+  - API-RKG-CORE-v1
+  - TBL-RKG-GRAPH
+classification: internal
+ai_assisted: true
+record: |-
+  # Repository and snapshot lifecycle review — 2026-09-18
+
+  ## Decision reviewed
+
+  Use `Repository 1 — N Snapshot`; do not introduce RepositoryVersion. Snapshot is the
+  immutable indexed version and carries source revision plus analysis/config identity.
+  The local catalog may register multiple independent repositories, while every graph
+  read, job and conversation remains scoped to exactly one repository/snapshot.
+
+  ## Gaps found in the previous draft
+
+  - `FR-RKG-018` only listed and activated a global snapshot history; it did not define
+    repository CRUD, ownership, update concurrency or deletion semantics.
+  - API/UI used a client session active snapshot and global `/snapshots` endpoints,
+    while storage already had Repository and Snapshot rows.
+  - FR-RKG-018, UXF-RKG-003 and TASK-RKG-025 were missing from parts of change-set/gate
+    traceability; ADR/gate coverage did not capture the lifecycle decision.
+  - The schema lacked fields required to persist repository defaults and distinguish
+    snapshots produced from the same commit with different scan/tool versions.
+
+  ## Disposition
+
+  - Replaced global history semantics with repository CRUD and nested snapshot
+    list/detail/activate/delete contracts.
+  - Made repository source identity and snapshot graph/source identity immutable;
+    repository metadata/default updates use optimistic revision.
+  - Added cross-repository isolation and guarded delete/cascade requirements, threat
+    controls, UI states, storage fields, ADR-2026-004 and backlog/gate traceability.
+  - Kept one application-wide index writer and no cross-repository graph/query in MVP.
+
+  ## Not approved by this record
+
+  This is review evidence, not a Scope/Architecture/UIUX/Contract approval. All gates
+  remain pending named human sign-off. Generated views are marked stale and were not
+  hand-edited.

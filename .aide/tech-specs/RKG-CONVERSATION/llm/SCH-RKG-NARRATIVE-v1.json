@@ -1,0 +1,107 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "enum": [
+        "answered",
+        "insufficient_evidence"
+      ]
+    },
+    "root_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "relation": {
+            "enum": [
+              "contains",
+              "imports",
+              "exposes",
+              "handled_by",
+              "calls",
+              "implements",
+              "inherits_from",
+              "maps_to",
+              "reads",
+              "writes",
+              "publishes",
+              "consumes",
+              "depends_on"
+            ]
+          },
+          "direction": {
+            "enum": [
+              "incoming",
+              "outgoing"
+            ]
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "anchor_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "edge_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "minItems": 1,
+                  "maxItems": 4,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "anchor_id",
+                "edge_ids"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 8
+          }
+        },
+        "required": [
+          "relation",
+          "direction",
+          "paths"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 4
+    }
+  },
+  "required": [
+    "status",
+    "root_id",
+    "sections"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rkg:narrative:1",
+  "title": "SCH-RKG-NARRATIVE-v1",
+  "x-aide": {
+    "key": "SCH-RKG-NARRATIVE-v1",
+    "type": "json-schema",
+    "group": "normative",
+    "system": "SYS-RKG",
+    "revision": 1,
+    "status": "draft",
+    "change_set": "CHG-RKG-2026-002",
+    "owned_by": "CMP-RKG-CONVERSATION",
+    "classification": "internal",
+    "ai_assisted": true
+  }
+}

@@ -1,0 +1,51 @@
+---
+uid:
+key: REV-RKG-STACK-SUPPORT-001
+type: review-record
+group: evidence
+scope: system
+system: SYS-RKG
+status: closed
+revision: 2
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+relations:
+  part_of: [CHG-RKG-2026-001]
+  reviews:
+  - TASK-RKG-042
+  - TASK-RKG-043
+  - TASK-RKG-044
+  - TASK-RKG-045
+  - TASK-RKG-046
+  - TASK-RKG-047
+classification: internal
+ai_assisted: true
+record: |-
+  # REV-RKG-STACK-SUPPORT-001 — Stack support review
+
+  ## Decision (2026-10-08)
+
+  Promotion to deep-supported is withheld for every adapter in TASK-RKG-042
+  through TASK-RKG-047. Tasks stay in_progress. reviewed_deep_support stays
+  false. Flask stays DETECTED_ONLY.
+
+  REG-ADAPTER-001 keeps these adapters off deep-supported until conformance
+  review. NFR-RKG-EXT-001 acceptance item 3 requires
+  `pass_rate = passed_contract_tests / total_contract_tests` equal to 100%
+  on TEST-RKG-ADAPTER-CONFORMANCE. This review does not record that pass.
+
+  ## Withhold reasons
+
+  - TASK-RKG-042 (`rkg.typescript`, `rkg.react-router`): TEST-RKG-TYPESCRIPT-REACT-ROUTER-001 records focused rows for AC-RKG-003, AC-RKG-006, AC-RKG-007, AC-RKG-035, and AC-RKG-048. It does not record a TEST-RKG-ADAPTER-CONFORMANCE pass_rate.
+  - TASK-RKG-043 (`rkg.vue`, `rkg.nuxt`): TEST-RKG-VUE-NUXT-001 does not assert `exposes==[]` in `test_nuxt_framework.py`.
+  - TASK-RKG-044 (`rkg.bullmq`): TEST-RKG-BULLMQ-001 does not assert the AC-RKG-007 rule_id and validate-before-publish suite.
+  - TASK-RKG-045 (`rkg.java`, `rkg.spring`, `rkg.jpa`, `rkg.spring-kafka`): TEST-RKG-JAVA-SPRING-001 does not assert AC-RKG-003 import edges.
+  - TASK-RKG-046 (`rkg.go`, `rkg.kafka-go`, `rkg.pgx`): TEST-RKG-GO-KAFKA-PGX-001-r2 records null `rule_id` and `start_line`, census compare that skips `file_path`, a null oracle `rule_id` that is not checked, and `validate_fact_batch` that only rejects a non-relative entity path.
+  - TASK-RKG-047 (`rkg.flask`): TEST-RKG-FLASK-001 records capability `DETECTED_ONLY` on every run.
+
+  ## Limits
+
+  This record does not sign Scope, Architecture, UI/UX, or Contract gates,
+  and does not resolve OQ-RKG-006.
+---

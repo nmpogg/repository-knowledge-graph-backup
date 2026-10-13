@@ -1,0 +1,38 @@
+---
+key: FIND-RKG-IX-001
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: minor
+revision: 1
+change_set: CHG-RKG-2026-001
+captured_at: '2026-10-08'
+disposition: accept
+route: CHG-RKG-2026-001
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [CHG-RKG-2026-001]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-IX-001 — documentation recovery scope includes later tasks
+
+## Summary
+
+`documentation_recovery.task_scope` says implementation tasks run through
+`TASK-RKG-046` and `adds_tasks` is false. That block records the
+`REV-RKG-2026-004` scope. `artifacts.tasks` also lists `TASK-RKG-047`.
+
+## Decision
+
+Operator ACCEPT 2026-10-08. Remediation: set the recovery scope back to
+`TASK-RKG-001..029`. Leave `adds_tasks: false`. Do not remove `TASK-RKG-042`
+through `TASK-RKG-047` from `artifacts.tasks`.
+
+## Remediation
+
+- done: AUTHOR set `documentation_recovery.task_scope` to implementation
+  TASK-RKG-001..029 on change-set revision 40. Disposition ACCEPT unchanged.
+  REVIEWER confirmed 2026-10-08.

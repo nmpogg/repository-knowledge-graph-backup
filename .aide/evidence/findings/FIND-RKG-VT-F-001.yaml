@@ -1,0 +1,40 @@
+---
+key: FIND-RKG-VT-F-001
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: minor
+revision: 1
+change_set: CHG-RKG-2026-001
+task_key: TASK-RKG-047
+story_key: STORY-RKG-025
+captured_at: '2026-10-08'
+disposition: accept
+route: TEST-RKG-FLASK-001
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [TEST-RKG-FLASK-001]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-VT-F-001 — idle Callable claim exceeds the Flask assert
+
+## Summary
+
+The AC-RKG-004 row in `TEST-RKG-FLASK-001` says `routes_file.not_routed` and
+`service.idle` are absent from `handled_by` and remain Callables. The suite
+asserts both are absent from `handled_by`. It asserts a Callable type for
+`routes_file.not_routed` and `web.moving`. It does not assert that
+`service.idle` remains a Callable.
+
+## Decision
+
+Operator ACCEPT 2026-10-08. Remediation is a new evidence file. Do not rewrite
+`TEST-RKG-FLASK-001`.
+
+## Remediation
+
+- done: AUTHOR wrote `TEST-RKG-FLASK-001-r2`. TASK-RKG-047 is revision 3.
+  Disposition ACCEPT unchanged. REVIEWER confirmed 2026-10-08.

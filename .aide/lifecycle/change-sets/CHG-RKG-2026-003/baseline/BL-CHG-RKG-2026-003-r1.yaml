@@ -1,0 +1,354 @@
+{
+  "key": "BL-CHG-RKG-2026-003-r1",
+  "type": "baseline",
+  "group": "normative",
+  "scope": "lifecycle",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "status": "draft",
+  "change_set": "CHG-RKG-2026-003",
+  "created_at": "2026-10-07T05:08:39.941663+00:00",
+  "code_commit": "9f5de1b502d7bafee7a2123419809d4094511556",
+  "hash_method": "sha256-file-bytes",
+  "phase": "implementation_candidate_pending_independent_review_and_gate_decision",
+  "gates": {
+    "scope": "pending",
+    "architecture": "pending",
+    "ui_ux": "pending",
+    "contract": "pending",
+    "component_merge": "pending"
+  },
+  "previous_baseline": {
+    "key": "BL-CHG-RKG-2026-002-r8",
+    "path": ".aide/lifecycle/change-sets/CHG-RKG-2026-002/baseline/BL-CHG-RKG-2026-002-r8.yaml",
+    "sha256": "a2620db609df23ceb548f86c4b41cecc983a9e4d4f25c43322f663521240a61c"
+  },
+  "authorization": "CR-RKG-018",
+  "artifacts": [
+    {
+      "key": "FR-RKG-005",
+      "revision": 9,
+      "status": "approved",
+      "hash": "6f240da74dd108933c85da36bf973106c30b7a6825f2e3b57e67318fa22a78f5",
+      "path": "requirements/fr/FR-RKG-005.md",
+      "role": "selected_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "ADR-2026-007",
+      "revision": 2,
+      "status": "draft",
+      "hash": "1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a",
+      "path": "architecture/adr/ADR-2026-007.md",
+      "role": "selected_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "CMP-RKG-CONVERSATION",
+      "revision": 8,
+      "status": "draft",
+      "hash": "246cc721bbf7c02e362dd652cd09b49f4839756212fbd31a47352704b6996ef0",
+      "path": "architecture/l2/CMP-RKG-CONVERSATION.md",
+      "role": "selected_candidate",
+      "change_relation": "changed_candidate_pending_gate"
+    },
+    {
+      "key": "CMP-RKG-WEB",
+      "revision": 9,
+      "status": "draft",
+      "hash": "9127465096842ccdf6addff5649a13839515f088a136d2bdcbbb3e5ccb5b91e6",
+      "path": "architecture/l2/CMP-RKG-WEB.md",
+      "role": "selected_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "TM-RKG",
+      "revision": 8,
+      "status": "draft",
+      "hash": "c22e337412e5c9d42bccbc5cf5ef76e92767ee130f3b4d8a9de86ea6d6570bb6",
+      "path": "architecture/threat-model/TM-RKG.md",
+      "role": "selected_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "UXF-RKG-002",
+      "revision": 5,
+      "status": "draft",
+      "hash": "5e57d4c6d118e1463a96373740105d61371514de12f2f1aa17a303206d8e3add",
+      "path": "design/ux/UXF-RKG-002.md",
+      "role": "selected_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "SCR-RKG-001",
+      "revision": 9,
+      "status": "draft",
+      "hash": "385e3bd7ddb7ff32397580270005574cb6cce2ae47e392e7b137c9a4520876c3",
+      "path": "design/ux/SCR-RKG-001.md",
+      "role": "selected_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "UID-RKG-001",
+      "revision": 8,
+      "status": "draft",
+      "hash": "b5b92b6652c087cadaa0a347de226f9bf72fc2f5ad36eff617e9452b4e3dbc7e",
+      "path": "design/ui/UID-RKG-001.md",
+      "role": "selected_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "GATE-RKG-SCOPE",
+      "revision": 9,
+      "status": "draft",
+      "hash": "bf7f2fb25f44a09f6ce42a3f937a5e125abe4cf184789b0eb9e9e5f304a2ed17",
+      "path": "policies/gates/GATE-RKG-SCOPE.md",
+      "role": "selected_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "GATE-RKG-ARCHITECTURE",
+      "revision": 7,
+      "status": "draft",
+      "hash": "4730cff2a9093f0ef76b82a67a3eddb5a55090b9a88cef9cf257893b1b0187d6",
+      "path": "policies/gates/GATE-RKG-ARCHITECTURE.md",
+      "role": "selected_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "GATE-RKG-UIUX",
+      "revision": 9,
+      "status": "draft",
+      "hash": "1a2f9c73ad48d1d450e6d537e3af6596971ff356303c50a96d470679a2215787",
+      "path": "policies/gates/GATE-RKG-UIUX.md",
+      "role": "selected_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "PRD-RKG",
+      "revision": 20,
+      "status": "draft",
+      "hash": "6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc",
+      "path": "product/prd/PRD-RKG.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "DOM-RKG-CORE",
+      "revision": 5,
+      "status": "draft",
+      "hash": "24759954cd15951c3c6fc441d0ba0b88d831f62f86ee1e5b1c15db74318d2ff3",
+      "path": "domain/glossary-core.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "CAP-RKG-003",
+      "revision": 4,
+      "status": "approved",
+      "hash": "a83f81a79c97a82bb302f0db2a28ade53e32299b390d45a2318ae33839c57c93",
+      "path": "architecture/l1/CAP-RKG-003.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "CMP-RKG-GRAPH",
+      "revision": 9,
+      "status": "draft",
+      "hash": "7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2",
+      "path": "architecture/l2/CMP-RKG-GRAPH.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "CMP-RKG-TRANSPORT",
+      "revision": 7,
+      "status": "draft",
+      "hash": "6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286",
+      "path": "architecture/l2/CMP-RKG-TRANSPORT.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "ADR-2026-001",
+      "revision": 3,
+      "status": "approved",
+      "hash": "ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d",
+      "path": "architecture/adr/ADR-2026-001.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "ADR-2026-004",
+      "revision": 2,
+      "status": "approved",
+      "hash": "43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3",
+      "path": "architecture/adr/ADR-2026-004.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "NFR-RKG-SEC-001",
+      "revision": 7,
+      "status": "approved",
+      "hash": "ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa",
+      "path": "requirements/nfr/NFR-RKG-SEC-001.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "NFR-RKG-REL-001",
+      "revision": 9,
+      "status": "draft",
+      "hash": "0acf85a7d77fac9ce51563ea8325f5aafea99eff7c176bf590fb9d3ea3e543b7",
+      "path": "requirements/nfr/NFR-RKG-REL-001.md",
+      "role": "reference_only",
+      "change_relation": "changed_candidate_pending_gate"
+    },
+    {
+      "key": "NFR-RKG-UX-001",
+      "revision": 7,
+      "status": "approved",
+      "hash": "c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3",
+      "path": "requirements/nfr/NFR-RKG-UX-001.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "API-RKG-CORE-v1",
+      "revision": 17,
+      "status": "draft",
+      "hash": "72ca2f25d10f83478cd36f396143b3525771efd47f03d9c58a5a9820357625b7",
+      "path": "tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md",
+      "role": "contract_candidate",
+      "change_relation": "changed_candidate_pending_gate"
+    },
+    {
+      "key": "TBL-RKG-GRAPH",
+      "revision": 14,
+      "status": "draft",
+      "hash": "9c66fd6d693308c0065664a416d8e2442d2f8908e5b1089fa20d47787901a201",
+      "path": "tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md",
+      "role": "contract_candidate",
+      "change_relation": "changed_candidate_pending_gate"
+    },
+    {
+      "key": "UIS-RKG-001",
+      "revision": 14,
+      "status": "draft",
+      "hash": "a9595c1804b2ad4a46f95980ffde98a66d77d7d2b49b36dc449cd37a83a0d87e",
+      "path": "design/ui/UIS-RKG-001.md",
+      "role": "contract_candidate",
+      "change_relation": "changed_candidate_pending_gate"
+    },
+    {
+      "key": "EVAL-RKG-QA-001",
+      "revision": 2,
+      "status": "draft",
+      "hash": "19bba2089b095b0b431d85d843a61a3d5a4488889c269d47439869f11b673720",
+      "path": "policies/eval/EVAL-RKG-QA-001.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "OBS-RKG-005",
+      "revision": 3,
+      "status": "draft",
+      "hash": "82acb6483ca288e1952b5f7f354158243ea07ea45cf090a62392787e3c92ef3f",
+      "path": "observability/OBS-RKG-005.md",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "TOK-RKG-001",
+      "revision": 2,
+      "status": "draft",
+      "hash": "ae71b14d8921b6e64f03641a5787c7b99622fa3f28904a75208eabfb32c8de96",
+      "path": "design/ui/tokens/tokens.json",
+      "role": "reference_only",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "DDL-RKG-GRAPH",
+      "revision": 14,
+      "status": "draft",
+      "hash": "9960692aa3944ee8f9c1f9b5528d7fd40e35e8d97b359a081c59b6acc5c8aa08",
+      "path": "tech-specs/RKG-GRAPH/schema/DDL-RKG-GRAPH.cypher",
+      "role": "contract_candidate",
+      "change_relation": "changed_candidate_pending_gate"
+    },
+    {
+      "key": "MIG-RKG-CHATBOT-v3",
+      "revision": 1,
+      "status": "draft",
+      "hash": "04030c6d33a1780ab8ba5c8247d247b539d28305f9b685aa85485f706798e571",
+      "path": "tech-specs/RKG-GRAPH/schema/MIG-RKG-CHATBOT-v3.cypher",
+      "role": "contract_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "CON-RKG-CONVERSATION-v1",
+      "revision": 2,
+      "status": "draft",
+      "hash": "0c725507e55827a748062a1f4e701b966841e306d4601cbd2a488165cae12579",
+      "path": "tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+      "role": "contract_candidate",
+      "change_relation": "changed_candidate_pending_gate"
+    },
+    {
+      "key": "SCH-RKG-CONVERSATION-v1",
+      "revision": 2,
+      "status": "draft",
+      "hash": "d8330241c3e205b1b70afa26ee3dbaf6161ca609729ad7c65527a1d7e903f34e",
+      "path": "tech-specs/RKG-TRANSPORT/api/SCH-RKG-CONVERSATION-v1.json",
+      "role": "contract_candidate",
+      "change_relation": "changed_candidate_pending_gate"
+    },
+    {
+      "key": "OAS-RKG-CONVERSATION-v1",
+      "revision": 1,
+      "status": "draft",
+      "hash": "fbf37df09fa390bb5155608424bc0c7ce01b7e88940f2fc3d3a4beac32397a02",
+      "path": "tech-specs/RKG-TRANSPORT/api/OAS-RKG-CONVERSATION-v1.json",
+      "role": "contract_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "SCH-RKG-READ-PLAN-v2",
+      "revision": 1,
+      "status": "draft",
+      "hash": "0908b8a657b6b96a1f848ee4cfd511238ed195b871fb8785e6f4d5c33c5d7336",
+      "path": "tech-specs/RKG-CONVERSATION/llm/SCH-RKG-READ-PLAN-v2.json",
+      "role": "contract_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "SCH-RKG-NARRATIVE-v1",
+      "revision": 1,
+      "status": "draft",
+      "hash": "8155b0bdc464a4adae07a48911d684bdf01b3afe7b0cb4a5e1624dc3d5f71394",
+      "path": "tech-specs/RKG-CONVERSATION/llm/SCH-RKG-NARRATIVE-v1.json",
+      "role": "contract_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "CHL-RKG-CONVERSATION-v1",
+      "revision": 1,
+      "status": "draft",
+      "hash": "3a4539506d1395209c29a1c3adf90a34bf9651c5c338e85080835d5d0010beba",
+      "path": "tech-specs/RKG-TRANSPORT/api/CHL-RKG-CONVERSATION-v1.yaml",
+      "role": "contract_candidate",
+      "change_relation": "unchanged_from_predecessor"
+    },
+    {
+      "key": "GATE-RKG-CONTRACT",
+      "revision": 9,
+      "status": "draft",
+      "hash": "ec4f6f6b49f1043ca769bfad7d5b96296b04226ac96048d91a3b7f3b1849c919",
+      "path": "policies/gates/GATE-RKG-CONTRACT.md",
+      "role": "contract_gate_policy",
+      "change_relation": "unchanged_from_predecessor"
+    }
+  ],
+  "approval_boundary": "Current candidates only. Historical approvals remain immutable and do not approve changed revisions."
+}

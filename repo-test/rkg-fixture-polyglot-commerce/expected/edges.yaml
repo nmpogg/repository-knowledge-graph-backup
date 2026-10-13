@@ -1,0 +1,315 @@
+{
+  "adapter_local": {
+    "exact": [
+      {
+        "source": "web.list",
+        "relation": "calls",
+        "target": "web.http.get",
+        "evidence": [
+          {
+            "path": "apps/web/src/services/orderApi.ts",
+            "rule_intent": "calls with source location",
+            "marker": "web-list-orders"
+          }
+        ]
+      },
+      {
+        "source": "web.create",
+        "relation": "calls",
+        "target": "web.http.post",
+        "evidence": [
+          {
+            "path": "apps/web/src/services/orderApi.ts",
+            "rule_intent": "calls with source location",
+            "marker": "web-create-order"
+          }
+        ]
+      },
+      {
+        "source": "web.http.get",
+        "relation": "calls",
+        "target": "web.http.request",
+        "evidence": [
+          {
+            "path": "apps/web/src/services/httpClient.ts",
+            "rule_intent": "calls with source location",
+            "line": 1
+          }
+        ]
+      },
+      {
+        "source": "web.http.post",
+        "relation": "calls",
+        "target": "web.http.request",
+        "evidence": [
+          {
+            "path": "apps/web/src/services/httpClient.ts",
+            "rule_intent": "calls with source location",
+            "line": 1
+          }
+        ]
+      },
+      {
+        "source": "orders.get.endpoint",
+        "relation": "handled_by",
+        "target": "orders.controller.list",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/api/OrderController.java",
+            "rule_intent": "handled_by with source location",
+            "marker": "spring-list-orders"
+          }
+        ]
+      },
+      {
+        "source": "orders.post.endpoint",
+        "relation": "handled_by",
+        "target": "orders.controller.create",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/api/OrderController.java",
+            "rule_intent": "handled_by with source location",
+            "marker": "spring-create-order"
+          }
+        ]
+      },
+      {
+        "source": "orders.controller.create",
+        "relation": "calls",
+        "target": "orders.service.create",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/api/OrderController.java",
+            "rule_intent": "calls with source location",
+            "marker": "spring-create-order"
+          }
+        ]
+      },
+      {
+        "source": "orders.entity",
+        "relation": "maps_to",
+        "target": "orders.table",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/persistence/OrderEntity.java",
+            "rule_intent": "maps_to with source location",
+            "marker": "commerce-orders-table"
+          }
+        ]
+      },
+      {
+        "source": "orders.repository",
+        "relation": "reads",
+        "target": "orders.table",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/persistence/JpaOrderRepository.java",
+            "rule_intent": "reads with source location",
+            "marker": "orders-repository"
+          }
+        ]
+      },
+      {
+        "source": "orders.repository",
+        "relation": "writes",
+        "target": "orders.table",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/persistence/JpaOrderRepository.java",
+            "rule_intent": "writes with source location",
+            "marker": "orders-repository"
+          }
+        ]
+      },
+      {
+        "source": "orders.publisher",
+        "relation": "publishes",
+        "target": "orders.events.java",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/messaging/KafkaOrderEventPublisher.java",
+            "rule_intent": "publishes with source location",
+            "marker": "spring-publish-orders"
+          }
+        ]
+      },
+      {
+        "source": "projection.consumer",
+        "relation": "consumes",
+        "target": "orders.events.go",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/messaging/kafka_consumer.go",
+            "rule_intent": "consumes with source location",
+            "marker": "projection-consume-orders"
+          }
+        ]
+      },
+      {
+        "source": "projection.processor",
+        "relation": "calls",
+        "target": "projection.repository.interface",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/app/processor.go",
+            "rule_intent": "calls with source location",
+            "marker": "projection-process"
+          }
+        ]
+      },
+      {
+        "source": "projection.repository.upsert",
+        "relation": "writes",
+        "target": "projection.table",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/storage/postgres_repository.go",
+            "rule_intent": "writes with source location",
+            "marker": "projection-upsert"
+          }
+        ]
+      },
+      {
+        "source": "projection.processor",
+        "relation": "publishes",
+        "target": "projection.updated",
+        "evidence": [
+          {
+            "path": "workers/projection/internal/app/processor.go",
+            "rule_intent": "publishes with source location",
+            "marker": "projection-process"
+          }
+        ]
+      },
+      {
+        "source": "email.queue.create",
+        "relation": "publishes",
+        "target": "email.queue",
+        "evidence": [
+          {
+            "path": "workers/email/src/queues/emailQueue.ts",
+            "rule_intent": "publishes with source location",
+            "marker": "email-queue-producer"
+          }
+        ]
+      },
+      {
+        "source": "email.worker.create",
+        "relation": "consumes",
+        "target": "email.queue",
+        "evidence": [
+          {
+            "path": "workers/email/src/workers/emailWorker.ts",
+            "rule_intent": "consumes with source location",
+            "marker": "email-queue-consumer"
+          }
+        ]
+      },
+      {
+        "source": "email.dispatch",
+        "relation": "calls",
+        "target": "email.enqueue",
+        "evidence": [
+          {
+            "path": "workers/email/src/application/orderEvents.ts",
+            "rule_intent": "calls with source location",
+            "marker": "event-to-email-queue"
+          }
+        ]
+      },
+      {
+        "source": "email.process",
+        "relation": "calls",
+        "target": "email.send",
+        "evidence": [
+          {
+            "path": "workers/email/src/workers/emailWorker.ts",
+            "rule_intent": "calls with source location",
+            "marker": "email-process"
+          }
+        ]
+      }
+    ],
+    "optional": [
+      "static concrete receiver resolution when unique",
+      "additional imports/contains/depends_on edges with evidence"
+    ],
+    "prohibited": [
+      "guess interface-to-implementation runtime calls",
+      "dynamic URL linked to a Spring endpoint",
+      "dynamic topic or queue merged with a literal channel",
+      "repository read/write edge to audit.orders from commerce service flow"
+    ]
+  },
+  "post_merge": {
+    "expected": [
+      {
+        "source": "web.list",
+        "relation_intent": "outbound request matches",
+        "target": "orders.get.endpoint",
+        "normalized": {
+          "method": "GET",
+          "path": "/api/orders"
+        },
+        "evidence": [
+          {
+            "path": "apps/web/src/services/orderApi.ts",
+            "rule_intent": "source declaration",
+            "marker": "web-list-orders"
+          },
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/api/OrderController.java",
+            "rule_intent": "source declaration",
+            "marker": "spring-list-orders"
+          }
+        ]
+      },
+      {
+        "source": "web.create",
+        "relation_intent": "outbound request matches",
+        "target": "orders.post.endpoint",
+        "normalized": {
+          "method": "POST",
+          "path": "/api/orders"
+        },
+        "evidence": [
+          {
+            "path": "apps/web/src/services/orderApi.ts",
+            "rule_intent": "source declaration",
+            "marker": "web-create-order"
+          },
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/api/OrderController.java",
+            "rule_intent": "source declaration",
+            "marker": "spring-create-order"
+          }
+        ]
+      },
+      {
+        "source": "orders.publisher",
+        "relation_intent": "producer and consumer communicate on normalized Kafka channel",
+        "target": "projection.consumer",
+        "channel": "orders.events",
+        "evidence": [
+          {
+            "path": "services/orders/src/main/java/com/example/rkgfixture/orders/messaging/KafkaOrderEventPublisher.java",
+            "rule_intent": "source declaration",
+            "marker": "spring-publish-orders"
+          },
+          {
+            "path": "workers/projection/internal/messaging/kafka_consumer.go",
+            "rule_intent": "source declaration",
+            "marker": "projection-consume-orders"
+          }
+        ]
+      }
+    ],
+    "optional": [
+      "OpenAPI/AsyncAPI implementation links after a contract adapter/linker exists"
+    ],
+    "prohibited": [
+      "cross-language links created inside a language adapter",
+      "links solely from identical symbol names"
+    ]
+  }
+}

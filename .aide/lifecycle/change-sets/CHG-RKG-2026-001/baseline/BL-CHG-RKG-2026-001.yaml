@@ -1,0 +1,934 @@
+key: BL-CHG-RKG-2026-001
+type: baseline
+group: normative
+scope: lifecycle
+system: SYS-RKG
+change_set: CHG-RKG-2026-001
+revision: 3
+status: candidate
+created_at: '2026-10-05'
+code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+hash_method: sha256-file-bytes
+assumption: Documentation recovery of existing task set only; no approval or new runtime code.
+gates:
+  scope: pending
+  architecture: pending
+  ui_ux: pending
+  contract: pending
+artifacts:
+- key: ADR-2026-001
+  revision: 3
+  hash: ee392713079ebeb4904445a033ce7b5bdfd417a85cfc20e4bac8bde23442c10d
+  path: architecture/adr/ADR-2026-001.md
+- key: ADR-2026-002
+  revision: 2
+  hash: 56548c57e00c49f1831892fdef2baee80ba1e87a493a6a78e0acbfc5631b1f15
+  path: architecture/adr/ADR-2026-002.md
+- key: ADR-2026-003
+  revision: 2
+  hash: 30c9cff4314961830d9bfcc1d13d2fe8e69fe7e25c4329080e6fdf0a25661a6f
+  path: architecture/adr/ADR-2026-003.md
+- key: ADR-2026-004
+  revision: 2
+  hash: 43ade7152dac2960329b8dd0a196649e91a317c125133a53e7e26164d5f4e3e3
+  path: architecture/adr/ADR-2026-004.md
+- key: ADR-2026-005
+  revision: 1
+  hash: c5ae069dffb8a78df7e72db674f2fe65b4551d8fea24d2ff25e5fde19714e0d6
+  path: architecture/adr/ADR-2026-005.md
+- key: ADR-2026-006
+  revision: 2
+  hash: e079bf17f5d00e19d7de943f93cef3418d398773772b2d871c702345b37c3ca3
+  path: architecture/adr/ADR-2026-006.md
+- key: CAP-RKG-001
+  revision: 6
+  hash: 5552acc80b329f74eafe0734745a49ae2d6aeacfa0b2193d946166745ff4cdde
+  path: architecture/l1/CAP-RKG-001.md
+- key: CAP-RKG-002
+  revision: 4
+  hash: 9409d5398e5d6d7438fe3a294669e7b0c679fd797d38c4104c10bf0e0d28bdf7
+  path: architecture/l1/CAP-RKG-002.md
+- key: CAP-RKG-003
+  revision: 4
+  hash: a83f81a79c97a82bb302f0db2a28ade53e32299b390d45a2318ae33839c57c93
+  path: architecture/l1/CAP-RKG-003.md
+- key: CMP-RKG-ANALYZER
+  revision: 8
+  hash: cf4b115b84362984aed2b96e63f0bb9e2d9c6291efe6b09e74e9c0282b55c05f
+  path: architecture/l2/CMP-RKG-ANALYZER.md
+- key: CMP-RKG-CONVERSATION
+  revision: 6
+  hash: 7b7875f084a579e95582d429950c87a99f2081fb18a4fef734167866f94406f4
+  path: architecture/l2/CMP-RKG-CONVERSATION.md
+- key: CMP-RKG-GRAPH
+  revision: 9
+  hash: 7792b51117fd0d302a1e1d485e06f68f01266a151fe3bf94220ddddb17c6cbb2
+  path: architecture/l2/CMP-RKG-GRAPH.md
+- key: CMP-RKG-TRANSPORT
+  revision: 7
+  hash: 6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286
+  path: architecture/l2/CMP-RKG-TRANSPORT.md
+- key: CMP-RKG-WEB
+  revision: 8
+  hash: 92f8f8fa5bf11681a9d57f61c530e1a59b347ff69ac6ce8c8fedbf257e774b4c
+  path: architecture/l2/CMP-RKG-WEB.md
+- key: TM-RKG
+  revision: 7
+  hash: 6d2f630e241456168fc391001acb6fccb6934eb1432cb316b5821d5b8b112216
+  path: architecture/threat-model/TM-RKG.md
+- key: UID-RKG-001
+  revision: 7
+  hash: f55d82b70a237f4cf2f4b21a0e3444e664e176bb48fb376222c1c199b1776a80
+  path: design/ui/UID-RKG-001.md
+- key: UIS-RKG-001
+  revision: 12
+  hash: 2e66ba300e0b4e1e9fb55ccb0a1f7d376967603ad673e3bc1df339e563e7749b
+  path: design/ui/UIS-RKG-001.md
+- key: SCR-RKG-001
+  revision: 8
+  hash: 3ca03923d54d550cb6fe8a56314b714bdd5924d211cc7b0056ad89814e1e97d2
+  path: design/ux/SCR-RKG-001.md
+- key: UXF-RKG-001
+  revision: 7
+  hash: 2da20229a1ce5a3222b086bfb15376e0281f3aa30befb5954c4fccb196f390f1
+  path: design/ux/UXF-RKG-001.md
+- key: UXF-RKG-002
+  revision: 4
+  hash: 12bc6cfa65bee337b256b4b9a51813a777cdf845934180e8d98029b664a02820
+  path: design/ux/UXF-RKG-002.md
+- key: UXF-RKG-003
+  revision: 6
+  hash: 9e51d759b50e06c9f4952e267c2853445ab559f24c6b3fd0166970d08d59e328
+  path: design/ux/UXF-RKG-003.md
+- key: DOM-RKG-CORE
+  revision: 5
+  hash: 24759954cd15951c3c6fc441d0ba0b88d831f62f86ee1e5b1c15db74318d2ff3
+  path: domain/glossary-core.md
+- key: CHG-RKG-2026-001
+  revision: 27
+  hash: 9d23e3fa0ef124db421b04d3477ba372c366dea9feda878746cf371d57fe5b3d
+  path: lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+- key: OQ-RKG-001
+  revision: 3
+  hash: 04d0cbf50292493dc75c3bd1c7617cd89c2ff1ffc2cd2eb33252f6aadbc620c6
+  path: lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-001.md
+- key: OQ-RKG-002
+  revision: 6
+  hash: a1323950f6e743ffec5681d04fda7d5e5dc38d471f8c807e724c998173af6237
+  path: lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-002.md
+- key: OQ-RKG-003
+  revision: 4
+  hash: e05f18fad4013e17dffada7220a13e8deefdcf574c19b21128698fe5f0d286d0
+  path: lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-003.md
+- key: OQ-RKG-004
+  revision: 2
+  hash: 216855a12eee1cb97bc9d0b7d82d18514c05029139728deb47a3933bc9d20f2a
+  path: lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-004.md
+- key: OQ-RKG-005
+  revision: 2
+  hash: ec1836ffe871d889be0099704a8658aa9c3aff5cbf2ba35358ca2c01c911c162
+  path: lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-005.md
+- key: OQ-RKG-006
+  revision: 4
+  hash: 5a59615b4f4c656c27aab635096cf5f5a4900cd422e3e2face6daca494205df8
+  path: lifecycle/change-sets/CHG-RKG-2026-001/open-questions/OQ-RKG-006.md
+- key: EPIC-001-TEAM-RKG
+  revision: 7
+  hash: e85a4e545b2076f5383f3d254d61ab521200a7a8cd7c8cd31ef2599d7f06e00b
+  path: lifecycle/epics/EPIC-001-TEAM-RKG.md
+- key: EPIC-002-TEAM-RKG
+  revision: 8
+  hash: c3ee4eb75b5c835b17917c8889ca702b9ee40f2b7f608a9d1c95f84548307c6e
+  path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+- key: EPIC-003-TEAM-RKG
+  revision: 9
+  hash: a53c0ad2bd808a9227261c980db6dbd1d084dfca140a42fb58079a5f9a8c396a
+  path: lifecycle/epics/EPIC-003-TEAM-RKG.md
+- key: EPIC-004-TEAM-RKG
+  revision: 5
+  hash: 3f950338b408bbabb9cab20f635863d55286d2dc8308523a095b65452f060d12
+  path: lifecycle/epics/EPIC-004-TEAM-RKG.md
+- key: EPIC-005-TEAM-RKG
+  revision: 5
+  hash: a8d5353272fa1e44e3eb626eb5517fe96bcda11c8bb0d4f48f13e3bc5e20b377
+  path: lifecycle/epics/EPIC-005-TEAM-RKG.md
+- key: STORY-RKG-001
+  revision: 1
+  hash: 8e91d961886e31a64ea7acd395c30ffa005d88a319d1096612d160c6f2888e08
+  path: lifecycle/stories/STORY-RKG-001.md
+- key: STORY-RKG-002
+  revision: 1
+  hash: 41d54707b438113603235ab70566114c396922f2157d174d5c8366b6ee1c9af6
+  path: lifecycle/stories/STORY-RKG-002.md
+- key: STORY-RKG-003
+  revision: 1
+  hash: d016255445756209cb6c6fb4c101c72ff031701097e03006e25e8cf16386bb87
+  path: lifecycle/stories/STORY-RKG-003.md
+- key: STORY-RKG-004
+  revision: 2
+  hash: 49021cfb3a57dc5e0d2a5a9d1f6249df56aa07993235d42e18e6b9b81033cf43
+  path: lifecycle/stories/STORY-RKG-004.md
+- key: STORY-RKG-005
+  revision: 1
+  hash: 71ef11a9161167f6e1f91391371db2b554bbad8233a64202785f502c95259963
+  path: lifecycle/stories/STORY-RKG-005.md
+- key: STORY-RKG-006
+  revision: 1
+  hash: 55f8d1e6dfa5ad415fd151bcbad8db155467f788a0dacc6678abaff5de87e756
+  path: lifecycle/stories/STORY-RKG-006.md
+- key: STORY-RKG-007
+  revision: 1
+  hash: 2f49b35183fa179ac55f6bebcf1f8bc8cd68773b55c42b41bd39cd33fae0d9c8
+  path: lifecycle/stories/STORY-RKG-007.md
+- key: STORY-RKG-008
+  revision: 1
+  hash: 2ffc66f4a04d0c5d857de9ec45e932740a721cdea07f3bc9d636da6ba79ebfc1
+  path: lifecycle/stories/STORY-RKG-008.md
+- key: STORY-RKG-009
+  revision: 1
+  hash: f64a2364c57b180a3b76ed574c18d9df8e854bc3563cf8c61f9d95666e94c73d
+  path: lifecycle/stories/STORY-RKG-009.md
+- key: STORY-RKG-010
+  revision: 1
+  hash: c1f815af131bbb12ea19845d42ab5782da4997887b65b18c7819b6cc4efecc88
+  path: lifecycle/stories/STORY-RKG-010.md
+- key: STORY-RKG-011
+  revision: 2
+  hash: dcf69e53ace2eec5f0d0478007cbae1d9b9736b57c2267b5d7806db0bab573ba
+  path: lifecycle/stories/STORY-RKG-011.md
+- key: STORY-RKG-012
+  revision: 2
+  hash: 67b409445c2331e6e0ddbb0b7ff0057004bc0ca4d1f0897ba4fe665a21155e3e
+  path: lifecycle/stories/STORY-RKG-012.md
+- key: STORY-RKG-013
+  revision: 2
+  hash: 0b8269c9aa0d08729dda39c42a5d5539496c1e61ec9d9adfae856f75d79225fa
+  path: lifecycle/stories/STORY-RKG-013.md
+- key: STORY-RKG-014
+  revision: 1
+  hash: 90430c4a12cd6c96e5f2cbd6dade7fe2778aba9f56ee83caf4810cf38791cc02
+  path: lifecycle/stories/STORY-RKG-014.md
+- key: STORY-RKG-015
+  revision: 1
+  hash: 709422a23bc836b25430f51832faee78247f27f9dc0964cc3e9e580093f81dee
+  path: lifecycle/stories/STORY-RKG-015.md
+- key: STORY-RKG-016
+  revision: 3
+  hash: 9672c1cea74f52c412bf2011bf40e55a7cd8fec432d4e306a43c3727f898c22f
+  path: lifecycle/stories/STORY-RKG-016.md
+- key: STORY-RKG-017
+  revision: 2
+  hash: 41ab61ff7ead7531103e8e170931b9e14e683a1b54244e6493da7ff1525d69cd
+  path: lifecycle/stories/STORY-RKG-017.md
+- key: STORY-RKG-018
+  revision: 1
+  hash: dc102ec40285f6c834d7e5b4ab7bace3f807c0bda267d6ef4291c7d9a3f20fac
+  path: lifecycle/stories/STORY-RKG-018.md
+- key: STORY-RKG-019
+  revision: 2
+  hash: 7ab197281bebf57d72140996e9cfaa7c72594d5eddd56d5dd0b28696de7f83b1
+  path: lifecycle/stories/STORY-RKG-019.md
+- key: TASK-RKG-000
+  revision: 4
+  hash: f57023d9cafff5c64f577250cf3dea9dce51d8fae270666bdcdc5f5f973352a2
+  path: lifecycle/tasks/TASK-RKG-000.md
+- key: TASK-RKG-001
+  revision: 7
+  hash: 916162dd57146d9d3e870b2b4f0383763d0043525e795fd59a9b87c5151fb697
+  path: lifecycle/tasks/TASK-RKG-001.md
+- key: TASK-RKG-002
+  revision: 7
+  hash: decdc68d7a9b7524d14996a5fb39e62fc2acb0ee89a9eee0eeb27ba0dd16570a
+  path: lifecycle/tasks/TASK-RKG-002.md
+- key: TASK-RKG-003
+  revision: 7
+  hash: bd5090d34f76835709ca884d79c86eceb38cdc35feb87d27810514943777b508
+  path: lifecycle/tasks/TASK-RKG-003.md
+- key: TASK-RKG-004
+  revision: 6
+  hash: f144ad6c78c7c1a7e7b3bfd030a262de2de93609264f2a7f9057b81b1438ae15
+  path: lifecycle/tasks/TASK-RKG-004.md
+- key: TASK-RKG-005
+  revision: 7
+  hash: 3bcf4ffc4f14d3892a0acf6a3fd6bc37a2e151a99c16050ed7c3d64675384472
+  path: lifecycle/tasks/TASK-RKG-005.md
+- key: TASK-RKG-006
+  revision: 8
+  hash: dbd67b793a211f12b9e563b569f58dc86bfe7b657f94077328e8a605ab2eeb90
+  path: lifecycle/tasks/TASK-RKG-006.md
+- key: TASK-RKG-007
+  revision: 6
+  hash: acda14631df60bdcf1f520e9ada26fa767b12a460752989fb18ecbf96f6e659b
+  path: lifecycle/tasks/TASK-RKG-007.md
+- key: TASK-RKG-008
+  revision: 8
+  hash: 5e390fddbcbaee9d71e5b45af611cf5a986810b33bd50d13f20dc7834161b893
+  path: lifecycle/tasks/TASK-RKG-008.md
+- key: TASK-RKG-009
+  revision: 6
+  hash: 7d0d98c4b9ffa0386fa7f58200324659ac74dd39ad6c7e2e6602a8ac0ff08d83
+  path: lifecycle/tasks/TASK-RKG-009.md
+- key: TASK-RKG-010
+  revision: 7
+  hash: 2f6dc0fef3e6fc267f7601c7a181902d1711c2cd6cde56e7f334118f6beb5654
+  path: lifecycle/tasks/TASK-RKG-010.md
+- key: TASK-RKG-011
+  revision: 7
+  hash: 8ee7c4ae4f3b23e76510f29b6e39ae029152b4e7372d58241edc0c42f6d689bd
+  path: lifecycle/tasks/TASK-RKG-011.md
+- key: TASK-RKG-012
+  revision: 5
+  hash: 7ea0f5625dfce43e78e70c2ddc8b0bbe48692dafd569a69556567ffbaca6ae1a
+  path: lifecycle/tasks/TASK-RKG-012.md
+- key: TASK-RKG-013
+  revision: 5
+  hash: bd8fab9686422328122c0d4d230298914bb1b7db81a6be7e4693b9b94e36ff40
+  path: lifecycle/tasks/TASK-RKG-013.md
+- key: TASK-RKG-014
+  revision: 7
+  hash: 10bb375798c5faa1a957020bc9430a32abb2fe7411ca4a658dceae366dbd384b
+  path: lifecycle/tasks/TASK-RKG-014.md
+- key: TASK-RKG-015
+  revision: 8
+  hash: 9b787e98e1bb5c8b6e59671ba94e67189e3996377131d509dab0d541afe21fe0
+  path: lifecycle/tasks/TASK-RKG-015.md
+- key: TASK-RKG-016
+  revision: 8
+  hash: 5d8e1daf27b96acc18a69b67870c7e71aae5b2e32e90b2016156ade337ccf96d
+  path: lifecycle/tasks/TASK-RKG-016.md
+- key: TASK-RKG-017
+  revision: 12
+  hash: 115f2a8d52845e941dd58ed0f2b0f0366c82dcdaf2cf5e0fd1fa3582fb27a941
+  path: lifecycle/tasks/TASK-RKG-017.md
+- key: TASK-RKG-018
+  revision: 8
+  hash: 52997f39f94482f230d22cdc7a53e0611d9b48a66f1590d7ad62ed07ec1700d6
+  path: lifecycle/tasks/TASK-RKG-018.md
+- key: TASK-RKG-019
+  revision: 9
+  hash: ba7a32241cf3fa87b8f92315c2a97ea1e4a6a99622572072e029fac17799b892
+  path: lifecycle/tasks/TASK-RKG-019.md
+- key: TASK-RKG-020
+  revision: 9
+  hash: 7a00d72c9fae3397c7a1e189f81e27e2b3840aa2d01fbea6ee7d19e46321a1ab
+  path: lifecycle/tasks/TASK-RKG-020.md
+- key: TASK-RKG-021
+  revision: 7
+  hash: 66fbef16cfe77740aead439feb23b2eb441be1df61606b32d4ba8656d92f1dda
+  path: lifecycle/tasks/TASK-RKG-021.md
+- key: TASK-RKG-022
+  revision: 15
+  hash: eb0da10120af46cdbe0335589157a7e78d341838abc9645c9a4be7ca07c0c365
+  path: lifecycle/tasks/TASK-RKG-022.md
+- key: TASK-RKG-023
+  revision: 5
+  hash: 426309846180b624d46d3f8d40b59b808d9a34eba50be25b0d67d44929135f95
+  path: lifecycle/tasks/TASK-RKG-023.md
+- key: TASK-RKG-024
+  revision: 9
+  hash: 3fdfa2a7ca99f297b275e3e04850c1f589a8f690953b539fc3ff532f43d85281
+  path: lifecycle/tasks/TASK-RKG-024.md
+- key: TASK-RKG-025
+  revision: 9
+  hash: 0ce3cb3bc8bcbe738ffa766f1613f362b75bc35a2b81a08d15dbc11932dd01d4
+  path: lifecycle/tasks/TASK-RKG-025.md
+- key: TASK-RKG-026
+  revision: 6
+  hash: 51b85116a6d03dd8a735277a2505bc598469eafe5c9538b2864f165a5fab0102
+  path: lifecycle/tasks/TASK-RKG-026.md
+- key: TASK-RKG-027
+  revision: 5
+  hash: c56d2dcff8cd95cf8b747774735a3a7d1d0a2cd4116c1160318ab742ab656fb9
+  path: lifecycle/tasks/TASK-RKG-027.md
+- key: TASK-RKG-028
+  revision: 4
+  hash: a180e98447af8efd34dfc6ace44de4cf07d6d045b927b249f68fcfb486f34fd7
+  path: lifecycle/tasks/TASK-RKG-028.md
+- key: TASK-RKG-029
+  revision: 7
+  hash: da215f0d4dba99b2c22b74cc53089b5b89521c4e997828714f040c043b1f4863
+  path: lifecycle/tasks/TASK-RKG-029.md
+- key: OBS-RKG-001
+  revision: 2
+  hash: 2dbbbea75b86ae735046fbf87a38e80d27af7a9b31dcb04496c92dd66174420e
+  path: observability/OBS-RKG-001.md
+- key: OBS-RKG-002
+  revision: 4
+  hash: 3882a13703b016f93da597765448eea79a91a3114eba9b740afd16da91c549da
+  path: observability/OBS-RKG-002.md
+- key: OBS-RKG-005
+  revision: 3
+  hash: 82acb6483ca288e1952b5f7f354158243ea07ea45cf090a62392787e3c92ef3f
+  path: observability/OBS-RKG-005.md
+- key: EVAL-RKG-QA-001
+  revision: 2
+  hash: 19bba2089b095b0b431d85d843a61a3d5a4488889c269d47439869f11b673720
+  path: policies/eval/EVAL-RKG-QA-001.md
+- key: GATE-RKG-ARCHITECTURE
+  revision: 5
+  hash: 6fb80c373d17e6e5716966d203286995cd29ad5f55315e225827957893d1e9fe
+  path: policies/gates/GATE-RKG-ARCHITECTURE.md
+- key: GATE-RKG-CONTRACT
+  revision: 8
+  hash: 7f44db7544890ef8464b897c75f5bc5e1af6bc8962c8cc255c3348c37d9c0e20
+  path: policies/gates/GATE-RKG-CONTRACT.md
+- key: GATE-RKG-SCOPE
+  revision: 7
+  hash: 61a00846d3d4ed5b7c0206c15cc6e3ac57db1804285ec48b760eb3c0c2bb339c
+  path: policies/gates/GATE-RKG-SCOPE.md
+- key: GATE-RKG-UIUX
+  revision: 7
+  hash: 3942ab10e05f0df69854f4fa90ab6f106209ce5946b02c4a28a41d3ff4d1a8fd
+  path: policies/gates/GATE-RKG-UIUX.md
+- key: PRD-RKG
+  revision: 20
+  hash: 6406762c3f72ed86601b16711a105408be90b72389891e66dd4642b4ecbc25cc
+  path: product/prd/PRD-RKG.md
+- key: REG-ADAPTER-001
+  revision: 10
+  hash: 7a286491b1e4ab2c6db61439d5564247fadf5db963113a95a0cb8a2049b002f1
+  path: registry/REG-ADAPTER-001.md
+- key: REG-OWNER-001
+  revision: 2
+  hash: c42a9cb3d0f4e9d26f1e1e50c98815c469221169351ad79d0c407a25ce316eb6
+  path: registry/REG-OWNER-001.md
+- key: REG-REPO-001
+  revision: 6
+  hash: f251b30e3854ce0af0063661fa20c2b167fee26c96aece0f9b22c2ff24c06fb9
+  path: registry/REG-REPO-001.md
+- key: REG-TYPE-001
+  revision: 5
+  hash: 157982c9a8dca995d4507f325a33678c128a7ad24e471d9570eb88c4e5efa299
+  path: registry/REG-TYPE-001.md
+- key: FR-RKG-001
+  revision: 7
+  hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+  path: requirements/fr/FR-RKG-001.md
+- key: FR-RKG-002
+  revision: 12
+  hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+  path: requirements/fr/FR-RKG-002.md
+- key: FR-RKG-003
+  revision: 12
+  hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+  path: requirements/fr/FR-RKG-003.md
+- key: FR-RKG-004
+  revision: 6
+  hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+  path: requirements/fr/FR-RKG-004.md
+- key: FR-RKG-005
+  revision: 7
+  hash: a20c3f1aede798ef733273feb7addf00c51866f0a68397df5e7ae69dca280448
+  path: requirements/fr/FR-RKG-005.md
+- key: NFR-RKG-EXT-001
+  revision: 3
+  hash: 58fe8493456045b2d475c7ac14bb4a440d2e4f3ade043eae276fed4c1ec27193
+  path: requirements/nfr/NFR-RKG-EXT-001.md
+- key: NFR-RKG-PERF-001
+  revision: 5
+  hash: b74c5ddabd7d96e4cac9b700a1a54c8eb2d615b1eabeceed1cbfd268962e7d0d
+  path: requirements/nfr/NFR-RKG-PERF-001.md
+- key: NFR-RKG-REL-001
+  revision: 8
+  hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+  path: requirements/nfr/NFR-RKG-REL-001.md
+- key: NFR-RKG-SEC-001
+  revision: 7
+  hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+  path: requirements/nfr/NFR-RKG-SEC-001.md
+- key: NFR-RKG-UX-001
+  revision: 7
+  hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+  path: requirements/nfr/NFR-RKG-UX-001.md
+- key: TBL-RKG-GRAPH
+  revision: 12
+  hash: 8f89df7b938dec9947a06f49fb307432b9182853ca5e4bfdcad1994a50d13bcf
+  path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+- key: API-RKG-CORE-v1
+  revision: 15
+  hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+  path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+- key: DDL-RKG-GRAPH
+  hash: b257abb281d229d8a0dea689a5d8f3ac443773bbf07b1d9e79fbc43f7cc3be40
+  path: tech-specs/RKG-GRAPH/schema/DDL-RKG-GRAPH.cypher
+- key: TOK-RKG-001
+  hash: ae71b14d8921b6e64f03641a5787c7b99622fa3f28904a75208eabfb32c8de96
+  path: design/ui/tokens/tokens.json
+revision_history:
+- key: BL-r1
+  type: baseline
+  group: normative
+  scope: lifecycle
+  system: SYS-RKG
+  change_set: CHG-RKG-2026-001
+  revision: 1
+  status: active
+  created_at: 2026-09-21
+  code_tree: 36a26a74f042a24c620bffe25e52ad6559100ebd
+  assumption: Artifact status fields in source files were left unchanged (operator request); this baseline locks the listed
+    revisions/hashes as the approved set for steps 4–8 packaging.
+  gates:
+    scope:
+      approval: approval-001
+      locked:
+      - product
+      - requirements
+    architecture:
+      approval: approval-002
+      locked:
+      - architecture
+    ui_ux:
+      approval: approval-003
+      locked:
+      - design_ux_ui_l1_l3
+    contract: pending
+  artifacts:
+  - key: PRD-RKG
+    revision: 7
+    hash: 6d445597e109
+    path: product/prd/PRD-RKG.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-001
+    revision: 5
+    hash: 6b855002049a
+    path: requirements/fr/FR-RKG-001.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-002
+    revision: 4
+    hash: 1c0b8863cf2b
+    path: requirements/fr/FR-RKG-002.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-003
+    revision: 2
+    hash: a350fd10641e
+    path: requirements/fr/FR-RKG-003.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-004
+    revision: 3
+    hash: 8e3c2952a0ca
+    path: requirements/fr/FR-RKG-004.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-005
+    revision: 5
+    hash: acfaf7d9e919
+    path: requirements/fr/FR-RKG-005.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-006
+    revision: 4
+    hash: a43802f958b7
+    path: requirements/fr/FR-RKG-006.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-007
+    revision: 4
+    hash: e167af701d33
+    path: requirements/fr/FR-RKG-007.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-008
+    revision: 6
+    hash: 12635c6be661
+    path: requirements/fr/FR-RKG-008.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-009
+    revision: 2
+    hash: 6965597d0bd0
+    path: requirements/fr/FR-RKG-009.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-010
+    revision: 2
+    hash: eb1f2dbb9a18
+    path: requirements/fr/FR-RKG-010.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-011
+    revision: 2
+    hash: 6e8b3b68ef2b
+    path: requirements/fr/FR-RKG-011.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-012
+    revision: 3
+    hash: 5ae18e4cdf4a
+    path: requirements/fr/FR-RKG-012.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-013
+    revision: 4
+    hash: 52da3e719dc7
+    path: requirements/fr/FR-RKG-013.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-014
+    revision: 3
+    hash: 01fe349a1e8a
+    path: requirements/fr/FR-RKG-014.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-015
+    revision: 4
+    hash: 5c9d7630d14a
+    path: requirements/fr/FR-RKG-015.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-016
+    revision: 6
+    hash: 9873d4c618cb
+    path: requirements/fr/FR-RKG-016.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-017
+    revision: 5
+    hash: 8b0513d32d54
+    path: requirements/fr/FR-RKG-017.md
+    locked_by: GATE-RKG-SCOPE
+  - key: FR-RKG-018
+    revision: 2
+    hash: a7cec6ff8b54
+    path: requirements/fr/FR-RKG-018.md
+    locked_by: GATE-RKG-SCOPE
+  - key: NFR-RKG-PERF-001
+    revision: 3
+    hash: c0fce68a4a3a
+    path: requirements/nfr/NFR-RKG-PERF-001.md
+    locked_by: GATE-RKG-SCOPE
+  - key: NFR-RKG-SEC-001
+    revision: 5
+    hash: 4e24fcd568fc
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+    locked_by: GATE-RKG-SCOPE
+  - key: NFR-RKG-REL-001
+    revision: 6
+    hash: 95b68b96814a
+    path: requirements/nfr/NFR-RKG-REL-001.md
+    locked_by: GATE-RKG-SCOPE
+  - key: NFR-RKG-UX-001
+    revision: 5
+    hash: a69d5fc18fd0
+    path: requirements/nfr/NFR-RKG-UX-001.md
+    locked_by: GATE-RKG-SCOPE
+  - key: CAP-RKG-001
+    revision: 3
+    hash: 78371e9b3e8a
+    path: architecture/l1/CAP-RKG-001.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: CAP-RKG-002
+    revision: 3
+    hash: 077b2908389b
+    path: architecture/l1/CAP-RKG-002.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: CAP-RKG-003
+    revision: 3
+    hash: c480fa4f8921
+    path: architecture/l1/CAP-RKG-003.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: CMP-RKG-ANALYZER
+    revision: 3
+    hash: 11535d8d1bac
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: CMP-RKG-GRAPH
+    revision: 4
+    hash: c2d5823e756b
+    path: architecture/l2/CMP-RKG-GRAPH.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: CMP-RKG-TRANSPORT
+    revision: 4
+    hash: 73597e5bbdf4
+    path: architecture/l2/CMP-RKG-TRANSPORT.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: CMP-RKG-WEB
+    revision: 4
+    hash: dd78f4d6edc9
+    path: architecture/l2/CMP-RKG-WEB.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: CMP-RKG-CONVERSATION
+    revision: 3
+    hash: 453ec74cf0bd
+    path: architecture/l2/CMP-RKG-CONVERSATION.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: ADR-2026-001
+    revision: 2
+    hash: 948f4a3a4917
+    path: architecture/adr/ADR-2026-001.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: ADR-2026-002
+    revision: 2
+    hash: 320928c14a3a
+    path: architecture/adr/ADR-2026-002.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: ADR-2026-003
+    revision: 1
+    hash: 520a8577efc5
+    path: architecture/adr/ADR-2026-003.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: ADR-2026-004
+    revision: 1
+    hash: cb37cd4efea4
+    path: architecture/adr/ADR-2026-004.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: TM-RKG
+    revision: 5
+    hash: eafd26840883
+    path: architecture/threat-model/TM-RKG.md
+    locked_by: GATE-RKG-ARCHITECTURE
+  - key: UXF-RKG-001
+    revision: 3
+    hash: b4911ff31ecb
+    path: design/ux/UXF-RKG-001.md
+    locked_by: GATE-RKG-UIUX
+  - key: UXF-RKG-002
+    revision: 2
+    hash: 6a9a52e8cdaf
+    path: design/ux/UXF-RKG-002.md
+    locked_by: GATE-RKG-UIUX
+  - key: UXF-RKG-003
+    revision: 2
+    hash: 8b8f77378b4f
+    path: design/ux/UXF-RKG-003.md
+    locked_by: GATE-RKG-UIUX
+  - key: SCR-RKG-001
+    revision: 4
+    hash: b8f44ee820e4
+    path: design/ux/SCR-RKG-001.md
+    locked_by: GATE-RKG-UIUX
+  - key: UID-RKG-001
+    revision: 5
+    hash: def261a9a6d0
+    path: design/ui/UID-RKG-001.md
+    locked_by: GATE-RKG-UIUX
+  open_questions_non_blocking:
+  - OQ-RKG-001
+  - OQ-RKG-002
+- key: BL-r2
+  type: baseline
+  group: normative
+  scope: lifecycle
+  system: SYS-RKG
+  change_set: CHG-RKG-2026-001
+  revision: 2
+  status: candidate
+  created_at: 2026-10-02
+  revised_at: 2026-10-02
+  code_tree: d602426734c5ea37e07074bceca0e19d0de6b026
+  hash_method: sha256-file-bytes-12
+  prior_pin: BL-r1
+  assumption: Candidate working baseline after the final documentation repair. This file is not an approval. Scope, architecture,
+    UI/UX and contract gates stay pending. approval-001 through approval-006 remain historical and lock only the revisions
+    named inside those records. BL-r1 is superseded; its artifact list was not rewritten. FR-RKG-006 through FR-RKG-018 are
+    absent from the tree and are not pinned here. Uncommitted source edits are outside this pin.
+  revision_history:
+  - revision: 1
+    note: First candidate pin on 2026-10-02, before this repair. Hashes replaced below are kept on each changed artifact as
+      previous_hash. Status was candidate and was not approved.
+  gates:
+    scope: pending
+    architecture: pending
+    ui_ux: pending
+    contract: pending
+  historical_approvals_do_not_cover_this_pin:
+  - record: approval-004
+    covers: PRD revision 16 and the FR/NFR revisions listed in that record
+  - record: approval-005
+    covers: architecture revisions listed in that record, including CMP conversation revision 3 and transport revision 4
+  - record: approval-006
+    covers: partial contract subset at API/TBL revision 9
+  artifacts:
+  - key: PRD-RKG
+    revision: 20
+    hash: e104d2a78c13
+    previous_hash: d43f3229c485
+    path: product/prd/PRD-RKG.md
+  - key: FR-RKG-001
+    revision: 7
+    hash: c6886090bf15
+    path: requirements/fr/FR-RKG-001.md
+  - key: FR-RKG-002
+    revision: 12
+    hash: 5a104d92f7d5
+    previous_hash: a1a16e4252bc
+    path: requirements/fr/FR-RKG-002.md
+  - key: FR-RKG-003
+    revision: 12
+    hash: c9414283fbbf
+    previous_hash: 3e4fbe669496
+    path: requirements/fr/FR-RKG-003.md
+  - key: FR-RKG-004
+    revision: 6
+    hash: 42cac8fa9f63
+    path: requirements/fr/FR-RKG-004.md
+  - key: FR-RKG-005
+    revision: 7
+    hash: 106c7ce3d993
+    path: requirements/fr/FR-RKG-005.md
+  - key: NFR-RKG-PERF-001
+    revision: 5
+    hash: 8b33e052dfbd
+    path: requirements/nfr/NFR-RKG-PERF-001.md
+  - key: NFR-RKG-SEC-001
+    revision: 7
+    hash: 059f449b49e3
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: a86a9623da64
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: NFR-RKG-UX-001
+    revision: 7
+    hash: 0689e3142082
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  - key: NFR-RKG-EXT-001
+    revision: 3
+    hash: 79aaf1489c71
+    path: requirements/nfr/NFR-RKG-EXT-001.md
+  - key: DOM-RKG-CORE
+    revision: 5
+    hash: 744dea0924db
+    path: domain/glossary-core.md
+  - key: CAP-RKG-001
+    revision: 6
+    hash: 8fa7c01e0324
+    path: architecture/l1/CAP-RKG-001.md
+  - key: CAP-RKG-002
+    revision: 4
+    hash: 2d24cb81b439
+    path: architecture/l1/CAP-RKG-002.md
+  - key: CAP-RKG-003
+    revision: 4
+    hash: a6a009d6faec
+    path: architecture/l1/CAP-RKG-003.md
+  - key: CMP-RKG-ANALYZER
+    revision: 8
+    hash: f4b0bb28e2c4
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: CMP-RKG-GRAPH
+    revision: 9
+    hash: dc6822019c8b
+    path: architecture/l2/CMP-RKG-GRAPH.md
+  - key: CMP-RKG-TRANSPORT
+    revision: 7
+    hash: e36ab4aa6dab
+    previous_hash: 0135484480e6
+    path: architecture/l2/CMP-RKG-TRANSPORT.md
+  - key: CMP-RKG-WEB
+    revision: 8
+    hash: 092f3a1119c4
+    path: architecture/l2/CMP-RKG-WEB.md
+  - key: CMP-RKG-CONVERSATION
+    revision: 6
+    hash: 4604b4f5db42
+    previous_hash: ecbbba263e99
+    path: architecture/l2/CMP-RKG-CONVERSATION.md
+  - key: ADR-2026-001
+    revision: 3
+    hash: 5463fafbd566
+    path: architecture/adr/ADR-2026-001.md
+  - key: ADR-2026-002
+    revision: 2
+    hash: 938b7e0c62aa
+    path: architecture/adr/ADR-2026-002.md
+  - key: ADR-2026-003
+    revision: 2
+    hash: bede586476be
+    path: architecture/adr/ADR-2026-003.md
+  - key: ADR-2026-004
+    revision: 2
+    hash: 7995af1efc93
+    path: architecture/adr/ADR-2026-004.md
+  - key: ADR-2026-005
+    revision: 1
+    hash: 69c7d4e6715a
+    path: architecture/adr/ADR-2026-005.md
+  - key: ADR-2026-006
+    revision: 2
+    hash: b77ef171ce0b
+    previous_hash: c2854f5a2883
+    path: architecture/adr/ADR-2026-006.md
+  - key: TM-RKG
+    revision: 7
+    hash: eef95ec649b8
+    path: architecture/threat-model/TM-RKG.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: c7543c9f7d60
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: TBL-RKG-GRAPH
+    revision: 12
+    hash: dc01cf01a1de
+    path: tech-specs/RKG-GRAPH/schema/TBL-RKG-GRAPH.md
+  - key: DDL-RKG-GRAPH
+    revision: 12
+    hash: b1d70db43b29
+    path: tech-specs/RKG-GRAPH/schema/DDL-RKG-GRAPH.cypher
+    note: no frontmatter; revision means the TBL revision declared in the file header
+  - key: UXF-RKG-001
+    revision: 7
+    hash: 0c517111a318
+    path: design/ux/UXF-RKG-001.md
+  - key: UXF-RKG-002
+    revision: 4
+    hash: 0e06ffcbd9cd
+    path: design/ux/UXF-RKG-002.md
+  - key: UXF-RKG-003
+    revision: 6
+    hash: 800a2bd069b6
+    path: design/ux/UXF-RKG-003.md
+  - key: SCR-RKG-001
+    revision: 8
+    hash: 4bb29bb7d5a1
+    path: design/ux/SCR-RKG-001.md
+  - key: UID-RKG-001
+    revision: 7
+    hash: f964c394332f
+    path: design/ui/UID-RKG-001.md
+  - key: UIS-RKG-001
+    revision: 12
+    hash: dfb9047c3f28
+    path: design/ui/UIS-RKG-001.md
+  - key: TOK-RKG-001
+    revision: 2
+    hash: e8a12414f229
+    path: design/ui/tokens/tokens.json
+  - key: OBS-RKG-001
+    revision: 2
+    hash: 779e2f6001bd
+    path: observability/OBS-RKG-001.md
+  - key: OBS-RKG-002
+    revision: 4
+    hash: 51c1289f581a
+    path: observability/OBS-RKG-002.md
+  - key: OBS-RKG-005
+    revision: 3
+    hash: d8de53294e31
+    path: observability/OBS-RKG-005.md
+  - key: GATE-RKG-SCOPE
+    revision: 7
+    hash: 807352aa78cb
+    path: policies/gates/GATE-RKG-SCOPE.md
+  - key: GATE-RKG-ARCHITECTURE
+    revision: 5
+    hash: 890fa2a06f41
+    path: policies/gates/GATE-RKG-ARCHITECTURE.md
+  - key: GATE-RKG-UIUX
+    revision: 7
+    hash: 43128e501e26
+    previous_hash: 79ac4f56d53b
+    path: policies/gates/GATE-RKG-UIUX.md
+  - key: GATE-RKG-CONTRACT
+    revision: 8
+    hash: 568810264c94
+    previous_hash: 0388f3ff23a1
+    path: policies/gates/GATE-RKG-CONTRACT.md
+  - key: EVAL-RKG-QA-001
+    revision: 2
+    hash: cdc5746ac8da
+    path: policies/eval/EVAL-RKG-QA-001.md
+  - key: REG-TYPE-001
+    revision: 4
+    hash: 136d4d97c759
+    path: registry/REG-TYPE-001.md
+  - key: REG-OWNER-001
+    revision: 1
+    hash: b0b4968e4ca2
+    path: registry/REG-OWNER-001.md
+  - key: REG-REPO-001
+    revision: 6
+    hash: ee14c900483e
+    path: registry/REG-REPO-001.md
+  - key: REG-ADAPTER-001
+    revision: 10
+    hash: 3089be59a5e9
+    path: registry/REG-ADAPTER-001.md
+file_convention: Single artifact file; baseline revisions and prior keys are retained in revision_history.
+previous_revision: 2

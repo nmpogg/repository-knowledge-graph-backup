@@ -1,0 +1,333 @@
+{
+  "fixture_id": "rkg-fixture-go-event-worker",
+  "oracle_source": "repo-test/rkg-fixture-go-event-worker/README.md",
+  "notes": [
+    "rule_id is null wherever README does not name a versioned extraction rule",
+    "Go packages are metadata only; Namespace entities must not be emitted",
+    "implements edges only where README cites explicit binding evidence; do not invent implicit interface targets",
+    "Marker simple name requires package-scoped identity",
+    "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP"
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": true
+  },
+  "allowlist": [],
+  "entities": [
+    {
+      "type": "Type",
+      "qualified_name": "domain.OrderProjection",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/domain/order.go", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "domain.AuditFields",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/domain/order.go", "start_line": null}],
+      "note": "embedded fields"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "domain.EventEnvelope",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/domain/event.go", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "domain.OrderID",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/domain/order.go", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "domain.OrderStatus",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/domain/order.go", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.Processor",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/app/processor.go", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.Cleanup",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/app/cleanup.go", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "messaging.KafkaConsumer",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/messaging/kafka_consumer.go", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "messaging.KafkaProducer",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/messaging/kafka_producer.go", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "storage.PostgresRepository",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/storage/postgres_repository.go", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "config.Config",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/config/config.go", "start_line": null}]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "storage.OrderRepository",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/storage/repository.go", "start_line": null}],
+      "note": "interface"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "messaging.EventPublisher",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/messaging/producer.go", "start_line": null}],
+      "note": "interface"
+    },
+    {
+      "type": "Type",
+      "qualified_name": "messaging.EventConsumer",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/messaging/consumer.go", "start_line": null}],
+      "note": "interface"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.NewProcessor",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/app/processor.go", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.NewCleanup",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/app/cleanup.go", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "messaging.NewKafkaConsumer",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/messaging/kafka_consumer.go", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "messaging.NewKafkaProducer",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/messaging/kafka_producer.go", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "storage.NewPostgresRepository",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/storage/postgres_repository.go", "start_line": null}]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "domain.OrderProjection.IsTerminal",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/domain/order.go", "start_line": null}],
+      "note": "value receiver"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "domain.OrderProjection.Touch",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/domain/order.go", "start_line": null}],
+      "note": "pointer receiver"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "domain.CloneSlice",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/domain", "start_line": null}],
+      "note": "generic helper CloneSlice[T]"
+    },
+    {
+      "type": "MessageChannel",
+      "qualified_name": "orders.events",
+      "required_attributes": {"name": "orders.events"},
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/messaging/topics.go", "start_line": null}]
+    },
+    {
+      "type": "MessageChannel",
+      "qualified_name": "orders.projection.updated",
+      "required_attributes": {"name": "orders.projection.updated"},
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/messaging/topics.go", "start_line": null}]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "relational:commerce.order_projection",
+      "required_attributes": {"kind": "table", "namespace": "commerce", "name": "order_projection"},
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/storage/queries.go", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:KAFKA_BROKERS",
+      "required_attributes": {"kind": "environment"},
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/config/config.go", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:KAFKA_GROUP_ID",
+      "required_attributes": {"kind": "environment"},
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/config/config.go", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:DATABASE_URL",
+      "required_attributes": {"kind": "environment"},
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/config/config.go", "start_line": null}]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "environment:CLEANUP_INTERVAL",
+      "required_attributes": {"kind": "environment"},
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/config/config.go", "start_line": null}]
+    }
+  ],
+  "edges": [
+    {
+      "type": "calls",
+      "source": "main",
+      "target": "run",
+      "rule_id": null,
+      "evidence": [{"file_path": "cmd/order-worker/main.go", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "messaging.KafkaConsumer.Run",
+      "target": "messaging.MessageHandler.HandleMessage",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/messaging/kafka_consumer.go", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "app.Processor.HandleMessage",
+      "target": "app.Processor.Process",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/app/processor.go", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "app.Processor.Process",
+      "target": "domain.DecodeEvent",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/app/processor.go", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "app.Processor.Process",
+      "target": "storage.OrderRepository.Upsert",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/app/processor.go", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "app.Processor.Process",
+      "target": "messaging.EventPublisher.Publish",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/app/processor.go", "start_line": null}]
+    },
+    {
+      "type": "calls",
+      "source": "app.Cleanup.Run",
+      "target": "storage.OrderRepository.DeleteOlderThan",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/app/cleanup.go", "start_line": null}]
+    },
+    {
+      "type": "consumes",
+      "source": "messaging.NewKafkaReader",
+      "target": "orders.events",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/messaging/kafka_consumer.go", "start_line": null}],
+      "note": "literal / messaging.OrdersTopic; Callable source required by semantic schema (README: NewKafkaReader)"
+    },
+    {
+      "type": "publishes",
+      "source": "app.Processor.Process",
+      "target": "orders.projection.updated",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/app/processor.go", "start_line": null}],
+      "note": "ProjectionUpdatedTopic; positive case uses import alias msg"
+    },
+    {
+      "type": "reads",
+      "source": "storage.PostgresRepository.FindByID",
+      "target": "relational:commerce.order_projection",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/storage/postgres_repository.go", "start_line": null}]
+    },
+    {
+      "type": "writes",
+      "source": "storage.PostgresRepository.Upsert",
+      "target": "relational:commerce.order_projection",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/storage/postgres_repository.go", "start_line": null}]
+    },
+    {
+      "type": "writes",
+      "source": "storage.PostgresRepository.DeleteOlderThan",
+      "target": "relational:commerce.order_projection",
+      "rule_id": null,
+      "evidence": [{"file_path": "internal/storage/postgres_repository.go", "start_line": null}]
+    }
+  ],
+  "prohibited": [
+    {
+      "reason": "Go packages must not be emitted as Namespace entities",
+      "entity": {
+        "type": "Namespace"
+      }
+    },
+    {
+      "reason": "dynamic topic must not invent a MessageChannel",
+      "edge": {
+        "type": "publishes",
+        "source_qualified_name_contains": "dynamic_topic"
+      }
+    },
+    {
+      "reason": "package-level publish is not a handler-owned publish edge",
+      "edge": {
+        "type": "publishes",
+        "source_qualified_name_contains": "package_level_publish"
+      }
+    },
+    {
+      "reason": "shadowed local kafka variable must not create messaging edges",
+      "edge": {
+        "type": "publishes",
+        "source_qualified_name_contains": "shadowed_package"
+      }
+    },
+    {
+      "reason": "ambiguous receiver must not guess a unique concrete call target",
+      "edge": {
+        "type": "calls",
+        "source_qualified_name_contains": "ambiguous_receiver"
+      }
+    },
+    {
+      "reason": "secret sentinel must never appear in facts or diagnostics",
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST"
+    }
+  ]
+}

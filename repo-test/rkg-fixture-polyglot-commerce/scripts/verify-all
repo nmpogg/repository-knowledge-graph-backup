@@ -1,0 +1,19 @@
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")/.."
+PYTHON=${PYTHON:-python3}
+for component in apps/web workers/email; do
+  (cd "$component" && npm run lint && npm test && npm run typecheck && npm run build)
+done
+(cd services/orders && sha256sum -c pom.sha256 && ./mvnw -o -q verify)
+(cd workers/projection &&
+  test -z "$(gofmt -l .)" &&
+  GOPROXY=off GOTOOLCHAIN=local go mod verify &&
+  GOPROXY=off GOTOOLCHAIN=local go vet ./... &&
+  GOPROXY=off GOTOOLCHAIN=local go test ./... &&
+  GOPROXY=off GOTOOLCHAIN=local go test -race ./... &&
+  GOPROXY=off GOTOOLCHAIN=local go build ./...)
+"$PYTHON" scripts/verify-contracts.py
+"$PYTHON" scripts/verify-inventory.py
+"$PYTHON" -m unittest discover -s scripts/tests -p 'test_*.py'
+printf '%s\n' 'All components, contracts, inventory and benchmark tests passed.'

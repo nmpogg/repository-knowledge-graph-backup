@@ -1,0 +1,81 @@
+{
+  "key": "VERIFY-CHATBOT-EVAL-20261012-r1",
+  "date": "2026-10-12",
+  "group": "non-normative",
+  "scope": "current-tree evaluation status inspection",
+  "code_revision": "0ee79ab0bb7d93444038ee6923606b4a742f2c55",
+  "branch": "fix/chatbot-evaluation-90",
+  "merge": {
+    "source": "dev",
+    "fetched_origin_dev_revision": "2033a60f0c476358fa52e7d37ce5a1d59db501d7",
+    "result": "already_up_to_date",
+    "existing_merge_commit": "0ee79ab",
+    "user_staged_change_preserved": true
+  },
+  "input_sha256": {
+    "evaluation/validate.py": "ad104346b5cc39ace96ad1f384eb5bd66137b9cfe01a719a60f136363b0169cd",
+    "evaluation/run_ragas.py": "848dd531e100ed4b5866d672b33c112d71e8e42d09674edf567a3742220c10d1",
+    "evaluation/calibrate.py": "49b0c69937c8f9fdc4c391d94765a615149fea89bea967c1222e3c8cc88ca863",
+    "evaluation/test_validate.py": "b06c90cf74a4e454c7584e895df7bf6b077a7ca68a7f6810954e806f304012b2",
+    "evaluation/test_run_ragas.py": "e531be5520be65ead0dc8cd04e6b0c1b9c2b0953531b688a2866ec6dd99275a9",
+    "evaluation/golden_set.json": "84b86874f8bc90e9bda88e9324ddcec26ee19a3ed3504675d13aeb91f8430bc6",
+    "evaluation/results/current.json": "62f1766053c7c7e8feedc942f0a53cce5ea7e6e1a82dd851a142633299e962d1",
+    "evaluation/results/ragas-live-20261009-fix-02.json": "d210fd662f00cf514351cec0f079d0eb7741eb69822c8dd28e03c0da0d9cd49c",
+    "evaluation/results/ragas-live-20261009-fix-03.json": "e2538223be7db10541519a43b8dcc72a3ad99a8e00aace3026da403f00c15403",
+    "tests/unit/test_chatbot_metadata.py": "9e3bb0fd7519745fe2b570b6f3efcf29346229cb4875ca8f85bfac88cc9a6a39",
+    "tests/unit/test_chatbot_unlimited_budget.py": "43b9a6916c5799ee38136539d5f0cbdb1b239d591813dbb9441ce056fc723bb4",
+    "tests/integration/test_chatbot_storage.py": "f90a8bbcb85d04ad2c23854bd6e267946a0862e50e1da2bcd403ebf3db600ae9"
+  },
+  "verification": {
+    "validator": {
+      "valid": true,
+      "cases": 50,
+      "turns": 73,
+      "source_pins_verified": 209,
+      "independent_review_status": "pending"
+    },
+    "pytest": {
+      "command": ".venv/bin/pytest -q evaluation/test_validate.py evaluation/test_run_ragas.py tests/unit/test_chatbot_metadata.py tests/unit/test_chatbot_unlimited_budget.py tests/integration/test_chatbot_storage.py --tb=short --show-capture=no",
+      "passed": 202,
+      "failed": 0,
+      "duration_seconds": 39.72
+    },
+    "previous_evidence_hash_comparison": {
+      "evidence": "VERIFY-CHATBOT-EVAL-20261009-r1",
+      "code_files_unchanged": 124,
+      "test_files_unchanged": 84,
+      "report_files_unchanged": 4
+    }
+  },
+  "live_evaluation": {
+    "new_live_run_executed": false,
+    "latest_recorded_attempt": "ragas-live-20261009-fix-03",
+    "quality_assessment": "unavailable",
+    "recorded_blocker": {
+      "http_status": 401,
+      "reason_code": "token_invalidated"
+    },
+    "credential_status_today": "not_retested",
+    "last_valid_run": "ragas-live-20261009-fix-02",
+    "overall_passed": 36,
+    "overall_total": 50,
+    "answerable_passed": 20,
+    "answerable_total": 29,
+    "minimum_answerable_passes_for_90_percent": 27,
+    "safety_passed": 4,
+    "safety_total": 5,
+    "conversation_passed": 6,
+    "conversation_total": 10,
+    "long_conversation_passed": 1,
+    "long_conversation_total": 1,
+    "citation_validity": 1.0,
+    "structured_relationship_citation_coverage": 1.0,
+    "target_achieved": false,
+    "official_kpi_acceptance": "not_claimed_pending_independent_review"
+  },
+  "required_next_steps": [
+    "Restore valid local provider credentials if still invalid; recalibrate judge and rerun all 50 live cases on current code.",
+    "Resolve remaining failures against the reviewed corpus and obtain independent review before KPI acceptance."
+  ],
+  "lifecycle_status_changes": []
+}

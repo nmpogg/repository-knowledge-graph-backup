@@ -1,0 +1,63 @@
+---
+uid:
+key: RCPT-RKG-EVAL-ORACLE-001
+type: review-receipt
+group: evidence
+scope: system
+system: SYS-RKG
+status: recorded
+revision: 1
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+relations:
+  part_of: [CHG-RKG-2026-001]
+  reviews:
+  - OBS-RKG-001
+  - TEST-RKG-FIXTURE-CENSUS-001
+  derived_from:
+  - REV-RKG-EVAL-ORACLE-001
+classification: internal
+ai_assisted: true
+change_set: CHG-RKG-2026-001
+decision: approved
+decided_at: 2026-10-07
+approvers:
+  - { role: tech-lead, name: Tech Lead, decision: approve }
+notes: >-
+  Tech Lead approved six census oracles as owner-reviewed for KPI-RKG-001 /
+  OBS-RKG-001 on the measured corpus. Mandatory MVP = these six fixtures;
+  polyglot-06 remains documented out until fixture+oracle+census exist.
+  Follow-up (does not reopen this receipt): encode README negatives
+  ambiguousBinding.ts and shadowedFetch.ts into expected_react_ts.json
+  prohibited on a future oracle revision (new SHA pin + new receipt revision).
+  Oracle JSON and census JSON evidence were not rewritten for this sign-off.
+  KPI-RKG-002 remains blocked until sibling ../pilot_fastapi is restored.
+captured_against:
+  code_commit: 2d0af7204d89ea3944fbe507bc590744e45a5033
+  census_evidence:
+    - { key: TEST-RKG-FIXTURE-CENSUS-001, path: .aide/evidence/tests/TEST-RKG-FIXTURE-CENSUS-001.json }
+    - { key: TEST-RKG-FIXTURE-CENSUS-SUMMARY-001, path: .aide/evidence/tests/TEST-RKG-FIXTURE-CENSUS-SUMMARY-001.md }
+  artifacts:
+    - { key: OBS-RKG-001, revision: 2, hash: 779e2f6001bd3aab1c4e04ad961a6e9fa65f28e88bbb677180b90a4c698e18f5 }
+oracle_files_sha256:
+  expected_bullmq.json: d82c648dcf4f51d6cac2e5c8cc6281cd80c5e859136d5c2bd4c86d1e3b40befe
+  expected_go.json: d7686f8b5d3a8491a4b8f461f01bba87cebc5270a12b957d177e21fad19bf80d
+  expected_nuxt.json: f72fd071a54aac0f95ddf4b08d685b8e23ee6523e022985924d79dc8b6eea032
+  expected_react_ts.json: f1a04139668f602907423d38d852cf3a036a1ed1aaede8d78a6b0908b94fd8e1
+  expected_soopi.json: e95d99db955b2c195d57d7810b98a1c69e0bc5eb00897422516cef3cfdbf9904
+  expected_spring.json: 62e1d71926907c5c584662203e50dcb4c66f2d53af7b02d21c8a5cc4d65899de
+oracle_paths:
+  - tests/evaluation/expected_bullmq.json
+  - tests/evaluation/expected_go.json
+  - tests/evaluation/expected_nuxt.json
+  - tests/evaluation/expected_react_ts.json
+  - tests/evaluation/expected_soopi.json
+  - tests/evaluation/expected_spring.json
+checklist:
+  - { item: semantic-keys-no-hash-ids, result: pass, note: type+qualified_name identity; no hash entity/edge IDs }
+  - { item: negative-and-allowlist-documented, result: pass, note: "all six allow_unlisted_actual=true + prohibited; follow-up react ambiguousBinding/shadowedFetch prohibited" }
+  - { item: matches-fixture-readme-inventory, result: pass, note: curated inventories match README (soopi via API/CMP docs) }
+  - { item: no-absolute-paths-secrets-source-body, result: pass, note: relative evidence paths; config names only; sentinel only in prohibited }
+  - { item: mandatory-mvp-corpus-scope, result: pass, note: "six fixtures = MVP mandatory; polyglot-06 out per TEST-RKG-EXTRACTION-FIXTURES-001-r3" }
+---

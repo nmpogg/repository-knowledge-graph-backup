@@ -1,0 +1,56 @@
+{
+  "key": "TEST-RKG-CHATBOT-CLOSURE-001",
+  "type": "current-tree-readiness-evidence",
+  "group": "evidence",
+  "revision": 1,
+  "change_set": "CHG-RKG-2026-002",
+  "captured_at": "2026-10-07T04:37:16.505492+00:00",
+  "code_commit": "02c892324202ca3eda9fdbc58c661a16c79b5608",
+  "review_records": [
+    {
+      "path": ".aide/evidence/reviews/REV-TASK-RKG-031-002.yaml",
+      "sha256": "e8f489401d32354ef99b69be15be8168b04fd9820403841d1287387eecd2dfe7"
+    },
+    {
+      "path": ".aide/evidence/reviews/REV-TASK-RKG-032-003.yaml",
+      "sha256": "2f7bcf2f07a80a8410187685ad2441e93a7f345b29b5243ff69c287a83dc466c"
+    },
+    {
+      "path": ".aide/evidence/reviews/REV-TASK-RKG-033-001.yaml",
+      "sha256": "190c1cb21ffaab245c8789430d0fc7ec81aa68ae550f6b68e100b9b0d4d49339"
+    },
+    {
+      "path": ".aide/evidence/reviews/REV-TASK-RKG-034-003.yaml",
+      "sha256": "ced3853ac9dbc9f9c94fa50e6f9a3ae6ccd8a36ff1365f8d80796cec5d863779"
+    },
+    {
+      "path": ".aide/evidence/reviews/REV-TASK-RKG-035-001.yaml",
+      "sha256": "4a70413aaa86a5c724dde8144963a14e0ac86e198af80acd0a048ba72ba6cf0d"
+    }
+  ],
+  "current_tree_checks": {
+    "normative_pins": 36,
+    "code_test_config_hashes": 203,
+    "result": "matched_frozen_packages",
+    "TASK034_findings": "001–004 resolved; IDs/fingerprints/attribution preserved",
+    "TASK035": "independent automated contribution passed; upstream finding004 now independently resolved"
+  },
+  "test_execution": "No code changed since captured current-tree suites; reuse TEST-TASK-RKG-035-001 and independent review checks. No new test execution claimed.",
+  "candidate_packages": [
+    {
+      "path": ".aide/reviewer/packages/RVP-TASK-RKG-034-r3.yaml",
+      "sha256": "581351fa221b0f77f5b65ab8315fb4d2567bba8f56b80cc99a9495ee7bfe2294"
+    },
+    {
+      "path": ".aide/reviewer/packages/RVP-TASK-RKG-035-r1.yaml",
+      "sha256": "060f313b6776a99b9446ba533f7e9d2f21df35a874354e17ca4bba4aaf375d0e"
+    }
+  ],
+  "human_component_merge_decision": "pending",
+  "not_run": [
+    "live_provider_quality",
+    "human_UAT",
+    "operator_database_migration",
+    "release"
+  ]
+}

@@ -1,0 +1,39 @@
+---
+key: FIND-RKG-TE-002
+type: finding
+group: evidence
+scope: system
+system: SYS-RKG
+status: remediated
+severity: major
+revision: 1
+change_set: CHG-RKG-2026-001
+captured_at: '2026-10-08'
+finding_key: check-5+frontend/src/components/graph/graphLayout.ts+dirty-product-tree
+relations:
+  part_of: [CHG-RKG-2026-001]
+  affects: [TEST-RKG-AC-NFR-RERUN-001]
+classification: internal
+ai_assisted: true
+---
+# FIND-RKG-TE-002 — test record captured on changed product code
+
+## Summary
+
+`TEST-RKG-AC-NFR-RERUN-001` names commit `4c6ab37789eda0cd820c86313bef1e71359eacb0`
+with a dirty working tree. Uncommitted product edits are present in
+`frontend/src/components/graph/KnowledgeGraph.tsx` and
+`frontend/src/components/graph/graphLayout.ts`, with
+`frontend/src/components/graph/graphLayout.test.ts` also modified and
+`tests/evals/.gitkeep` deleted. Passed rows, including the frontend suite,
+were measured on that dirty tree. Historical test-evidence files were not
+edited. The new record is a new file.
+
+Evidence path: `.aide/evidence/tests/TEST-RKG-AC-NFR-RERUN-001.md`.
+
+## Resolution
+
+fixed. `TEST-RKG-AC-NFR-RERUN-001-r2` records the dirty frontend tree and does
+not count it as a clean pass. AC-RKG-073, AC-RKG-046, and NFR-RKG-UX-001#5 are
+`not_run`. Rows left `passed` are the revision-1 pytest results. This fix did
+not edit those frontend files.

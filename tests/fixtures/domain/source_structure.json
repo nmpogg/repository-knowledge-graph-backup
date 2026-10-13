@@ -1,0 +1,49 @@
+{
+  "repository_id": "repo-golden",
+  "snapshot_id": "snap-golden",
+  "file_path": "pkg/orders.py",
+  "nodes": [
+    {
+      "key": "unit",
+      "type": "SourceUnit",
+      "name": "orders.py",
+      "qualified_name": "pkg.orders",
+      "parent": null
+    },
+    {
+      "key": "service",
+      "type": "Type",
+      "name": "OrderService",
+      "qualified_name": "pkg.orders.OrderService",
+      "parent": "unit"
+    },
+    {
+      "key": "create",
+      "type": "Callable",
+      "name": "create",
+      "qualified_name": "pkg.orders.OrderService.create",
+      "parent": "service"
+    },
+    {
+      "key": "validate",
+      "type": "Callable",
+      "name": "validate",
+      "qualified_name": "pkg.orders.OrderService.create.validate",
+      "parent": "create"
+    }
+  ],
+  "contains": [
+    [
+      "unit",
+      "service"
+    ],
+    [
+      "service",
+      "create"
+    ],
+    [
+      "create",
+      "validate"
+    ]
+  ]
+}

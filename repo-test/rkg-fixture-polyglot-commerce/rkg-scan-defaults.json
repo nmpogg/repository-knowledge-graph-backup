@@ -1,0 +1,10 @@
+{
+  "ignore_patterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/target/**",
+    "**/coverage/**",
+    ".benchmark/**",
+    ".venv/**"
+  ]
+}

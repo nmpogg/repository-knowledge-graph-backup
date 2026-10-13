@@ -1,0 +1,342 @@
+type: context-snapshot
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-016
+revision: 3
+implementation_date: '2026-09-25'
+provenance: reconstructed-from-git-and-existing-evidence
+captured_against:
+  code_tree: 3227188ff9c4a71befa0bdc389302f84cc4c606f
+  artifacts:
+  - key: ADR-2026-002
+    revision: 2
+    hash: 56548c57e00c49f1831892fdef2baee80ba1e87a493a6a78e0acbfc5631b1f15
+    path: architecture/adr/ADR-2026-002.md
+  - key: ADR-2026-003
+    revision: 2
+    hash: 30c9cff4314961830d9bfcc1d13d2fe8e69fe7e25c4329080e6fdf0a25661a6f
+    path: architecture/adr/ADR-2026-003.md
+  - key: API-RKG-CORE-v1
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  - key: CMP-RKG-TRANSPORT
+    revision: 7
+    hash: 6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286
+    path: architecture/l2/CMP-RKG-TRANSPORT.md
+  - key: EPIC-002-TEAM-RKG
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  - key: FR-RKG-001
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  - key: FR-RKG-002
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  - key: FR-RKG-003
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  - key: FR-RKG-004
+    revision: 6
+    hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+    path: requirements/fr/FR-RKG-004.md
+  - key: NFR-RKG-REL-001
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  - key: NFR-RKG-SEC-001
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  - key: NFR-RKG-UX-001
+    revision: 7
+    hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  - key: STORY-RKG-010
+    revision: 1
+    hash: c1f815af131bbb12ea19845d42ab5782da4997887b65b18c7819b6cc4efecc88
+    path: lifecycle/stories/STORY-RKG-010.md
+  implementation_phases:
+  - commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    author_at: '2026-09-25T16:41:13+07:00'
+    committed_at: '2026-09-25T16:41:13+07:00'
+    implementation_date: '2026-09-25'
+    changed_paths:
+    - pyproject.toml
+    - src/rkg/api/README.md
+    - src/rkg/api/__init__.py
+    - src/rkg/api/app.py
+    - src/rkg/api/catalog.py
+    - src/rkg/api/errors.py
+    - src/rkg/api/guard.py
+    - src/rkg/api/jobs.py
+    - src/rkg/api/serialize.py
+    - src/rkg/cli/__init__.py
+    - src/rkg/conversations/README.md
+    - src/rkg/domain/README.md
+    - src/rkg/graph/README.md
+    - src/rkg/jobs/__init__.py
+    - src/rkg/jobs/coordinator.py
+    - tests/integration/test_core_api.py
+    - uv.lock
+  files:
+  - path: pyproject.toml
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 18826393db4fb5ff55751a2b9a124cb9b60da81c361ca55f960fef0dd5504446
+    current_sha256: 9cf2132b6a3566f1f2ebd763ed6a9215dd39b244fcc1c743c17a3c8b72ae5a85
+  - path: src/rkg/api/README.md
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 21006d9bc985d2c7c1fa85d1794bae56e323c3045ed7164f4ef0414c1dd96e6e
+    current_sha256: 0a4926b5e2c408d690d9ec3090b6e5d964495ad44a56d14bf3bf6817a5a83b47
+  - path: src/rkg/api/__init__.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 49a540452a55c4046b3a150153476e3289e667b2405f6edae3602fcca58e8c8f
+    current_sha256: 55ab052563ff1daf4b6c491b54ad4ed295c4267ffcfac9ce8ef46336471d4da9
+  - path: src/rkg/api/app.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 1e3465f027b9fbd797a761f4ea41d522c533dd13b2494b7e93db92033620115e
+    current_sha256: 8eebd57e33a62eceaa71670c22c2a39733c7ba237944fce54cee1ce32412b900
+  - path: src/rkg/api/catalog.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 936ce49c227993fd81ea7cdeeac408a1b3221abc2e37f41c3ed60334948d66bd
+    current_sha256: 3dfd3669681392631021bd4eed8e5ac426bec65482384f83a534d4bd3323d766
+  - path: src/rkg/api/errors.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 6c10829f4c96b7da608131279fd8324da07ca3fbfc94d861298d2f3ae50d7c66
+    current_sha256: 0e1751e2496b9767ea465ae9e29f9aa8bee586d0f8f9da88f3ecf654ae366cdd
+  - path: src/rkg/api/guard.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 528182b18b9bac96957af46dca9177b823c5899d0621bb5ec66aa7adb6042e2c
+    current_sha256: eaef98eea37bd2e208119a87ac03e8e0c5a4fd6e99635f9cc4622fb298f91876
+  - path: src/rkg/api/jobs.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 9baec21ab50d62ab6a8b827c8fed716c46023e5920209b36f1e34a63725f03f4
+    current_sha256: eb7603482e1ba04677b3a13207d018cd9f1ec516624e079bca87cf324c187157
+  - path: src/rkg/api/serialize.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 0e8e12689e88d82b41229306091f4ff19fcdec8f80647d2cc031a1f75b9d6b98
+    current_sha256: 5e57997eceb6d67a3e113687488fbb8c4a6bde3e16315130afa428293da9e52f
+  - path: src/rkg/cli/__init__.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 4851598717b4829d9226953eb2b0dae6cbdcc9ca9bafb6125749ea2041d1c632
+    current_sha256: f5ce0359ebd7796f40ea0d653622e1bd970c7267a813b6e6f6d49abfd69c1d64
+  - path: src/rkg/conversations/README.md
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: a997bd03314439dda824eb9e0198152bac2497d70ca6b3050989da6e9a039af8
+    current_sha256: adf38c4220f53e0b60bf4af62d641fd8e262e49e93a8327a971b09a71ab0227f
+  - path: src/rkg/domain/README.md
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: ba1353538a5b243f85067713a01a7d492be5dbacc8fe9b97b3c6f19dbec8f886
+    current_sha256: 459cc0291b2cfbf42efb57a33e137373e7c4cbb45a144f4de6ff96af75fb6b23
+  - path: src/rkg/graph/README.md
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 47552420eff9f912dac9806dd6d6286d665c1a5646bb14b912f863e7a188d3e4
+    current_sha256: f248d187b2865fe2d4d6c0eee093fd7876163c7b601e0e401e69ae86d0f2106d
+  - path: src/rkg/jobs/__init__.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 61bbbb39d3006fb12958bb50755c73dabcb28197a3b5e69b16b078293980d7c4
+    current_sha256: 2d2c49d6b6297504ca60846f2709f4fe9a615a9e8bc49da32261c762a3ef4de5
+  - path: src/rkg/jobs/coordinator.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 7ebff9d566859b42a7f280fdc7614bf2cf07f9752e3cb1ac63f313ac3ed84a37
+    current_sha256: 3ecb3e8e2a9bdf5ecbb0db98341294fbe8fc41f6f65246555db9d784fd80d2bf
+  - path: tests/integration/test_core_api.py
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: 7e546a264cda9569262f50780e182f2a2aab3311730818e90b3a99a35adfd3ee
+    current_sha256: ca49654802311116d6cfe42fc7073a78aadb3072b1c873d49e737a20e9ea9944
+  - path: uv.lock
+    implementation_commit: 20931a3d40889c60abf801498b9a1c698e2d19d7
+    implementation_sha256: d0873364cfd428a6bc7c12d4e56a0c64b84932d44eaf0d5a5cc3146080afe41f
+    current_sha256: 6d8d84d83558626838b6c41374bf9b1c66f4e70a292e5a60a6ea7e25ffda06d4
+authority:
+  baseline: BL-CHG-RKG-2026-001
+  status: candidate
+  closes_gates: false
+  historical_approval_applies_only_to_explicit_locked_revisions: true
+  minimum_status: candidate
+  reject_if_stale: true
+key: CTX-TASK-RKG-016
+objective: TASK-RKG-016
+objective_description: Expose repository/job/snapshot/search/subgraph/context API trên loopback; validate session/Origin/Host,
+  serialize stable errors và gọi chung service với CLI.
+requirements:
+- FR-RKG-001
+- FR-RKG-002
+- FR-RKG-003
+- FR-RKG-004
+- AC-RKG-058
+- AC-RKG-061
+- AC-RKG-066
+- AC-RKG-067
+- AC-RKG-068
+- AC-RKG-069
+- AC-RKG-070
+- AC-RKG-071
+- AC-RKG-072
+design:
+- CMP-RKG-TRANSPORT
+decisions:
+- ADR-2026-002
+- ADR-2026-003
+contracts:
+- API-RKG-CORE-v1
+constraints:
+- NFR-RKG-REL-001
+- NFR-RKG-SEC-001
+- NFR-RKG-UX-001
+applicable_rules:
+- GATE-RKG-SCOPE
+- GATE-RKG-ARCHITECTURE
+- GATE-RKG-CONTRACT
+code_scope:
+- pyproject.toml
+- src/rkg/api/README.md
+- src/rkg/api/__init__.py
+- src/rkg/api/app.py
+- src/rkg/api/catalog.py
+- src/rkg/api/errors.py
+- src/rkg/api/guard.py
+- src/rkg/api/jobs.py
+- src/rkg/api/serialize.py
+- src/rkg/cli/__init__.py
+- src/rkg/conversations/README.md
+- src/rkg/domain/README.md
+- src/rkg/graph/README.md
+- src/rkg/jobs/__init__.py
+- src/rkg/jobs/coordinator.py
+- tests/integration/test_core_api.py
+- uv.lock
+inputs:
+  ADR-2026-002:
+    revision: 2
+    hash: 56548c57e00c49f1831892fdef2baee80ba1e87a493a6a78e0acbfc5631b1f15
+    path: architecture/adr/ADR-2026-002.md
+  ADR-2026-003:
+    revision: 2
+    hash: 30c9cff4314961830d9bfcc1d13d2fe8e69fe7e25c4329080e6fdf0a25661a6f
+    path: architecture/adr/ADR-2026-003.md
+  API-RKG-CORE-v1:
+    revision: 15
+    hash: e0f482a8c98a88898aa7abae2d42e1c00cb82b0e393627447dd7f08fd03d8ce2
+    path: tech-specs/RKG-TRANSPORT/api/API-RKG-CORE-v1.md
+  CMP-RKG-TRANSPORT:
+    revision: 7
+    hash: 6d89ca2098b2335b8455b3dad6c2b0a214079e55cd92e13d5cbf0de13e6df286
+    path: architecture/l2/CMP-RKG-TRANSPORT.md
+  EPIC-002-TEAM-RKG:
+    revision: 7
+    hash: 3b9f44bb40e6c626770d506fe9927b88c429d6f5d987575efb32629acc2a6099
+    path: lifecycle/epics/EPIC-002-TEAM-RKG.md
+  FR-RKG-001:
+    revision: 7
+    hash: ab59d0704c700664d729a8cee8be85b85d666c2319cfde63105b63431419d36a
+    path: requirements/fr/FR-RKG-001.md
+  FR-RKG-002:
+    revision: 12
+    hash: 87e5ce79bae3c7622ee1467f5a85984cdb506dd7bef55da72bb7dfde82f07a4f
+    path: requirements/fr/FR-RKG-002.md
+  FR-RKG-003:
+    revision: 12
+    hash: d910a133cf0457d54367db44681770bdda83657b9df427e491f5e3a3434e47ad
+    path: requirements/fr/FR-RKG-003.md
+  FR-RKG-004:
+    revision: 6
+    hash: e384e4722c480ad009f3223d7db6b8aae101e96b2e18b9c88b7561da7f5100ae
+    path: requirements/fr/FR-RKG-004.md
+  NFR-RKG-REL-001:
+    revision: 8
+    hash: fd6742188c96da8e9859bbd15ff68715c792e57d6eaf6368d34e3d34dd902b0b
+    path: requirements/nfr/NFR-RKG-REL-001.md
+  NFR-RKG-SEC-001:
+    revision: 7
+    hash: ea54ad8b488bc6bcc862ed0316dc8e6a46a58ad63119b9cadf3d24853d8135aa
+    path: requirements/nfr/NFR-RKG-SEC-001.md
+  NFR-RKG-UX-001:
+    revision: 7
+    hash: c73044ee84ad7fda785daf4ad9818e128d5cf33e02005b00f8019668f09be4e3
+    path: requirements/nfr/NFR-RKG-UX-001.md
+  STORY-RKG-010:
+    revision: 1
+    hash: c1f815af131bbb12ea19845d42ab5782da4997887b65b18c7819b6cc4efecc88
+    path: lifecycle/stories/STORY-RKG-010.md
+previous_findings: []
+revision_history:
+- revision: 1
+  metadata:
+    key: CTX-TASK-RKG-016
+    type: context-snapshot
+    group: evidence
+    system: SYS-RKG
+    task_key: TASK-RKG-016
+    story: STORY-RKG-010
+    captured_at: 2026-09-25
+    graph_revision: none
+    captured_against:
+      artifacts:
+      - key: TASK-RKG-016
+        revision: 1
+      - key: CHG-RKG-2026-001
+        revision: 1
+      - key: BL-r1
+        revision: 1
+      - key: FR-RKG-001
+      - key: FR-RKG-003
+      - key: FR-RKG-004
+      - key: CMP-RKG-TRANSPORT
+      code_tree: working-tree-at-task-open
+    authority:
+      baseline: BL-r1
+      minimum_status: approved_in_baseline
+      contract_gate: pending
+      reject_if_stale: true
+  record: |-
+    # CTX-TASK-RKG-016
+
+    ## objective
+    Serialize API v1 xuống service đã có. Transport không chứa extraction hay graph-write riêng.
+
+    ## requirements
+    - AC-RKG-058
+    - AC-RKG-061
+    - AC-RKG-066
+    - AC-RKG-067
+    - AC-RKG-068
+    - AC-RKG-069
+    - AC-RKG-070
+    - AC-RKG-071
+    - AC-RKG-072
+
+    ## design
+    - CMP-RKG-TRANSPORT — gồm transaction boundary, idempotency và concurrency của component này
+
+    ## decisions
+    - ADR-2026-002, ADR-2026-003
+
+    ## contracts
+    - API-RKG-CORE-v1
+    - Contract Gate chưa đóng. Task pin contract hiện hành, không coi là bản đã release breaking.
+
+    ## constraints
+    - NFR-RKG-SEC-001
+    - NFR-RKG-REL-001
+    - NFR-RKG-UX-001
+
+    ## code_scope
+    - src/rkg/api/**
+
+    ## applicable_rules
+    - GATE-RKG-SCOPE, GATE-RKG-ARCHITECTURE đã khóa trong BL-r1 cho phần requirements và architecture lúc baseline.
+    - GATE-RKG-CONTRACT còn pending. UI/UX chỉ là input khi task đụng màn hình.
+
+    ## previous_findings
+    []
+
+    ## verification_intent
+    Mỗi AC liệt kê ở trên có một kiểm chứng quan sát được trong plan của chính task. Không mượn AC của lát cắt sau.
+parent:
+- EPIC-002-TEAM-RKG

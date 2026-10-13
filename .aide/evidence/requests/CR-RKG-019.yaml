@@ -1,0 +1,18 @@
+{
+  "key": "CR-RKG-019",
+  "type": "change-request",
+  "group": "evidence",
+  "revision": 2,
+  "system": "SYS-RKG",
+  "captured_at": "2026-10-07T07:03:39.350944+00:00",
+  "task": "TASK-RKG-037",
+  "story": "STORY-RKG-031",
+  "source": "explicit_user_instruction",
+  "change_set": "CHG-RKG-2026-004",
+  "scope": "Add explicit server-selected OpenAI alongside OpenRouter; preserve existing default, schema/graph validation, privacy and unlimited application budgets. No automatic fallback, UI contract change, live provider call or operator configuration change.",
+  "request_summary": "Add a direct OpenAI provider on TASK-RKG-037 beside OpenRouter, with the same grounded boundary and no automatic fallback.",
+  "authorization_boundary": "Provider selection only. No UI contract change, live provider call, or operator configuration change. No gate signature is carried by this request.",
+  "classification": "internal",
+  "ai_assisted": true,
+  "record_boundary": "Normalized requested behavior; no transcript."
+}

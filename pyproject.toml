@@ -1,0 +1,52 @@
+[project]
+name = "rkg"
+version = "0.1.0"
+description = "Repository Knowledge Graph — local-first FastAPI architecture graph analyzer"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi>=0.115",
+  "jsonschema>=4.23,<5",
+  "kuzu==0.11.3",
+  "tiktoken>=0.9,<1",
+  "tree-sitter>=0.23,<0.26",
+  "tree-sitter-go>=0.23,<0.26",
+  "tree-sitter-java>=0.23,<0.26",
+  "tree-sitter-typescript>=0.23,<0.26",
+  "uvicorn>=0.32",
+]
+
+[project.scripts]
+rkg = "rkg.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rkg"]
+force-include = { "src/rkg/storage/fixtures/ddl_v0.cypher" = "rkg/storage/fixtures/ddl_v0.cypher", "src/rkg/llm/data/o200k_base.tiktoken" = "rkg/llm/data/o200k_base.tiktoken" }
+
+[dependency-groups]
+dev = [
+  "httpx>=0.27",
+  "pytest>=8.0",
+  "ruff>=0.8",
+]
+
+evaluation = [
+  "openai>=1,<3",
+  "ragas==0.4.3",
+  "langchain-community>=0.3,<0.4",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "src"]
+
+[tool.ruff]
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

@@ -1,0 +1,52 @@
+change_request: CR-RKG-002
+analysis_mode: manual-from-recorded-change-set
+graph_queried: false
+touches:
+- FR-RKG-005
+- CMP-RKG-CONVERSATION
+- CMP-RKG-WEB
+- ADR-2026-007
+- TM-RKG
+- UXF-RKG-002
+- SCR-RKG-001
+- UID-RKG-001
+- API-RKG-CORE-v1
+- TBL-RKG-GRAPH
+- UIS-RKG-001
+- DDL-RKG-GRAPH
+- MIG-RKG-CHATBOT-v3
+- CON-RKG-CONVERSATION-v1
+- SCH-RKG-CONVERSATION-v1
+- OAS-RKG-CONVERSATION-v1
+- SCH-RKG-READ-PLAN-v2
+- SCH-RKG-NARRATIVE-v1
+- CHL-RKG-CONVERSATION-v1
+stale_artifacts: []
+affected_teams:
+- TEAM-RKG
+external_consumers: []
+risk_signals:
+  pii: false
+  financial: false
+tier: T2
+tier_status: proposed
+flow: change
+skipped_with_reason:
+- area: human-UAT
+  reason: change-set implementation_progress.human_UAT is not_run.
+- area: release
+  reason: change-set implementation_progress.release is not_run.
+- area: live-provider-quality
+  reason: change-set implementation_progress.live_provider_quality is not_run.
+- area: operator-database-migration
+  reason: change-set l3_readiness.operator_database_migration and implementation_progress.operator_database_migration are not_run.
+- area: production-runtime
+  reason: change-set l3_readiness.production_runtime is not_run.
+confidence:
+  graph_coverage: 0.0
+limitations:
+- touches_are_the_artifacts_declared_on_change-set.yaml
+- baseline_r8_does_not_record_change_relation
+- gate_invalidation_does_not_name_stale_artifact_keys
+- reference_only_rows_on_the_baseline_are_omitted
+- no_graph_query

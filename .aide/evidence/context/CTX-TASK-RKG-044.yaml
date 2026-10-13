@@ -1,0 +1,31 @@
+type: context-snapshot
+key: CTX-TASK-RKG-044
+group: evidence
+scope: system
+system: SYS-RKG
+task_key: TASK-RKG-044
+revision: 1
+implementation_date: '2026-10-07'
+change_set: CHG-RKG-2026-001
+provenance: stack-c-normative-align
+captured_against:
+  code_commit: 2d0af7204d89ea3944fbe507bc590744e45a5033
+  artifacts:
+  - key: TASK-RKG-044
+    path: lifecycle/tasks/TASK-RKG-044.md
+  - key: STORY-RKG-028
+    path: lifecycle/stories/STORY-RKG-028.md
+  - key: CMP-RKG-ANALYZER
+    path: architecture/l2/CMP-RKG-ANALYZER.md
+  - key: REG-ADAPTER-001
+    path: registry/REG-ADAPTER-001.md
+  - key: CHG-RKG-2026-001
+    path: lifecycle/change-sets/CHG-RKG-2026-001/change-set.yaml
+  - key: FIND-RKG-ST-C-001
+    path: evidence/findings/FIND-RKG-ST-C-001.yaml
+notes:
+  - BullMQ messaging adapter implemented and registered (`rkg.bullmq`).
+  - Story STORY-RKG-028 owns Stack C BullMQ scope.
+  - FIND-RKG-ST-C-001 remediated (TASK out-of-scope aligned to Story).
+  - Deep-support promotion not closed; task remains in_progress.
+  - Next: verify bullmq census; append test evidence.

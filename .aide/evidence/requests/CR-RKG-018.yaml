@@ -1,0 +1,19 @@
+{
+  "key": "CR-RKG-018",
+  "type": "change-request",
+  "group": "evidence",
+  "revision": 2,
+  "system": "SYS-RKG",
+  "captured_at": "2026-10-07T04:59:46.872600+00:00",
+  "actor": "PhongNM",
+  "task": "TASK-RKG-036",
+  "story": "STORY-RKG-030",
+  "scope": "Remove application-imposed limits for model calls, input tokens, LLM output tokens, graph query count, total turn deadline and user question characters. Keep history/retrieval/narrative/schema/privacy/ownership guards.",
+  "request_summary": "Remove the six application ceilings on TASK-RKG-036 and keep history, retrieval, narrative, schema, privacy and ownership guards.",
+  "source": "explicit_user_instruction",
+  "change_set": "CHG-RKG-2026-003",
+  "authorization_boundary": "Application budget ceilings only. Live-provider limits and charges stay external. No gate signature is carried by this request.",
+  "classification": "internal",
+  "ai_assisted": true,
+  "record_boundary": "Normalized requested behavior; no transcript."
+}

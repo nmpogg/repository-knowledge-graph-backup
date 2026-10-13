@@ -1,0 +1,51 @@
+key: CHG-RKG-2026-010
+label: Vue language and Nuxt extraction
+type: change-set
+group: normative
+scope: lifecycle
+system: SYS-RKG
+status: draft
+revision: 1
+phase: verified_deep_support_withheld
+change_request: CR-RKG-025
+tier: T2
+tier_status: proposed
+tier_basis: Recorded request verifies existing Vue and Nuxt extraction against the nuxt4 oracle. One team. No new bounded context and no ADR replacement are stated. No signer decided this proposal.
+flow: change
+objective:
+  description: Verify rkg.vue and rkg.nuxt on STORY-RKG-027. Deep support stays withheld.
+  satisfies:
+  - AC-RKG-003
+  - AC-RKG-006
+  - AC-RKG-007
+  - AC-RKG-035
+  - AC-RKG-048
+affected_systems:
+- SYS-RKG
+affected_teams:
+- TEAM-RKG
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+coordination:
+  mode: independent
+  integration_gate_required: false
+stories:
+- STORY-RKG-027
+tasks:
+- TASK-RKG-043
+gates:
+  scope: pending
+  architecture: pending
+  ui_ux: pending
+  contract: pending
+  component_merge: pending
+baseline: not_recorded
+task_review: not_recorded
+deep_support: withheld
+verification_evidence: TEST-RKG-VUE-NUXT-001
+stack_support_review: REV-RKG-STACK-SUPPORT-001
+release_slice: separate
+release_slice_reason: The Vue/Nuxt request is a separate authorization from the other adapter stories. No shared adapter release is recorded.
+classification: internal
+ai_assisted: true

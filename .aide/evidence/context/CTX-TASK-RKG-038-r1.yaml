@@ -1,0 +1,21 @@
+{
+  "key": "CTX-TASK-RKG-038-r1",
+  "type": "context-snapshot",
+  "group": "evidence",
+  "revision": 1,
+  "task": "TASK-RKG-038",
+  "code_commit": "706ef617618e6765edc8d2ddbad3d56a63dc32dd",
+  "captured_at": "2026-10-07T07:39:37.578587+00:00",
+  "authorization": "CR-RKG-020",
+  "scope": "Investigate malformed chatbot turns without claiming root cause from generic UI code. Supply existing normative endpoint anchors/path limits and planner sentinel semantics explicitly to model. Add allowlisted stage/reason diagnostics with no prompt/response/config values. Suppress coverage/limit notes for failed/interrupted/pending turns and explain malformed response naturally. Preserve original schemas/grounding/state/idempotency and unlimited defaults; no paid live call or operator DB/config.",
+  "normative_inputs": [
+    {
+      "path": ".aide/tech-specs/RKG-CONVERSATION/CON-RKG-CONVERSATION-v1.md",
+      "sha256": "c4ce0a7f2c38a18aff044852d69905481242abcebee964d79d6e72ccc2ef2584"
+    },
+    {
+      "path": ".aide/architecture/adr/ADR-2026-007.md",
+      "sha256": "1f2cacebd38a882af11857e025a17e30b88cab9c91e61637deba623bdf75221a"
+    }
+  ]
+}

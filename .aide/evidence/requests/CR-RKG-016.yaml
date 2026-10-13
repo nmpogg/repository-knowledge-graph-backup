@@ -1,0 +1,19 @@
+{
+  "key": "CR-RKG-016",
+  "type": "change-request",
+  "group": "evidence",
+  "system": "SYS-RKG",
+  "revision": 1,
+  "captured_at": "2026-10-07T03:19:18.324540+00:00",
+  "change_set": "CHG-RKG-2026-002",
+  "source": "explicit_interactive_human_authorization",
+  "actor": "PhongNM",
+  "scope": "Additional independent verification of repaired FND-TASK-RKG-032-002 only; no new full adversarial round.",
+  "candidate": {
+    "path": "/home/tts/project/repository-knowledge-graph/.aide/reviewer/packages/RVP-TASK-RKG-032-r4.yaml",
+    "sha256": "29c9aa5082f378edc6caaadcafeee4c8332c1e2a153ca7c56aabcbf052a2815e"
+  },
+  "reason": "User selected targeted independent verification after the two-round ceiling for the concrete repaired repository-label collision.",
+  "automatic": false,
+  "record_boundary": "Normalized instruction only; no transcript."
+}

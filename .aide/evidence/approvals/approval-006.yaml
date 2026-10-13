@@ -1,0 +1,59 @@
+---
+uid:
+key: approval-006
+type: approval-record
+group: evidence
+scope: system
+system: SYS-RKG
+status: recorded
+revision: 1
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+relations:
+  verifies: [GATE-RKG-CONTRACT]
+  derived_from: [API-RKG-CORE-v1, TBL-RKG-GRAPH, DDL-RKG-GRAPH]
+classification: internal
+ai_assisted: true
+gate: GATE-RKG-CONTRACT
+change_set: CHG-RKG-2026-001
+decision: partial
+decided_at: 2026-09-24
+approvers: []
+assumption: >-
+  Per operator instruction, approve only Contract Gate checklist items that are
+  already evidenced; leave CLI/session/polling integration and full-gate sign-off
+  unchecked. Normative API/TBL `status: draft` fields were NOT rewritten; this
+  record treats the approved subset (rev locked below) as the T-014 baseline.
+notes: >-
+  Human operator directed a partial Contract Gate packaging pass: sign ready
+  API/TBL/DDL/storage items; skip incomplete transport/CLI/session integration.
+  Approver identity intentionally omitted. Decision must not be attributed to
+  tooling. Full GATE-RKG-CONTRACT remains open until unchecked items pass.
+  TASK-RKG-014 may proceed against this subset (API-RKG-CORE-v1 rev 9 limits,
+  TBL/DDL rev 9 schema).
+captured_against:
+  code_tree: 348ee6154975b4971d61c4c698e37cfd9c36ff29
+  artifacts:
+    - { key: GATE-RKG-CONTRACT, revision: 4, hash: 0787a246f796 }
+    - { key: API-RKG-CORE-v1, revision: 9, hash: 248deb83a270 }
+    - { key: TBL-RKG-GRAPH, revision: 9, hash: aea91e156e93 }
+    - { key: DDL-RKG-GRAPH, path: .aide/tech-specs/RKG-GRAPH/schema/DDL-RKG-GRAPH.cypher, hash: 789127c88011 }
+    - { key: CMP-RKG-GRAPH, revision: 4, hash: 07e174fa1388 }
+    - { key: NFR-RKG-SEC-001, revision: 7, hash: 059f449b49e3 }
+    - { key: NFR-RKG-REL-001, revision: 8, hash: a86a9623da64 }
+  evidence:
+    - { key: TEST-RKG-DDL-BOOTSTRAP-001 }
+    - { key: TEST-RKG-STORAGE-SNAPSHOTS-001 }
+    - { key: DIARY-TASK-RKG-013 }
+checklist:
+  - { item: endpoint-io-paging-limits-errors-versioning, result: pass }
+  - { item: repository-snapshot-crud-ownership-guards, result: pass }
+  - { item: cli-exit-loopback-parity-integration-tested, result: deferred, reason: awaits TASK-RKG-016 CLI/transport integration }
+  - { item: polling-qa-nonstreaming-in-ui-transport, result: deferred, reason: API/UI mock present; live transport awaits TASK-RKG-016 }
+  - { item: session-origin-host-no-secret-integration-acs, result: deferred, reason: FR ACs exist; transport integration awaits TASK-RKG-016 }
+  - { item: schema-12-nodes-13-rels-identity-evidence, result: pass, note: SchemaMeta included; checklist corrected from 11 to 12 }
+  - { item: ddl-executes-on-pinned-kuzu, result: pass }
+  - { item: atomic-publish-activate-delete-pins-migrate-tests, result: pass }
+  - { item: full-gate-tech-lead-qa-signoff, result: deferred, reason: full Contract Gate remains open }
+---

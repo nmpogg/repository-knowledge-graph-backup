@@ -1,0 +1,46 @@
+---
+uid:
+key: REV-RKG-EVAL-ORACLE-001
+type: review-record
+group: evidence
+scope: system
+system: SYS-RKG
+status: closed
+revision: 1
+ownership:
+  accountable_team: TEAM-RKG
+  accountable_role: tech-lead
+relations:
+  part_of: [CHG-RKG-2026-001]
+  reviews:
+  - OBS-RKG-001
+  - KPI-RKG-001
+  blocks_receipt: RCPT-RKG-EVAL-ORACLE-001
+classification: internal
+ai_assisted: true
+record: |-
+  # REV-RKG-EVAL-ORACLE-001 — Expected JSON oracle review packet
+
+  Scope: six census oracles consumed by `tests/evaluation/test_*_census.py`.
+  Out of scope: pilot_fastapi digest, live Q&A eval set, perf benchmark corpus.
+
+  ## Agent verification (2026-10-07, commit 2d0af72…)
+
+  - `uv run pytest tests/evaluation/ -k census -v` → 12 passed.
+  - SHA-256 of each `tests/evaluation/expected_*.json` pinned in
+    `RCPT-RKG-EVAL-ORACLE-001` and `TEST-RKG-FIXTURE-CENSUS-001.json`.
+  - Aggregate census: TP=296, FN=0, FP=0; coverage/precision 1.0 on six fixtures.
+
+  ## Tech Lead decision (2026-10-07)
+
+  Receipt `RCPT-RKG-EVAL-ORACLE-001` recorded as **approved**. Checklist all
+  pass. Mandatory MVP corpus = the six fixtures; polyglot-06 remains out.
+  Follow-up noted on receipt: add react `ambiguousBinding` /
+  `shadowedFetch` to `expected_react_ts.json` prohibited on a future oracle
+  revision (do not rewrite this closed packet's pinned hashes).
+
+  Closed against receipt decision; do not edit prior census JSON evidence.
+captured_against:
+  code_commit: 2d0af7204d89ea3944fbe507bc590744e45a5033
+  receipt: RCPT-RKG-EVAL-ORACLE-001
+---

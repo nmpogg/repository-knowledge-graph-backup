@@ -1,0 +1,104 @@
+{
+  "exact": [
+    {
+      "intent": "unsupported extension; no SourceUnit",
+      "evidence": [
+        {
+          "path": "analysis-cases/unsupported/schema.proto",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "intent": "syntax diagnostic; no normal callable from malformed source",
+      "language": "TypeScript",
+      "evidence": [
+        {
+          "path": "analysis-cases/syntax/typescript/broken.ts",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "intent": "syntax diagnostic; no normal callable from malformed source",
+      "language": "Java",
+      "evidence": [
+        {
+          "path": "analysis-cases/syntax/java/Broken.java",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "intent": "syntax diagnostic; no normal callable from malformed source",
+      "language": "Go",
+      "evidence": [
+        {
+          "path": "analysis-cases/syntax/go/broken.go",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "intent": "dynamic HTTP path unresolved; no static endpoint link",
+      "evidence": [
+        {
+          "path": "apps/web/src/analysis-cases/negative/dynamicUrl.ts",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "intent": "dynamic queue unresolved; no static queue merge",
+      "evidence": [
+        {
+          "path": "workers/email/src/analysis-cases/negative/dynamicQueueName.ts",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "intent": "dynamic topic unresolved; no static topic merge",
+      "evidence": [
+        {
+          "path": "workers/projection/internal/analysiscases/negative/dynamic_topic.go",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    }
+  ],
+  "detected_only": [
+    {
+      "intent": "unknown Markdown/YAML/JSON files are clearly reported; no fabricated language source node",
+      "evidence": [
+        {
+          "path": "contracts/openapi/orders-api.yaml",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "intent": "multiple application roots require explicit per-root selection beyond app_module/app_symbol",
+      "evidence": [
+        {
+          "path": "expected/applications.yaml",
+          "rule_intent": "source declaration",
+          "line": 1
+        }
+      ]
+    }
+  ],
+  "prohibited": [
+    "persist secret sentinel, payload, config values or absolute host paths in graph/report/log",
+    "ignore a failing component in verify-all",
+    "claim post-merge feature already exists from matching names"
+  ]
+}

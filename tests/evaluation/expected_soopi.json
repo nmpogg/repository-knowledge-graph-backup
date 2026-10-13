@@ -1,0 +1,1553 @@
+{
+  "fixture_id": "soopi",
+  "oracle_source": "repo-test/soopi/docs/API-SOOPI-001.md + CMP-SOOPI-BACKEND.md + models",
+  "notes": [
+    "Pilot Python corpus; adapters already deep-supported (python/fastapi/sqlalchemy)",
+    "match_policy.allow_unlisted_actual=true: curated inventory only; extra structure/import/call facts are not FP",
+    "rule_id null where docs do not name a versioned extraction rule",
+    "Configuration facts are settings field names only; jwt/momo/vnpay secrets must not appear as values"
+  ],
+  "match_policy": {
+    "allow_unlisted_actual": true
+  },
+  "allowlist": [],
+  "entities": [
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.auth.register:POST:/api/v1/auth/register",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/auth/register"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/auth.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.auth.login:POST:/api/v1/auth/login",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/auth/login"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/auth.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.auth.refresh:POST:/api/v1/auth/refresh",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/auth/refresh"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/auth.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.auth.logout:POST:/api/v1/auth/logout",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/auth/logout"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/auth.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.users.me:GET:/api/v1/users/me",
+      "required_attributes": {
+        "method": "GET",
+        "path": "/api/v1/users/me"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/users.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.users.update_me:PATCH:/api/v1/users/me",
+      "required_attributes": {
+        "method": "PATCH",
+        "path": "/api/v1/users/me"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/users.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.users.addresses:GET:/api/v1/users/me/addresses",
+      "required_attributes": {
+        "method": "GET",
+        "path": "/api/v1/users/me/addresses"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/users.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.users.create_address:POST:/api/v1/users/me/addresses",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/users/me/addresses"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/users.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.users.update_address:PUT:/api/v1/users/me/addresses/{address_id}",
+      "required_attributes": {
+        "method": "PUT",
+        "path": "/api/v1/users/me/addresses/{address_id}"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/users.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.users.delete_address:DELETE:/api/v1/users/me/addresses/{address_id}",
+      "required_attributes": {
+        "method": "DELETE",
+        "path": "/api/v1/users/me/addresses/{address_id}"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/users.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.products.products:GET:/api/v1/products",
+      "required_attributes": {
+        "method": "GET",
+        "path": "/api/v1/products"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/products.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.products.product:GET:/api/v1/products/{product_id}",
+      "required_attributes": {
+        "method": "GET",
+        "path": "/api/v1/products/{product_id}"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/products.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.products.create_product:POST:/api/v1/products",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/products"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/products.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.products.update_product:PATCH:/api/v1/products/{product_id}",
+      "required_attributes": {
+        "method": "PATCH",
+        "path": "/api/v1/products/{product_id}"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/products.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.products.create_variant:POST:/api/v1/products/{product_id}/variants",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/products/{product_id}/variants"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/products.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.products.update_variant:PATCH:/api/v1/products/{product_id}/variants/{variant_id}",
+      "required_attributes": {
+        "method": "PATCH",
+        "path": "/api/v1/products/{product_id}/variants/{variant_id}"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/products.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.categories.categories:GET:/api/v1/categories",
+      "required_attributes": {
+        "method": "GET",
+        "path": "/api/v1/categories"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/categories.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.categories.create_category:POST:/api/v1/categories",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/categories"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/categories.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.categories.update_category:PUT:/api/v1/categories/{category_id}",
+      "required_attributes": {
+        "method": "PUT",
+        "path": "/api/v1/categories/{category_id}"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/categories.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.categories.deactivate_category:DELETE:/api/v1/categories/{category_id}",
+      "required_attributes": {
+        "method": "DELETE",
+        "path": "/api/v1/categories/{category_id}"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/categories.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.cart.create_guest:POST:/api/v1/cart/guest",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/cart/guest"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.cart.cart:GET:/api/v1/cart",
+      "required_attributes": {
+        "method": "GET",
+        "path": "/api/v1/cart"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.cart.clear_cart:DELETE:/api/v1/cart",
+      "required_attributes": {
+        "method": "DELETE",
+        "path": "/api/v1/cart"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.cart.add_item:POST:/api/v1/cart/items",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/cart/items"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.cart.update_item:PATCH:/api/v1/cart/items/{variant_id}",
+      "required_attributes": {
+        "method": "PATCH",
+        "path": "/api/v1/cart/items/{variant_id}"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.cart.remove_item:DELETE:/api/v1/cart/items/{variant_id}",
+      "required_attributes": {
+        "method": "DELETE",
+        "path": "/api/v1/cart/items/{variant_id}"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.orders.checkout:POST:/api/v1/orders",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/orders"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.orders.orders:GET:/api/v1/orders",
+      "required_attributes": {
+        "method": "GET",
+        "path": "/api/v1/orders"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.orders.order:GET:/api/v1/orders/{order_id}",
+      "required_attributes": {
+        "method": "GET",
+        "path": "/api/v1/orders/{order_id}"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.orders.cancel_order:POST:/api/v1/orders/{order_id}/cancel",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/orders/{order_id}/cancel"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.orders.initiate_payment:POST:/api/v1/orders/{order_id}/payment",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/orders/{order_id}/payment"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.orders.transition_order:PATCH:/api/v1/orders/{order_id}/status",
+      "required_attributes": {
+        "method": "PATCH",
+        "path": "/api/v1/orders/{order_id}/status"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.orders.momo_webhook:POST:/api/v1/orders/webhooks/momo",
+      "required_attributes": {
+        "method": "POST",
+        "path": "/api/v1/orders/webhooks/momo"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Endpoint",
+      "qualified_name": "app.api.v1.endpoints.orders.vnpay_webhook:GET:/api/v1/orders/webhooks/vnpay",
+      "required_attributes": {
+        "method": "GET",
+        "path": "/api/v1/orders/webhooks/vnpay"
+      },
+      "framework_kind": "fastapi_route",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::users",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "users",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/user.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.user.User",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/user.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::addresses",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "addresses",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/user.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.user.Address",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/user.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::refresh_sessions",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "refresh_sessions",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/user.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.user.RefreshSession",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/user.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::categories",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "categories",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/product.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.product.Category",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/product.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::products",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "products",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/product.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.product.Product",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/product.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::product_variants",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "product_variants",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/product.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.product.ProductVariant",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/product.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::carts",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "carts",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.cart.Cart",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::cart_items",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "cart_items",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.cart.CartItem",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::orders",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "orders",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/order.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.order.Order",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/order.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::order_items",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "order_items",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/order.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.order.OrderItem",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/order.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "DataResource",
+      "qualified_name": "sqlalchemy::payment_attempts",
+      "required_attributes": {
+        "resource_kind": "table",
+        "table": "payment_attempts",
+        "namespace": ""
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/order.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "qualified_name": "app.models.order.PaymentAttempt",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/order.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:database_url",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:jwt_secret",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:jwt_issuer",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:jwt_audience",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:access_token_minutes",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:refresh_token_days",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:guest_cart_days",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:order_hold_minutes",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:shipping_fee",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:cors_origins",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:trusted_hosts",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:momo_partner_code",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:momo_access_key",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:momo_secret_key",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:momo_create_url",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:momo_redirect_url",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:momo_ipn_url",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:vnpay_tmn_code",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:vnpay_hash_secret",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:vnpay_pay_url",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:vnpay_return_url",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Configuration",
+      "qualified_name": "settings:app.core.config.Settings:app_name",
+      "required_attributes": {
+        "kind": "settings",
+        "owner": "app.core.config.Settings"
+      },
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/core/config.py",
+          "start_line": null
+        }
+      ],
+      "note": "settings field name only; value/secret must not be stored"
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.main.create_app",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/main.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.services.order_service.OrderService.checkout",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/services/order_service.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.services.order_service.OrderService.cancel",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/services/order_service.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.services.cart_service.CartService.merge",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/services/cart_service.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.services.payment_service.PaymentService.initiate",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/services/payment_service.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.services.payment_service.PaymentService.apply_result",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/services/payment_service.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "Callable",
+      "qualified_name": "app.expire_orders.expire_pending",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/expire_orders.py",
+          "start_line": null
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "type": "maps_to",
+      "source": "app.models.user.User",
+      "target": "sqlalchemy::users",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/user.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "maps_to",
+      "source": "app.models.user.Address",
+      "target": "sqlalchemy::addresses",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/user.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "maps_to",
+      "source": "app.models.user.RefreshSession",
+      "target": "sqlalchemy::refresh_sessions",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/user.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "maps_to",
+      "source": "app.models.product.Category",
+      "target": "sqlalchemy::categories",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/product.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "maps_to",
+      "source": "app.models.product.Product",
+      "target": "sqlalchemy::products",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/product.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "maps_to",
+      "source": "app.models.product.ProductVariant",
+      "target": "sqlalchemy::product_variants",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/product.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "maps_to",
+      "source": "app.models.cart.Cart",
+      "target": "sqlalchemy::carts",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "maps_to",
+      "source": "app.models.cart.CartItem",
+      "target": "sqlalchemy::cart_items",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "maps_to",
+      "source": "app.models.order.Order",
+      "target": "sqlalchemy::orders",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/order.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "maps_to",
+      "source": "app.models.order.OrderItem",
+      "target": "sqlalchemy::order_items",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/order.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "maps_to",
+      "source": "app.models.order.PaymentAttempt",
+      "target": "sqlalchemy::payment_attempts",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/models/order.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "app.api.v1.endpoints.orders.checkout",
+      "target": "app.services.order_service.OrderService.checkout",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "app.api.v1.endpoints.orders.cancel_order",
+      "target": "app.services.order_service.OrderService.cancel",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "app.api.v1.endpoints.orders.initiate_payment",
+      "target": "app.services.payment_service.PaymentService.initiate",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "app.api.v1.endpoints.orders.momo_webhook",
+      "target": "app.services.payment_service.PaymentService.apply_result",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "app.api.v1.endpoints.orders.vnpay_webhook",
+      "target": "app.services.payment_service.PaymentService.apply_result",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "app.api.v1.endpoints.cart.add_item",
+      "target": "app.services.cart_service.CartService.add",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/api/v1/endpoints/cart.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "app.services.auth_service.AuthService.login",
+      "target": "app.services.cart_service.CartService.merge",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/services/auth_service.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "app.services.order_service.OrderService.checkout",
+      "target": "app.services.cart_service.CartService.owned",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/services/order_service.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "app.expire_orders.expire_pending",
+      "target": "app.services.order_service.OrderService.expire",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/expire_orders.py",
+          "start_line": null
+        }
+      ]
+    },
+    {
+      "type": "calls",
+      "source": "app.main.create_app",
+      "target": "app.core.config.get_settings",
+      "rule_id": null,
+      "evidence": [
+        {
+          "file_path": "app/main.py",
+          "start_line": null
+        }
+      ]
+    }
+  ],
+  "prohibited": [
+    {
+      "reason": "configuration values/secrets must not appear in graph text",
+      "text_must_not_contain": "RKG_TEST_SECRET_DO_NOT_PERSIST"
+    },
+    {
+      "reason": "tests and alembic fixtures are outside app inventory scan intent",
+      "entity": {
+        "type": "Endpoint",
+        "qualified_name_contains": "tests."
+      }
+    }
+  ]
+}

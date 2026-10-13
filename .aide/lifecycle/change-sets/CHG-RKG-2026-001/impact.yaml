@@ -1,0 +1,38 @@
+change_request: CR-RKG-001
+analysis_mode: manual-bootstrap
+touches:
+- product
+- requirements
+- domain
+- architecture
+- tech-specs
+- design
+- observability
+- lifecycle
+- policies
+- evidence
+- generated
+- registry
+stale_artifacts: []
+affected_teams:
+- TEAM-RKG
+external_consumers: []
+risk_signals:
+  pii: false
+  financial: false
+tier: T1
+flow: new-system
+skipped_with_reason:
+- area: production-deploy
+  reason: Release steps 19–21 not performed; validation/review/fixes/UAT (15–18) remain
+    applicable. Documentation recovery adds no task or feature.
+path_signals:
+- .aide/**
+- docs/**
+- src/rkg/**
+- frontend/src/**
+confidence:
+  graph_coverage: 0.0
+limitations:
+- manual_bootstrap_did_not_query_a_graph
+- coverage_figure_is_historical_not_a_current_measurement

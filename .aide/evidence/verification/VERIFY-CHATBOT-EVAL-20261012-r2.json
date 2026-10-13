@@ -1,0 +1,250 @@
+{
+  "key": "VERIFY-CHATBOT-EVAL-20261012-r2",
+  "date": "2026-10-12",
+  "group": "non-normative",
+  "scope": "current-tree live chatbot evaluation",
+  "branch": "fix/chatbot-evaluation-90",
+  "code_revision": "0ee79ab0bb7d93444038ee6923606b4a742f2c55",
+  "code_tree_sha256": "b3ddb0a3090669e6b8a8f3076291fabab032a61caaa0f3ea8ae9ac6a5ee47aef",
+  "working_tree_changes_in_evaluation": [
+    "evaluation/calibrate.py",
+    "evaluation/test_run_ragas.py"
+  ],
+  "input_sha256": {
+    "evaluation/calibrate.py": "1225a5b8f4020ae1f51a8b148747d5e24af8179a33a40fe321316afec56e3d55",
+    "evaluation/run_ragas.py": "848dd531e100ed4b5866d672b33c112d71e8e42d09674edf567a3742220c10d1",
+    "evaluation/test_run_ragas.py": "9a7425d0c05e0dd30ea171ef4a698091ccc5c2de3c97820cbda4bfe28e95f0f7",
+    "evaluation/test_validate.py": "b06c90cf74a4e454c7584e895df7bf6b077a7ca68a7f6810954e806f304012b2",
+    "evaluation/golden_set.json": "84b86874f8bc90e9bda88e9324ddcec26ee19a3ed3504675d13aeb91f8430bc6",
+    "evaluation/results/current.json": "52107cbfa539e7b071872011bf36f8938f54a220a37758680eb760de6fab6eba",
+    ".aide/policies/eval/EVAL-RKG-QA-001.md": "19bba2089b095b0b431d85d843a61a3d5a4488889c269d47439869f11b673720"
+  },
+  "authorization": "User confirmed updated OpenAI API credentials and requested evaluation rerun plus recorded results.",
+  "commands": {
+    "calibration": ".venv/bin/python -m evaluation.calibrate --output evaluation/results/calibration-20261012-03.json",
+    "evaluation": ".venv/bin/python -m evaluation.run_ragas --judge-model gpt-4.1 --output evaluation/results/ragas-live-20261012-02.json"
+  },
+  "calibration": {
+    "report": "evaluation/results/calibration-20261012-03.json",
+    "sha256": "c8f8864bc68583c3ea19e870383fce7594d8c5c285e4c8e4a440021f0747f4ad",
+    "passed": 7,
+    "total": 7,
+    "model": "gpt-4.1"
+  },
+  "live_report": {
+    "report": "evaluation/results/ragas-live-20261012-02.json",
+    "sha256": "11836254c3026c4c179864d033d3dbdb0b7f18d8059d41f99b9f2fda39e40372"
+  },
+  "summary": {
+    "case_count": 50,
+    "turn_count": 73,
+    "verdicts": {
+      "pass": 47,
+      "fail": 3
+    },
+    "turn_statuses": {
+      "answered": 66,
+      "needs_clarification": 2,
+      "insufficient_evidence": 5
+    },
+    "metric_errors": 0,
+    "content_judgment_errors": 0,
+    "content_judgment_scored_turns": 73,
+    "quality_assessment": "available",
+    "by_category": {
+      "ambiguous": {
+        "pass": 1
+      },
+      "answerable": {
+        "pass": 27,
+        "fail": 2
+      },
+      "conversation": {
+        "pass": 9,
+        "fail": 1
+      },
+      "insufficient": {
+        "pass": 4
+      },
+      "long_conversation": {
+        "pass": 1
+      },
+      "safety": {
+        "pass": 5
+      }
+    },
+    "by_repository": {
+      "rkg-fixture-bullmq-worker": {
+        "pass": 7,
+        "fail": 1
+      },
+      "rkg-fixture-go-event-worker": {
+        "pass": 8
+      },
+      "rkg-fixture-nuxt4": {
+        "pass": 8
+      },
+      "rkg-fixture-react-ts": {
+        "pass": 7,
+        "fail": 1
+      },
+      "rkg-fixture-spring-orders": {
+        "pass": 7,
+        "fail": 1
+      },
+      "soopi": {
+        "pass": 10
+      }
+    },
+    "answerable_passed": 27,
+    "answerable_denominator": 29,
+    "answerable_judged": 29,
+    "observed_answerable_pass_rate": 0.9310344827586207,
+    "estimated_answerable_accuracy": 0.9310344827586207,
+    "citation_validity": 1.0,
+    "citation_count": 342,
+    "citation_coverage": 1.0,
+    "relationship_claim_count": 304,
+    "ragas": {
+      "factual_correctness_f1": {
+        "mean": 0.5965753424657534,
+        "scored_turns": 73,
+        "total_turns": 73
+      },
+      "required_fact_recall": {
+        "mean": 0.7591780821917808,
+        "scored_turns": 73,
+        "total_turns": 73
+      },
+      "faithfulness": {
+        "mean": 0.9316980582468195,
+        "scored_turns": 71,
+        "total_turns": 73
+      },
+      "context_recall": {
+        "mean": 0.9530516431924884,
+        "scored_turns": 71,
+        "total_turns": 73
+      },
+      "case_rubric": {
+        "mean": 4.986301369863014,
+        "scored_turns": 73,
+        "total_turns": 73
+      },
+      "readability": {
+        "mean": 4.273972602739726,
+        "scored_turns": 73,
+        "total_turns": 73
+      }
+    },
+    "official_kpi_acceptance": "not_claimed_pending_independent_review"
+  },
+  "runner_target_assessment": {
+    "minimum_pass_rate": 0.9,
+    "overall_pass_rate": 0.94,
+    "answerable_pass_rate": 0.9310344827586207,
+    "state": "passed"
+  },
+  "remaining_failures": [
+    {
+      "case_id": "RKG-EVAL-014",
+      "repository": "rkg-fixture-react-ts",
+      "category": "answerable",
+      "turns": [
+        {
+          "turn_id": "T1",
+          "verdict": "fail",
+          "native_checks_passed": true,
+          "missing_or_incorrect_required_facts": [
+            "T1-F1",
+            "T1-F2"
+          ],
+          "unsupported_repository_assertion": true,
+          "forbidden_assertion": false
+        }
+      ]
+    },
+    {
+      "case_id": "RKG-EVAL-021",
+      "repository": "rkg-fixture-bullmq-worker",
+      "category": "answerable",
+      "turns": [
+        {
+          "turn_id": "T1",
+          "verdict": "fail",
+          "native_checks_passed": true,
+          "missing_or_incorrect_required_facts": [
+            "T1-F1"
+          ],
+          "unsupported_repository_assertion": true,
+          "forbidden_assertion": true
+        }
+      ]
+    },
+    {
+      "case_id": "RKG-EVAL-034",
+      "repository": "rkg-fixture-spring-orders",
+      "category": "conversation",
+      "turns": [
+        {
+          "turn_id": "T1",
+          "verdict": "fail",
+          "native_checks_passed": true,
+          "missing_or_incorrect_required_facts": [
+            "T1-F1"
+          ],
+          "unsupported_repository_assertion": false,
+          "forbidden_assertion": false
+        },
+        {
+          "turn_id": "T2",
+          "verdict": "fail",
+          "native_checks_passed": true,
+          "missing_or_incorrect_required_facts": [
+            "T2-F1"
+          ],
+          "unsupported_repository_assertion": false,
+          "forbidden_assertion": false
+        }
+      ]
+    }
+  ],
+  "comparison_to_previous_valid_run": {
+    "report": "evaluation/results/ragas-live-20261009-fix-02.json",
+    "chatbot_model": "gpt-4o-mini",
+    "judge_model": "gpt-4.1",
+    "previous_overall_passed": 36,
+    "current_overall_passed": 47,
+    "overall_total": 50,
+    "previous_answerable_passed": 20,
+    "current_answerable_passed": 27,
+    "answerable_total": 29,
+    "interpretation": "Same corpus and model names; stochastic live measurements, not proof that credential replacement alone caused the improvement."
+  },
+  "local_verification": {
+    "pytest_command": ".venv/bin/pytest -q evaluation/test_validate.py evaluation/test_run_ragas.py --tb=short --show-capture=no",
+    "passed": 35,
+    "failed": 0,
+    "duration_seconds": 17.11,
+    "ruff": "passed",
+    "git_diff_check": "passed",
+    "code_tree_hash_matches_completed_run": true
+  },
+  "acceptance": {
+    "numeric_90_percent_target": "passed",
+    "official_kpi_acceptance": "not_claimed_pending_independent_review",
+    "corpus_independent_review": "pending",
+    "conversation_cases": "9/10 passed; long conversation 1/1 passed",
+    "unsupported_assertions": "Content judge flagged RKG-EVAL-014 and RKG-EVAL-021; independent assessment required.",
+    "structured_relationship_citation_coverage": 1.0,
+    "citation_validity": 1.0
+  },
+  "operational_notes": [
+    "Initial sandbox calibration interrupted after failed connectivity check.",
+    "Calibration reached OpenAI but failed to persist due to KeyError turns; repaired calibration-specific atomic report writing and added regression test.",
+    "ragas-live-20261012-01 interrupted as superseded after 19 cases; no quality result from that run is used.",
+    "Additional gpt-4o-mini calibration passed 7/7; primary report uses calibrated gpt-4.1 to match previous valid run."
+  ],
+  "lifecycle_status_changes": [],
+  "user_staged_change_preserved": true
+}

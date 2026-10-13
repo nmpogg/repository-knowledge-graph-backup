@@ -1,0 +1,19 @@
+"""Static JPA technology observation for adapter selection."""
+
+from __future__ import annotations
+
+from rkg.adapters import DetectionReport, ParseResult
+from rkg.detection.contracts import FrameworkObservation
+from rkg.ingestion import SourceManifest
+
+
+class JpaDetector:
+    """Surface JPA/Hibernate evidence so deep selection can run."""
+
+    def detect(
+        self, manifest: SourceManifest, parsed: ParseResult
+    ) -> FrameworkObservation:
+        from rkg.adapters.jpa_data import JpaDataAccessAdapter
+
+        report: DetectionReport = JpaDataAccessAdapter().detect(manifest, parsed)
+        return FrameworkObservation(report)
