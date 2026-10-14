@@ -838,69 +838,100 @@ export function ExplorerPage() {
             </button>
             {optionsOpen ? (
               <div id="explorer-options" className="explorer-popover" role="dialog">
-                <p className="explorer-popover-lead">{t('explorer.optionsLead')}</p>
-                <label>
-                  {t('explorer.graphView')}
-                  <select value={graphView} onChange={(e) => {
-                    setActivePreset('')
-                    setOverviewGraph(false)
-                    setGraphView(e.target.value as 'flow' | 'neighborhood')
-                    setEdgeTypes(undefined)
-                  }}>
-                    <option value="flow">{t('explorer.flowView')}</option>
-                    <option value="neighborhood">{t('explorer.neighborhoodView')}</option>
-                  </select>
-                </label>
-                {graphView === 'flow' ? <>
-                  <label><input type="checkbox" checked={includeStructure}
-                    onChange={(e) => setIncludeStructure(e.target.checked)} />
-                    {t('explorer.includeStructure')}</label>
-                  <label><input type="checkbox" checked={includeDependencies}
-                    onChange={(e) => setIncludeDependencies(e.target.checked)} />
-                    {t('explorer.includeDependencies')}</label>
-                  <p className="explorer-popover-lead">{t('explorer.flowHint')}</p>
-                </> : null}
-                <label>
-                  {t('explorer.direction')}
-                  <select
-                    value={direction}
-                    disabled={graphView === 'flow'}
-                    onChange={(e) => {
-                      setActivePreset('')
-                      setDirection(e.target.value as EdgeDirection)
-                    }}
-                  >
-                    <option value="both">{t('explorer.dir.both')}</option>
-                    <option value="outgoing">{t('explorer.dir.outgoing')}</option>
-                    <option value="incoming">{t('explorer.dir.incoming')}</option>
-                  </select>
-                </label>
-                <label>
-                  {t('explorer.depth')}
-                  <input
-                    type="number"
-                    min={1}
-                    max={6}
-                    value={depth}
-                    onChange={(e) => {
-                      setActivePreset('')
-                      setDepth(Number(e.target.value) || 1)
-                    }}
-                  />
-                </label>
-                <label>
-                  {t('explorer.maxNodes')}
-                  <input
-                    type="number"
-                    min={5}
-                    max={200}
-                    value={maxNodes}
-                    onChange={(e) => {
-                      setActivePreset('')
-                      setMaxNodes(Number(e.target.value) || 50)
-                    }}
-                  />
-                </label>
+                <fieldset className="explorer-option-seg">
+                  <legend>{t('explorer.graphView')}</legend>
+                  <div className="explorer-seg" role="radiogroup" aria-label={t('explorer.graphView')}>
+                    <button
+                      type="button"
+                      role="radio"
+                      aria-checked={graphView === 'flow'}
+                      onClick={() => {
+                        setActivePreset('')
+                        setOverviewGraph(false)
+                        setGraphView('flow')
+                        setEdgeTypes(undefined)
+                      }}
+                    >
+                      {t('explorer.flowView')}
+                    </button>
+                    <button
+                      type="button"
+                      role="radio"
+                      aria-checked={graphView === 'neighborhood'}
+                      onClick={() => {
+                        setActivePreset('')
+                        setOverviewGraph(false)
+                        setGraphView('neighborhood')
+                        setEdgeTypes(undefined)
+                      }}
+                    >
+                      {t('explorer.neighborhoodView')}
+                    </button>
+                  </div>
+                </fieldset>
+                {graphView === 'flow' ? (
+                  <div className="explorer-option-checks">
+                    <label className="explorer-check">
+                      <input
+                        type="checkbox"
+                        checked={includeStructure}
+                        onChange={(e) => setIncludeStructure(e.target.checked)}
+                      />
+                      {t('explorer.includeStructure')}
+                    </label>
+                    <label className="explorer-check">
+                      <input
+                        type="checkbox"
+                        checked={includeDependencies}
+                        onChange={(e) => setIncludeDependencies(e.target.checked)}
+                      />
+                      {t('explorer.includeDependencies')}
+                    </label>
+                  </div>
+                ) : (
+                  <label>
+                    {t('explorer.direction')}
+                    <select
+                      value={direction}
+                      onChange={(e) => {
+                        setActivePreset('')
+                        setDirection(e.target.value as EdgeDirection)
+                      }}
+                    >
+                      <option value="both">{t('explorer.dir.both')}</option>
+                      <option value="outgoing">{t('explorer.dir.outgoing')}</option>
+                      <option value="incoming">{t('explorer.dir.incoming')}</option>
+                    </select>
+                  </label>
+                )}
+                <div className="explorer-option-pair">
+                  <label>
+                    {t('explorer.depth')}
+                    <input
+                      type="number"
+                      min={1}
+                      max={6}
+                      value={depth}
+                      onChange={(e) => {
+                        setActivePreset('')
+                        setDepth(Number(e.target.value) || 1)
+                      }}
+                    />
+                  </label>
+                  <label>
+                    {t('explorer.maxNodes')}
+                    <input
+                      type="number"
+                      min={5}
+                      max={200}
+                      value={maxNodes}
+                      onChange={(e) => {
+                        setActivePreset('')
+                        setMaxNodes(Number(e.target.value) || 50)
+                      }}
+                    />
+                  </label>
+                </div>
               </div>
             ) : null}
           </div>

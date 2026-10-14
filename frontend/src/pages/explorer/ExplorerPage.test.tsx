@@ -190,15 +190,16 @@ describe('Explorer graph relationships', () => {
   it('offers optional file/folder and dependency overlays in flow view', async () => {
     renderExplorer()
     fireEvent.click(screen.getByRole('button', { name: 'Options' }))
-    expect(screen.getByRole('combobox', { name: 'Graph view' })).toHaveValue('flow')
+    expect(screen.getByRole('radio', { name: 'Entity flow' })).toHaveAttribute('aria-checked', 'true')
+    expect(screen.queryByLabelText('Direction')).not.toBeInTheDocument()
     const structure = screen.getByLabelText('Show files and folders')
     expect(structure).not.toBeChecked()
     fireEvent.click(structure)
     expect(structure).toBeChecked()
     expect(screen.getByLabelText('Show declared dependencies')).not.toBeChecked()
-    fireEvent.change(screen.getByRole('combobox', { name: 'Graph view' }), { target: { value: 'neighborhood' } })
+    fireEvent.click(screen.getByRole('radio', { name: 'All relationships' }))
     expect(screen.queryByLabelText('Show files and folders')).not.toBeInTheDocument()
-    expect(screen.getByLabelText('Direction')).not.toBeDisabled()
+    expect(screen.getByLabelText('Direction')).toBeEnabled()
   })
   it('shows direct API relationships and lets the reader move to the next entity', async () => {
     vi.stubGlobal('ResizeObserver', class {

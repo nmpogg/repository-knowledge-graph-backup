@@ -891,20 +891,107 @@ code,
   z-index: 50;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 220px;
-  padding: 12px;
+  gap: 12px;
+  width: 268px;
+  padding: 14px;
   border: 1px solid var(--color-border);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--color-surface);
-  box-shadow: 0 8px 24px rgb(15 23 42 / 18%);
+  box-shadow: 0 12px 28px rgb(15 23 42 / 22%);
 }
 
-.explorer-popover-lead {
+.explorer-option-seg {
   margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.explorer-option-seg legend {
+  padding: 0;
   font-size: 12px;
-  line-height: 1.4;
   color: var(--color-text-muted);
+}
+
+.explorer-seg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-background);
+}
+
+.explorer-seg button {
+  min-height: 28px;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.explorer-seg button[aria-checked='true'] {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 18%);
+}
+
+.explorer-option-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.explorer-popover label.explorer-check {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.explorer-popover label.explorer-check input {
+  appearance: none;
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  min-height: 14px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  background: var(--color-background);
+  display: grid;
+  place-content: center;
+}
+
+.explorer-popover label.explorer-check input:checked {
+  border-color: var(--color-action);
+  background: var(--color-action);
+}
+
+.explorer-popover label.explorer-check input:checked::after {
+  content: '';
+  width: 3px;
+  height: 6px;
+  border: solid var(--color-action-contrast);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.explorer-popover label.explorer-check input:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 .explorer-popover label {
@@ -916,13 +1003,19 @@ code,
 }
 
 .explorer-popover select,
-.explorer-popover input {
+.explorer-popover input:not([type='checkbox']) {
   min-height: 30px;
   padding: 4px 8px;
   border: 1px solid var(--color-border);
   border-radius: 6px;
   background: var(--color-background);
   color: var(--color-text);
+}
+
+.explorer-option-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
 }
 
 .explorer-ask {
