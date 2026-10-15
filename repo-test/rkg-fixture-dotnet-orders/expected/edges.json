@@ -1,0 +1,426 @@
+{
+  "exact": [
+    {
+      "source": "endpoint.create",
+      "relation": "handled_by",
+      "target": "controller.create",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 11,
+        "line_sha256": "00d205262b47ab197f2e0cdf3500595ed0c0f463648a89e079c51e2f312d552e"
+      }
+    },
+    {
+      "source": "controller.create",
+      "relation": "calls",
+      "target": "service.create",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 14,
+        "line_sha256": "cacc611de999617e43920d5f93ae9c75109bca60231dd822d79fc70755e5399f"
+      }
+    },
+    {
+      "source": "endpoint.get",
+      "relation": "handled_by",
+      "target": "controller.get",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 18,
+        "line_sha256": "e1f094952131535c554803daab4e89114eaf856e5ca19dc0779c225c5b251752"
+      }
+    },
+    {
+      "source": "controller.get",
+      "relation": "calls",
+      "target": "service.get",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 21,
+        "line_sha256": "3736aa55ecdbbaf6fded86b0958a52e914cee6b0be383b63b1cd2a518c66d1f9"
+      }
+    },
+    {
+      "source": "endpoint.list",
+      "relation": "handled_by",
+      "target": "controller.list",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 26,
+        "line_sha256": "0019533c2fd4dbb7c2fa49fe4a5e048e2249cf2559cf6c3bbbf1e4f79f317b3a"
+      }
+    },
+    {
+      "source": "controller.list",
+      "relation": "calls",
+      "target": "service.list",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 28,
+        "line_sha256": "d9ec80b113e9668483b2f512ca557d667bf4eca3e60ee290395d5b2da0d14436"
+      }
+    },
+    {
+      "source": "endpoint.status",
+      "relation": "handled_by",
+      "target": "controller.status",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 30,
+        "line_sha256": "22f3123eac9ec14df8e4c932d41acacd8cb20331180d7f9dd74645709a96d23f"
+      }
+    },
+    {
+      "source": "controller.status",
+      "relation": "calls",
+      "target": "service.status",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 33,
+        "line_sha256": "3ceb860798ff01ab80137bd21b0c6445376e723c635b93def257d83661b33469"
+      }
+    },
+    {
+      "source": "endpoint.delete",
+      "relation": "handled_by",
+      "target": "controller.delete",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 38,
+        "line_sha256": "b6b88ba74fd94f0aed166a4fe611d02c8d7fe80c0949dc6fc3502eb5108b518c"
+      }
+    },
+    {
+      "source": "controller.delete",
+      "relation": "calls",
+      "target": "service.delete",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 40,
+        "line_sha256": "827d816e7a2f26e2701f558c514244b2453723a0a281f22416c80879c1f08759"
+      }
+    },
+    {
+      "source": "endpoint.readiness",
+      "relation": "handled_by",
+      "target": "controller.readiness",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 42,
+        "line_sha256": "6c47e23d15995f5115a8bcbd7c96dd6378dd0249f23af3ee32efc2a31bf0e20f"
+      }
+    },
+    {
+      "source": "alias.build",
+      "relation": "calls",
+      "target": "order.create.reference",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Positive/AliasCase.cs",
+        "line": 5,
+        "line_sha256": "9fdbd6e8c8489ca575d6462fa947d30fa2f804ee9b480a6251ec99b1c5d72ae7"
+      }
+    },
+    {
+      "source": "order.create.items",
+      "relation": "calls",
+      "target": "order.create.reference",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Domain/Order.cs",
+        "line": 17,
+        "line_sha256": "c8d4a876c80d6792f6527ceec1f0038d6bac8b17afbad97edb7fbc572a526fb4"
+      }
+    },
+    {
+      "source": "service.create",
+      "relation": "calls",
+      "target": "order.create.items",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 13,
+        "line_sha256": "30902a9cb1c91b3d650d9392fdc8020c2afded1518ff17765ac7549ac2515273"
+      }
+    },
+    {
+      "source": "service.create",
+      "relation": "calls",
+      "target": "repository.interface.save",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 15,
+        "line_sha256": "0cbdee11cb5550ed4d60bcfd224ed79cee8f42c996a8c7a72934ce3942d8f59b"
+      }
+    },
+    {
+      "source": "service.get",
+      "relation": "calls",
+      "target": "repository.interface.find",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 18,
+        "line_sha256": "5761241b56f9f1ebe780644e0e949320d80c33bb09c578426b154f3b99a4e039"
+      }
+    },
+    {
+      "source": "service.list",
+      "relation": "calls",
+      "target": "repository.interface.list",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 19,
+        "line_sha256": "61021f795c788121cffc581a3870ab9b76737e63e55cd2a4582ac74fa6f02478"
+      }
+    },
+    {
+      "source": "service.status",
+      "relation": "calls",
+      "target": "repository.interface.find",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 22,
+        "line_sha256": "3c8fb173ca2a39f504982d831fd60147c6b445baf66a5ded362b5f314ab671b4"
+      }
+    },
+    {
+      "source": "service.status",
+      "relation": "calls",
+      "target": "repository.interface.save",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 25,
+        "line_sha256": "0cbdee11cb5550ed4d60bcfd224ed79cee8f42c996a8c7a72934ce3942d8f59b"
+      }
+    },
+    {
+      "source": "service.delete",
+      "relation": "calls",
+      "target": "repository.interface.find",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 30,
+        "line_sha256": "3c8fb173ca2a39f504982d831fd60147c6b445baf66a5ded362b5f314ab671b4"
+      }
+    },
+    {
+      "source": "service.delete",
+      "relation": "calls",
+      "target": "repository.interface.delete",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 32,
+        "line_sha256": "9da67a002cfd608f13377527fc77f0c2545534e538211743ecaa83844fa51f92"
+      }
+    },
+    {
+      "source": "repository.ef",
+      "relation": "implements",
+      "target": "repository.interface",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 6,
+        "line_sha256": "2ee1f9188c7edaca35214dbea7711dd376c7838a19c7e3fa5f923a29411e46ea"
+      }
+    },
+    {
+      "source": "gateway.card",
+      "relation": "implements",
+      "target": "gateway.interface",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Negative/AmbiguousDispatch.cs",
+        "line": 3,
+        "line_sha256": "ec039c9707aaf847629bdee2bc2e872aff2cc7c05c09e00c840a7a27f8ca5867"
+      }
+    },
+    {
+      "source": "gateway.wallet",
+      "relation": "implements",
+      "target": "gateway.interface",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Negative/AmbiguousDispatch.cs",
+        "line": 4,
+        "line_sha256": "270960b7ba540747466f0de532f8c19414f5c2b544f8ffc3306ed8c0f6d9c97c"
+      }
+    },
+    {
+      "source": "controller",
+      "relation": "depends_on",
+      "target": "service",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 8,
+        "line_sha256": "b22063653fdae41fff9af59dd5eecf977c1ea00331bf293ebfe40d48ccc4a344"
+      }
+    },
+    {
+      "source": "service",
+      "relation": "depends_on",
+      "target": "repository.interface",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 8,
+        "line_sha256": "0e200951c3c3917505d802222f91a3cda3c52ee37619ad02ee58d5afd79b9183"
+      }
+    },
+    {
+      "source": "repository.ef",
+      "relation": "depends_on",
+      "target": "dbcontext",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 6,
+        "line_sha256": "2ee1f9188c7edaca35214dbea7711dd376c7838a19c7e3fa5f923a29411e46ea"
+      }
+    },
+    {
+      "source": "order",
+      "relation": "maps_to",
+      "target": "table.orders",
+      "stage": "data_access",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+        "line": 12,
+        "line_sha256": "c7416327a90e23ffbb4eb084a4276c5cc2eb389e8004e8a1a23a297eb8b45c22"
+      }
+    },
+    {
+      "source": "repository.ef.find",
+      "relation": "reads",
+      "target": "table.orders",
+      "stage": "data_access",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 10,
+        "line_sha256": "783dfa6fe5ab1c89bde66424169dbdec0b490385f235423e01d348ec6aaeb18d"
+      }
+    },
+    {
+      "source": "repository.ef.list",
+      "relation": "reads",
+      "target": "table.orders",
+      "stage": "data_access",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 12,
+        "line_sha256": "038c5e9c0d2c4694d860807a3e7d19b8faaab86658a5fbac17d4f0f01a339532"
+      }
+    },
+    {
+      "source": "order.item",
+      "relation": "maps_to",
+      "target": "table.items",
+      "stage": "data_access",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+        "line": 16,
+        "line_sha256": "e511b47cc44ebab292b76fb720500b7adec1e1fd317f883783f574acf6ebbdc1"
+      }
+    },
+    {
+      "source": "repository.ef.find",
+      "relation": "reads",
+      "target": "table.items",
+      "stage": "data_access",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 10,
+        "line_sha256": "783dfa6fe5ab1c89bde66424169dbdec0b490385f235423e01d348ec6aaeb18d"
+      }
+    },
+    {
+      "source": "repository.ef.list",
+      "relation": "reads",
+      "target": "table.items",
+      "stage": "data_access",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 12,
+        "line_sha256": "038c5e9c0d2c4694d860807a3e7d19b8faaab86658a5fbac17d4f0f01a339532"
+      }
+    },
+    {
+      "source": "repository.ef.save",
+      "relation": "writes",
+      "target": "table.orders",
+      "stage": "data_access",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 16,
+        "line_sha256": "84f97bf0df95ab70e6bb1ee8a4e6b1646c1f9c4a88c913d5f82624a3a6b82762"
+      }
+    },
+    {
+      "source": "repository.ef.delete",
+      "relation": "writes",
+      "target": "table.orders",
+      "stage": "data_access",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 21,
+        "line_sha256": "f5faa6a9fbca29f3bedf3f842b13b82411f2712b65d6bc800736d20abb296392"
+      }
+    },
+    {
+      "source": "shipping.readiness",
+      "relation": "depends_on",
+      "target": "shipping.external",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Integrations/ShippingClient.cs",
+        "line": 6,
+        "line_sha256": "b419d92483e6308bdf1275f4e30ca524fafc46a20e9cced173618a5e1a59e5b3"
+      }
+    }
+  ],
+  "optional": [
+    {
+      "source": "repository.ef.save",
+      "relation": "writes",
+      "target": "table.items",
+      "stage": "data_access",
+      "reason": "Requires explicit EF graph-add cascade rule",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 16,
+        "line_sha256": "84f97bf0df95ab70e6bb1ee8a4e6b1646c1f9c4a88c913d5f82624a3a6b82762"
+      }
+    },
+    {
+      "source": "repository.ef.delete",
+      "relation": "writes",
+      "target": "table.items",
+      "stage": "data_access",
+      "reason": "Requires explicit FK cascade rule",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+        "line": 19,
+        "line_sha256": "d014693bc0116ca044edd4ccb0ee19f5382f2fbda6efdc5c862b920700095431"
+      }
+    }
+  ]
+}

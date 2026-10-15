@@ -1,0 +1,308 @@
+{
+  "purpose": "Manual source-backed demo prompts; not part of evaluation/golden_set.json",
+  "cases": [
+    {
+      "key": "create-flow",
+      "question": "API tạo đơn gọi những thành phần nào?",
+      "required_entities": [
+        "endpoint.create",
+        "controller.create",
+        "service.create",
+        "repository.interface.save"
+      ],
+      "constraints": [
+        "Do not claim an outbound shipping request occurs in CRUD."
+      ],
+      "required_answer": "POST /api/orders is handled by OrdersController.Create, which calls OrderService.CreateAsync; the service calls IOrderRepository.SaveAsync. EfOrderRepository is the DI registration. CRUD does not invoke ShippingClient.",
+      "evidence": [
+        {
+          "path": "src/Orders.Api/Controllers/OrdersController.cs",
+          "line": 11,
+          "line_sha256": "00d205262b47ab197f2e0cdf3500595ed0c0f463648a89e079c51e2f312d552e"
+        },
+        {
+          "path": "src/Orders.Api/Controllers/OrdersController.cs",
+          "line": 12,
+          "line_sha256": "4a9e210e59e3bcd005ab0c44853fa784677325d2e39409903397441e76be8567"
+        },
+        {
+          "path": "src/Orders.Api/Application/OrderService.cs",
+          "line": 11,
+          "line_sha256": "3328ed77466e69bc7cbc4d7d5aa33966e831b4856bc0f2f797b0ae78262ddc0f"
+        },
+        {
+          "path": "src/Orders.Api/Application/IOrderRepository.cs",
+          "line": 7,
+          "line_sha256": "7bde8875e356069b7b3da7701d2ce83d7a47653161f12a15b273a52085fb8057"
+        }
+      ]
+    },
+    {
+      "key": "tables",
+      "question": "Order và OrderItem được map tới bảng nào?",
+      "required_entities": [
+        "order",
+        "table.orders",
+        "order.item",
+        "table.items"
+      ],
+      "constraints": [],
+      "required_answer": "OrdersDbContext explicitly maps Order to orders and OrderItem to order_items in the application database context.",
+      "evidence": [
+        {
+          "path": "src/Orders.Api/Domain/Order.cs",
+          "line": 3,
+          "line_sha256": "63062b32f7ad70b826e64074bfb39263619c82a0250a035c4903b03a559823d7"
+        },
+        {
+          "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+          "line": 12,
+          "line_sha256": "c7416327a90e23ffbb4eb084a4276c5cc2eb389e8004e8a1a23a297eb8b45c22"
+        },
+        {
+          "path": "src/Orders.Api/Domain/OrderItem.cs",
+          "line": 2,
+          "line_sha256": "d1d7271a693f12ee54b8f6177cc9bf498c7251beb46c344fd375ed05940e10fe"
+        },
+        {
+          "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+          "line": 16,
+          "line_sha256": "e511b47cc44ebab292b76fb720500b7adec1e1fd317f883783f574acf6ebbdc1"
+        }
+      ]
+    },
+    {
+      "key": "reads",
+      "question": "Hàm nào đọc đơn hàng và items?",
+      "required_entities": [
+        "repository.ef.find",
+        "repository.ef.list",
+        "table.orders",
+        "table.items"
+      ],
+      "constraints": [],
+      "required_answer": "EfOrderRepository.FindAsync and ListAsync query Orders with Include(order => order.Items), reading orders and order_items.",
+      "evidence": [
+        {
+          "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+          "line": 9,
+          "line_sha256": "275bd993fd5666dad801a75b1e0c803465ca387535e331e4f150fc12cbf464c6"
+        },
+        {
+          "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+          "line": 11,
+          "line_sha256": "a0744ac7cf5919445f61dfba69f7f10de463985cf901a953e451869a396a6789"
+        },
+        {
+          "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+          "line": 12,
+          "line_sha256": "c7416327a90e23ffbb4eb084a4276c5cc2eb389e8004e8a1a23a297eb8b45c22"
+        },
+        {
+          "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+          "line": 16,
+          "line_sha256": "e511b47cc44ebab292b76fb720500b7adec1e1fd317f883783f574acf6ebbdc1"
+        }
+      ]
+    },
+    {
+      "key": "writes",
+      "question": "Tạo và xóa đơn ghi vào đâu?",
+      "required_entities": [
+        "repository.ef.save",
+        "repository.ef.delete",
+        "table.orders"
+      ],
+      "constraints": [
+        "Do not assert item cascade edges unless the optional cascade rule is supported."
+      ],
+      "required_answer": "EfOrderRepository.SaveAsync adds detached orders and saves changes; DeleteAsync removes an order and saves changes. Both write orders; item cascade edges require optional reviewed rules.",
+      "evidence": [
+        {
+          "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+          "line": 14,
+          "line_sha256": "2208bd70e94523086cd6a9e2d2031188e8da7226098201c6322f760d170dc581"
+        },
+        {
+          "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+          "line": 19,
+          "line_sha256": "bcf4e3570cb10da37e75e8c18e3174e8e7321288c9fca8965c8cd3ea1d520483"
+        },
+        {
+          "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+          "line": 12,
+          "line_sha256": "c7416327a90e23ffbb4eb084a4276c5cc2eb389e8004e8a1a23a297eb8b45c22"
+        }
+      ]
+    },
+    {
+      "key": "di",
+      "question": "IOrderRepository được đăng ký bằng implementation nào?",
+      "required_entities": [
+        "repository.interface",
+        "repository.ef"
+      ],
+      "constraints": [
+        "Constructor dependency is not itself a method call."
+      ],
+      "required_answer": "AddOrderApplication registers AddScoped<IOrderRepository, EfOrderRepository>. OrderService declares an IOrderRepository constructor dependency.",
+      "evidence": [
+        {
+          "path": "src/Orders.Api/Application/IOrderRepository.cs",
+          "line": 3,
+          "line_sha256": "eeeb6f4bd7501d0370dcc9db4f1f61682d21ec5c07728d419e929cad8ee76b46"
+        },
+        {
+          "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+          "line": 6,
+          "line_sha256": "2ee1f9188c7edaca35214dbea7711dd376c7838a19c7e3fa5f923a29411e46ea"
+        },
+        {
+          "path": "src/Orders.Api/Bootstrap/ServiceRegistration.cs",
+          "line": 22,
+          "line_sha256": "95e1e1384313c9f8e6b244fddb50aa5c00b92c751b0986a154f7dcba30d49d36"
+        }
+      ]
+    },
+    {
+      "key": "overloads",
+      "question": "Hai overload Order.Create khác nhau thế nào?",
+      "required_entities": [
+        "order.create.reference",
+        "order.create.items"
+      ],
+      "constraints": [],
+      "required_answer": "Create(string) creates an order with no items. Create(string, IEnumerable<OrderItem>) calls the first overload and assigns the supplied items.",
+      "evidence": [
+        {
+          "path": "src/Orders.Api/Domain/Order.cs",
+          "line": 11,
+          "line_sha256": "e41a5fd6d7341e461dee14ccf35b5201516cc5d5c87e7db5f09eda82c901d266"
+        },
+        {
+          "path": "src/Orders.Api/Domain/Order.cs",
+          "line": 15,
+          "line_sha256": "0dfd6fbdeec0a592a2230b7c483f8ee2a35a375586677beb52bf8b138bb438ec"
+        }
+      ]
+    },
+    {
+      "key": "collisions",
+      "question": "Có những OrderService nào trong repo?",
+      "required_entities": [
+        "service",
+        "collision.sales",
+        "collision.audit"
+      ],
+      "constraints": [
+        "Do not merge namespace-qualified types."
+      ],
+      "required_answer": "There are three OrderService types: Orders.Api.Application.OrderService, Orders.Api.AnalysisCases.Negative.Sales.OrderService, and Orders.Api.AnalysisCases.Negative.Audit.OrderService.",
+      "evidence": [
+        {
+          "path": "src/Orders.Api/Application/OrderService.cs",
+          "line": 5,
+          "line_sha256": "5147eff0482770ff462f2885d3445d5eeed4f582d55301595b0c5cfd0e700732"
+        },
+        {
+          "path": "src/Orders.Api/AnalysisCases/Negative/NameCollisions.cs",
+          "line": 3,
+          "line_sha256": "8a9d4008bcd2574cd8d9705fd4584ff629efc865e09ffd4060d4d7cad9c7353d"
+        },
+        {
+          "path": "src/Orders.Api/AnalysisCases/Negative/NameCollisions.cs",
+          "line": 7,
+          "line_sha256": "5f3840084fbdb6eae0017c24961107c0f30200e19f60f36d6cb5cd6f9ee66f01"
+        }
+      ]
+    },
+    {
+      "key": "shipping",
+      "question": "ShippingClient gọi hệ thống ngoài nào? Có được gọi khi tạo đơn không?",
+      "required_entities": [
+        "shipping.readiness",
+        "shipping.external",
+        "service.create"
+      ],
+      "constraints": [
+        "CRUD never calls ShippingClient."
+      ],
+      "required_answer": "ShippingClient.GetReadinessAsync calls https://shipping.example.invalid/health. No controller or OrderService CRUD method calls ShippingClient.",
+      "evidence": [
+        {
+          "path": "src/Orders.Api/Integrations/ShippingClient.cs",
+          "line": 5,
+          "line_sha256": "8371243af0be6ec803c5a1dae61fe18b84d6552e373c5e3b3b6362d0f1607486"
+        },
+        {
+          "path": "src/Orders.Api/Integrations/ShippingClient.cs",
+          "line": 6,
+          "line_sha256": "b419d92483e6308bdf1275f4e30ca524fafc46a20e9cced173618a5e1a59e5b3"
+        },
+        {
+          "path": "src/Orders.Api/Application/OrderService.cs",
+          "line": 11,
+          "line_sha256": "3328ed77466e69bc7cbc4d7d5aa33966e831b4856bc0f2f797b0ae78262ddc0f"
+        }
+      ]
+    },
+    {
+      "key": "ambiguous",
+      "question": "AmbiguousDispatch.Invoke chắc chắn dùng CardGateway phải không?",
+      "required_entities": [
+        "gateway.interface",
+        "gateway.card",
+        "gateway.wallet"
+      ],
+      "constraints": [
+        "Cannot choose a unique implementation from the parameter type."
+      ],
+      "required_answer": "No unique concrete target is established. Invoke receives IPaymentGateway and calls its Charge member; CardGateway and WalletGateway both implement the interface and neither is registered in application DI.",
+      "evidence": [
+        {
+          "path": "src/Orders.Api/AnalysisCases/Negative/AmbiguousDispatch.cs",
+          "line": 2,
+          "line_sha256": "ec163dc969b37b4d0bd71a4e04d71e48f59f24ca2313196806a89317d3144427"
+        },
+        {
+          "path": "src/Orders.Api/AnalysisCases/Negative/AmbiguousDispatch.cs",
+          "line": 3,
+          "line_sha256": "ec039c9707aaf847629bdee2bc2e872aff2cc7c05c09e00c840a7a27f8ca5867"
+        },
+        {
+          "path": "src/Orders.Api/AnalysisCases/Negative/AmbiguousDispatch.cs",
+          "line": 4,
+          "line_sha256": "270960b7ba540747466f0de532f8c19414f5c2b544f8ffc3306ed8c0f6d9c97c"
+        },
+        {
+          "path": "src/Orders.Api/AnalysisCases/Negative/AmbiguousDispatch.cs",
+          "line": 8,
+          "line_sha256": "984e1701e1b64fad5a6e559b5e9a92c4b18fa5b7b153a2e5910f707c2069552d"
+        }
+      ]
+    },
+    {
+      "key": "ghost",
+      "question": "Có endpoint /api/ghost-orders không?",
+      "required_entities": [
+        "controller"
+      ],
+      "constraints": [
+        "No: UnregisteredHandler has NonController."
+      ],
+      "required_answer": "No. UnregisteredHandler has NonController, so its HttpGet attribute does not expose /api/ghost-orders.",
+      "evidence": [
+        {
+          "path": "src/Orders.Api/Controllers/OrdersController.cs",
+          "line": 8,
+          "line_sha256": "b22063653fdae41fff9af59dd5eecf977c1ea00331bf293ebfe40d48ccc4a344"
+        },
+        {
+          "path": "src/Orders.Api/AnalysisCases/Negative/UnregisteredHandler.cs",
+          "line": 3,
+          "line_sha256": "26a975962a42b03fe64ffd7ff5268b5c0b02cf9e06c39e878e9be09e4a619538"
+        }
+      ]
+    }
+  ]
+}

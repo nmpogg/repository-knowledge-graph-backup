@@ -1,0 +1,501 @@
+{
+  "classification": "non-normative target subset for future adapters; not a current capability claim",
+  "exact": [
+    {
+      "key": "controller",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 8,
+        "line_sha256": "b22063653fdae41fff9af59dd5eecf977c1ea00331bf293ebfe40d48ccc4a344"
+      },
+      "qualified_name": "Orders.Api.Controllers.OrdersController"
+    },
+    {
+      "key": "service",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 5,
+        "line_sha256": "5147eff0482770ff462f2885d3445d5eeed4f582d55301595b0c5cfd0e700732"
+      },
+      "qualified_name": "Orders.Api.Application.OrderService"
+    },
+    {
+      "key": "repository.interface",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/IOrderRepository.cs",
+        "line": 3,
+        "line_sha256": "eeeb6f4bd7501d0370dcc9db4f1f61682d21ec5c07728d419e929cad8ee76b46"
+      },
+      "qualified_name": "Orders.Api.Application.IOrderRepository"
+    },
+    {
+      "key": "repository.ef",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 6,
+        "line_sha256": "2ee1f9188c7edaca35214dbea7711dd376c7838a19c7e3fa5f923a29411e46ea"
+      },
+      "qualified_name": "Orders.Api.Persistence.EfOrderRepository"
+    },
+    {
+      "key": "dbcontext",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+        "line": 5,
+        "line_sha256": "42f66a4400d2fee60e9edc546be1554066d26f9dd8cbcb4af0c90bb9ae2b079c"
+      },
+      "qualified_name": "Orders.Api.Persistence.OrdersDbContext"
+    },
+    {
+      "key": "order",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Domain/Order.cs",
+        "line": 3,
+        "line_sha256": "63062b32f7ad70b826e64074bfb39263619c82a0250a035c4903b03a559823d7"
+      },
+      "qualified_name": "Orders.Api.Domain.Order"
+    },
+    {
+      "key": "order.item",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Domain/OrderItem.cs",
+        "line": 2,
+        "line_sha256": "d1d7271a693f12ee54b8f6177cc9bf498c7251beb46c344fd375ed05940e10fe"
+      },
+      "qualified_name": "Orders.Api.Domain.OrderItem"
+    },
+    {
+      "key": "collision.sales",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Negative/NameCollisions.cs",
+        "line": 3,
+        "line_sha256": "8a9d4008bcd2574cd8d9705fd4584ff629efc865e09ffd4060d4d7cad9c7353d"
+      },
+      "qualified_name": "Orders.Api.AnalysisCases.Negative.Sales.OrderService"
+    },
+    {
+      "key": "collision.audit",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Negative/NameCollisions.cs",
+        "line": 7,
+        "line_sha256": "5f3840084fbdb6eae0017c24961107c0f30200e19f60f36d6cb5cd6f9ee66f01"
+      },
+      "qualified_name": "Orders.Api.AnalysisCases.Negative.Audit.OrderService"
+    },
+    {
+      "key": "gateway.interface",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Negative/AmbiguousDispatch.cs",
+        "line": 2,
+        "line_sha256": "ec163dc969b37b4d0bd71a4e04d71e48f59f24ca2313196806a89317d3144427"
+      },
+      "qualified_name": "Orders.Api.AnalysisCases.Negative.IPaymentGateway"
+    },
+    {
+      "key": "gateway.card",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Negative/AmbiguousDispatch.cs",
+        "line": 3,
+        "line_sha256": "ec039c9707aaf847629bdee2bc2e872aff2cc7c05c09e00c840a7a27f8ca5867"
+      },
+      "qualified_name": "Orders.Api.AnalysisCases.Negative.CardGateway"
+    },
+    {
+      "key": "gateway.wallet",
+      "type": "Type",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Negative/AmbiguousDispatch.cs",
+        "line": 4,
+        "line_sha256": "270960b7ba540747466f0de532f8c19414f5c2b544f8ffc3306ed8c0f6d9c97c"
+      },
+      "qualified_name": "Orders.Api.AnalysisCases.Negative.WalletGateway"
+    },
+    {
+      "key": "controller.create",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 12,
+        "line_sha256": "4a9e210e59e3bcd005ab0c44853fa784677325d2e39409903397441e76be8567"
+      },
+      "qualified_name": "Orders.Api.Controllers.OrdersController.Create"
+    },
+    {
+      "key": "endpoint.create",
+      "type": "Endpoint",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 11,
+        "line_sha256": "00d205262b47ab197f2e0cdf3500595ed0c0f463648a89e079c51e2f312d552e"
+      },
+      "method": "POST",
+      "path": "/api/orders",
+      "kind": "http",
+      "route_constraint": null
+    },
+    {
+      "key": "service.create",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 11,
+        "line_sha256": "3328ed77466e69bc7cbc4d7d5aa33966e831b4856bc0f2f797b0ae78262ddc0f"
+      }
+    },
+    {
+      "key": "controller.get",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 19,
+        "line_sha256": "3a46c977ae66b6dca96fb64b511ef81e94aa15b542b62fa9c7d770a9a06c6326"
+      },
+      "qualified_name": "Orders.Api.Controllers.OrdersController.Get"
+    },
+    {
+      "key": "endpoint.get",
+      "type": "Endpoint",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 18,
+        "line_sha256": "e1f094952131535c554803daab4e89114eaf856e5ca19dc0779c225c5b251752"
+      },
+      "method": "GET",
+      "path": "/api/orders/{id}",
+      "kind": "http",
+      "route_constraint": "guid"
+    },
+    {
+      "key": "service.get",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 18,
+        "line_sha256": "5761241b56f9f1ebe780644e0e949320d80c33bb09c578426b154f3b99a4e039"
+      }
+    },
+    {
+      "key": "controller.list",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 27,
+        "line_sha256": "f70059de987d1b3d7eab3438fb85249636288b4e89d4f4445f789295bce8dae0"
+      },
+      "qualified_name": "Orders.Api.Controllers.OrdersController.List"
+    },
+    {
+      "key": "endpoint.list",
+      "type": "Endpoint",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 26,
+        "line_sha256": "0019533c2fd4dbb7c2fa49fe4a5e048e2249cf2559cf6c3bbbf1e4f79f317b3a"
+      },
+      "method": "GET",
+      "path": "/api/orders",
+      "kind": "http",
+      "route_constraint": null
+    },
+    {
+      "key": "service.list",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 19,
+        "line_sha256": "61021f795c788121cffc581a3870ab9b76737e63e55cd2a4582ac74fa6f02478"
+      }
+    },
+    {
+      "key": "controller.status",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 31,
+        "line_sha256": "185d1e674aaf43087eb601514fd6799fc698c077744698bc6850a503e672bd0f"
+      },
+      "qualified_name": "Orders.Api.Controllers.OrdersController.UpdateStatus"
+    },
+    {
+      "key": "endpoint.status",
+      "type": "Endpoint",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 30,
+        "line_sha256": "22f3123eac9ec14df8e4c932d41acacd8cb20331180d7f9dd74645709a96d23f"
+      },
+      "method": "PATCH",
+      "path": "/api/orders/{id}/status",
+      "kind": "http",
+      "route_constraint": "guid"
+    },
+    {
+      "key": "service.status",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 20,
+        "line_sha256": "205439cdef1d76453dd1cf381d0eaffd97e5855bc9039f1924194803b940011b"
+      }
+    },
+    {
+      "key": "controller.delete",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 39,
+        "line_sha256": "b0acf91d97b946a767fb8bf406b83d28eeffd29d2c7ce169ef8d827c3de33e2c"
+      },
+      "qualified_name": "Orders.Api.Controllers.OrdersController.Delete"
+    },
+    {
+      "key": "endpoint.delete",
+      "type": "Endpoint",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 38,
+        "line_sha256": "b6b88ba74fd94f0aed166a4fe611d02c8d7fe80c0949dc6fc3502eb5108b518c"
+      },
+      "method": "DELETE",
+      "path": "/api/orders/{id}",
+      "kind": "http",
+      "route_constraint": "guid"
+    },
+    {
+      "key": "service.delete",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/OrderService.cs",
+        "line": 28,
+        "line_sha256": "f23bd6760bf2044a24a42ee07981b6c99c9436a8e531b2090ded3fcb91d4ec05"
+      }
+    },
+    {
+      "key": "controller.readiness",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 43,
+        "line_sha256": "01f2653aa8a3dcca8cd643e5af8678582c446fe0235d533c7d7f8ee64dc92e21"
+      },
+      "qualified_name": "Orders.Api.Controllers.OrdersController.Readiness"
+    },
+    {
+      "key": "endpoint.readiness",
+      "type": "Endpoint",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Controllers/OrdersController.cs",
+        "line": 42,
+        "line_sha256": "6c47e23d15995f5115a8bcbd7c96dd6378dd0249f23af3ee32efc2a31bf0e20f"
+      },
+      "method": "GET",
+      "path": "/api/orders/readiness",
+      "kind": "http",
+      "route_constraint": null
+    },
+    {
+      "key": "repository.interface.find",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/IOrderRepository.cs",
+        "line": 5,
+        "line_sha256": "d906b53c8069fc2e49eaaffdddeee3ef501c8bcffc6a140e759df97f6f97dd38"
+      }
+    },
+    {
+      "key": "repository.ef.find",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 9,
+        "line_sha256": "275bd993fd5666dad801a75b1e0c803465ca387535e331e4f150fc12cbf464c6"
+      }
+    },
+    {
+      "key": "repository.interface.list",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/IOrderRepository.cs",
+        "line": 6,
+        "line_sha256": "6275d87f425a8f1e3c58a704f9d6e320bc877cffcdc1d4117e0dd43cf5662281"
+      }
+    },
+    {
+      "key": "repository.ef.list",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 11,
+        "line_sha256": "a0744ac7cf5919445f61dfba69f7f10de463985cf901a953e451869a396a6789"
+      }
+    },
+    {
+      "key": "repository.interface.save",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/IOrderRepository.cs",
+        "line": 7,
+        "line_sha256": "7bde8875e356069b7b3da7701d2ce83d7a47653161f12a15b273a52085fb8057"
+      }
+    },
+    {
+      "key": "repository.ef.save",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 14,
+        "line_sha256": "2208bd70e94523086cd6a9e2d2031188e8da7226098201c6322f760d170dc581"
+      }
+    },
+    {
+      "key": "repository.interface.delete",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Application/IOrderRepository.cs",
+        "line": 8,
+        "line_sha256": "799f321af2eb7415294eccf0f316a2e1e1e42407cab2a19b4d7cccfb67ff147e"
+      }
+    },
+    {
+      "key": "repository.ef.delete",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/EfOrderRepository.cs",
+        "line": 19,
+        "line_sha256": "bcf4e3570cb10da37e75e8c18e3174e8e7321288c9fca8965c8cd3ea1d520483"
+      }
+    },
+    {
+      "key": "order.create.reference",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Domain/Order.cs",
+        "line": 11,
+        "line_sha256": "e41a5fd6d7341e461dee14ccf35b5201516cc5d5c87e7db5f09eda82c901d266"
+      },
+      "signature": "Orders.Api.Domain.Order.Create(System.String)",
+      "qualified_name": "Orders.Api.Domain.Order.Create(System.String)"
+    },
+    {
+      "key": "order.create.items",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Domain/Order.cs",
+        "line": 15,
+        "line_sha256": "0dfd6fbdeec0a592a2230b7c483f8ee2a35a375586677beb52bf8b138bb438ec"
+      },
+      "signature": "Orders.Api.Domain.Order.Create(System.String,System.Collections.Generic.IEnumerable<Orders.Api.Domain.OrderItem>)",
+      "qualified_name": "Orders.Api.Domain.Order.Create(System.String,System.Collections.Generic.IEnumerable<Orders.Api.Domain.OrderItem>)"
+    },
+    {
+      "key": "alias.build",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Positive/AliasCase.cs",
+        "line": 5,
+        "line_sha256": "9fdbd6e8c8489ca575d6462fa947d30fa2f804ee9b480a6251ec99b1c5d72ae7"
+      },
+      "qualified_name": "Orders.Api.AnalysisCases.Positive.AliasCase.Build()"
+    },
+    {
+      "key": "table.orders",
+      "type": "DataResource",
+      "stage": "data_access",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+        "line": 12,
+        "line_sha256": "c7416327a90e23ffbb4eb084a4276c5cc2eb389e8004e8a1a23a297eb8b45c22"
+      },
+      "resource_kind": "relational",
+      "table": "orders",
+      "context": "Orders.Api.Persistence.OrdersDbContext"
+    },
+    {
+      "key": "table.items",
+      "type": "DataResource",
+      "stage": "data_access",
+      "evidence": {
+        "path": "src/Orders.Api/Persistence/OrdersDbContext.cs",
+        "line": 16,
+        "line_sha256": "e511b47cc44ebab292b76fb720500b7adec1e1fd317f883783f574acf6ebbdc1"
+      },
+      "resource_kind": "relational",
+      "table": "order_items",
+      "context": "Orders.Api.Persistence.OrdersDbContext"
+    },
+    {
+      "key": "shipping.readiness",
+      "type": "Callable",
+      "stage": "language",
+      "evidence": {
+        "path": "src/Orders.Api/Integrations/ShippingClient.cs",
+        "line": 5,
+        "line_sha256": "8371243af0be6ec803c5a1dae61fe18b84d6552e373c5e3b3b6362d0f1607486"
+      },
+      "qualified_name": "Orders.Api.Integrations.ShippingClient.GetReadinessAsync(System.Threading.CancellationToken)"
+    },
+    {
+      "key": "shipping.external",
+      "type": "ExternalDependency",
+      "stage": "framework",
+      "evidence": {
+        "path": "src/Orders.Api/Integrations/ShippingClient.cs",
+        "line": 6,
+        "line_sha256": "b419d92483e6308bdf1275f4e30ca524fafc46a20e9cced173618a5e1a59e5b3"
+      },
+      "host": "shipping.example.invalid",
+      "scheme": "https"
+    }
+  ]
+}

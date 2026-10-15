@@ -1,0 +1,29 @@
+{
+  "applications": [
+    {
+      "key": "orders-api",
+      "root": "src/Orders.Api",
+      "language": "csharp",
+      "framework": "aspnet-core",
+      "entrypoint": "src/Orders.Api/Program.cs"
+    }
+  ],
+  "analysis_only_roots": [
+    "src/Orders.Api/AnalysisCases",
+    "analysis-cases"
+  ],
+  "test_roots": [
+    "tests/Orders.Api.Tests"
+  ],
+  "ignore": [
+    "**/bin/**",
+    "**/obj/**",
+    "**/TestResults/**"
+  ],
+  "stages": [
+    "baseline_unsupported",
+    "language",
+    "framework",
+    "data_access"
+  ]
+}

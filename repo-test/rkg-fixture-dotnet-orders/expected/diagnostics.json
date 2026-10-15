@@ -1,0 +1,56 @@
+{
+  "cases": [
+    {
+      "key": "interface-dispatch",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Negative/AmbiguousDispatch.cs",
+        "line": 8,
+        "line_sha256": "984e1701e1b64fad5a6e559b5e9a92c4b18fa5b7b153a2e5910f707c2069552d"
+      },
+      "expected": "Keep call to IPaymentGateway.Charge; no unique concrete implementation."
+    },
+    {
+      "key": "runtime-url",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Negative/DynamicHttpClient.cs",
+        "line": 6,
+        "line_sha256": "6dd1385628f29cf5638f20d5e6fa4f29335e814b9f156f4b7f383e5d7b934e98"
+      },
+      "expected": "Do not invent host, path, or Endpoint target for runtimeUri."
+    },
+    {
+      "key": "noncontroller",
+      "evidence": {
+        "path": "src/Orders.Api/AnalysisCases/Negative/UnregisteredHandler.cs",
+        "line": 3,
+        "line_sha256": "26a975962a42b03fe64ffd7ff5268b5c0b02cf9e06c39e878e9be09e4a619538"
+      },
+      "expected": "Callable exists; no Endpoint for /api/ghost-orders."
+    },
+    {
+      "key": "syntax-error",
+      "evidence": {
+        "path": "analysis-cases/negative/syntax-error.cs.fixture",
+        "line": 1
+      },
+      "expected": "Inert by default. On a separate copy renamed to .cs, emit parse diagnostic and preserve valid files."
+    },
+    {
+      "key": "unsupported-extension",
+      "evidence": {
+        "path": "analysis-cases/negative/unsupported.rkgunknown",
+        "line": 1
+      },
+      "expected": "Unsupported file; no language facts without a matching adapter."
+    }
+  ],
+  "prohibited": [
+    "Merge OrderService types across Application, Negative.Sales and Negative.Audit namespaces.",
+    "Merge Order.Create overloads or resolve the two-argument call to the one-argument overload.",
+    "Rewrite a call to IOrderRepository.SaveAsync as a direct concrete call without a reviewed DI resolution rule.",
+    "Choose CardGateway or WalletGateway as unique target of AmbiguousDispatch.Invoke.",
+    "Merge GET /api/orders and POST /api/orders into one Endpoint.",
+    "Persist raw source bodies, absolute host paths, request payloads, configuration values, or secret sentinel.",
+    "Treat expected JSON files, build output, or inert .cs.fixture as C# source."
+  ]
+}
