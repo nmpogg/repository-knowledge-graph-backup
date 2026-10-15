@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RKG — Báo cáo tổng quan</title>
+  <style>
+    :root {
+      --ink: #1c1917;
+      --muted: #57534e;
+      --line: #e7e5e4;
+      --paper: #fafaf9;
+      --card: #fff;
+      --accent: #0f766e;
+      --accent-soft: #ccfbf1;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: #292524;
+      color: var(--ink);
+    }
+    .slide {
+      display: none;
+      height: 100%;
+      padding: 4.5vh 6vw 8vh;
+      background: var(--paper);
+      flex-direction: column;
+    }
+    .slide.active { display: flex; }
+    .kicker {
+      margin: 0 0 0.6rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 650;
+    }
+    h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.1; margin: 0 0 1rem; font-weight: 680; max-width: 18ch; }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin: 0 0 1.4rem; font-weight: 680; }
+    .lead { font-size: 1.25rem; line-height: 1.5; color: var(--muted); max-width: 38rem; margin: 0; }
+    .meta { margin-top: 2.5rem; color: var(--muted); font-size: 0.95rem; }
+    .grid { display: grid; gap: 0.9rem; }
+    .g2 { grid-template-columns: 1fr 1fr; }
+    .g3 { grid-template-columns: 1fr 1fr 1fr; }
+    .g4 { grid-template-columns: 1fr 1fr; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.1rem 1.05rem;
+    }
+    .card h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.45; font-size: 0.98rem; }
+    .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.7rem; }
+    .step { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 0.85rem; min-height: 11rem; }
+    .num {
+      display: inline-flex; width: 1.7rem; height: 1.7rem; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent);
+      align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+    .step strong { display: block; margin-bottom: 0.35rem; }
+    .step span { color: var(--muted); font-size: 0.92rem; line-height: 1.4; display: block; }
+    .layers { display: grid; gap: 0.65rem; max-width: 52rem; }
+    .layer {
+      display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; align-items: center;
+      background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0.85rem 1rem;
+    }
+    .layer b { color: var(--accent); }
+    .layer span { color: var(--muted); line-height: 1.4; }
+    footer.bar {
+      position: fixed; left: 0; right: 0; bottom: 0; height: 2.6rem;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6vw; font-size: 0.82rem; color: #78716c;
+      background: var(--paper); border-top: 1px solid var(--line);
+    }
+    .progress { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); width: 0; }
+    .cover { justify-content: center; }
+    .cover .rule { width: 3.5rem; height: 4px; background: var(--accent); border-radius: 4px; margin-bottom: 1.4rem; }
+    ul.clean { margin: 0; padding-left: 1.15rem; }
+    ul.clean li { margin: 0.45rem 0; line-height: 1.4; }
+    .note { margin-top: 1rem; color: var(--muted); font-size: 0.95rem; }
+    .stat { font-size: 1.7rem; font-weight: 720; color: var(--accent); margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+    .card small { display: block; color: var(--muted); margin-top: 0.45rem; line-height: 1.35; }
+    @media (max-width: 900px) {
+      .g2, .g3, .g4, .steps, .layer { grid-template-columns: 1fr; }
+      .step { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <section class="slide cover active">
+    <div class="rule"></div>
+    <p class="kicker">Báo cáo tổng quan</p>
+    <h1>Repository Knowledge Graph</h1>
+    <p class="lead">Biến một thư mục source trên máy thành graph kiến trúc có bằng chứng. Developer duyệt sơ đồ và hỏi đáp kèm citation. Agent dùng cùng snapshot làm context.</p>
+    <p class="meta">Local-first · một repository · snapshot bất biến</p>
+  </section>
+
+  <section class="slide">
+    <p class="kicker">01 — Bối cảnh</p>
+    <h2>Vấn đề cần giải</h2>
+    <div class="grid g2">
+      <article class="card">
+        <h3>Lần luồng thủ công</h3>
+        <p>Nắm <code>endpoint → handler → service → DB / event</code> phải mở nhiều file, dễ sót quan hệ có hướng.</p>
+      </article>
+      <article class="card">
+        <h3>Search chưa đủ kiến trúc</h3>
+        <p>IDE tìm symbol tốt, nhưng khó trả lời: API này ghi bảng nào, ai publish topic, sửa entity này ảnh hưởng gì.</p>
+      </article>
+      <article class="card">
+        <h3>Công cụ lớn thì nặng</h3>
+        <p>Nền tảng code intelligence quy mô enterprise khó áp cho một repo local, một người dùng.</p>
+      </article>
+      <article class="card">
+        <h3>Agent thiếu grounding</h3>
+        <p>Đưa nguyên source làm context dễ quá lớn và dễ bịa khi không có quan hệ, evidence và giới hạn rõ.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="slide">
+    <p class="kicker">02 — Người dùng</p>
+    <h2>Ba nhóm dùng cùng một graph</h2>
+    <div class="grid g3">
+      <article class="card">
+        <h3>Developer mới</h3>
+        <p>Cần tìm endpoint, xem handler và mở đúng vị trí source khi mới vào dự án.</p>
+      </article>
+      <article class="card">
+        <h3>Maintainer</h3>
+        <p>Cần subgraph có hướng: caller, đọc/ghi dữ liệu, publisher và consumer, kèm bằng chứng.</p>
+      </article>
+      <article class="card">
+        <h3>AI agent</h3>
+        <p>Cần JSON entity, quan hệ và vị trí theo snapshot, trong một ngân sách context cố định.</p>
+      </article>
+    </div>
+    <p class="note">Mục tiêu: giảm thời gian hiểu codebase, trả lời câu hỏi kiến trúc nhanh hơn, và giữ câu trả lời bám graph kể cả khi tắt LLM.</p>
+  </section>
+
+  <section class="slide">
+    <p class="kicker">03 — Sản phẩm</p>
+    <h2>Ba việc trên một snapshot</h2>
+    <div class="grid g3">
+      <article class="card">
+        <h3>Index</h3>
+        <p>Quét thư mục local, nhận diện stack qua adapter, trích entity và cạnh có rule cùng vị trí source. Kết quả là snapshot không sửa được.</p>
+      </article>
+      <article class="card">
+        <h3>Duyệt</h3>
+        <p>Search, Explorer và context JSON trên snapshot đang active. Phần này chạy khi không có LLM.</p>
+      </article>
+      <article class="card">
+        <h3>Hỏi đáp</h3>
+        <p>Hội thoại tiếng Việt hoặc Anh, nhiều lượt, citation từ graph. Provider là OpenAI hoặc OpenRouter, cấu hình phía server.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="slide">
+    <p class="kicker">04 — Quy trình</p>
+    <h2>Workflow vận hành</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><strong>Đăng ký</strong><span>Ghi metadata và đường dẫn tuyệt đối nằm trong thư mục được phép.</span></div>
+      <div class="step"><div class="num">2</div><strong>Index</strong><span>Một job tại một thời điểm. Quét source, không chạy code, publish snapshot.</span></div>
+      <div class="step"><div class="num">3</div><strong>Kích hoạt</strong><span>Snapshot mới trở thành bản active của đúng repository đó.</span></div>
+      <div class="step"><div class="num">4</div><strong>Làm việc</strong><span>Explorer, search, context JSON hoặc hội thoại đã pin snapshot.</span></div>
+      <div class="step"><div class="num">5</div><strong>Index lại</strong><span>Full rebuild thành snapshot mới. Bản đã publish giữ nguyên nội dung.</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <p class="kicker">05 — Cách làm</p>
+    <h2>Các lớp chính</h2>
+    <div class="layers">
+      <div class="layer"><b>Giao diện</b><span>React và Vite: danh sách repository, theo dõi job, Explorer, hội thoại.</span></div>
+      <div class="layer"><b>API local</b><span>Python, CLI <code>rkg</code> và server chỉ bind <code>127.0.0.1</code>. UI và CLI dùng cùng contract.</span></div>
+      <div class="layer"><b>Phân tích</b><span>Adapter theo ngôn ngữ và framework. Fact resolve được phải có rule và evidence. Pattern ngoài contract chỉ được ghi nhận, không đoán cạnh.</span></div>
+      <div class="layer"><b>Graph</b><span>Kùzu nhúng. Entity trung lập: thư mục, file, type, callable, endpoint, data, message, config, dependency ngoài.</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <p class="kicker">06 — Phạm vi</p>
+    <h2>Trong bản này làm gì</h2>
+    <div class="grid g2">
+      <article class="card">
+        <h3>Có</h3>
+        <ul class="clean">
+          <li>Catalog repository local, nhiều snapshot, activate và xóa có chặn tham chiếu.</li>
+          <li>Full rebuild, báo cáo scan, diagnostic theo file.</li>
+          <li>Search, duyệt subgraph, context JSON, Graph Explorer.</li>
+          <li>Hỏi đáp có citation; search và graph vẫn chạy khi LLM tắt.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Chưa làm</h3>
+        <ul class="clean">
+          <li>Clone từ Git URL, index tăng dần, graph xuyên nhiều repository.</li>
+          <li>Đọc giá trị config, secret, hoặc suy URL động.</li>
+          <li>Vector DB, để LLM tự tạo fact trên graph, hay agent tự sửa code.</li>
+          <li>SSO, multi-tenant, triển khai public.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="slide">
+    <p class="kicker">07 — Ràng buộc</p>
+    <h2>Cách chạy an toàn</h2>
+    <div class="grid g2">
+      <article class="card">
+        <h3>Source chỉ để đọc</h3>
+        <p>Không import, không cài dependency, không build và không thực thi mã của repository được phân tích.</p>
+      </article>
+      <article class="card">
+        <h3>Đường dẫn bị giới hạn</h3>
+        <p>Chỉ quét trong <code>--allow-root</code>. Symlink thoát gốc bị từ chối. Giới hạn số file và kích thước file.</p>
+      </article>
+      <article class="card">
+        <h3>Một người, trên máy</h3>
+        <p>Server loopback, một worker. Session token cho thao tác ghi và lấy context.</p>
+      </article>
+      <article class="card">
+        <h3>Log không lộ nội dung</h3>
+        <p>Không ghi đường dẫn tuyệt đối, secret, source thô hay transcript vào log vận hành.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="slide">
+    <p class="kicker">08 — Evaluation</p>
+    <h2>Ba chỉ số nghiệm thu</h2>
+    <div class="grid g3">
+      <article class="card">
+        <h3>Trích xuất fixture</h3>
+        <p>So fact canonical với expected JSON trên toàn bộ golden fixture. Coverage = TP / (TP + FN), precision = TP / (TP + FP). Đạt khi cả hai bằng 100%.</p>
+      </article>
+      <article class="card">
+        <h3>Độ chính xác cạnh trên pilot</h3>
+        <p>Chấm từng nhóm cạnh: import, call, DI, DB, event, config, implements. Mỗi nhóm công bố phải ≥ 95%. Thiếu mẫu thì ghi không đủ mẫu, không gộp nhóm để cho qua.</p>
+      </article>
+      <article class="card">
+        <h3>Hỏi đáp bám graph</h3>
+        <p>Bộ câu có đáp án, câu thiếu dữ liệu, câu mơ hồ, câu injection và hội thoại nhiều lượt. Accuracy ≥ 90%. Citation phải đủ và đúng. Không có claim trái graph.</p>
+      </article>
+    </div>
+    <p class="note">Đổi fixture, rubric hoặc cách đo thì tăng revision. Kết quả cũ giữ nguyên, không ghi đè.</p>
+  </section>
+
+  <section class="slide">
+    <p class="kicker">09 — Kết quả</p>
+    <h2>Số đang có</h2>
+    <div class="grid g3">
+      <article class="card">
+        <p class="stat">100%</p>
+        <h3>Fixture extraction</h3>
+        <p>6 fixture, 296 fact đúng, 0 thiếu, 0 thừa. Biên bản này chưa có phiếu review oracle.</p>
+      </article>
+      <article class="card">
+        <p class="stat">100%</p>
+        <h3>Pilot, theo nhóm cạnh</h3>
+        <p>Precision 1.00 trên từng nhóm của mẫu pilot đã chốt. Không dùng trung bình để che một nhóm.</p>
+      </article>
+      <article class="card">
+        <p class="stat">27 / 29</p>
+        <h3>Câu trả lời được</h3>
+        <p>Khoảng 93%, trên ngưỡng 90%. Cả bộ: 47 / 50 case, khoảng 94%.</p>
+        <small>Golden set: 50 case, 73 lượt, 6 repo. Chưa nhận nghiệm thu vì còn chờ review độc lập.</small>
+      </article>
+    </div>
+    <p class="note">Ba case còn fail nằm ở React, worker BullMQ và hội thoại Spring. Điểm LLM chấm là ước lượng; reviewer xác nhận trước khi ghi đạt KPI hỏi đáp.</p>
+  </section>
+
+  <section class="slide cover">
+    <div class="rule"></div>
+    <p class="kicker">Tóm tắt</p>
+    <h1>Graph có bằng chứng, chạy tại chỗ</h1>
+    <p class="lead">Đăng ký thư mục, index thành snapshot, rồi duyệt và hỏi trên đúng bản đó. Quan hệ đến từ adapter và evidence, không đến từ LLM.</p>
+  </section>
+
+  <footer class="bar">
+    <span>Repository Knowledge Graph</span>
+    <span id="nav">1 / 9</span>
+  </footer>
+
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    const nav = document.getElementById("nav");
+    const bar = document.getElementById("progress");
+    let i = 0;
+    function show(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides.forEach((s, k) => s.classList.toggle("active", k === i));
+      nav.textContent = (i + 1) + " / " + slides.length;
+      bar.style.width = ((i + 1) / slides.length * 100) + "%";
+    }
+    document.addEventListener("keydown", (e) => {
+      if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) { e.preventDefault(); show(i + 1); }
+      if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); show(i - 1); }
+      if (e.key === "Home") show(0);
+      if (e.key === "End") show(slides.length - 1);
+    });
+    document.addEventListener("click", (e) => {
+      show(e.clientX < window.innerWidth * 0.28 ? i - 1 : i + 1);
+    });
+    show(0);
+  </script>
+</body>
+</html>
