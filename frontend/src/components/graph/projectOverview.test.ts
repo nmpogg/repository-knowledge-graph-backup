@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { DEMO_SNAPSHOT_ID } from '../../client/mock/fixtures'
+import { DEMO_REPO_ID, DEMO_SNAPSHOT_ID, seedEntities, seedGraphEdges } from '../../client/mock/fixtures'
 import { createMockClient } from '../../client/mock/mockClient'
-import { PROJECT_OVERVIEW_ROOT_ID, loadProjectOverview } from './projectOverview'
+import { PROJECT_OVERVIEW_ROOT_ID, exportProjectOverview, loadProjectOverview } from './projectOverview'
 
 describe('loadProjectOverview', () => {
   it('returns every snapshot entry and does not root the diagram at one endpoint', async () => {
@@ -21,12 +21,27 @@ describe('loadProjectOverview', () => {
       'ent-endpoint-get-order',
       'ent-topic-order-events',
     ]))
-    expect(graph.nodes.map((node) => node.id)).toEqual(expect.arrayContaining([
-      'ent-endpoint-get-order',
-      'ent-topic-order-events',
-      'ent-fn-consume-order',
-      'ent-table-orders',
-      'ent-config-db-url',
-    ]))
+    expect(graph.nodes.map((node) => node.id).sort()).toEqual(seedEntities.map((entity) => entity.id).sort())
   }, 15000)
+
+  it('exports every relationship without truncation', async () => {
+    const client = createMockClient()
+    const file = await exportProjectOverview(client, DEMO_SNAPSHOT_ID, DEMO_REPO_ID)
+
+    expect(file.truncated).toBe(false)
+    expect(file.truncation_reasons).toEqual([])
+    expect(file.edges.map((edge) => edge.id).sort()).toEqual(seedGraphEdges.map((edge) => edge.id).sort())
+    for (const edge of seedGraphEdges) {
+      expect(file.edges).toEqual(expect.arrayContaining([
+        expect.objectContaining({
+          id: edge.id,
+          source: edge.source,
+          target: edge.target,
+          type: edge.type,
+          label: edge.label,
+        }),
+      ]))
+    }
+    expect(file.nodes.map((node) => node.id)).toEqual(expect.arrayContaining(seedGraphEdges.flatMap((edge) => [edge.source, edge.target])))
+  }, 20000)
 })

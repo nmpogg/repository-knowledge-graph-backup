@@ -180,10 +180,38 @@ describe('Explorer project overview', () => {
       fireEvent.change(screen.getByLabelText('Depth'), { target: { value: '2' } })
       expect(calls).toHaveLength(callsAfterOverview)
       expect(within(canvas).getByText('handle_order_event')).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'Export' })).toBeEnabled()
+
+      const blobs: Blob[] = []
+      URL.createObjectURL = (blob: Blob) => {
+        blobs.push(blob)
+        return 'blob:overview'
+      }
+      URL.revokeObjectURL = () => {}
+      const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
+      fireEvent.click(screen.getByRole('button', { name: 'Export' }))
+      expect(screen.getByText('JSON for the project overview. Every relationship is included in full.')).toBeInTheDocument()
+      fireEvent.click(screen.getByRole('button', { name: 'Download JSON' }))
+      expect(await screen.findByText('Complete', {}, { timeout: 15000 })).toBeInTheDocument()
+      const raw = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve(String(reader.result))
+        reader.onerror = () => reject(reader.error)
+        reader.readAsText(blobs[0]!)
+      })
+      const file = JSON.parse(raw) as {
+        truncated: boolean
+        edges: { id: string; source: string; target: string; type: string; label: string }[]
+      }
+      expect(file.truncated).toBe(false)
+      expect(file.edges.map((edge) => edge.id).sort()).toEqual([
+        'e1', 'e10', 'e11', 'e12', 'e13', 'e2', 'e3', 'e4', 'e5', 'e6', 'e7', 'e8', 'e9',
+      ])
+      click.mockRestore()
     } finally {
       client.getSubgraph = original
     }
-  }, 15000)
+  }, 30000)
 })
 
 describe('Explorer graph relationships', () => {
@@ -199,7 +227,7 @@ describe('Explorer graph relationships', () => {
     expect(screen.getByLabelText('Show declared dependencies')).not.toBeChecked()
     fireEvent.click(screen.getByRole('radio', { name: 'All relationships' }))
     expect(screen.queryByLabelText('Show files and folders')).not.toBeInTheDocument()
-    expect(screen.getByLabelText('Direction')).toBeEnabled()
+    expect(screen.queryByLabelText('Direction')).not.toBeInTheDocument()
   })
   it('shows direct API relationships and lets the reader move to the next entity', async () => {
     vi.stubGlobal('ResizeObserver', class {

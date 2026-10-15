@@ -392,6 +392,9 @@ export const vi: Record<MessageKey, string> = {
   'explorer.focusTitle': 'Ẩn panel Kết quả và Chi tiết để tập trung vào đồ thị',
   'explorer.export': 'Xuất',
   'explorer.exportTitle': 'Tải JSON context giới hạn cho root hiện tại',
+  'explorer.exportOverviewTitle': 'Tải cả dự án, gồm đủ mọi quan hệ',
+  'explorer.exportOverviewBody':
+    'JSON của tổng quan dự án. Mọi quan hệ được ghi đủ, không cắt ngắn.',
   'explorer.results': 'Kết quả',
   'explorer.hideResults': 'Ẩn panel Kết quả',
   'explorer.showResults': 'Hiện panel Kết quả',

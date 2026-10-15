@@ -34,7 +34,7 @@ import { ReactFlowProvider } from '@xyflow/react'
 import { getRkgClient } from '../../client'
 import { DEMO_SNAPSHOT_ID } from '../../client/mock/fixtures'
 import { KnowledgeGraph, relationAccent } from '../../components/graph/KnowledgeGraph'
-import { PROJECT_OVERVIEW_ROOT_ID, loadProjectOverview } from '../../components/graph/projectOverview'
+import { PROJECT_OVERVIEW_ROOT_ID, exportProjectOverview, loadProjectOverview } from '../../components/graph/projectOverview'
 import { SnapshotStructure } from './SnapshotStructure'
 import { useAnnouncer } from '../../components/ui/Announcer'
 import { Badge } from '../../components/ui/Badge'
@@ -57,7 +57,6 @@ import {
 import { GRAPH_PRESETS } from '../../lib/presets'
 import type {
   ContextExport,
-  EdgeDirection,
   EdgeType,
   EntityDetail,
   EntitySummary,
@@ -67,6 +66,16 @@ import type {
 import { RkgApiError } from '../../types/api'
 
 type ViewMode = 'graph' | 'list' | 'structure'
+
+function downloadJson(value: unknown, filename: string) {
+  const blob = new Blob([JSON.stringify(value, null, 2)], { type: 'application/json' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = filename
+  a.click()
+  URL.revokeObjectURL(url)
+}
 
 const panelMotion = {
   left: {
@@ -100,7 +109,6 @@ export function ExplorerPage() {
   const [graph, setGraph] = useState<SubgraphResponse | null>(null)
   const graphRequest = useRef(0)
   const viewRequest = useRef(0)
-  const [direction, setDirection] = useState<EdgeDirection>('both')
   const [depth, setDepth] = useState(6)
   const [maxNodes, setMaxNodes] = useState(50)
   const [edgeTypes, setEdgeTypes] = useState<EdgeType[] | undefined>(undefined)
@@ -328,7 +336,7 @@ export function ExplorerPage() {
               const g = await client.getSubgraph({
                 snapshot_id: snapshotId,
                 root_id: item.id,
-                direction: preset?.direction ?? 'outgoing',
+                direction: 'both',
                 edge_types: preset?.edge_types ?? ['handled_by', 'calls', 'depends_on'],
                 depth: preset?.max_depth ?? 6,
                 max_nodes: 40,
@@ -357,7 +365,6 @@ export function ExplorerPage() {
     async (
       root: string,
       overrides?: {
-        direction?: EdgeDirection
         edge_types?: EdgeType[]
         depth?: number
         max_nodes?: number
@@ -372,7 +379,7 @@ export function ExplorerPage() {
         const g = await client.getSubgraph({
           snapshot_id: snapshotId,
           root_id: root,
-          direction: overrides?.direction ?? direction,
+          direction: 'both',
           edge_types:
             overrides && 'edge_types' in overrides ? overrides.edge_types : edgeTypes,
           depth: overrides?.depth ?? depth,
@@ -394,7 +401,7 @@ export function ExplorerPage() {
         if (requestId === graphRequest.current) setLoading(false)
       }
     },
-    [client, snapshotId, direction, edgeTypes, depth, maxNodes, graphView,
+    [client, snapshotId, edgeTypes, depth, maxNodes, graphView,
      includeStructure, includeDependencies, announce, t, locale],
   )
 
@@ -474,7 +481,7 @@ export function ExplorerPage() {
   useEffect(() => {
     if (overviewGraph) return
     if (rootId) void loadGraph(rootId)
-  }, [direction, depth, maxNodes, edgeTypes, graphView, includeStructure, includeDependencies, overviewGraph]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [depth, maxNodes, edgeTypes, graphView, includeStructure, includeDependencies, overviewGraph]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const bumpLayout = () => {
     window.setTimeout(() => setLayoutKey((k) => k + 1), 220)
@@ -570,14 +577,12 @@ export function ExplorerPage() {
     setActivePreset(preset.id)
     setOverviewGraph(false)
     setGraphView('flow')
-    setDirection(preset.direction)
     setEdgeTypes(preset.edge_types)
     setDepth(preset.max_depth)
     setRootId(id)
     setView('graph')
     setLeftOpen(false)
     await loadGraph(id, {
-      direction: preset.direction,
       edge_types: preset.edge_types,
       depth: preset.max_depth,
       view: 'flow',
@@ -602,12 +607,11 @@ export function ExplorerPage() {
     setActivePreset(presetId)
     setOverviewGraph(false)
     setGraphView('flow')
-    setDirection(preset.direction)
     setEdgeTypes(preset.edge_types)
     setDepth(preset.max_depth)
     announce(t('explorer.announce.preset', { label: t(preset.labelKey) }))
     const overrides = {
-      direction: preset.direction, edge_types: preset.edge_types, depth: preset.max_depth,
+      edge_types: preset.edge_types, depth: preset.max_depth,
       view: 'flow' as const,
     }
     if (presetId === 'api_to_db') {
@@ -637,14 +641,35 @@ export function ExplorerPage() {
   }
 
   const doExport = async () => {
-    if (!snapshotId || !rootId) return
+    if (!snapshotId || (!rootId && !overviewGraph)) return
     setExporting(true)
     setExported(null)
     try {
+      if (overviewGraph) {
+        const file = await exportProjectOverview(client, snapshotId, repo?.repository_id ?? '')
+        setExported({
+          schema_version: file.schema_version,
+          repository_id: file.repository_id,
+          snapshot_id: file.snapshot_id,
+          root_id: PROJECT_OVERVIEW_ROOT_ID,
+          nodes: file.nodes,
+          edges: file.edges,
+          diagnostic_summary: [],
+          truncated: file.truncated,
+          truncation_reasons: file.truncation_reasons,
+        })
+        announce(
+          file.truncated
+            ? t('explorer.announce.exportedTrunc')
+            : t('explorer.announce.exported'),
+        )
+        downloadJson(file, `rkg-overview-${shortId(snapshotId, 12)}.json`)
+        return
+      }
       const ctx = await client.exportContext({
         snapshot_id: snapshotId,
-        root_id: rootId,
-        direction,
+        root_id: rootId!,
+        direction: 'both',
         edge_types: edgeTypes ?? [
           'handled_by',
           'calls',
@@ -668,15 +693,7 @@ export function ExplorerPage() {
           ? t('explorer.announce.exportedTrunc')
           : t('explorer.announce.exported'),
       )
-      const blob = new Blob([JSON.stringify(ctx, null, 2)], {
-        type: 'application/json',
-      })
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `rkg-context-${shortId(rootId, 12)}.json`
-      a.click()
-      URL.revokeObjectURL(url)
+      downloadJson(ctx, `rkg-context-${shortId(rootId!, 12)}.json`)
     } catch (err) {
       announce(formatError(err, locale), true)
     } finally {
@@ -888,22 +905,7 @@ export function ExplorerPage() {
                       {t('explorer.includeDependencies')}
                     </label>
                   </div>
-                ) : (
-                  <label>
-                    {t('explorer.direction')}
-                    <select
-                      value={direction}
-                      onChange={(e) => {
-                        setActivePreset('')
-                        setDirection(e.target.value as EdgeDirection)
-                      }}
-                    >
-                      <option value="both">{t('explorer.dir.both')}</option>
-                      <option value="outgoing">{t('explorer.dir.outgoing')}</option>
-                      <option value="incoming">{t('explorer.dir.incoming')}</option>
-                    </select>
-                  </label>
-                )}
+                ) : null}
                 <div className="explorer-option-pair">
                   <label>
                     {t('explorer.depth')}
@@ -949,8 +951,8 @@ export function ExplorerPage() {
           <button
             type="button"
             className="explorer-tool-btn"
-            title={t('explorer.exportTitle')}
-            disabled={!rootId}
+            title={overviewGraph ? t('explorer.exportOverviewTitle') : t('explorer.exportTitle')}
+            disabled={!rootId && !overviewGraph}
             onClick={() => {
               setExportOpen(true)
               setExported(null)
@@ -1517,11 +1519,13 @@ export function ExplorerPage() {
               </Button>
             </div>
             <p>
-              {t('explorer.exportBody', {
-                root: rootId ?? '',
-                depth,
-                max: maxNodes,
-              })}
+              {overviewGraph
+                ? t('explorer.exportOverviewBody')
+                : t('explorer.exportBody', {
+                    root: rootId ?? '',
+                    depth,
+                    max: maxNodes,
+                  })}
             </p>
             {exported ? (
               <p>
@@ -1540,7 +1544,7 @@ export function ExplorerPage() {
               <Button onClick={() => setExportOpen(false)}>{t('common.cancel')}</Button>
               <Button
                 variant="primary"
-                disabled={exporting || !rootId}
+                disabled={exporting || (!rootId && !overviewGraph)}
                 onClick={() => void doExport()}
               >
                 {exporting ? t('explorer.exporting') : t('explorer.downloadJson')}

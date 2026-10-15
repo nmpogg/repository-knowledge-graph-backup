@@ -15,6 +15,7 @@ nguồn chuẩn tắc vẫn nằm trong `.aide/`.
 | 4 | `04-go-event-worker.md` | Go packages/interfaces, Kafka, PostgreSQL và scheduled worker |
 | 5 | `05-nuxt4-fullstack.md` | Vue SFC, Nuxt file routing, auto-import và server routes |
 | 6 | `06-polyglot-monorepo.md` | Nhiều application root và nhiều ngôn ngữ trong một snapshot |
+| 7 | `07-laravel-php-backend.md` | PHP/Laravel, vài REST API đơn hàng; chỉ fixture, chưa có adapter |
 | 8 | `08-dotnet-orders.md` | Ngôn ngữ mới C#, ASP.NET Core, EF Core và demo mở rộng adapter theo từng bước |
 
 ## Cách sử dụng
@@ -41,7 +42,6 @@ framework extractor, coordinator hay bước merge.
 - Chỉ dùng secret giả như `RKG_TEST_SECRET_DO_NOT_PERSIST`; không chứa credential thật.
 - Không tạo file source khổng lồ hoặc binary. Scale corpus sẽ được sinh ở bước benchmark riêng.
 - README của repo đích phải liệt kê các fact dự kiến để có thể xây golden graph về sau.
-
 
 ## Fixture demo ngôn ngữ mới
 

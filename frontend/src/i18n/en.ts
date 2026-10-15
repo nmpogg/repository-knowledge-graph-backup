@@ -390,6 +390,9 @@ export const en = {
   'explorer.focusTitle': 'Hide Results and Detail panels to focus on the graph',
   'explorer.export': 'Export',
   'explorer.exportTitle': 'Download bounded JSON context for the current root',
+  'explorer.exportOverviewTitle': 'Download the whole project, including every relationship',
+  'explorer.exportOverviewBody':
+    'JSON for the project overview. Every relationship is included in full.',
   'explorer.results': 'Results',
   'explorer.hideResults': 'Hide Results panel',
   'explorer.showResults': 'Show Results panel',
