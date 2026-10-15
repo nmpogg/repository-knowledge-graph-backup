@@ -6,7 +6,7 @@ export type RelationshipEdgeData = {
   color: string
   focused: boolean
   muted: boolean
-  flowing: boolean
+  solid?: boolean
   lane: number
   showLabel: boolean
   vertical?: boolean
@@ -41,6 +41,7 @@ export function RelationshipEdge({
   const labelY = (sourceY + targetY) / 2 + (bypass !== undefined ? lane * 24 : vertical ? 0 : bend * 0.75)
   const style = {
     '--relation-color': relation?.color ?? 'var(--graph-edge)',
+    ...(relation?.solid ? { stroke: relation.color } : {}),
   } as CSSProperties
 
   return (
@@ -49,16 +50,9 @@ export function RelationshipEdge({
         id={id}
         path={path}
         markerEnd={markerEnd}
-        className={`relationship-edge${relation?.focused ? ' is-focused' : ''}${relation?.muted ? ' is-muted' : ''}`}
+        className={`relationship-edge${relation?.focused ? ' is-focused' : ''}${relation?.muted ? ' is-muted' : ''}${relation?.solid ? ' is-solid' : ''}`}
         style={style}
       />
-      {relation?.flowing ? (
-        <path
-          d={path}
-          className="relationship-edge-flow"
-          style={style}
-        />
-      ) : null}
       {relation?.showLabel ? (
         <EdgeLabelRenderer>
           <span

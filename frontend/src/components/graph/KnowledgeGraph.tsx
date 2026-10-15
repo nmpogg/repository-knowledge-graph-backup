@@ -34,15 +34,36 @@ export function relationAccent(type: string): string {
   return RELATION_COLORS[type] ?? '#64748b'
 }
 
+/** Entity-flow canvas only. Gray relation strokes read as uncolored on the dark graph. */
+const FLOW_EDGE_COLORS: Record<string, string> = {
+  handled_by: '#3b82f6',
+  calls: '#a78bfa',
+  depends_on: '#22d3ee',
+  reads: '#2dd4bf',
+  writes: '#fb923c',
+  publishes: '#f472b6',
+  consumes: '#fb7185',
+  implements: '#818cf8',
+  inherits_from: '#818cf8',
+  contains: '#38bdf8',
+  imports: '#fbbf24',
+  exposes: '#34d399',
+  maps_to: '#e879f9',
+}
+
+function flowEdgeColor(type: string): string {
+  return FLOW_EDGE_COLORS[type] ?? '#38bdf8'
+}
+
 const relationshipEdgeTypes = { relationship: RelationshipEdge }
 
 function toEdges(
   edges: GraphEdge[],
   focusId: string,
-  selectedId: string | null,
   focusOnly: boolean,
   nodes: RkgFlowNode[],
   flow: boolean,
+  solid: boolean,
 ): Edge[] {
   const positions = new Map(nodes.map((node) => [node.id, node.position]))
   const siblings = new Map<string, GraphEdge[]>()
@@ -56,7 +77,7 @@ function toEdges(
     const group = siblings.get(`${edge.source}\u0000${edge.target}`) ?? [edge]
     const lane = group.indexOf(edge) - (group.length - 1) / 2
     const focused = edge.source === focusId || edge.target === focusId
-    const color = relationAccent(edge.type)
+    const color = solid ? flowEdgeColor(edge.type) : relationAccent(edge.type)
     const source = positions.get(edge.source)
     const target = positions.get(edge.target)
     const dx = source && target ? target.x - source.x : 0
@@ -74,8 +95,8 @@ function toEdges(
       color,
       lane,
       focused,
-      muted: focusOnly && !focused,
-      flowing: !flow && selectedId != null && (edge.source === selectedId || edge.target === selectedId),
+      muted: !solid && focusOnly && !focused,
+      solid,
       showLabel: (flow && edges.length <= 40) || focused || (!focusOnly && edges.length <= 12),
       vertical,
       bypassX: flow && vertical && source && target && dy > 140
@@ -169,6 +190,7 @@ export function KnowledgeGraph({
   mode = 'architecture',
   showStructure = false,
   focusOnly,
+  solidEdges = false,
   layoutKey = 0,
 }: {
   nodes: GraphNode[]
@@ -180,6 +202,8 @@ export function KnowledgeGraph({
   showStructure?: boolean
   /** Dim nodes and edges that are not direct links of the selected entity. */
   focusOnly: boolean
+  /** Flow and all-relationships: every connector keeps a full relation color. */
+  solidEdges?: boolean
   /** Bump when side panels open/close so fitView re-centers. */
   layoutKey?: number
 }) {
@@ -193,12 +217,12 @@ export function KnowledgeGraph({
     () => toEdges(
       presentation.edges,
       focusId,
-      selectedId,
       focusOnly,
       initialNodes,
       effectiveMode === 'flow' || (effectiveMode === 'architecture' && presentation.edges.length <= 40),
+      solidEdges,
     ),
-    [presentation, focusId, selectedId, focusOnly, initialNodes, effectiveMode],
+    [presentation, focusId, focusOnly, initialNodes, effectiveMode, solidEdges],
   )
   const relations = useMemo(
     () => edges.filter((edge) => edge.source === focusId || edge.target === focusId),
@@ -216,11 +240,11 @@ export function KnowledgeGraph({
     setNodes((current) => current.map((node) => ({
       ...node,
       selected: node.id === focusId,
-      className: focusOnly && node.id !== focusId && !relations.some((edge) => edge.source === node.id || edge.target === node.id)
+      className: !solidEdges && focusOnly && node.id !== focusId && !relations.some((edge) => edge.source === node.id || edge.target === node.id)
         ? 'graph-node-muted'
         : undefined,
     })))
-  }, [focusId, focusOnly, relations, setNodes])
+  }, [focusId, focusOnly, relations, setNodes, solidEdges])
 
   useEffect(() => {
     setEdges(initialEdges)

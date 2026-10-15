@@ -1471,30 +1471,13 @@ code,
   opacity: 1;
 }
 
+.relationship-edge.is-solid {
+  stroke-width: 2.2;
+  opacity: 1;
+}
+
 .relationship-edge.is-muted {
   opacity: 0.12;
-}
-
-.relationship-edge-flow {
-  fill: none;
-  stroke: color-mix(in srgb, white 78%, var(--relation-color, var(--graph-edge)));
-  stroke-width: 2.4;
-  stroke-linecap: round;
-  stroke-dasharray: 7 13;
-  pointer-events: none;
-  animation: relationship-edge-flow 0.7s linear infinite;
-}
-
-@keyframes relationship-edge-flow {
-  to {
-    stroke-dashoffset: -20;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .relationship-edge-flow {
-    display: none;
-  }
 }
 
 .relationship-label {

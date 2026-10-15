@@ -1272,6 +1272,7 @@ export function ExplorerPage() {
                 mode={overviewGraph ? 'architecture' : 'flow'}
                 showStructure={includeStructure}
                 focusOnly={graphView === 'flow' ? false : focusOnly}
+                solidEdges={!overviewGraph}
                 layoutKey={layoutKey}
                 onSelect={(id) => void selectEntity(id)}
               />
